@@ -104,7 +104,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('(' 'hd') | ('(' 'tl')
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) exprbase=ExprBase
+	 *     (rule start) (ambiguity) exprbase+=ExprBase
 	 */
 	protected void emit_ExprBase___LeftParenthesisKeyword_5_0_HdKeyword_5_1___or___LeftParenthesisKeyword_6_0_TlKeyword_6_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Output#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Output#getVars <em>Vars</em>}</li>
  * </ul>
  *
@@ -26,28 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Output extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Var</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' attribute.
-   * @see #setVar(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getOutput_Var()
-   * @model
-   * @generated
-   */
-  String getVar();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Output#getVar <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' attribute.
-   * @see #getVar()
-   * @generated
-   */
-  void setVar(String value);
-
   /**
    * Returns the value of the '<em><b>Vars</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.

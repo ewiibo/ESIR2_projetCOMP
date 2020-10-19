@@ -11,8 +11,11 @@ Definition: 'read' input = Input
                  '%' commands = Commands 
                  '%' 'write' output = Output;
 
+Input: vars += VARIABLE (',' vars+=VARIABLE)*;
+Output: vars += VARIABLE (',' vars+=VARIABLE)*;
+
 Commands:
-   command = Command(';' othercommand += Command)*
+   commands += Command(';' commands += Command)*
 ;
 Command:
     WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop'
@@ -30,16 +33,16 @@ AffectCommand:
     vars= Vars ':=' exprs =Exprs
 ;
 ForeachCommand:
-    'foreach' vars=Vars 'in' expr = Expr 'do' commands= Commands 'od'
+    'foreach' vars = Vars 'in' expr = Expr 'do' commands = Commands 'od'
 ;
 Exprs:
-    expr = Expr (',' exprs+=Expr)*
+    expr += Expr (',' expr+=Expr)*
 ;
 Vars:
-    var=VARIABLE (',' vars+=VARIABLE)*
+    var+=VARIABLE (',' var+=VARIABLE)*
 ;
 Expr:
-    exprbase = ExprBase ('=?' exprbases+=ExprBase)*
+    exprbase += ExprBase ('=?' exprbase+=ExprBase)*
 ;
 LExpr:
     (expr+=Expr)+
@@ -52,8 +55,6 @@ ExprBase:
     ('(' 'tl' Expr ')') |
     ('(' SYMBOL LExpr ')')    
 ;
-Input: var = VARIABLE (',' vars+=VARIABLE)*;
-Output: var = VARIABLE (',' vars+=VARIABLE)*;
 
 terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
 terminal VARIABLE:('A' .. 'Z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;

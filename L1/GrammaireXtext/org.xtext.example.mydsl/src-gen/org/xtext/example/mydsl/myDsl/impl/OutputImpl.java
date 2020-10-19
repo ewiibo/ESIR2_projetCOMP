@@ -5,13 +5,10 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
@@ -27,7 +24,6 @@ import org.xtext.example.mydsl.myDsl.Output;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.OutputImpl#getVar <em>Var</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.OutputImpl#getVars <em>Vars</em>}</li>
  * </ul>
  *
@@ -35,26 +31,6 @@ import org.xtext.example.mydsl.myDsl.Output;
  */
 public class OutputImpl extends MinimalEObjectImpl.Container implements Output
 {
-  /**
-   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected static final String VAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected String var = VAR_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getVars() <em>Vars</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -92,31 +68,6 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
    * @generated
    */
   @Override
-  public String getVar()
-  {
-    return var;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVar(String newVar)
-  {
-    String oldVar = var;
-    var = newVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.OUTPUT__VAR, oldVar, var));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<String> getVars()
   {
     if (vars == null)
@@ -136,8 +87,6 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
   {
     switch (featureID)
     {
-      case MyDslPackage.OUTPUT__VAR:
-        return getVar();
       case MyDslPackage.OUTPUT__VARS:
         return getVars();
     }
@@ -155,9 +104,6 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
   {
     switch (featureID)
     {
-      case MyDslPackage.OUTPUT__VAR:
-        setVar((String)newValue);
-        return;
       case MyDslPackage.OUTPUT__VARS:
         getVars().clear();
         getVars().addAll((Collection<? extends String>)newValue);
@@ -176,9 +122,6 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
   {
     switch (featureID)
     {
-      case MyDslPackage.OUTPUT__VAR:
-        setVar(VAR_EDEFAULT);
-        return;
       case MyDslPackage.OUTPUT__VARS:
         getVars().clear();
         return;
@@ -196,8 +139,6 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
   {
     switch (featureID)
     {
-      case MyDslPackage.OUTPUT__VAR:
-        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
       case MyDslPackage.OUTPUT__VARS:
         return vars != null && !vars.isEmpty();
     }
@@ -215,9 +156,7 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (var: ");
-    result.append(var);
-    result.append(", vars: ");
+    result.append(" (vars: ");
     result.append(vars);
     result.append(')');
     return result.toString();

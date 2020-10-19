@@ -18,9 +18,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Definition/commands"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Definition/output"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Input/vars"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Output">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Output/vars"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Commands">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Commands/command"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Commands/othercommand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Commands/commands"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Command"/>
     <genClasses ecoreClass="MyDsl.ecore#//WhileCommand">
@@ -47,27 +52,16 @@
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Exprs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exprs/expr"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Exprs/exprs"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Vars">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Vars/var"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Vars/vars"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expr/exprbase"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Expr/exprbases"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//LExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LExpr/expr"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//ExprBase"/>
-    <genClasses ecoreClass="MyDsl.ecore#//Input">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Input/var"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Input/vars"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Output">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Output/var"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Output/vars"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -68,6 +68,8 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.PROGRAM: return createProgram();
       case MyDslPackage.FUNCTION: return createFunction();
       case MyDslPackage.DEFINITION: return createDefinition();
+      case MyDslPackage.INPUT: return createInput();
+      case MyDslPackage.OUTPUT: return createOutput();
       case MyDslPackage.COMMANDS: return createCommands();
       case MyDslPackage.COMMAND: return createCommand();
       case MyDslPackage.WHILE_COMMAND: return createWhileCommand();
@@ -80,8 +82,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.EXPR: return createExpr();
       case MyDslPackage.LEXPR: return createLExpr();
       case MyDslPackage.EXPR_BASE: return createExprBase();
-      case MyDslPackage.INPUT: return createInput();
-      case MyDslPackage.OUTPUT: return createOutput();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -121,6 +121,30 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     DefinitionImpl definition = new DefinitionImpl();
     return definition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Input createInput()
+  {
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Output createOutput()
+  {
+    OutputImpl output = new OutputImpl();
+    return output;
   }
 
   /**
@@ -265,30 +289,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     ExprBaseImpl exprBase = new ExprBaseImpl();
     return exprBase;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Input createInput()
-  {
-    InputImpl input = new InputImpl();
-    return input;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Output createOutput()
-  {
-    OutputImpl output = new OutputImpl();
-    return output;
   }
 
   /**

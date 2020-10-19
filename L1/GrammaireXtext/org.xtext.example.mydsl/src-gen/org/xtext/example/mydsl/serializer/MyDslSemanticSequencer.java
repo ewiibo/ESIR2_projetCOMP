@@ -143,7 +143,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Commands returns Commands
 	 *
 	 * Constraint:
-	 *     (command=Command othercommand+=Command*)
+	 *     (commands+=Command commands+=Command*)
 	 */
 	protected void sequence_Commands(ISerializationContext context, Commands semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -192,7 +192,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ExprBase returns Expr
 	 *
 	 * Constraint:
-	 *     (exprbase=ExprBase exprbases+=ExprBase*)
+	 *     (exprbase+=ExprBase exprbase+=ExprBase*)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -204,7 +204,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Exprs returns Exprs
 	 *
 	 * Constraint:
-	 *     (expr=Expr exprs+=Expr*)
+	 *     (expr+=Expr expr+=Expr*)
 	 */
 	protected void sequence_Exprs(ISerializationContext context, Exprs semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -297,7 +297,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Input returns Input
 	 *
 	 * Constraint:
-	 *     (var=VARIABLE vars+=VARIABLE*)
+	 *     (vars+=VARIABLE vars+=VARIABLE*)
 	 */
 	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -322,7 +322,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Output returns Output
 	 *
 	 * Constraint:
-	 *     (var=VARIABLE vars+=VARIABLE*)
+	 *     (vars+=VARIABLE vars+=VARIABLE*)
 	 */
 	protected void sequence_Output(ISerializationContext context, Output semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -346,7 +346,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Vars returns Vars
 	 *
 	 * Constraint:
-	 *     (var=VARIABLE vars+=VARIABLE*)
+	 *     (var+=VARIABLE var+=VARIABLE*)
 	 */
 	protected void sequence_Vars(ISerializationContext context, Vars semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

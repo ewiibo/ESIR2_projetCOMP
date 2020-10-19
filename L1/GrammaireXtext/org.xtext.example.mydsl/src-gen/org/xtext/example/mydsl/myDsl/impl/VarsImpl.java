@@ -5,13 +5,10 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
@@ -28,7 +25,6 @@ import org.xtext.example.mydsl.myDsl.Vars;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl#getVar <em>Var</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.VarsImpl#getVars <em>Vars</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,34 +32,14 @@ import org.xtext.example.mydsl.myDsl.Vars;
 public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
 {
   /**
-   * The default value of the '{@link #getVar() <em>Var</em>}' attribute.
+   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVar()
    * @generated
    * @ordered
    */
-  protected static final String VAR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVar()
-   * @generated
-   * @ordered
-   */
-  protected String var = VAR_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getVars() <em>Vars</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVars()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> vars;
+  protected EList<String> var;
 
   /**
    * <!-- begin-user-doc -->
@@ -92,38 +68,13 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
    * @generated
    */
   @Override
-  public String getVar()
+  public EList<String> getVar()
   {
-    return var;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setVar(String newVar)
-  {
-    String oldVar = var;
-    var = newVar;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.VARS__VAR, oldVar, var));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<String> getVars()
-  {
-    if (vars == null)
+    if (var == null)
     {
-      vars = new EDataTypeEList<String>(String.class, this, MyDslPackage.VARS__VARS);
+      var = new EDataTypeEList<String>(String.class, this, MyDslPackage.VARS__VAR);
     }
-    return vars;
+    return var;
   }
 
   /**
@@ -138,8 +89,6 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     {
       case MyDslPackage.VARS__VAR:
         return getVar();
-      case MyDslPackage.VARS__VARS:
-        return getVars();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,11 +105,8 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     switch (featureID)
     {
       case MyDslPackage.VARS__VAR:
-        setVar((String)newValue);
-        return;
-      case MyDslPackage.VARS__VARS:
-        getVars().clear();
-        getVars().addAll((Collection<? extends String>)newValue);
+        getVar().clear();
+        getVar().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -177,10 +123,7 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     switch (featureID)
     {
       case MyDslPackage.VARS__VAR:
-        setVar(VAR_EDEFAULT);
-        return;
-      case MyDslPackage.VARS__VARS:
-        getVars().clear();
+        getVar().clear();
         return;
     }
     super.eUnset(featureID);
@@ -197,9 +140,7 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     switch (featureID)
     {
       case MyDslPackage.VARS__VAR:
-        return VAR_EDEFAULT == null ? var != null : !VAR_EDEFAULT.equals(var);
-      case MyDslPackage.VARS__VARS:
-        return vars != null && !vars.isEmpty();
+        return var != null && !var.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -217,8 +158,6 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (var: ");
     result.append(var);
-    result.append(", vars: ");
-    result.append(vars);
     result.append(')');
     return result.toString();
   }

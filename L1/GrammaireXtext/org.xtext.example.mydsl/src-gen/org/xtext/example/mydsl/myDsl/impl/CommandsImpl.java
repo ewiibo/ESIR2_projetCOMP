@@ -5,7 +5,6 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,8 +29,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandsImpl#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandsImpl#getOthercommand <em>Othercommand</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CommandsImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,24 +37,14 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class CommandsImpl extends MinimalEObjectImpl.Container implements Commands
 {
   /**
-   * The cached value of the '{@link #getCommand() <em>Command</em>}' containment reference.
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommand()
+   * @see #getCommands()
    * @generated
    * @ordered
    */
-  protected Command command;
-
-  /**
-   * The cached value of the '{@link #getOthercommand() <em>Othercommand</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOthercommand()
-   * @generated
-   * @ordered
-   */
-  protected EList<Command> othercommand;
+  protected EList<Command> commands;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,63 +73,13 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
    * @generated
    */
   @Override
-  public Command getCommand()
+  public EList<Command> getCommands()
   {
-    return command;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCommand(Command newCommand, NotificationChain msgs)
-  {
-    Command oldCommand = command;
-    command = newCommand;
-    if (eNotificationRequired())
+    if (commands == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDS__COMMAND, oldCommand, newCommand);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      commands = new EObjectContainmentEList<Command>(Command.class, this, MyDslPackage.COMMANDS__COMMANDS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setCommand(Command newCommand)
-  {
-    if (newCommand != command)
-    {
-      NotificationChain msgs = null;
-      if (command != null)
-        msgs = ((InternalEObject)command).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDS__COMMAND, null, msgs);
-      if (newCommand != null)
-        msgs = ((InternalEObject)newCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.COMMANDS__COMMAND, null, msgs);
-      msgs = basicSetCommand(newCommand, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.COMMANDS__COMMAND, newCommand, newCommand));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Command> getOthercommand()
-  {
-    if (othercommand == null)
-    {
-      othercommand = new EObjectContainmentEList<Command>(Command.class, this, MyDslPackage.COMMANDS__OTHERCOMMAND);
-    }
-    return othercommand;
+    return commands;
   }
 
   /**
@@ -155,10 +92,8 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDS__COMMAND:
-        return basicSetCommand(null, msgs);
-      case MyDslPackage.COMMANDS__OTHERCOMMAND:
-        return ((InternalEList<?>)getOthercommand()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.COMMANDS__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -173,10 +108,8 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDS__COMMAND:
-        return getCommand();
-      case MyDslPackage.COMMANDS__OTHERCOMMAND:
-        return getOthercommand();
+      case MyDslPackage.COMMANDS__COMMANDS:
+        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,12 +125,9 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDS__COMMAND:
-        setCommand((Command)newValue);
-        return;
-      case MyDslPackage.COMMANDS__OTHERCOMMAND:
-        getOthercommand().clear();
-        getOthercommand().addAll((Collection<? extends Command>)newValue);
+      case MyDslPackage.COMMANDS__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends Command>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,11 +143,8 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDS__COMMAND:
-        setCommand((Command)null);
-        return;
-      case MyDslPackage.COMMANDS__OTHERCOMMAND:
-        getOthercommand().clear();
+      case MyDslPackage.COMMANDS__COMMANDS:
+        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -233,10 +160,8 @@ public class CommandsImpl extends MinimalEObjectImpl.Container implements Comman
   {
     switch (featureID)
     {
-      case MyDslPackage.COMMANDS__COMMAND:
-        return command != null;
-      case MyDslPackage.COMMANDS__OTHERCOMMAND:
-        return othercommand != null && !othercommand.isEmpty();
+      case MyDslPackage.COMMANDS__COMMANDS:
+        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }

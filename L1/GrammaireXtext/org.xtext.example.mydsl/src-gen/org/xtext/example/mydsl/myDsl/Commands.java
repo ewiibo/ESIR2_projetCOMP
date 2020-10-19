@@ -16,8 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commands#getCommand <em>Command</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Commands#getOthercommand <em>Othercommand</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Commands#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommands()
@@ -27,37 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Commands extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Command</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Command</em>' containment reference.
-   * @see #setCommand(Command)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommands_Command()
-   * @model containment="true"
-   * @generated
-   */
-  Command getCommand();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Commands#getCommand <em>Command</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Command</em>' containment reference.
-   * @see #getCommand()
-   * @generated
-   */
-  void setCommand(Command value);
-
-  /**
-   * Returns the value of the '<em><b>Othercommand</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Command}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Othercommand</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommands_Othercommand()
+   * @return the value of the '<em>Commands</em>' containment reference list.
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCommands_Commands()
    * @model containment="true"
    * @generated
    */
-  EList<Command> getOthercommand();
+  EList<Command> getCommands();
 
 } // Commands

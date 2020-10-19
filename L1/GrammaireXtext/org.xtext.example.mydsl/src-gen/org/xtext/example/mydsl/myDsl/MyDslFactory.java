@@ -51,6 +51,24 @@ public interface MyDslFactory extends EFactory
   Definition createDefinition();
 
   /**
+   * Returns a new object of class '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input</em>'.
+   * @generated
+   */
+  Input createInput();
+
+  /**
+   * Returns a new object of class '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Output</em>'.
+   * @generated
+   */
+  Output createOutput();
+
+  /**
    * Returns a new object of class '<em>Commands</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,24 +175,6 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   ExprBase createExprBase();
-
-  /**
-   * Returns a new object of class '<em>Input</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Input</em>'.
-   * @generated
-   */
-  Input createInput();
-
-  /**
-   * Returns a new object of class '<em>Output</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Output</em>'.
-   * @generated
-   */
-  Output createOutput();
 
   /**
    * Returns the package supported by this factory.

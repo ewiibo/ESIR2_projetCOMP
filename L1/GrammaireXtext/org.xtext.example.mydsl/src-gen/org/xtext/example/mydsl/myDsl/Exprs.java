@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExpr <em>Expr</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Exprs#getExprs <em>Exprs</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs()
@@ -27,37 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Exprs extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Expr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expr)
+   * @return the value of the '<em>Expr</em>' containment reference list.
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_Expr()
    * @model containment="true"
    * @generated
    */
-  Expr getExpr();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Exprs#getExpr <em>Expr</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
-   * @generated
-   */
-  void setExpr(Expr value);
-
-  /**
-   * Returns the value of the '<em><b>Exprs</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.Expr}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exprs</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExprs_Exprs()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Expr> getExprs();
+  EList<Expr> getExpr();
 
 } // Exprs

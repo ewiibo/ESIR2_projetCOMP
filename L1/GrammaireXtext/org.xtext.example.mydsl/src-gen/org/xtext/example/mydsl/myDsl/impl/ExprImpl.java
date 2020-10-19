@@ -5,15 +5,12 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,7 +28,6 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExprbase <em>Exprbase</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ExprImpl#getExprbases <em>Exprbases</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,24 +35,14 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
 public class ExprImpl extends ExprBaseImpl implements Expr
 {
   /**
-   * The cached value of the '{@link #getExprbase() <em>Exprbase</em>}' containment reference.
+   * The cached value of the '{@link #getExprbase() <em>Exprbase</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExprbase()
    * @generated
    * @ordered
    */
-  protected ExprBase exprbase;
-
-  /**
-   * The cached value of the '{@link #getExprbases() <em>Exprbases</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExprbases()
-   * @generated
-   * @ordered
-   */
-  protected EList<ExprBase> exprbases;
+  protected EList<ExprBase> exprbase;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,63 +71,13 @@ public class ExprImpl extends ExprBaseImpl implements Expr
    * @generated
    */
   @Override
-  public ExprBase getExprbase()
+  public EList<ExprBase> getExprbase()
   {
+    if (exprbase == null)
+    {
+      exprbase = new EObjectContainmentEList<ExprBase>(ExprBase.class, this, MyDslPackage.EXPR__EXPRBASE);
+    }
     return exprbase;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExprbase(ExprBase newExprbase, NotificationChain msgs)
-  {
-    ExprBase oldExprbase = exprbase;
-    exprbase = newExprbase;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXPRBASE, oldExprbase, newExprbase);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setExprbase(ExprBase newExprbase)
-  {
-    if (newExprbase != exprbase)
-    {
-      NotificationChain msgs = null;
-      if (exprbase != null)
-        msgs = ((InternalEObject)exprbase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXPRBASE, null, msgs);
-      if (newExprbase != null)
-        msgs = ((InternalEObject)newExprbase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.EXPR__EXPRBASE, null, msgs);
-      msgs = basicSetExprbase(newExprbase, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.EXPR__EXPRBASE, newExprbase, newExprbase));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<ExprBase> getExprbases()
-  {
-    if (exprbases == null)
-    {
-      exprbases = new EObjectContainmentEList<ExprBase>(ExprBase.class, this, MyDslPackage.EXPR__EXPRBASES);
-    }
-    return exprbases;
   }
 
   /**
@@ -155,9 +91,7 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case MyDslPackage.EXPR__EXPRBASE:
-        return basicSetExprbase(null, msgs);
-      case MyDslPackage.EXPR__EXPRBASES:
-        return ((InternalEList<?>)getExprbases()).basicRemove(otherEnd, msgs);
+        return ((InternalEList<?>)getExprbase()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,8 +108,6 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     {
       case MyDslPackage.EXPR__EXPRBASE:
         return getExprbase();
-      case MyDslPackage.EXPR__EXPRBASES:
-        return getExprbases();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,11 +124,8 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case MyDslPackage.EXPR__EXPRBASE:
-        setExprbase((ExprBase)newValue);
-        return;
-      case MyDslPackage.EXPR__EXPRBASES:
-        getExprbases().clear();
-        getExprbases().addAll((Collection<? extends ExprBase>)newValue);
+        getExprbase().clear();
+        getExprbase().addAll((Collection<? extends ExprBase>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,10 +142,7 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case MyDslPackage.EXPR__EXPRBASE:
-        setExprbase((ExprBase)null);
-        return;
-      case MyDslPackage.EXPR__EXPRBASES:
-        getExprbases().clear();
+        getExprbase().clear();
         return;
     }
     super.eUnset(featureID);
@@ -233,9 +159,7 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case MyDslPackage.EXPR__EXPRBASE:
-        return exprbase != null;
-      case MyDslPackage.EXPR__EXPRBASES:
-        return exprbases != null && !exprbases.isEmpty();
+        return exprbase != null && !exprbase.isEmpty();
     }
     return super.eIsSet(featureID);
   }

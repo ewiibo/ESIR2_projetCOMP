@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Expr#getExprbase <em>Exprbase</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Expr#getExprbases <em>Exprbases</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExpr()
@@ -25,37 +24,15 @@ import org.eclipse.emf.common.util.EList;
 public interface Expr extends ExprBase
 {
   /**
-   * Returns the value of the '<em><b>Exprbase</b></em>' containment reference.
+   * Returns the value of the '<em><b>Exprbase</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.ExprBase}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exprbase</em>' containment reference.
-   * @see #setExprbase(ExprBase)
+   * @return the value of the '<em>Exprbase</em>' containment reference list.
    * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExpr_Exprbase()
    * @model containment="true"
    * @generated
    */
-  ExprBase getExprbase();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Expr#getExprbase <em>Exprbase</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exprbase</em>' containment reference.
-   * @see #getExprbase()
-   * @generated
-   */
-  void setExprbase(ExprBase value);
-
-  /**
-   * Returns the value of the '<em><b>Exprbases</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.ExprBase}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exprbases</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getExpr_Exprbases()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ExprBase> getExprbases();
+  EList<ExprBase> getExprbase();
 
 } // Expr
