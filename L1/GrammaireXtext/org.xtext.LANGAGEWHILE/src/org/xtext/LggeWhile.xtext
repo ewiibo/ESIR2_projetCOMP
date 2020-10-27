@@ -1,0 +1,59 @@
+grammar org.xtext.LggeWhile with org.eclipse.xtext.common.Terminals
+
+generate lggeWhile "http://www.xtext.org/LggeWhile"
+
+Program: (functions+=Function)*;
+
+Function: 'function' symbol = SYMBOL ':' definition = Definition;
+
+Definition: 'read' input = Input 
+                 '%' commands = Commands 
+                 '%' 'write' output = Output;
+
+Input: vars += VARIABLE (',' vars+=VARIABLE)*;
+Output: vars += VARIABLE (',' vars+=VARIABLE)*;
+
+Commands:
+   commands += Command(';' commands += Command)*
+;
+Command:
+    WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop'
+;
+WhileCommand:
+    'while' expr= Expr 'do' commands = Commands 'od'
+;
+IfCommand:
+    'if' expr = Expr 'then' commands = Commands ('else' elsecommands = Commands)? 'fi'
+;
+ForCommand:
+    'for' expr = Expr 'do' command = Commands 'od'
+;
+AffectCommand:
+    vars= Vars ':=' exprs =Exprs
+;
+ForeachCommand:
+    'foreach' vars = Vars 'in' expr = Expr 'do' commands = Commands 'od'
+;
+Exprs:
+    expr += Expr (',' expr+=Expr)*
+;
+Vars:
+    var+=VARIABLE (',' var+=VARIABLE)*
+;
+Expr:
+    exprbase += ExprBase ('=?' exprbase+=ExprBase)*
+;
+LExpr:
+    (expr+=Expr)+
+;
+ExprBase:
+    {ExprBase} 'nil' | {ExprBase} VARIABLE | {ExprBase} SYMBOL |
+    ('(' 'cons' LExpr ')') |
+    ('(' 'list' LExpr ')') |
+    ('(' 'hd' Expr ')') |
+    ('(' 'tl' Expr ')') |
+    ('(' SYMBOL LExpr ')')    
+;
+
+terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
+terminal VARIABLE:('A' .. 'Z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
