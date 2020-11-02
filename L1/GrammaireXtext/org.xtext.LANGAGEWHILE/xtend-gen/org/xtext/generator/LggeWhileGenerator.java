@@ -3,10 +3,15 @@
  */
 package org.xtext.generator;
 
+import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.lggeWhile.Function;
+import org.xtext.lggeWhile.Program;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +22,26 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class LggeWhileGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  }
+  
+  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context, final String outputfile, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+    Iterable<Program> _iterable = IteratorExtensions.<Program>toIterable(Iterators.<Program>filter(resource.getAllContents(), Program.class));
+    for (final Program p : _iterable) {
+      fsa.generateFile(outputfile, this.compile(p, all, iAffect, iIf, iFor, iWhile, iForeach));
+    }
+  }
+  
+  public CharSequence compile(final Program p, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("gsdjfshd ksdh kjsd jksh fkjds kjh sdkjfh");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence comile(final Function f, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t");
+    _builder.newLine();
+    return _builder;
   }
 }

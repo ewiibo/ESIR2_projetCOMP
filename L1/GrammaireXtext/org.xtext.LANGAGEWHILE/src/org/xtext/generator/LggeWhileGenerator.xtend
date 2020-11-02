@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.lggeWhile.Function
+import org.xtext.lggeWhile.Program
 
 /**
  * Generates code from your model files on save.
@@ -21,5 +23,23 @@ class LggeWhileGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
+	}
+	
+	def doGenerate(Resource resource , IFileSystemAccess2 fsa, IGeneratorContext context, String outputfile, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+		for(p : resource.allContents.filter(Program).toIterable){
+			fsa.generateFile(outputfile, p.compile(  all, iAffect, iIf,  iFor, iWhile, iForeach ))
+		}
+	}
+	
+	def compile(Program p, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+		'''
+		gsdjfshd ksdh kjsd jksh fkjds kjh sdkjfh
+		'''
+	}
+	
+	def comile(Function f, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+		'''
+		
+		'''
 	}
 }
