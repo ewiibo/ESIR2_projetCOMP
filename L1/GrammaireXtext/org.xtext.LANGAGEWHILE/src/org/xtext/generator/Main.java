@@ -8,7 +8,6 @@ import java.io.File;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -120,7 +119,7 @@ public class Main {
 		}
 
 		// Configure and start the generator
-		fileAccess.setOutputPath("src-gen/");
+		fileAccess.setOutputPath("./");
 		GeneratorContext context = new GeneratorContext();
 		context.setCancelIndicator(CancelIndicator.NullImpl);
 		generator.doGenerate(resource, fileAccess, context, outputFile, iAll, iAffect, iIf,iFor, iWhile, iForeach );

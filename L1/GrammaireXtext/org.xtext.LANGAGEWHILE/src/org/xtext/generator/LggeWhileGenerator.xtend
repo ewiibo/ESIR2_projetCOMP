@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.lggeWhile.Function
 import org.xtext.lggeWhile.Program
+import org.xtext.lggeWhile.Definition
 
 /**
  * Generates code from your model files on save.
@@ -18,28 +19,41 @@ import org.xtext.lggeWhile.Program
 class LggeWhileGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		
 	}
+
 	
 	def doGenerate(Resource resource , IFileSystemAccess2 fsa, IGeneratorContext context, String outputfile, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
-		for(p : resource.allContents.filter(Program).toIterable){
-			fsa.generateFile(outputfile, p.compile(  all, iAffect, iIf,  iFor, iWhile, iForeach ))
+		
+		for (p : resource.allContents.toIterable.filter(Program)) {
+			fsa.generateFile(outputfile,p.compile(all, iAffect, iIf,iFor,iWhile,iForeach))
 		}
 	}
 	
-	def compile(Program p, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
-		'''
-		gsdjfshd ksdh kjsd jksh fkjds kjh sdkjfh
-		'''
+	def compile(Program prog, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+		var functi =''''''
+		
+		for (func : prog.functions){
+			functi += func.compile(all, iAffect,iIf, iFor, iWhile, iForeach)
+		}
+		return functi
+		
 	}
 	
-	def comile(Function f, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+	def compile(Function func, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
 		'''
-		
+		function «func.symbol»:
+		«func.definition.compile(all, iAffect,iIf, iFor, iWhile, iForeach)»
+		'''
+	}
+	def compile (Definition d, int all, int iAffect,  int iIf, int iFor, int iWhile, int iForeach){
+		'''
+		read «d.input.vars.iterator.next()»
+		%
+			nop
+		%
+		read «d.output.vars.iterator.next()»
 		'''
 	}
 }
+

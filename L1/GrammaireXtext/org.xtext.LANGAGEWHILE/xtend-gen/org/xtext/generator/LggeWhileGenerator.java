@@ -3,13 +3,16 @@
  */
 package org.xtext.generator;
 
-import com.google.common.collect.Iterators;
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.lggeWhile.Definition;
 import org.xtext.lggeWhile.Function;
 import org.xtext.lggeWhile.Program;
 
@@ -25,23 +28,54 @@ public class LggeWhileGenerator extends AbstractGenerator {
   }
   
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context, final String outputfile, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
-    Iterable<Program> _iterable = IteratorExtensions.<Program>toIterable(Iterators.<Program>filter(resource.getAllContents(), Program.class));
-    for (final Program p : _iterable) {
+    Iterable<Program> _filter = Iterables.<Program>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Program.class);
+    for (final Program p : _filter) {
       fsa.generateFile(outputfile, this.compile(p, all, iAffect, iIf, iFor, iWhile, iForeach));
     }
   }
   
-  public CharSequence compile(final Program p, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+  public String compile(final Program prog, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("gsdjfshd ksdh kjsd jksh fkjds kjh sdkjfh");
-    _builder.newLine();
+    String functi = _builder.toString();
+    EList<Function> _functions = prog.getFunctions();
+    for (final Function func : _functions) {
+      String _functi = functi;
+      CharSequence _compile = this.compile(func, all, iAffect, iIf, iFor, iWhile, iForeach);
+      functi = (_functi + _compile);
+    }
+    return functi;
+  }
+  
+  public CharSequence compile(final Function func, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("function ");
+    String _symbol = func.getSymbol();
+    _builder.append(_symbol);
+    _builder.append(":");
+    _builder.newLineIfNotEmpty();
+    CharSequence _compile = this.compile(func.getDefinition(), all, iAffect, iIf, iFor, iWhile, iForeach);
+    _builder.append(_compile);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence comile(final Function f, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+  public CharSequence compile(final Definition d, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t\t");
+    _builder.append("read ");
+    String _next = d.getInput().getVars().iterator().next();
+    _builder.append(_next);
+    _builder.newLineIfNotEmpty();
+    _builder.append("%");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("nop");
+    _builder.newLine();
+    _builder.append("%");
+    _builder.newLine();
+    _builder.append("read ");
+    String _next_1 = d.getOutput().getVars().iterator().next();
+    _builder.append(_next_1);
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
 }
