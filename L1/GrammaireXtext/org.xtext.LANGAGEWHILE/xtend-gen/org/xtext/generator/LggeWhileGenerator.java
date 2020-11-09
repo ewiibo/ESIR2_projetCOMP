@@ -246,7 +246,19 @@ public class LggeWhileGenerator extends AbstractGenerator {
     _builder.append(_expr);
     _builder.append(" then");
     _builder.newLineIfNotEmpty();
-    _builder.append(content);
+    {
+      EList<Command> _commands_1 = i.getCommands().getCommands();
+      boolean _hasElements = false;
+      for(final Command com_1 : _commands_1) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(";\n", "");
+        }
+        Object _compile_1 = this.compile(com_1, spaceI);
+        _builder.append(_compile_1);
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append(space);
     _builder.append("fi");
@@ -275,7 +287,19 @@ public class LggeWhileGenerator extends AbstractGenerator {
     _builder.append(_expr);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    _builder.append(content);
+    {
+      EList<Command> _commands_1 = f.getCommand().getCommands();
+      boolean _hasElements = false;
+      for(final Command com_1 : _commands_1) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(";\n", "");
+        }
+        Object _compile_1 = this.compile(com_1, spaceF);
+        _builder.append(_compile_1);
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append(space);
     _builder.append("od");
@@ -307,7 +331,19 @@ public class LggeWhileGenerator extends AbstractGenerator {
     _builder.append(_expr);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    _builder.append(content);
+    {
+      EList<Command> _commands_1 = f.getCommands().getCommands();
+      boolean _hasElements = false;
+      for(final Command com_1 : _commands_1) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(";\n", "");
+        }
+        Object _compile_1 = this.compile(com_1, spaceF);
+        _builder.append(_compile_1);
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append(space);
     _builder.append("od");

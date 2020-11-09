@@ -122,7 +122,7 @@ class LggeWhileGenerator extends AbstractGenerator {
 		
 		return '''
 		«space»if «i.expr» then
-		«content»
+		«FOR com : i.commands.commands SEPARATOR ";\n"»«com.compile(spaceI)»«ENDFOR»
 		«space»fi
 		'''
 	}
@@ -138,7 +138,7 @@ class LggeWhileGenerator extends AbstractGenerator {
 		
 		return '''
 		«space»For «f.expr» do
-		«content»
+		«FOR com : f.command.commands SEPARATOR ";\n"»«com.compile(spaceF)»«ENDFOR»
 		«space»od
 		'''
 	}
@@ -153,7 +153,7 @@ class LggeWhileGenerator extends AbstractGenerator {
 		
 		return '''
 		«space»Foreach «f.vars» in «f.expr» do
-		«content»
+		«FOR com : f.commands.commands SEPARATOR ";\n"»«com.compile(spaceF)»«ENDFOR»
 		«space»od
 		'''
 	}
