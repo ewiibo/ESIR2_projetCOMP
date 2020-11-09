@@ -19,11 +19,12 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 import org.xtext.LggeWhileStandaloneSetup;
+import org.xtext.generator.LggeWhileGenerator;
 
 public class Main {
 	
 	public static String inputFile= "",  outputFile = "" ;
-	public static int iAll =1 ,iFor = 0, iWhile=0 ,iIf=0 ,iForeach=0, iAffect=0;
+	public static int iAll = 2, iFor = 0, iWhile = 0, iIf = 0, iForeach=0, iAffect=0;
 	
 
 	public static void main(String[] args) {
@@ -32,6 +33,8 @@ public class Main {
 			manuel();
 			return;
 		}
+		File file = new File(".");
+		System.out.println(file.getAbsolutePath());
 		Injector injector = new LggeWhileStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
 		
@@ -45,7 +48,9 @@ public class Main {
 			manuel(); return;
 		}
 		inputFile = args[0];
+		System.out.println(inputFile);
 		
+		// recuperation des parametres passées par commande
 		for(int i=1; i<args.length; i++) {
 			switch (args[i]) {
 			case "-o":
@@ -64,7 +69,7 @@ public class Main {
 				iIf = Integer.parseInt(args[++i]);
 				break;
 			case "-foreach":
-				iFor = Integer.parseInt(args[++i]);
+				iForeach = Integer.parseInt(args[++i]);
 				break;
 			case "-affect":
 				iAffect = Integer.parseInt(args[++i]);
@@ -74,6 +79,13 @@ public class Main {
 				break;
 			}
 		}
+		
+		// Affectation des valeurs par defaut
+		if(iFor == 0) iFor = iAll;
+		if(iWhile == 0) iWhile = iAll;
+		if(iIf == 0) iIf = iAll;
+		if(iForeach == 0) iForeach = iAll;
+		if(iAffect == 0) iAffect = iAll;
 	}
 	
 	private static void manuel() {
@@ -112,6 +124,7 @@ public class Main {
 		// Validate the resource
 		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
 		if (!list.isEmpty()) {
+			System.err.println("Programme while synthaxiquement incorrect");
 			for (Issue issue : list) {
 				System.err.println(issue);
 			}

@@ -12,9 +12,18 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.lggeWhile.AffectCommand;
+import org.xtext.lggeWhile.Command;
 import org.xtext.lggeWhile.Definition;
+import org.xtext.lggeWhile.Expr;
+import org.xtext.lggeWhile.ForCommand;
+import org.xtext.lggeWhile.ForeachCommand;
 import org.xtext.lggeWhile.Function;
+import org.xtext.lggeWhile.IfCommand;
+import org.xtext.lggeWhile.NopCommand;
 import org.xtext.lggeWhile.Program;
+import org.xtext.lggeWhile.Vars;
+import org.xtext.lggeWhile.WhileCommand;
 
 /**
  * Generates code from your model files on save.
@@ -23,59 +32,330 @@ import org.xtext.lggeWhile.Program;
  */
 @SuppressWarnings("all")
 public class LggeWhileGenerator extends AbstractGenerator {
+  private int all;
+  
+  private int iAffect;
+  
+  private int iIf;
+  
+  private int iFor;
+  
+  private int iWhile;
+  
+  private int iForeach;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
   }
   
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context, final String outputfile, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+    this.all = all;
+    this.iAffect = iAffect;
+    this.iIf = iIf;
+    this.iFor = iFor;
+    this.iWhile = iWhile;
+    this.iForeach = iForeach;
     Iterable<Program> _filter = Iterables.<Program>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Program.class);
     for (final Program p : _filter) {
-      fsa.generateFile(outputfile, this.compile(p, all, iAffect, iIf, iFor, iWhile, iForeach));
+      fsa.generateFile(outputfile, this.compile(p));
     }
   }
   
-  public String compile(final Program prog, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+  public String compile(final Program prog) {
     StringConcatenation _builder = new StringConcatenation();
     String functi = _builder.toString();
     EList<Function> _functions = prog.getFunctions();
     for (final Function func : _functions) {
       String _functi = functi;
-      CharSequence _compile = this.compile(func, all, iAffect, iIf, iFor, iWhile, iForeach);
+      String _compile = this.compile(func);
       functi = (_functi + _compile);
     }
     return functi;
   }
   
-  public CharSequence compile(final Function func, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+  public String compile(final Function func) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("function ");
     String _symbol = func.getSymbol();
     _builder.append(_symbol);
     _builder.append(":");
     _builder.newLineIfNotEmpty();
-    CharSequence _compile = this.compile(func.getDefinition(), all, iAffect, iIf, iFor, iWhile, iForeach);
+    CharSequence _compile = this.compile(func.getDefinition());
     _builder.append(_compile);
     _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public CharSequence compile(final Definition d) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("read ");
+    {
+      EList<String> _vars = d.getInput().getVars();
+      boolean _hasElements = false;
+      for(final String param : _vars) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        _builder.append(param);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("%");
+    _builder.newLine();
+    String space = "";
+    for (int i = 0; (i < this.all); i++) {
+      String _space = space;
+      space = (_space + " ");
+    }
+    {
+      EList<Command> _commands = d.getCommands().getCommands();
+      boolean _hasElements_1 = false;
+      for(final Command com : _commands) {
+        if (!_hasElements_1) {
+          _hasElements_1 = true;
+        } else {
+          _builder.appendImmediate(";\n", "");
+        }
+        CharSequence _compile = this.compile(com, space);
+        _builder.append(_compile);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("%");
+    _builder.newLine();
+    _builder.append("write ");
+    {
+      EList<String> _vars_1 = d.getOutput().getVars();
+      boolean _hasElements_2 = false;
+      for(final String param_1 : _vars_1) {
+        if (!_hasElements_2) {
+          _hasElements_2 = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        _builder.append(param_1);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     return _builder;
   }
   
-  public CharSequence compile(final Definition d, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
+  public CharSequence compile(final Command c, final String space) {
+    if ((c instanceof WhileCommand)) {
+      return this.compile(((WhileCommand)c), space);
+    }
+    if ((c instanceof IfCommand)) {
+      return this.compile(((IfCommand)c), space);
+    }
+    if ((c instanceof ForCommand)) {
+      return this.compile(((ForCommand)c), space);
+    }
+    if ((c instanceof AffectCommand)) {
+      return this.compile(((AffectCommand)c), space);
+    }
+    if ((c instanceof ForeachCommand)) {
+      return this.compile(((ForeachCommand)c), space);
+    }
+    if ((c instanceof NopCommand)) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(space);
+      _builder.append("nop");
+      return _builder.toString();
+    }
+    return null;
+  }
+  
+  /**
+   * def compile(Commands cs, int all, int iAffect, int iIf, int iFor, int iWhile, int iForeach){
+   * var csVal = ""
+   * for (comd : cs.commands){
+   * if(comd instanceof WhileCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
+   * if(comd instanceof IfCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
+   * if(comd instanceof ForCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
+   * if(comd instanceof AffectCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
+   * if(comd instanceof ForeachCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
+   * if(comd instanceof NopCommand) csVal += '''nop'''
+   * }
+   * '''
+   * «csVal»
+   * '''
+   * }
+   */
+  public String compile(final WhileCommand w, final String space) {
+    String spaceW = "";
+    for (int i = 0; (i < this.iWhile); i++) {
+      String _spaceW = spaceW;
+      spaceW = (_spaceW + " ");
+    }
+    spaceW = (spaceW + space);
+    String content = "";
+    EList<Command> _commands = w.getCommands().getCommands();
+    for (final Command com : _commands) {
+      String _content = content;
+      Object _compile = this.compile(com, spaceW);
+      content = (_content + _compile);
+    }
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("read ");
-    String _next = d.getInput().getVars().iterator().next();
-    _builder.append(_next);
+    _builder.append(space);
+    _builder.append("while ");
+    Expr _expr = w.getExpr();
+    _builder.append(_expr);
+    _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    _builder.append("%");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("nop");
-    _builder.newLine();
-    _builder.append("%");
-    _builder.newLine();
-    _builder.append("read ");
-    String _next_1 = d.getOutput().getVars().iterator().next();
-    _builder.append(_next_1);
+    {
+      EList<Command> _commands_1 = w.getCommands().getCommands();
+      boolean _hasElements = false;
+      for(final Command com_1 : _commands_1) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(";\n", "");
+        }
+        Object _compile_1 = this.compile(com_1, spaceW);
+        _builder.append(_compile_1);
+      }
+    }
     _builder.newLineIfNotEmpty();
-    return _builder;
+    _builder.append(space);
+    _builder.append("od");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String compile(final IfCommand i, final String space) {
+    String spaceI = "";
+    for (int j = 0; (j < this.iIf); j++) {
+      String _spaceI = spaceI;
+      spaceI = (_spaceI + " ");
+    }
+    spaceI = (spaceI + space);
+    String content = "";
+    EList<Command> _commands = i.getCommands().getCommands();
+    for (final Command com : _commands) {
+      String _content = content;
+      Object _compile = this.compile(com, spaceI);
+      content = (_content + _compile);
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(space);
+    _builder.append("if ");
+    Expr _expr = i.getExpr();
+    _builder.append(_expr);
+    _builder.append(" then");
+    _builder.newLineIfNotEmpty();
+    _builder.append(content);
+    _builder.newLineIfNotEmpty();
+    _builder.append(space);
+    _builder.append("fi");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String compile(final ForCommand f, final String space) {
+    String spaceF = "";
+    for (int j = 0; (j < this.iFor); j++) {
+      String _spaceF = spaceF;
+      spaceF = (_spaceF + " ");
+    }
+    spaceF = (spaceF + space);
+    String content = "";
+    EList<Command> _commands = f.getCommand().getCommands();
+    for (final Command com : _commands) {
+      String _content = content;
+      Object _compile = this.compile(com, spaceF);
+      content = (_content + _compile);
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(space);
+    _builder.append("For ");
+    Expr _expr = f.getExpr();
+    _builder.append(_expr);
+    _builder.append(" do");
+    _builder.newLineIfNotEmpty();
+    _builder.append(content);
+    _builder.newLineIfNotEmpty();
+    _builder.append(space);
+    _builder.append("od");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String compile(final ForeachCommand f, final String space) {
+    String spaceF = "";
+    for (int j = 0; (j < this.iForeach); j++) {
+      String _spaceF = spaceF;
+      spaceF = (_spaceF + " ");
+    }
+    spaceF = (spaceF + space);
+    String content = "";
+    EList<Command> _commands = f.getCommands().getCommands();
+    for (final Command com : _commands) {
+      String _content = content;
+      Object _compile = this.compile(com, spaceF);
+      content = (_content + _compile);
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(space);
+    _builder.append("Foreach ");
+    Vars _vars = f.getVars();
+    _builder.append(_vars);
+    _builder.append(" in ");
+    Expr _expr = f.getExpr();
+    _builder.append(_expr);
+    _builder.append(" do");
+    _builder.newLineIfNotEmpty();
+    _builder.append(content);
+    _builder.newLineIfNotEmpty();
+    _builder.append(space);
+    _builder.append("od");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public CharSequence compile(final AffectCommand a, final String space) {
+    CharSequence _xblockexpression = null;
+    {
+      String spaceA = "";
+      int _length = space.length();
+      int size = (this.iAffect - _length);
+      for (int j = 0; (j < size); j++) {
+        String _spaceA = spaceA;
+        spaceA = (_spaceA + " ");
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(space);
+      _builder.append(spaceA);
+      {
+        EList<String> _vari = a.getVars().getVari();
+        boolean _hasElements = false;
+        for(final String param : _vari) {
+          if (!_hasElements) {
+            _hasElements = true;
+          } else {
+            _builder.appendImmediate(", ", "");
+          }
+          _builder.append(param);
+        }
+      }
+      _builder.append(" := ");
+      {
+        EList<Expr> _expr = a.getExprs().getExpr();
+        boolean _hasElements_1 = false;
+        for(final Expr param_1 : _expr) {
+          if (!_hasElements_1) {
+            _hasElements_1 = true;
+          } else {
+            _builder.appendImmediate(", ", "");
+          }
+          _builder.append(param_1);
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
 }

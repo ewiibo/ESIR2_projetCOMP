@@ -498,17 +498,43 @@ ruleCommand returns [EObject current=null]
 			afterParserOrEnumRuleCall();
 		}
 		    |
+		{
+			newCompositeNode(grammarAccess.getCommandAccess().getNopCommandParserRuleCall_5());
+		}
+		this_NopCommand_5=ruleNopCommand
+		{
+			$current = $this_NopCommand_5.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleNopCommand
+entryRuleNopCommand returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNopCommandRule()); }
+	iv_ruleNopCommand=ruleNopCommand
+	{ $current=$iv_ruleNopCommand.current; }
+	EOF;
+
+// Rule NopCommand
+ruleNopCommand returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getCommandAccess().getCommandAction_5_0(),
-						$current);
-				}
-			)
-			otherlv_6='nop'
+			lv_expr_0_0='nop'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getCommandAccess().getNopKeyword_5_1());
+				newLeafNode(lv_expr_0_0, grammarAccess.getNopCommandAccess().getExprNopKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getNopCommandRule());
+				}
+				setWithLastConsumed($current, "expr", lv_expr_0_0, "nop");
 			}
 		)
 	)
@@ -980,9 +1006,9 @@ ruleVars returns [EObject current=null]
 	(
 		(
 			(
-				lv_var_0_0=RULE_VARIABLE
+				lv_vari_0_0=RULE_VARIABLE
 				{
-					newLeafNode(lv_var_0_0, grammarAccess.getVarsAccess().getVarVARIABLETerminalRuleCall_0_0());
+					newLeafNode(lv_vari_0_0, grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -990,8 +1016,8 @@ ruleVars returns [EObject current=null]
 					}
 					addWithLastConsumed(
 						$current,
-						"var",
-						lv_var_0_0,
+						"vari",
+						lv_vari_0_0,
 						"org.xtext.LggeWhile.VARIABLE");
 				}
 			)
@@ -1003,9 +1029,9 @@ ruleVars returns [EObject current=null]
 			}
 			(
 				(
-					lv_var_2_0=RULE_VARIABLE
+					lv_vari_2_0=RULE_VARIABLE
 					{
-						newLeafNode(lv_var_2_0, grammarAccess.getVarsAccess().getVarVARIABLETerminalRuleCall_1_1_0());
+						newLeafNode(lv_vari_2_0, grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_1_1_0());
 					}
 					{
 						if ($current==null) {
@@ -1013,8 +1039,8 @@ ruleVars returns [EObject current=null]
 						}
 						addWithLastConsumed(
 							$current,
-							"var",
-							lv_var_2_0,
+							"vari",
+							lv_vari_2_0,
 							"org.xtext.LggeWhile.VARIABLE");
 					}
 				)

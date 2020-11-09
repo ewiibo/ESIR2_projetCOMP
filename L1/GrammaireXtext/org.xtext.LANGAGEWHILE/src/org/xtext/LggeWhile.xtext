@@ -17,7 +17,10 @@ Commands:
    commands += Command(';' commands += Command)*
 ;
 Command:
-    WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop'
+    WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | NopCommand
+;
+NopCommand:
+    expr ='nop'
 ;
 WhileCommand:
     'while' expr= Expr 'do' commands = Commands 'od'
@@ -38,7 +41,7 @@ Exprs:
     expr += Expr (',' expr+=Expr)*
 ;
 Vars:
-    var+=VARIABLE (',' var+=VARIABLE)*
+    vari+=VARIABLE (',' vari+=VARIABLE)*
 ;
 Expr:
     exprbase += ExprBase ('=?' exprbase+=ExprBase)*

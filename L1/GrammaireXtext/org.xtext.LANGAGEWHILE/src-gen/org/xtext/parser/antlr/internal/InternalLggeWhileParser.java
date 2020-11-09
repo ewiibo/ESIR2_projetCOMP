@@ -1076,11 +1076,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // InternalLggeWhile.g:448:1: ruleCommand returns [EObject current=null] : (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | ( () otherlv_6= 'nop' ) ) ;
+    // InternalLggeWhile.g:448:1: ruleCommand returns [EObject current=null] : (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | this_NopCommand_5= ruleNopCommand ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_6=null;
         EObject this_WhileCommand_0 = null;
 
         EObject this_IfCommand_1 = null;
@@ -1091,15 +1090,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
         EObject this_ForeachCommand_4 = null;
 
+        EObject this_NopCommand_5 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:454:2: ( (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | ( () otherlv_6= 'nop' ) ) )
-            // InternalLggeWhile.g:455:2: (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | ( () otherlv_6= 'nop' ) )
+            // InternalLggeWhile.g:454:2: ( (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | this_NopCommand_5= ruleNopCommand ) )
+            // InternalLggeWhile.g:455:2: (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | this_NopCommand_5= ruleNopCommand )
             {
-            // InternalLggeWhile.g:455:2: (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | ( () otherlv_6= 'nop' ) )
+            // InternalLggeWhile.g:455:2: (this_WhileCommand_0= ruleWhileCommand | this_IfCommand_1= ruleIfCommand | this_ForCommand_2= ruleForCommand | this_AffectCommand_3= ruleAffectCommand | this_ForeachCommand_4= ruleForeachCommand | this_NopCommand_5= ruleNopCommand )
             int alt5=6;
             switch ( input.LA(1) ) {
             case 21:
@@ -1231,29 +1232,20 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalLggeWhile.g:501:3: ( () otherlv_6= 'nop' )
-                    {
-                    // InternalLggeWhile.g:501:3: ( () otherlv_6= 'nop' )
-                    // InternalLggeWhile.g:502:4: () otherlv_6= 'nop'
-                    {
-                    // InternalLggeWhile.g:502:4: ()
-                    // InternalLggeWhile.g:503:5: 
+                    // InternalLggeWhile.g:501:3: this_NopCommand_5= ruleNopCommand
                     {
 
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getCommandAccess().getCommandAction_5_0(),
-                    						current);
-                    				
+                    			newCompositeNode(grammarAccess.getCommandAccess().getNopCommandParserRuleCall_5());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_NopCommand_5=ruleNopCommand();
 
-                    }
+                    state._fsp--;
 
-                    otherlv_6=(Token)match(input,20,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_6, grammarAccess.getCommandAccess().getNopKeyword_5_1());
-                    			
-
-                    }
-
+                    			current = this_NopCommand_5;
+                    			afterParserOrEnumRuleCall();
+                    		
 
                     }
                     break;
@@ -1279,8 +1271,99 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCommand"
 
 
+    // $ANTLR start "entryRuleNopCommand"
+    // InternalLggeWhile.g:513:1: entryRuleNopCommand returns [EObject current=null] : iv_ruleNopCommand= ruleNopCommand EOF ;
+    public final EObject entryRuleNopCommand() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleNopCommand = null;
+
+
+        try {
+            // InternalLggeWhile.g:513:51: (iv_ruleNopCommand= ruleNopCommand EOF )
+            // InternalLggeWhile.g:514:2: iv_ruleNopCommand= ruleNopCommand EOF
+            {
+             newCompositeNode(grammarAccess.getNopCommandRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleNopCommand=ruleNopCommand();
+
+            state._fsp--;
+
+             current =iv_ruleNopCommand; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleNopCommand"
+
+
+    // $ANTLR start "ruleNopCommand"
+    // InternalLggeWhile.g:520:1: ruleNopCommand returns [EObject current=null] : ( (lv_expr_0_0= 'nop' ) ) ;
+    public final EObject ruleNopCommand() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_expr_0_0=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalLggeWhile.g:526:2: ( ( (lv_expr_0_0= 'nop' ) ) )
+            // InternalLggeWhile.g:527:2: ( (lv_expr_0_0= 'nop' ) )
+            {
+            // InternalLggeWhile.g:527:2: ( (lv_expr_0_0= 'nop' ) )
+            // InternalLggeWhile.g:528:3: (lv_expr_0_0= 'nop' )
+            {
+            // InternalLggeWhile.g:528:3: (lv_expr_0_0= 'nop' )
+            // InternalLggeWhile.g:529:4: lv_expr_0_0= 'nop'
+            {
+            lv_expr_0_0=(Token)match(input,20,FOLLOW_2); 
+
+            				newLeafNode(lv_expr_0_0, grammarAccess.getNopCommandAccess().getExprNopKeyword_0());
+            			
+
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getNopCommandRule());
+            				}
+            				setWithLastConsumed(current, "expr", lv_expr_0_0, "nop");
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleNopCommand"
+
+
     // $ANTLR start "entryRuleWhileCommand"
-    // InternalLggeWhile.g:518:1: entryRuleWhileCommand returns [EObject current=null] : iv_ruleWhileCommand= ruleWhileCommand EOF ;
+    // InternalLggeWhile.g:544:1: entryRuleWhileCommand returns [EObject current=null] : iv_ruleWhileCommand= ruleWhileCommand EOF ;
     public final EObject entryRuleWhileCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1288,8 +1371,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:518:53: (iv_ruleWhileCommand= ruleWhileCommand EOF )
-            // InternalLggeWhile.g:519:2: iv_ruleWhileCommand= ruleWhileCommand EOF
+            // InternalLggeWhile.g:544:53: (iv_ruleWhileCommand= ruleWhileCommand EOF )
+            // InternalLggeWhile.g:545:2: iv_ruleWhileCommand= ruleWhileCommand EOF
             {
              newCompositeNode(grammarAccess.getWhileCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -1316,7 +1399,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWhileCommand"
-    // InternalLggeWhile.g:525:1: ruleWhileCommand returns [EObject current=null] : (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' ) ;
+    // InternalLggeWhile.g:551:1: ruleWhileCommand returns [EObject current=null] : (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' ) ;
     public final EObject ruleWhileCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1332,21 +1415,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:531:2: ( (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' ) )
-            // InternalLggeWhile.g:532:2: (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' )
+            // InternalLggeWhile.g:557:2: ( (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' ) )
+            // InternalLggeWhile.g:558:2: (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' )
             {
-            // InternalLggeWhile.g:532:2: (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' )
-            // InternalLggeWhile.g:533:3: otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od'
+            // InternalLggeWhile.g:558:2: (otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od' )
+            // InternalLggeWhile.g:559:3: otherlv_0= 'while' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_commands_3_0= ruleCommands ) ) otherlv_4= 'od'
             {
             otherlv_0=(Token)match(input,21,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getWhileCommandAccess().getWhileKeyword_0());
             		
-            // InternalLggeWhile.g:537:3: ( (lv_expr_1_0= ruleExpr ) )
-            // InternalLggeWhile.g:538:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:563:3: ( (lv_expr_1_0= ruleExpr ) )
+            // InternalLggeWhile.g:564:4: (lv_expr_1_0= ruleExpr )
             {
-            // InternalLggeWhile.g:538:4: (lv_expr_1_0= ruleExpr )
-            // InternalLggeWhile.g:539:5: lv_expr_1_0= ruleExpr
+            // InternalLggeWhile.g:564:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:565:5: lv_expr_1_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getWhileCommandAccess().getExprExprParserRuleCall_1_0());
@@ -1377,11 +1460,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getWhileCommandAccess().getDoKeyword_2());
             		
-            // InternalLggeWhile.g:560:3: ( (lv_commands_3_0= ruleCommands ) )
-            // InternalLggeWhile.g:561:4: (lv_commands_3_0= ruleCommands )
+            // InternalLggeWhile.g:586:3: ( (lv_commands_3_0= ruleCommands ) )
+            // InternalLggeWhile.g:587:4: (lv_commands_3_0= ruleCommands )
             {
-            // InternalLggeWhile.g:561:4: (lv_commands_3_0= ruleCommands )
-            // InternalLggeWhile.g:562:5: lv_commands_3_0= ruleCommands
+            // InternalLggeWhile.g:587:4: (lv_commands_3_0= ruleCommands )
+            // InternalLggeWhile.g:588:5: lv_commands_3_0= ruleCommands
             {
 
             					newCompositeNode(grammarAccess.getWhileCommandAccess().getCommandsCommandsParserRuleCall_3_0());
@@ -1435,7 +1518,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfCommand"
-    // InternalLggeWhile.g:587:1: entryRuleIfCommand returns [EObject current=null] : iv_ruleIfCommand= ruleIfCommand EOF ;
+    // InternalLggeWhile.g:613:1: entryRuleIfCommand returns [EObject current=null] : iv_ruleIfCommand= ruleIfCommand EOF ;
     public final EObject entryRuleIfCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1443,8 +1526,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:587:50: (iv_ruleIfCommand= ruleIfCommand EOF )
-            // InternalLggeWhile.g:588:2: iv_ruleIfCommand= ruleIfCommand EOF
+            // InternalLggeWhile.g:613:50: (iv_ruleIfCommand= ruleIfCommand EOF )
+            // InternalLggeWhile.g:614:2: iv_ruleIfCommand= ruleIfCommand EOF
             {
              newCompositeNode(grammarAccess.getIfCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -1471,7 +1554,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfCommand"
-    // InternalLggeWhile.g:594:1: ruleIfCommand returns [EObject current=null] : (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' ) ;
+    // InternalLggeWhile.g:620:1: ruleIfCommand returns [EObject current=null] : (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' ) ;
     public final EObject ruleIfCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1490,21 +1573,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:600:2: ( (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' ) )
-            // InternalLggeWhile.g:601:2: (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' )
+            // InternalLggeWhile.g:626:2: ( (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' ) )
+            // InternalLggeWhile.g:627:2: (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' )
             {
-            // InternalLggeWhile.g:601:2: (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' )
-            // InternalLggeWhile.g:602:3: otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi'
+            // InternalLggeWhile.g:627:2: (otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi' )
+            // InternalLggeWhile.g:628:3: otherlv_0= 'if' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_commands_3_0= ruleCommands ) ) (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )? otherlv_6= 'fi'
             {
             otherlv_0=(Token)match(input,24,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIfCommandAccess().getIfKeyword_0());
             		
-            // InternalLggeWhile.g:606:3: ( (lv_expr_1_0= ruleExpr ) )
-            // InternalLggeWhile.g:607:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:632:3: ( (lv_expr_1_0= ruleExpr ) )
+            // InternalLggeWhile.g:633:4: (lv_expr_1_0= ruleExpr )
             {
-            // InternalLggeWhile.g:607:4: (lv_expr_1_0= ruleExpr )
-            // InternalLggeWhile.g:608:5: lv_expr_1_0= ruleExpr
+            // InternalLggeWhile.g:633:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:634:5: lv_expr_1_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getIfCommandAccess().getExprExprParserRuleCall_1_0());
@@ -1535,11 +1618,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getIfCommandAccess().getThenKeyword_2());
             		
-            // InternalLggeWhile.g:629:3: ( (lv_commands_3_0= ruleCommands ) )
-            // InternalLggeWhile.g:630:4: (lv_commands_3_0= ruleCommands )
+            // InternalLggeWhile.g:655:3: ( (lv_commands_3_0= ruleCommands ) )
+            // InternalLggeWhile.g:656:4: (lv_commands_3_0= ruleCommands )
             {
-            // InternalLggeWhile.g:630:4: (lv_commands_3_0= ruleCommands )
-            // InternalLggeWhile.g:631:5: lv_commands_3_0= ruleCommands
+            // InternalLggeWhile.g:656:4: (lv_commands_3_0= ruleCommands )
+            // InternalLggeWhile.g:657:5: lv_commands_3_0= ruleCommands
             {
 
             					newCompositeNode(grammarAccess.getIfCommandAccess().getCommandsCommandsParserRuleCall_3_0());
@@ -1566,7 +1649,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalLggeWhile.g:648:3: (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )?
+            // InternalLggeWhile.g:674:3: (otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) ) )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1575,17 +1658,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalLggeWhile.g:649:4: otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) )
+                    // InternalLggeWhile.g:675:4: otherlv_4= 'else' ( (lv_elsecommands_5_0= ruleCommands ) )
                     {
                     otherlv_4=(Token)match(input,26,FOLLOW_9); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getIfCommandAccess().getElseKeyword_4_0());
                     			
-                    // InternalLggeWhile.g:653:4: ( (lv_elsecommands_5_0= ruleCommands ) )
-                    // InternalLggeWhile.g:654:5: (lv_elsecommands_5_0= ruleCommands )
+                    // InternalLggeWhile.g:679:4: ( (lv_elsecommands_5_0= ruleCommands ) )
+                    // InternalLggeWhile.g:680:5: (lv_elsecommands_5_0= ruleCommands )
                     {
-                    // InternalLggeWhile.g:654:5: (lv_elsecommands_5_0= ruleCommands )
-                    // InternalLggeWhile.g:655:6: lv_elsecommands_5_0= ruleCommands
+                    // InternalLggeWhile.g:680:5: (lv_elsecommands_5_0= ruleCommands )
+                    // InternalLggeWhile.g:681:6: lv_elsecommands_5_0= ruleCommands
                     {
 
                     						newCompositeNode(grammarAccess.getIfCommandAccess().getElsecommandsCommandsParserRuleCall_4_1_0());
@@ -1645,7 +1728,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleForCommand"
-    // InternalLggeWhile.g:681:1: entryRuleForCommand returns [EObject current=null] : iv_ruleForCommand= ruleForCommand EOF ;
+    // InternalLggeWhile.g:707:1: entryRuleForCommand returns [EObject current=null] : iv_ruleForCommand= ruleForCommand EOF ;
     public final EObject entryRuleForCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1653,8 +1736,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:681:51: (iv_ruleForCommand= ruleForCommand EOF )
-            // InternalLggeWhile.g:682:2: iv_ruleForCommand= ruleForCommand EOF
+            // InternalLggeWhile.g:707:51: (iv_ruleForCommand= ruleForCommand EOF )
+            // InternalLggeWhile.g:708:2: iv_ruleForCommand= ruleForCommand EOF
             {
              newCompositeNode(grammarAccess.getForCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -1681,7 +1764,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleForCommand"
-    // InternalLggeWhile.g:688:1: ruleForCommand returns [EObject current=null] : (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' ) ;
+    // InternalLggeWhile.g:714:1: ruleForCommand returns [EObject current=null] : (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' ) ;
     public final EObject ruleForCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1697,21 +1780,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:694:2: ( (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' ) )
-            // InternalLggeWhile.g:695:2: (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' )
+            // InternalLggeWhile.g:720:2: ( (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' ) )
+            // InternalLggeWhile.g:721:2: (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' )
             {
-            // InternalLggeWhile.g:695:2: (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' )
-            // InternalLggeWhile.g:696:3: otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od'
+            // InternalLggeWhile.g:721:2: (otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od' )
+            // InternalLggeWhile.g:722:3: otherlv_0= 'for' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'do' ( (lv_command_3_0= ruleCommands ) ) otherlv_4= 'od'
             {
             otherlv_0=(Token)match(input,28,FOLLOW_13); 
 
             			newLeafNode(otherlv_0, grammarAccess.getForCommandAccess().getForKeyword_0());
             		
-            // InternalLggeWhile.g:700:3: ( (lv_expr_1_0= ruleExpr ) )
-            // InternalLggeWhile.g:701:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:726:3: ( (lv_expr_1_0= ruleExpr ) )
+            // InternalLggeWhile.g:727:4: (lv_expr_1_0= ruleExpr )
             {
-            // InternalLggeWhile.g:701:4: (lv_expr_1_0= ruleExpr )
-            // InternalLggeWhile.g:702:5: lv_expr_1_0= ruleExpr
+            // InternalLggeWhile.g:727:4: (lv_expr_1_0= ruleExpr )
+            // InternalLggeWhile.g:728:5: lv_expr_1_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getForCommandAccess().getExprExprParserRuleCall_1_0());
@@ -1742,11 +1825,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getForCommandAccess().getDoKeyword_2());
             		
-            // InternalLggeWhile.g:723:3: ( (lv_command_3_0= ruleCommands ) )
-            // InternalLggeWhile.g:724:4: (lv_command_3_0= ruleCommands )
+            // InternalLggeWhile.g:749:3: ( (lv_command_3_0= ruleCommands ) )
+            // InternalLggeWhile.g:750:4: (lv_command_3_0= ruleCommands )
             {
-            // InternalLggeWhile.g:724:4: (lv_command_3_0= ruleCommands )
-            // InternalLggeWhile.g:725:5: lv_command_3_0= ruleCommands
+            // InternalLggeWhile.g:750:4: (lv_command_3_0= ruleCommands )
+            // InternalLggeWhile.g:751:5: lv_command_3_0= ruleCommands
             {
 
             					newCompositeNode(grammarAccess.getForCommandAccess().getCommandCommandsParserRuleCall_3_0());
@@ -1800,7 +1883,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAffectCommand"
-    // InternalLggeWhile.g:750:1: entryRuleAffectCommand returns [EObject current=null] : iv_ruleAffectCommand= ruleAffectCommand EOF ;
+    // InternalLggeWhile.g:776:1: entryRuleAffectCommand returns [EObject current=null] : iv_ruleAffectCommand= ruleAffectCommand EOF ;
     public final EObject entryRuleAffectCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1808,8 +1891,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:750:54: (iv_ruleAffectCommand= ruleAffectCommand EOF )
-            // InternalLggeWhile.g:751:2: iv_ruleAffectCommand= ruleAffectCommand EOF
+            // InternalLggeWhile.g:776:54: (iv_ruleAffectCommand= ruleAffectCommand EOF )
+            // InternalLggeWhile.g:777:2: iv_ruleAffectCommand= ruleAffectCommand EOF
             {
              newCompositeNode(grammarAccess.getAffectCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -1836,7 +1919,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAffectCommand"
-    // InternalLggeWhile.g:757:1: ruleAffectCommand returns [EObject current=null] : ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) ) ;
+    // InternalLggeWhile.g:783:1: ruleAffectCommand returns [EObject current=null] : ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) ) ;
     public final EObject ruleAffectCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1850,17 +1933,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:763:2: ( ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) ) )
-            // InternalLggeWhile.g:764:2: ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) )
+            // InternalLggeWhile.g:789:2: ( ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) ) )
+            // InternalLggeWhile.g:790:2: ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) )
             {
-            // InternalLggeWhile.g:764:2: ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) )
-            // InternalLggeWhile.g:765:3: ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) )
+            // InternalLggeWhile.g:790:2: ( ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) ) )
+            // InternalLggeWhile.g:791:3: ( (lv_vars_0_0= ruleVars ) ) otherlv_1= ':=' ( (lv_exprs_2_0= ruleExprs ) )
             {
-            // InternalLggeWhile.g:765:3: ( (lv_vars_0_0= ruleVars ) )
-            // InternalLggeWhile.g:766:4: (lv_vars_0_0= ruleVars )
+            // InternalLggeWhile.g:791:3: ( (lv_vars_0_0= ruleVars ) )
+            // InternalLggeWhile.g:792:4: (lv_vars_0_0= ruleVars )
             {
-            // InternalLggeWhile.g:766:4: (lv_vars_0_0= ruleVars )
-            // InternalLggeWhile.g:767:5: lv_vars_0_0= ruleVars
+            // InternalLggeWhile.g:792:4: (lv_vars_0_0= ruleVars )
+            // InternalLggeWhile.g:793:5: lv_vars_0_0= ruleVars
             {
 
             					newCompositeNode(grammarAccess.getAffectCommandAccess().getVarsVarsParserRuleCall_0_0());
@@ -1891,11 +1974,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getAffectCommandAccess().getColonEqualsSignKeyword_1());
             		
-            // InternalLggeWhile.g:788:3: ( (lv_exprs_2_0= ruleExprs ) )
-            // InternalLggeWhile.g:789:4: (lv_exprs_2_0= ruleExprs )
+            // InternalLggeWhile.g:814:3: ( (lv_exprs_2_0= ruleExprs ) )
+            // InternalLggeWhile.g:815:4: (lv_exprs_2_0= ruleExprs )
             {
-            // InternalLggeWhile.g:789:4: (lv_exprs_2_0= ruleExprs )
-            // InternalLggeWhile.g:790:5: lv_exprs_2_0= ruleExprs
+            // InternalLggeWhile.g:815:4: (lv_exprs_2_0= ruleExprs )
+            // InternalLggeWhile.g:816:5: lv_exprs_2_0= ruleExprs
             {
 
             					newCompositeNode(grammarAccess.getAffectCommandAccess().getExprsExprsParserRuleCall_2_0());
@@ -1945,7 +2028,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleForeachCommand"
-    // InternalLggeWhile.g:811:1: entryRuleForeachCommand returns [EObject current=null] : iv_ruleForeachCommand= ruleForeachCommand EOF ;
+    // InternalLggeWhile.g:837:1: entryRuleForeachCommand returns [EObject current=null] : iv_ruleForeachCommand= ruleForeachCommand EOF ;
     public final EObject entryRuleForeachCommand() throws RecognitionException {
         EObject current = null;
 
@@ -1953,8 +2036,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:811:55: (iv_ruleForeachCommand= ruleForeachCommand EOF )
-            // InternalLggeWhile.g:812:2: iv_ruleForeachCommand= ruleForeachCommand EOF
+            // InternalLggeWhile.g:837:55: (iv_ruleForeachCommand= ruleForeachCommand EOF )
+            // InternalLggeWhile.g:838:2: iv_ruleForeachCommand= ruleForeachCommand EOF
             {
              newCompositeNode(grammarAccess.getForeachCommandRule()); 
             pushFollow(FOLLOW_1);
@@ -1981,7 +2064,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleForeachCommand"
-    // InternalLggeWhile.g:818:1: ruleForeachCommand returns [EObject current=null] : (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' ) ;
+    // InternalLggeWhile.g:844:1: ruleForeachCommand returns [EObject current=null] : (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' ) ;
     public final EObject ruleForeachCommand() throws RecognitionException {
         EObject current = null;
 
@@ -2000,21 +2083,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:824:2: ( (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' ) )
-            // InternalLggeWhile.g:825:2: (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' )
+            // InternalLggeWhile.g:850:2: ( (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' ) )
+            // InternalLggeWhile.g:851:2: (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' )
             {
-            // InternalLggeWhile.g:825:2: (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' )
-            // InternalLggeWhile.g:826:3: otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od'
+            // InternalLggeWhile.g:851:2: (otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od' )
+            // InternalLggeWhile.g:852:3: otherlv_0= 'foreach' ( (lv_vars_1_0= ruleVars ) ) otherlv_2= 'in' ( (lv_expr_3_0= ruleExpr ) ) otherlv_4= 'do' ( (lv_commands_5_0= ruleCommands ) ) otherlv_6= 'od'
             {
             otherlv_0=(Token)match(input,30,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getForeachCommandAccess().getForeachKeyword_0());
             		
-            // InternalLggeWhile.g:830:3: ( (lv_vars_1_0= ruleVars ) )
-            // InternalLggeWhile.g:831:4: (lv_vars_1_0= ruleVars )
+            // InternalLggeWhile.g:856:3: ( (lv_vars_1_0= ruleVars ) )
+            // InternalLggeWhile.g:857:4: (lv_vars_1_0= ruleVars )
             {
-            // InternalLggeWhile.g:831:4: (lv_vars_1_0= ruleVars )
-            // InternalLggeWhile.g:832:5: lv_vars_1_0= ruleVars
+            // InternalLggeWhile.g:857:4: (lv_vars_1_0= ruleVars )
+            // InternalLggeWhile.g:858:5: lv_vars_1_0= ruleVars
             {
 
             					newCompositeNode(grammarAccess.getForeachCommandAccess().getVarsVarsParserRuleCall_1_0());
@@ -2045,11 +2128,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getForeachCommandAccess().getInKeyword_2());
             		
-            // InternalLggeWhile.g:853:3: ( (lv_expr_3_0= ruleExpr ) )
-            // InternalLggeWhile.g:854:4: (lv_expr_3_0= ruleExpr )
+            // InternalLggeWhile.g:879:3: ( (lv_expr_3_0= ruleExpr ) )
+            // InternalLggeWhile.g:880:4: (lv_expr_3_0= ruleExpr )
             {
-            // InternalLggeWhile.g:854:4: (lv_expr_3_0= ruleExpr )
-            // InternalLggeWhile.g:855:5: lv_expr_3_0= ruleExpr
+            // InternalLggeWhile.g:880:4: (lv_expr_3_0= ruleExpr )
+            // InternalLggeWhile.g:881:5: lv_expr_3_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getForeachCommandAccess().getExprExprParserRuleCall_3_0());
@@ -2080,11 +2163,11 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getForeachCommandAccess().getDoKeyword_4());
             		
-            // InternalLggeWhile.g:876:3: ( (lv_commands_5_0= ruleCommands ) )
-            // InternalLggeWhile.g:877:4: (lv_commands_5_0= ruleCommands )
+            // InternalLggeWhile.g:902:3: ( (lv_commands_5_0= ruleCommands ) )
+            // InternalLggeWhile.g:903:4: (lv_commands_5_0= ruleCommands )
             {
-            // InternalLggeWhile.g:877:4: (lv_commands_5_0= ruleCommands )
-            // InternalLggeWhile.g:878:5: lv_commands_5_0= ruleCommands
+            // InternalLggeWhile.g:903:4: (lv_commands_5_0= ruleCommands )
+            // InternalLggeWhile.g:904:5: lv_commands_5_0= ruleCommands
             {
 
             					newCompositeNode(grammarAccess.getForeachCommandAccess().getCommandsCommandsParserRuleCall_5_0());
@@ -2138,7 +2221,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExprs"
-    // InternalLggeWhile.g:903:1: entryRuleExprs returns [EObject current=null] : iv_ruleExprs= ruleExprs EOF ;
+    // InternalLggeWhile.g:929:1: entryRuleExprs returns [EObject current=null] : iv_ruleExprs= ruleExprs EOF ;
     public final EObject entryRuleExprs() throws RecognitionException {
         EObject current = null;
 
@@ -2146,8 +2229,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:903:46: (iv_ruleExprs= ruleExprs EOF )
-            // InternalLggeWhile.g:904:2: iv_ruleExprs= ruleExprs EOF
+            // InternalLggeWhile.g:929:46: (iv_ruleExprs= ruleExprs EOF )
+            // InternalLggeWhile.g:930:2: iv_ruleExprs= ruleExprs EOF
             {
              newCompositeNode(grammarAccess.getExprsRule()); 
             pushFollow(FOLLOW_1);
@@ -2174,7 +2257,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExprs"
-    // InternalLggeWhile.g:910:1: ruleExprs returns [EObject current=null] : ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* ) ;
+    // InternalLggeWhile.g:936:1: ruleExprs returns [EObject current=null] : ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* ) ;
     public final EObject ruleExprs() throws RecognitionException {
         EObject current = null;
 
@@ -2188,17 +2271,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:916:2: ( ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* ) )
-            // InternalLggeWhile.g:917:2: ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* )
+            // InternalLggeWhile.g:942:2: ( ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* ) )
+            // InternalLggeWhile.g:943:2: ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* )
             {
-            // InternalLggeWhile.g:917:2: ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* )
-            // InternalLggeWhile.g:918:3: ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )*
+            // InternalLggeWhile.g:943:2: ( ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )* )
+            // InternalLggeWhile.g:944:3: ( (lv_expr_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )*
             {
-            // InternalLggeWhile.g:918:3: ( (lv_expr_0_0= ruleExpr ) )
-            // InternalLggeWhile.g:919:4: (lv_expr_0_0= ruleExpr )
+            // InternalLggeWhile.g:944:3: ( (lv_expr_0_0= ruleExpr ) )
+            // InternalLggeWhile.g:945:4: (lv_expr_0_0= ruleExpr )
             {
-            // InternalLggeWhile.g:919:4: (lv_expr_0_0= ruleExpr )
-            // InternalLggeWhile.g:920:5: lv_expr_0_0= ruleExpr
+            // InternalLggeWhile.g:945:4: (lv_expr_0_0= ruleExpr )
+            // InternalLggeWhile.g:946:5: lv_expr_0_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getExprsAccess().getExprExprParserRuleCall_0_0());
@@ -2225,7 +2308,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalLggeWhile.g:937:3: (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )*
+            // InternalLggeWhile.g:963:3: (otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) ) )*
             loop7:
             do {
                 int alt7=2;
@@ -2238,17 +2321,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalLggeWhile.g:938:4: otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) )
+            	    // InternalLggeWhile.g:964:4: otherlv_1= ',' ( (lv_expr_2_0= ruleExpr ) )
             	    {
             	    otherlv_1=(Token)match(input,18,FOLLOW_13); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getExprsAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalLggeWhile.g:942:4: ( (lv_expr_2_0= ruleExpr ) )
-            	    // InternalLggeWhile.g:943:5: (lv_expr_2_0= ruleExpr )
+            	    // InternalLggeWhile.g:968:4: ( (lv_expr_2_0= ruleExpr ) )
+            	    // InternalLggeWhile.g:969:5: (lv_expr_2_0= ruleExpr )
             	    {
-            	    // InternalLggeWhile.g:943:5: (lv_expr_2_0= ruleExpr )
-            	    // InternalLggeWhile.g:944:6: lv_expr_2_0= ruleExpr
+            	    // InternalLggeWhile.g:969:5: (lv_expr_2_0= ruleExpr )
+            	    // InternalLggeWhile.g:970:6: lv_expr_2_0= ruleExpr
             	    {
 
             	    						newCompositeNode(grammarAccess.getExprsAccess().getExprExprParserRuleCall_1_1_0());
@@ -2307,7 +2390,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVars"
-    // InternalLggeWhile.g:966:1: entryRuleVars returns [EObject current=null] : iv_ruleVars= ruleVars EOF ;
+    // InternalLggeWhile.g:992:1: entryRuleVars returns [EObject current=null] : iv_ruleVars= ruleVars EOF ;
     public final EObject entryRuleVars() throws RecognitionException {
         EObject current = null;
 
@@ -2315,8 +2398,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:966:45: (iv_ruleVars= ruleVars EOF )
-            // InternalLggeWhile.g:967:2: iv_ruleVars= ruleVars EOF
+            // InternalLggeWhile.g:992:45: (iv_ruleVars= ruleVars EOF )
+            // InternalLggeWhile.g:993:2: iv_ruleVars= ruleVars EOF
             {
              newCompositeNode(grammarAccess.getVarsRule()); 
             pushFollow(FOLLOW_1);
@@ -2343,33 +2426,33 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVars"
-    // InternalLggeWhile.g:973:1: ruleVars returns [EObject current=null] : ( ( (lv_var_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )* ) ;
+    // InternalLggeWhile.g:999:1: ruleVars returns [EObject current=null] : ( ( (lv_vari_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )* ) ;
     public final EObject ruleVars() throws RecognitionException {
         EObject current = null;
 
-        Token lv_var_0_0=null;
+        Token lv_vari_0_0=null;
         Token otherlv_1=null;
-        Token lv_var_2_0=null;
+        Token lv_vari_2_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:979:2: ( ( ( (lv_var_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )* ) )
-            // InternalLggeWhile.g:980:2: ( ( (lv_var_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )* )
+            // InternalLggeWhile.g:1005:2: ( ( ( (lv_vari_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )* ) )
+            // InternalLggeWhile.g:1006:2: ( ( (lv_vari_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )* )
             {
-            // InternalLggeWhile.g:980:2: ( ( (lv_var_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )* )
-            // InternalLggeWhile.g:981:3: ( (lv_var_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )*
+            // InternalLggeWhile.g:1006:2: ( ( (lv_vari_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )* )
+            // InternalLggeWhile.g:1007:3: ( (lv_vari_0_0= RULE_VARIABLE ) ) (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )*
             {
-            // InternalLggeWhile.g:981:3: ( (lv_var_0_0= RULE_VARIABLE ) )
-            // InternalLggeWhile.g:982:4: (lv_var_0_0= RULE_VARIABLE )
+            // InternalLggeWhile.g:1007:3: ( (lv_vari_0_0= RULE_VARIABLE ) )
+            // InternalLggeWhile.g:1008:4: (lv_vari_0_0= RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:982:4: (lv_var_0_0= RULE_VARIABLE )
-            // InternalLggeWhile.g:983:5: lv_var_0_0= RULE_VARIABLE
+            // InternalLggeWhile.g:1008:4: (lv_vari_0_0= RULE_VARIABLE )
+            // InternalLggeWhile.g:1009:5: lv_vari_0_0= RULE_VARIABLE
             {
-            lv_var_0_0=(Token)match(input,RULE_VARIABLE,FOLLOW_11); 
+            lv_vari_0_0=(Token)match(input,RULE_VARIABLE,FOLLOW_11); 
 
-            					newLeafNode(lv_var_0_0, grammarAccess.getVarsAccess().getVarVARIABLETerminalRuleCall_0_0());
+            					newLeafNode(lv_vari_0_0, grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_0_0());
             				
 
             					if (current==null) {
@@ -2377,8 +2460,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
             					}
             					addWithLastConsumed(
             						current,
-            						"var",
-            						lv_var_0_0,
+            						"vari",
+            						lv_vari_0_0,
             						"org.xtext.LggeWhile.VARIABLE");
             				
 
@@ -2387,7 +2470,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalLggeWhile.g:999:3: (otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) ) )*
+            // InternalLggeWhile.g:1025:3: (otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -2400,21 +2483,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalLggeWhile.g:1000:4: otherlv_1= ',' ( (lv_var_2_0= RULE_VARIABLE ) )
+            	    // InternalLggeWhile.g:1026:4: otherlv_1= ',' ( (lv_vari_2_0= RULE_VARIABLE ) )
             	    {
             	    otherlv_1=(Token)match(input,18,FOLLOW_7); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getVarsAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalLggeWhile.g:1004:4: ( (lv_var_2_0= RULE_VARIABLE ) )
-            	    // InternalLggeWhile.g:1005:5: (lv_var_2_0= RULE_VARIABLE )
+            	    // InternalLggeWhile.g:1030:4: ( (lv_vari_2_0= RULE_VARIABLE ) )
+            	    // InternalLggeWhile.g:1031:5: (lv_vari_2_0= RULE_VARIABLE )
             	    {
-            	    // InternalLggeWhile.g:1005:5: (lv_var_2_0= RULE_VARIABLE )
-            	    // InternalLggeWhile.g:1006:6: lv_var_2_0= RULE_VARIABLE
+            	    // InternalLggeWhile.g:1031:5: (lv_vari_2_0= RULE_VARIABLE )
+            	    // InternalLggeWhile.g:1032:6: lv_vari_2_0= RULE_VARIABLE
             	    {
-            	    lv_var_2_0=(Token)match(input,RULE_VARIABLE,FOLLOW_11); 
+            	    lv_vari_2_0=(Token)match(input,RULE_VARIABLE,FOLLOW_11); 
 
-            	    						newLeafNode(lv_var_2_0, grammarAccess.getVarsAccess().getVarVARIABLETerminalRuleCall_1_1_0());
+            	    						newLeafNode(lv_vari_2_0, grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_1_1_0());
             	    					
 
             	    						if (current==null) {
@@ -2422,8 +2505,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
             	    						}
             	    						addWithLastConsumed(
             	    							current,
-            	    							"var",
-            	    							lv_var_2_0,
+            	    							"vari",
+            	    							lv_vari_2_0,
             	    							"org.xtext.LggeWhile.VARIABLE");
             	    					
 
@@ -2464,7 +2547,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExpr"
-    // InternalLggeWhile.g:1027:1: entryRuleExpr returns [EObject current=null] : iv_ruleExpr= ruleExpr EOF ;
+    // InternalLggeWhile.g:1053:1: entryRuleExpr returns [EObject current=null] : iv_ruleExpr= ruleExpr EOF ;
     public final EObject entryRuleExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2472,8 +2555,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:1027:45: (iv_ruleExpr= ruleExpr EOF )
-            // InternalLggeWhile.g:1028:2: iv_ruleExpr= ruleExpr EOF
+            // InternalLggeWhile.g:1053:45: (iv_ruleExpr= ruleExpr EOF )
+            // InternalLggeWhile.g:1054:2: iv_ruleExpr= ruleExpr EOF
             {
              newCompositeNode(grammarAccess.getExprRule()); 
             pushFollow(FOLLOW_1);
@@ -2500,7 +2583,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpr"
-    // InternalLggeWhile.g:1034:1: ruleExpr returns [EObject current=null] : ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* ) ;
+    // InternalLggeWhile.g:1060:1: ruleExpr returns [EObject current=null] : ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* ) ;
     public final EObject ruleExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2514,17 +2597,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:1040:2: ( ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* ) )
-            // InternalLggeWhile.g:1041:2: ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* )
+            // InternalLggeWhile.g:1066:2: ( ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* ) )
+            // InternalLggeWhile.g:1067:2: ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* )
             {
-            // InternalLggeWhile.g:1041:2: ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* )
-            // InternalLggeWhile.g:1042:3: ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )*
+            // InternalLggeWhile.g:1067:2: ( ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )* )
+            // InternalLggeWhile.g:1068:3: ( (lv_exprbase_0_0= ruleExprBase ) ) (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )*
             {
-            // InternalLggeWhile.g:1042:3: ( (lv_exprbase_0_0= ruleExprBase ) )
-            // InternalLggeWhile.g:1043:4: (lv_exprbase_0_0= ruleExprBase )
+            // InternalLggeWhile.g:1068:3: ( (lv_exprbase_0_0= ruleExprBase ) )
+            // InternalLggeWhile.g:1069:4: (lv_exprbase_0_0= ruleExprBase )
             {
-            // InternalLggeWhile.g:1043:4: (lv_exprbase_0_0= ruleExprBase )
-            // InternalLggeWhile.g:1044:5: lv_exprbase_0_0= ruleExprBase
+            // InternalLggeWhile.g:1069:4: (lv_exprbase_0_0= ruleExprBase )
+            // InternalLggeWhile.g:1070:5: lv_exprbase_0_0= ruleExprBase
             {
 
             					newCompositeNode(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0_0());
@@ -2551,7 +2634,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalLggeWhile.g:1061:3: (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )*
+            // InternalLggeWhile.g:1087:3: (otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -2564,17 +2647,17 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalLggeWhile.g:1062:4: otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) )
+            	    // InternalLggeWhile.g:1088:4: otherlv_1= '=?' ( (lv_exprbase_2_0= ruleExprBase ) )
             	    {
             	    otherlv_1=(Token)match(input,32,FOLLOW_13); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getExprAccess().getEqualsSignQuestionMarkKeyword_1_0());
             	    			
-            	    // InternalLggeWhile.g:1066:4: ( (lv_exprbase_2_0= ruleExprBase ) )
-            	    // InternalLggeWhile.g:1067:5: (lv_exprbase_2_0= ruleExprBase )
+            	    // InternalLggeWhile.g:1092:4: ( (lv_exprbase_2_0= ruleExprBase ) )
+            	    // InternalLggeWhile.g:1093:5: (lv_exprbase_2_0= ruleExprBase )
             	    {
-            	    // InternalLggeWhile.g:1067:5: (lv_exprbase_2_0= ruleExprBase )
-            	    // InternalLggeWhile.g:1068:6: lv_exprbase_2_0= ruleExprBase
+            	    // InternalLggeWhile.g:1093:5: (lv_exprbase_2_0= ruleExprBase )
+            	    // InternalLggeWhile.g:1094:6: lv_exprbase_2_0= ruleExprBase
             	    {
 
             	    						newCompositeNode(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_1_1_0());
@@ -2633,7 +2716,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLExpr"
-    // InternalLggeWhile.g:1090:1: entryRuleLExpr returns [EObject current=null] : iv_ruleLExpr= ruleLExpr EOF ;
+    // InternalLggeWhile.g:1116:1: entryRuleLExpr returns [EObject current=null] : iv_ruleLExpr= ruleLExpr EOF ;
     public final EObject entryRuleLExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2641,8 +2724,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:1090:46: (iv_ruleLExpr= ruleLExpr EOF )
-            // InternalLggeWhile.g:1091:2: iv_ruleLExpr= ruleLExpr EOF
+            // InternalLggeWhile.g:1116:46: (iv_ruleLExpr= ruleLExpr EOF )
+            // InternalLggeWhile.g:1117:2: iv_ruleLExpr= ruleLExpr EOF
             {
              newCompositeNode(grammarAccess.getLExprRule()); 
             pushFollow(FOLLOW_1);
@@ -2669,7 +2752,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLExpr"
-    // InternalLggeWhile.g:1097:1: ruleLExpr returns [EObject current=null] : ( (lv_expr_0_0= ruleExpr ) )+ ;
+    // InternalLggeWhile.g:1123:1: ruleLExpr returns [EObject current=null] : ( (lv_expr_0_0= ruleExpr ) )+ ;
     public final EObject ruleLExpr() throws RecognitionException {
         EObject current = null;
 
@@ -2680,10 +2763,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:1103:2: ( ( (lv_expr_0_0= ruleExpr ) )+ )
-            // InternalLggeWhile.g:1104:2: ( (lv_expr_0_0= ruleExpr ) )+
+            // InternalLggeWhile.g:1129:2: ( ( (lv_expr_0_0= ruleExpr ) )+ )
+            // InternalLggeWhile.g:1130:2: ( (lv_expr_0_0= ruleExpr ) )+
             {
-            // InternalLggeWhile.g:1104:2: ( (lv_expr_0_0= ruleExpr ) )+
+            // InternalLggeWhile.g:1130:2: ( (lv_expr_0_0= ruleExpr ) )+
             int cnt10=0;
             loop10:
             do {
@@ -2697,10 +2780,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalLggeWhile.g:1105:3: (lv_expr_0_0= ruleExpr )
+            	    // InternalLggeWhile.g:1131:3: (lv_expr_0_0= ruleExpr )
             	    {
-            	    // InternalLggeWhile.g:1105:3: (lv_expr_0_0= ruleExpr )
-            	    // InternalLggeWhile.g:1106:4: lv_expr_0_0= ruleExpr
+            	    // InternalLggeWhile.g:1131:3: (lv_expr_0_0= ruleExpr )
+            	    // InternalLggeWhile.g:1132:4: lv_expr_0_0= ruleExpr
             	    {
 
             	    				newCompositeNode(grammarAccess.getLExprAccess().getExprExprParserRuleCall_0());
@@ -2757,7 +2840,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExprBase"
-    // InternalLggeWhile.g:1126:1: entryRuleExprBase returns [EObject current=null] : iv_ruleExprBase= ruleExprBase EOF ;
+    // InternalLggeWhile.g:1152:1: entryRuleExprBase returns [EObject current=null] : iv_ruleExprBase= ruleExprBase EOF ;
     public final EObject entryRuleExprBase() throws RecognitionException {
         EObject current = null;
 
@@ -2765,8 +2848,8 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalLggeWhile.g:1126:49: (iv_ruleExprBase= ruleExprBase EOF )
-            // InternalLggeWhile.g:1127:2: iv_ruleExprBase= ruleExprBase EOF
+            // InternalLggeWhile.g:1152:49: (iv_ruleExprBase= ruleExprBase EOF )
+            // InternalLggeWhile.g:1153:2: iv_ruleExprBase= ruleExprBase EOF
             {
              newCompositeNode(grammarAccess.getExprBaseRule()); 
             pushFollow(FOLLOW_1);
@@ -2793,7 +2876,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExprBase"
-    // InternalLggeWhile.g:1133:1: ruleExprBase returns [EObject current=null] : ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) ) ;
+    // InternalLggeWhile.g:1159:1: ruleExprBase returns [EObject current=null] : ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) ) ;
     public final EObject ruleExprBase() throws RecognitionException {
         EObject current = null;
 
@@ -2830,21 +2913,21 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalLggeWhile.g:1139:2: ( ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) ) )
-            // InternalLggeWhile.g:1140:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )
+            // InternalLggeWhile.g:1165:2: ( ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) ) )
+            // InternalLggeWhile.g:1166:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )
             {
-            // InternalLggeWhile.g:1140:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )
+            // InternalLggeWhile.g:1166:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )
             int alt11=8;
             alt11 = dfa11.predict(input);
             switch (alt11) {
                 case 1 :
-                    // InternalLggeWhile.g:1141:3: ( () otherlv_1= 'nil' )
+                    // InternalLggeWhile.g:1167:3: ( () otherlv_1= 'nil' )
                     {
-                    // InternalLggeWhile.g:1141:3: ( () otherlv_1= 'nil' )
-                    // InternalLggeWhile.g:1142:4: () otherlv_1= 'nil'
+                    // InternalLggeWhile.g:1167:3: ( () otherlv_1= 'nil' )
+                    // InternalLggeWhile.g:1168:4: () otherlv_1= 'nil'
                     {
-                    // InternalLggeWhile.g:1142:4: ()
-                    // InternalLggeWhile.g:1143:5: 
+                    // InternalLggeWhile.g:1168:4: ()
+                    // InternalLggeWhile.g:1169:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -2865,13 +2948,13 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalLggeWhile.g:1155:3: ( () this_VARIABLE_3= RULE_VARIABLE )
+                    // InternalLggeWhile.g:1181:3: ( () this_VARIABLE_3= RULE_VARIABLE )
                     {
-                    // InternalLggeWhile.g:1155:3: ( () this_VARIABLE_3= RULE_VARIABLE )
-                    // InternalLggeWhile.g:1156:4: () this_VARIABLE_3= RULE_VARIABLE
+                    // InternalLggeWhile.g:1181:3: ( () this_VARIABLE_3= RULE_VARIABLE )
+                    // InternalLggeWhile.g:1182:4: () this_VARIABLE_3= RULE_VARIABLE
                     {
-                    // InternalLggeWhile.g:1156:4: ()
-                    // InternalLggeWhile.g:1157:5: 
+                    // InternalLggeWhile.g:1182:4: ()
+                    // InternalLggeWhile.g:1183:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -2892,13 +2975,13 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalLggeWhile.g:1169:3: ( () this_SYMBOL_5= RULE_SYMBOL )
+                    // InternalLggeWhile.g:1195:3: ( () this_SYMBOL_5= RULE_SYMBOL )
                     {
-                    // InternalLggeWhile.g:1169:3: ( () this_SYMBOL_5= RULE_SYMBOL )
-                    // InternalLggeWhile.g:1170:4: () this_SYMBOL_5= RULE_SYMBOL
+                    // InternalLggeWhile.g:1195:3: ( () this_SYMBOL_5= RULE_SYMBOL )
+                    // InternalLggeWhile.g:1196:4: () this_SYMBOL_5= RULE_SYMBOL
                     {
-                    // InternalLggeWhile.g:1170:4: ()
-                    // InternalLggeWhile.g:1171:5: 
+                    // InternalLggeWhile.g:1196:4: ()
+                    // InternalLggeWhile.g:1197:5: 
                     {
 
                     					current = forceCreateModelElement(
@@ -2919,10 +3002,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalLggeWhile.g:1183:3: (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' )
+                    // InternalLggeWhile.g:1209:3: (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' )
                     {
-                    // InternalLggeWhile.g:1183:3: (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' )
-                    // InternalLggeWhile.g:1184:4: otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')'
+                    // InternalLggeWhile.g:1209:3: (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' )
+                    // InternalLggeWhile.g:1210:4: otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')'
                     {
                     otherlv_6=(Token)match(input,34,FOLLOW_23); 
 
@@ -2955,10 +3038,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalLggeWhile.g:1206:3: (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' )
+                    // InternalLggeWhile.g:1232:3: (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' )
                     {
-                    // InternalLggeWhile.g:1206:3: (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' )
-                    // InternalLggeWhile.g:1207:4: otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')'
+                    // InternalLggeWhile.g:1232:3: (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' )
+                    // InternalLggeWhile.g:1233:4: otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')'
                     {
                     otherlv_10=(Token)match(input,34,FOLLOW_25); 
 
@@ -2991,10 +3074,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalLggeWhile.g:1229:3: (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' )
+                    // InternalLggeWhile.g:1255:3: (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' )
                     {
-                    // InternalLggeWhile.g:1229:3: (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' )
-                    // InternalLggeWhile.g:1230:4: otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')'
+                    // InternalLggeWhile.g:1255:3: (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' )
+                    // InternalLggeWhile.g:1256:4: otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')'
                     {
                     otherlv_14=(Token)match(input,34,FOLLOW_26); 
 
@@ -3027,10 +3110,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalLggeWhile.g:1252:3: (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' )
+                    // InternalLggeWhile.g:1278:3: (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' )
                     {
-                    // InternalLggeWhile.g:1252:3: (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' )
-                    // InternalLggeWhile.g:1253:4: otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')'
+                    // InternalLggeWhile.g:1278:3: (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' )
+                    // InternalLggeWhile.g:1279:4: otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')'
                     {
                     otherlv_18=(Token)match(input,34,FOLLOW_27); 
 
@@ -3063,10 +3146,10 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalLggeWhile.g:1275:3: (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' )
+                    // InternalLggeWhile.g:1301:3: (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' )
                     {
-                    // InternalLggeWhile.g:1275:3: (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' )
-                    // InternalLggeWhile.g:1276:4: otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')'
+                    // InternalLggeWhile.g:1301:3: (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' )
+                    // InternalLggeWhile.g:1302:4: otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')'
                     {
                     otherlv_22=(Token)match(input,34,FOLLOW_4); 
 
@@ -3126,14 +3209,14 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
     static final String dfa_1s = "\12\uffff";
     static final String dfa_2s = "\1\4\3\uffff\1\4\5\uffff";
     static final String dfa_3s = "\1\42\3\uffff\1\47\5\uffff";
-    static final String dfa_4s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\7\1\4\1\10\1\5\1\6";
+    static final String dfa_4s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\6\1\7\1\4\1\10\1\5";
     static final String dfa_5s = "\12\uffff}>";
     static final String[] dfa_6s = {
             "\1\3\1\2\33\uffff\1\1\1\4",
             "",
             "",
             "",
-            "\1\7\36\uffff\1\6\1\uffff\1\10\1\11\1\5",
+            "\1\10\36\uffff\1\7\1\uffff\1\11\1\5\1\6",
             "",
             "",
             "",
@@ -3162,7 +3245,7 @@ public class InternalLggeWhileParser extends AbstractInternalAntlrParser {
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "1140:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )";
+            return "1166:2: ( ( () otherlv_1= 'nil' ) | ( () this_VARIABLE_3= RULE_VARIABLE ) | ( () this_SYMBOL_5= RULE_SYMBOL ) | (otherlv_6= '(' otherlv_7= 'cons' this_LExpr_8= ruleLExpr otherlv_9= ')' ) | (otherlv_10= '(' otherlv_11= 'list' this_LExpr_12= ruleLExpr otherlv_13= ')' ) | (otherlv_14= '(' otherlv_15= 'hd' this_Expr_16= ruleExpr otherlv_17= ')' ) | (otherlv_18= '(' otherlv_19= 'tl' this_Expr_20= ruleExpr otherlv_21= ')' ) | (otherlv_22= '(' this_SYMBOL_23= RULE_SYMBOL this_LExpr_24= ruleLExpr otherlv_25= ')' ) )";
         }
     }
  

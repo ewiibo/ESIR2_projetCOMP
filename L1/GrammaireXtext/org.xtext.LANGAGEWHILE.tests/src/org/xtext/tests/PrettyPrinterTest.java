@@ -19,25 +19,9 @@ public class PrettyPrinterTest {
 	//source, dest, all, for, if , while , affect , foreach
 	@Test
 	public void function1() {
-		String args[] = {"function1.wh","function1.wh","1","0","0","0","2","0"};
-		generiqueTest(args);
-	}
-	
-	@Test
-	public void function2() {
-		String args[] = {"function2.wh","function1.wh","1","0","0","0","2","0"};
-		generiqueTest(args);
-	}
-	
-	@Test
-	public void function3() {
-		String args[] = {"function3.wh","function1.wh","1","0","0","0","2","0"};
-		generiqueTest(args);
-	}
-	
-	@Test
-	public void function4() {
-		String args[] = {"function4.wh","function1.wh","1","0","0","0","2","0"};
+		String source = dossierOriginaux+ "function1.wh";
+		String dest = dossierResultat + "function1.wh";
+		String args[] = {source,dest,"1","0","0","0","2","0"};
 		generiqueTest(args);
 	}
 	
@@ -49,12 +33,12 @@ public class PrettyPrinterTest {
 	
 	public void generiqueTest(String [] args) {
 		// existance des fichiers
-		File original = new File(dossierOriginaux+args[0]);
+		File original = new File(args[0]);
 		assertTrue("Le fichier original : "+ original.getName() + " n'existe pas",original.exists());
-		//String[ ] params = genParam(args);
+		
 		Main.main(genParam(args));
 		
-		File resultat = new File(dossierResultat+args[1]);
+		File resultat = new File(args[1]);
 		
 		assertTrue("Le fichier resultat : "+ resultat.getName() + " n'existe pas", resultat.exists());
 		File attendu  = new File(dossierAttendus + args[1]);

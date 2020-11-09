@@ -72,6 +72,7 @@ public class LggeWhileFactoryImpl extends EFactoryImpl implements LggeWhileFacto
       case LggeWhilePackage.OUTPUT: return createOutput();
       case LggeWhilePackage.COMMANDS: return createCommands();
       case LggeWhilePackage.COMMAND: return createCommand();
+      case LggeWhilePackage.NOP_COMMAND: return createNopCommand();
       case LggeWhilePackage.WHILE_COMMAND: return createWhileCommand();
       case LggeWhilePackage.IF_COMMAND: return createIfCommand();
       case LggeWhilePackage.FOR_COMMAND: return createForCommand();
@@ -169,6 +170,18 @@ public class LggeWhileFactoryImpl extends EFactoryImpl implements LggeWhileFacto
   {
     CommandImpl command = new CommandImpl();
     return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NopCommand createNopCommand()
+  {
+    NopCommandImpl nopCommand = new NopCommandImpl();
+    return nopCommand;
   }
 
   /**

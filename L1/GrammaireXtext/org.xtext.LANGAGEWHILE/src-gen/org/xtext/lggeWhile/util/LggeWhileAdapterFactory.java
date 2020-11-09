@@ -111,6 +111,11 @@ public class LggeWhileAdapterFactory extends AdapterFactoryImpl
         return createCommandAdapter();
       }
       @Override
+      public Adapter caseNopCommand(NopCommand object)
+      {
+        return createNopCommandAdapter();
+      }
+      @Override
       public Adapter caseWhileCommand(WhileCommand object)
       {
         return createWhileCommandAdapter();
@@ -283,6 +288,21 @@ public class LggeWhileAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.lggeWhile.NopCommand <em>Nop Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.lggeWhile.NopCommand
+   * @generated
+   */
+  public Adapter createNopCommandAdapter()
   {
     return null;
   }

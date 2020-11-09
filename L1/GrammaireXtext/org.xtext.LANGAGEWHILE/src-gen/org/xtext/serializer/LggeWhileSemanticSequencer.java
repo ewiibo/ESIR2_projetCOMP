@@ -15,7 +15,6 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.lggeWhile.AffectCommand;
-import org.xtext.lggeWhile.Command;
 import org.xtext.lggeWhile.Commands;
 import org.xtext.lggeWhile.Definition;
 import org.xtext.lggeWhile.Expr;
@@ -28,6 +27,7 @@ import org.xtext.lggeWhile.IfCommand;
 import org.xtext.lggeWhile.Input;
 import org.xtext.lggeWhile.LExpr;
 import org.xtext.lggeWhile.LggeWhilePackage;
+import org.xtext.lggeWhile.NopCommand;
 import org.xtext.lggeWhile.Output;
 import org.xtext.lggeWhile.Program;
 import org.xtext.lggeWhile.Vars;
@@ -50,9 +50,6 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 			switch (semanticObject.eClass().getClassifierID()) {
 			case LggeWhilePackage.AFFECT_COMMAND:
 				sequence_AffectCommand(context, (AffectCommand) semanticObject); 
-				return; 
-			case LggeWhilePackage.COMMAND:
-				sequence_Command(context, (Command) semanticObject); 
 				return; 
 			case LggeWhilePackage.COMMANDS:
 				sequence_Commands(context, (Commands) semanticObject); 
@@ -86,6 +83,9 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case LggeWhilePackage.LEXPR:
 				sequence_LExpr(context, (LExpr) semanticObject); 
+				return; 
+			case LggeWhilePackage.NOP_COMMAND:
+				sequence_NopCommand(context, (NopCommand) semanticObject); 
 				return; 
 			case LggeWhilePackage.OUTPUT:
 				sequence_Output(context, (Output) semanticObject); 
@@ -123,18 +123,6 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 		feeder.accept(grammarAccess.getAffectCommandAccess().getVarsVarsParserRuleCall_0_0(), semanticObject.getVars());
 		feeder.accept(grammarAccess.getAffectCommandAccess().getExprsExprsParserRuleCall_2_0(), semanticObject.getExprs());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Command returns Command
-	 *
-	 * Constraint:
-	 *     {Command}
-	 */
-	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -319,6 +307,25 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Command returns NopCommand
+	 *     NopCommand returns NopCommand
+	 *
+	 * Constraint:
+	 *     expr='nop'
+	 */
+	protected void sequence_NopCommand(ISerializationContext context, NopCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, LggeWhilePackage.Literals.NOP_COMMAND__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LggeWhilePackage.Literals.NOP_COMMAND__EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNopCommandAccess().getExprNopKeyword_0(), semanticObject.getExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Output returns Output
 	 *
 	 * Constraint:
@@ -346,7 +353,7 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Vars returns Vars
 	 *
 	 * Constraint:
-	 *     (var+=VARIABLE var+=VARIABLE*)
+	 *     (vari+=VARIABLE vari+=VARIABLE*)
 	 */
 	protected void sequence_Vars(ISerializationContext context, Vars semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

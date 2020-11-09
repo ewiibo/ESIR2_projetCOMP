@@ -1,4 +1,5 @@
-function f2 : read Var1, Var2, Var3
+function f2 :
+read Var1, Var2, Var3
 %
     nop
 %

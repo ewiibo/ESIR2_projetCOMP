@@ -1,0 +1,153 @@
+function f3:
+read V1, V2
+%
+  while org.xtext.lggeWhile.impl.ExprImpl@ec2bf82 do
+    while org.xtext.lggeWhile.impl.ExprImpl@1edb61b1 do
+      while org.xtext.lggeWhile.impl.ExprImpl@1a6f5124 do
+        while org.xtext.lggeWhile.impl.ExprImpl@5528a42c do
+          nop
+        od
+      od
+    od
+  od;
+
+  while org.xtext.lggeWhile.impl.ExprImpl@29539e36 do
+    while org.xtext.lggeWhile.impl.ExprImpl@cc62a3b do
+      nop
+    od;
+
+    while org.xtext.lggeWhile.impl.ExprImpl@6cc0bcf6 do
+      nop
+    od
+  od;
+
+  while org.xtext.lggeWhile.impl.ExprImpl@3dddbe65 do
+    while org.xtext.lggeWhile.impl.ExprImpl@51a06cbe do
+      if org.xtext.lggeWhile.impl.ExprImpl@5305c37d then
+        if org.xtext.lggeWhile.impl.ExprImpl@f5c79a6 then
+          if org.xtext.lggeWhile.impl.ExprImpl@32f61a31 then
+            nop
+          fi
+        fi
+        while org.xtext.lggeWhile.impl.ExprImpl@669253b7 do
+          nop
+        od
+      fi
+    od
+  od;
+
+  if org.xtext.lggeWhile.impl.ExprImpl@49a64d82 then
+    nop
+  fi;
+
+  if org.xtext.lggeWhile.impl.ExprImpl@66d23e4a then
+    if org.xtext.lggeWhile.impl.ExprImpl@344561e0 then
+      nop
+    fi
+  fi;
+
+  if org.xtext.lggeWhile.impl.ExprImpl@251f7d26 then
+    if org.xtext.lggeWhile.impl.ExprImpl@52c8295b then
+      if org.xtext.lggeWhile.impl.ExprImpl@4d9d1b69 then
+        if org.xtext.lggeWhile.impl.ExprImpl@36ac8a63 then
+          nop
+        fi
+      fi
+    fi
+  fi;
+
+  if org.xtext.lggeWhile.impl.ExprImpl@503d56b5 then
+    if org.xtext.lggeWhile.impl.ExprImpl@324dcd31 then
+      if org.xtext.lggeWhile.impl.ExprImpl@39c11e6c then
+        if org.xtext.lggeWhile.impl.ExprImpl@60d84f61 then
+          while org.xtext.lggeWhile.impl.ExprImpl@22680f52 do
+            while org.xtext.lggeWhile.impl.ExprImpl@781e7326 do
+              while org.xtext.lggeWhile.impl.ExprImpl@1fe8d51b do
+                while org.xtext.lggeWhile.impl.ExprImpl@41c07648 do
+                  if org.xtext.lggeWhile.impl.ExprImpl@52d10fb8 then
+                    if org.xtext.lggeWhile.impl.ExprImpl@77b21474 then
+                      nop
+                    fi
+                  fi
+                od
+              od
+            od
+          od
+        fi
+      fi
+    fi
+  fi;
+
+  For org.xtext.lggeWhile.impl.ExprImpl@72bca894 do
+    nop
+  od;
+
+  For org.xtext.lggeWhile.impl.ExprImpl@ecf9fb3 do
+    For org.xtext.lggeWhile.impl.ExprImpl@433ffad1 do
+      nop
+    od
+    For org.xtext.lggeWhile.impl.ExprImpl@1fc793c2 do
+      nop
+    od
+    if org.xtext.lggeWhile.impl.ExprImpl@2575f671 then
+      nop
+    fi
+    For org.xtext.lggeWhile.impl.ExprImpl@329a1243 do
+      nop
+    od
+  od;
+
+  For org.xtext.lggeWhile.impl.ExprImpl@46cf05f7 do
+    For org.xtext.lggeWhile.impl.ExprImpl@2b46a8c1 do
+      For org.xtext.lggeWhile.impl.ExprImpl@22db8f4 do
+        if org.xtext.lggeWhile.impl.ExprImpl@581d969c then
+          while org.xtext.lggeWhile.impl.ExprImpl@30c0ccff do
+            while org.xtext.lggeWhile.impl.ExprImpl@37d3d232 do
+              if org.xtext.lggeWhile.impl.ExprImpl@4593ff34 then
+                if org.xtext.lggeWhile.impl.ExprImpl@27f9e982 then
+                  if org.xtext.lggeWhile.impl.ExprImpl@2d35442b then
+                    nop
+                  fi
+                fi
+              fi
+            od
+          od
+        fi
+      od
+    od
+    while org.xtext.lggeWhile.impl.ExprImpl@1d572e62 do
+      nop
+    od
+    while org.xtext.lggeWhile.impl.ExprImpl@29caf222 do
+      nop
+    od
+  od;
+
+  Foreach org.xtext.lggeWhile.impl.VarsImpl@1b39fd82 (vari: [I]) in org.xtext.lggeWhile.impl.ExprImpl@3e2fc448 do
+    Foreach org.xtext.lggeWhile.impl.VarsImpl@1c807b1d (vari: [E]) in org.xtext.lggeWhile.impl.ExprImpl@238b521e do
+      Foreach org.xtext.lggeWhile.impl.VarsImpl@3a80515c (vari: [Z]) in org.xtext.lggeWhile.impl.ExprImpl@547e29a4 do
+        if org.xtext.lggeWhile.impl.ExprImpl@1804f60d then
+          while org.xtext.lggeWhile.impl.ExprImpl@69c43e48 do
+            while org.xtext.lggeWhile.impl.ExprImpl@3caa4757 do
+              if org.xtext.lggeWhile.impl.ExprImpl@2f40a43 then
+                if org.xtext.lggeWhile.impl.ExprImpl@7cd1ac19 then
+                  if org.xtext.lggeWhile.impl.ExprImpl@5851bd4f then
+                    nop
+                  fi
+                fi
+              fi
+            od
+          od
+        fi
+      od
+    od
+  od;
+
+4
+    A := org.xtext.lggeWhile.impl.ExprImpl@21680803;
+
+4
+    B, C := org.xtext.lggeWhile.impl.ExprImpl@588ab592, org.xtext.lggeWhile.impl.ExprImpl@c8b96ec
+%
+write V3
+

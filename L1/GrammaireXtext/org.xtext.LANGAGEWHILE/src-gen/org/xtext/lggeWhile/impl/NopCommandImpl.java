@@ -3,50 +3,56 @@
  */
 package org.xtext.lggeWhile.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.lggeWhile.LggeWhilePackage;
-import org.xtext.lggeWhile.Vars;
+import org.xtext.lggeWhile.NopCommand;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Vars</b></em>'.
+ * An implementation of the model object '<em><b>Nop Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.lggeWhile.impl.VarsImpl#getVari <em>Vari</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.NopCommandImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
+public class NopCommandImpl extends CommandImpl implements NopCommand
 {
   /**
-   * The cached value of the '{@link #getVari() <em>Vari</em>}' attribute list.
+   * The default value of the '{@link #getExpr() <em>Expr</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVari()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected EList<String> vari;
+  protected static final String EXPR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected String expr = EXPR_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VarsImpl()
+  protected NopCommandImpl()
   {
     super();
   }
@@ -59,7 +65,7 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
   @Override
   protected EClass eStaticClass()
   {
-    return LggeWhilePackage.Literals.VARS;
+    return LggeWhilePackage.Literals.NOP_COMMAND;
   }
 
   /**
@@ -68,13 +74,23 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
    * @generated
    */
   @Override
-  public EList<String> getVari()
+  public String getExpr()
   {
-    if (vari == null)
-    {
-      vari = new EDataTypeEList<String>(String.class, this, LggeWhilePackage.VARS__VARI);
-    }
-    return vari;
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExpr(String newExpr)
+  {
+    String oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.NOP_COMMAND__EXPR, oldExpr, expr));
   }
 
   /**
@@ -87,8 +103,8 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
   {
     switch (featureID)
     {
-      case LggeWhilePackage.VARS__VARI:
-        return getVari();
+      case LggeWhilePackage.NOP_COMMAND__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -98,15 +114,13 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case LggeWhilePackage.VARS__VARI:
-        getVari().clear();
-        getVari().addAll((Collection<? extends String>)newValue);
+      case LggeWhilePackage.NOP_COMMAND__EXPR:
+        setExpr((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -122,8 +136,8 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
   {
     switch (featureID)
     {
-      case LggeWhilePackage.VARS__VARI:
-        getVari().clear();
+      case LggeWhilePackage.NOP_COMMAND__EXPR:
+        setExpr(EXPR_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -139,8 +153,8 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
   {
     switch (featureID)
     {
-      case LggeWhilePackage.VARS__VARI:
-        return vari != null && !vari.isEmpty();
+      case LggeWhilePackage.NOP_COMMAND__EXPR:
+        return EXPR_EDEFAULT == null ? expr != null : !EXPR_EDEFAULT.equals(expr);
     }
     return super.eIsSet(featureID);
   }
@@ -156,10 +170,10 @@ public class VarsImpl extends MinimalEObjectImpl.Container implements Vars
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (vari: ");
-    result.append(vari);
+    result.append(" (expr: ");
+    result.append(expr);
     result.append(')');
     return result.toString();
   }
 
-} //VarsImpl
+} //NopCommandImpl

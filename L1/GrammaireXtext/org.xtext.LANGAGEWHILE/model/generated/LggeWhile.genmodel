@@ -28,6 +28,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//Commands/commands"/>
     </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//Command"/>
+    <genClasses ecoreClass="LggeWhile.ecore#//NopCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//NopCommand/expr"/>
+    </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//WhileCommand">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//WhileCommand/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//WhileCommand/commands"/>
@@ -54,7 +57,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//Exprs/expr"/>
     </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//Vars">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//Vars/var"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//Vars/vari"/>
     </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//Expr/exprbase"/>

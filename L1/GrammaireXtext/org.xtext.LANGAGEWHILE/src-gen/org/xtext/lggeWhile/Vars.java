@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.lggeWhile.Vars#getVar <em>Var</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.Vars#getVari <em>Vari</em>}</li>
  * </ul>
  *
  * @see org.xtext.lggeWhile.LggeWhilePackage#getVars()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Vars extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Var</b></em>' attribute list.
+   * Returns the value of the '<em><b>Vari</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' attribute list.
-   * @see org.xtext.lggeWhile.LggeWhilePackage#getVars_Var()
+   * @return the value of the '<em>Vari</em>' attribute list.
+   * @see org.xtext.lggeWhile.LggeWhilePackage#getVars_Vari()
    * @model unique="false"
    * @generated
    */
-  EList<String> getVar();
+  EList<String> getVari();
 
 } // Vars

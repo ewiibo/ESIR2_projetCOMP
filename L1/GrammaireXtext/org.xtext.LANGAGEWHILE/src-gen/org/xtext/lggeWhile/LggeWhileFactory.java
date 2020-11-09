@@ -87,6 +87,15 @@ public interface LggeWhileFactory extends EFactory
   Command createCommand();
 
   /**
+   * Returns a new object of class '<em>Nop Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nop Command</em>'.
+   * @generated
+   */
+  NopCommand createNopCommand();
+
+  /**
    * Returns a new object of class '<em>While Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

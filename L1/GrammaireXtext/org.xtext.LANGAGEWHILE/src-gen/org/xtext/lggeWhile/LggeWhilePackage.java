@@ -272,6 +272,34 @@ public interface LggeWhilePackage extends EPackage
   int COMMAND_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.xtext.lggeWhile.impl.NopCommandImpl <em>Nop Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.lggeWhile.impl.NopCommandImpl
+   * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getNopCommand()
+   * @generated
+   */
+  int NOP_COMMAND = 7;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOP_COMMAND__EXPR = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Nop Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOP_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.lggeWhile.impl.WhileCommandImpl <em>While Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -279,7 +307,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getWhileCommand()
    * @generated
    */
-  int WHILE_COMMAND = 7;
+  int WHILE_COMMAND = 8;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -316,7 +344,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getIfCommand()
    * @generated
    */
-  int IF_COMMAND = 8;
+  int IF_COMMAND = 9;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -362,7 +390,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getForCommand()
    * @generated
    */
-  int FOR_COMMAND = 9;
+  int FOR_COMMAND = 10;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -399,7 +427,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getAffectCommand()
    * @generated
    */
-  int AFFECT_COMMAND = 10;
+  int AFFECT_COMMAND = 11;
 
   /**
    * The feature id for the '<em><b>Vars</b></em>' containment reference.
@@ -436,7 +464,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getForeachCommand()
    * @generated
    */
-  int FOREACH_COMMAND = 11;
+  int FOREACH_COMMAND = 12;
 
   /**
    * The feature id for the '<em><b>Vars</b></em>' containment reference.
@@ -482,7 +510,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getExprs()
    * @generated
    */
-  int EXPRS = 12;
+  int EXPRS = 13;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -510,16 +538,16 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getVars()
    * @generated
    */
-  int VARS = 13;
+  int VARS = 14;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' attribute list.
+   * The feature id for the '<em><b>Vari</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARS__VAR = 0;
+  int VARS__VARI = 0;
 
   /**
    * The number of structural features of the '<em>Vars</em>' class.
@@ -538,7 +566,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getExprBase()
    * @generated
    */
-  int EXPR_BASE = 16;
+  int EXPR_BASE = 17;
 
   /**
    * The number of structural features of the '<em>Expr Base</em>' class.
@@ -557,7 +585,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 14;
+  int EXPR = 15;
 
   /**
    * The feature id for the '<em><b>Exprbase</b></em>' containment reference list.
@@ -585,7 +613,7 @@ public interface LggeWhilePackage extends EPackage
    * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getLExpr()
    * @generated
    */
-  int LEXPR = 15;
+  int LEXPR = 16;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -774,6 +802,27 @@ public interface LggeWhilePackage extends EPackage
    * @generated
    */
   EClass getCommand();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.lggeWhile.NopCommand <em>Nop Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nop Command</em>'.
+   * @see org.xtext.lggeWhile.NopCommand
+   * @generated
+   */
+  EClass getNopCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.lggeWhile.NopCommand#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Expr</em>'.
+   * @see org.xtext.lggeWhile.NopCommand#getExpr()
+   * @see #getNopCommand()
+   * @generated
+   */
+  EAttribute getNopCommand_Expr();
 
   /**
    * Returns the meta object for class '{@link org.xtext.lggeWhile.WhileCommand <em>While Command</em>}'.
@@ -989,15 +1038,15 @@ public interface LggeWhilePackage extends EPackage
   EClass getVars();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.lggeWhile.Vars#getVar <em>Var</em>}'.
+   * Returns the meta object for the attribute list '{@link org.xtext.lggeWhile.Vars#getVari <em>Vari</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Var</em>'.
-   * @see org.xtext.lggeWhile.Vars#getVar()
+   * @return the meta object for the attribute list '<em>Vari</em>'.
+   * @see org.xtext.lggeWhile.Vars#getVari()
    * @see #getVars()
    * @generated
    */
-  EAttribute getVars_Var();
+  EAttribute getVars_Vari();
 
   /**
    * Returns the meta object for class '{@link org.xtext.lggeWhile.Expr <em>Expr</em>}'.
@@ -1217,6 +1266,24 @@ public interface LggeWhilePackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
+     * The meta object literal for the '{@link org.xtext.lggeWhile.impl.NopCommandImpl <em>Nop Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.lggeWhile.impl.NopCommandImpl
+     * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getNopCommand()
+     * @generated
+     */
+    EClass NOP_COMMAND = eINSTANCE.getNopCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NOP_COMMAND__EXPR = eINSTANCE.getNopCommand_Expr();
+
+    /**
      * The meta object literal for the '{@link org.xtext.lggeWhile.impl.WhileCommandImpl <em>While Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1391,12 +1458,12 @@ public interface LggeWhilePackage extends EPackage
     EClass VARS = eINSTANCE.getVars();
 
     /**
-     * The meta object literal for the '<em><b>Var</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Vari</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARS__VAR = eINSTANCE.getVars_Var();
+    EAttribute VARS__VARI = eINSTANCE.getVars_Vari();
 
     /**
      * The meta object literal for the '{@link org.xtext.lggeWhile.impl.ExprImpl <em>Expr</em>}' class.

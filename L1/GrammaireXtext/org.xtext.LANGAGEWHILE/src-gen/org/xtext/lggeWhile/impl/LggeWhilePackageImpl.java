@@ -25,6 +25,7 @@ import org.xtext.lggeWhile.Input;
 import org.xtext.lggeWhile.LExpr;
 import org.xtext.lggeWhile.LggeWhileFactory;
 import org.xtext.lggeWhile.LggeWhilePackage;
+import org.xtext.lggeWhile.NopCommand;
 import org.xtext.lggeWhile.Output;
 import org.xtext.lggeWhile.Program;
 import org.xtext.lggeWhile.Vars;
@@ -86,6 +87,13 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
    * @generated
    */
   private EClass commandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass nopCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -402,6 +410,28 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
    * @generated
    */
   @Override
+  public EClass getNopCommand()
+  {
+    return nopCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNopCommand_Expr()
+  {
+    return (EAttribute)nopCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getWhileCommand()
   {
     return whileCommandEClass;
@@ -622,7 +652,7 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
    * @generated
    */
   @Override
-  public EAttribute getVars_Var()
+  public EAttribute getVars_Vari()
   {
     return (EAttribute)varsEClass.getEStructuralFeatures().get(0);
   }
@@ -736,6 +766,9 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
 
     commandEClass = createEClass(COMMAND);
 
+    nopCommandEClass = createEClass(NOP_COMMAND);
+    createEAttribute(nopCommandEClass, NOP_COMMAND__EXPR);
+
     whileCommandEClass = createEClass(WHILE_COMMAND);
     createEReference(whileCommandEClass, WHILE_COMMAND__EXPR);
     createEReference(whileCommandEClass, WHILE_COMMAND__COMMANDS);
@@ -762,7 +795,7 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
     createEReference(exprsEClass, EXPRS__EXPR);
 
     varsEClass = createEClass(VARS);
-    createEAttribute(varsEClass, VARS__VAR);
+    createEAttribute(varsEClass, VARS__VARI);
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__EXPRBASE);
@@ -802,6 +835,7 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    nopCommandEClass.getESuperTypes().add(this.getCommand());
     whileCommandEClass.getESuperTypes().add(this.getCommand());
     ifCommandEClass.getESuperTypes().add(this.getCommand());
     forCommandEClass.getESuperTypes().add(this.getCommand());
@@ -834,6 +868,9 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(nopCommandEClass, NopCommand.class, "NopCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNopCommand_Expr(), ecorePackage.getEString(), "expr", null, 0, 1, NopCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(whileCommandEClass, WhileCommand.class, "WhileCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getWhileCommand_Expr(), this.getExpr(), null, "expr", null, 0, 1, WhileCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getWhileCommand_Commands(), this.getCommands(), null, "commands", null, 0, 1, WhileCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -860,7 +897,7 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
     initEReference(getExprs_Expr(), this.getExpr(), null, "expr", null, 0, -1, Exprs.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varsEClass, Vars.class, "Vars", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVars_Var(), ecorePackage.getEString(), "var", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVars_Vari(), ecorePackage.getEString(), "vari", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpr_Exprbase(), this.getExprBase(), null, "exprbase", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

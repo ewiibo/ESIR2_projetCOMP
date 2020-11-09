@@ -239,15 +239,13 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final RuleCall cForCommandParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cAffectCommandParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cForeachCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cCommandAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cNopKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final RuleCall cNopCommandParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Command:
-		//	WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop';
+		//	WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | NopCommand;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop'
+		//WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | NopCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//WhileCommand
@@ -265,14 +263,23 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//ForeachCommand
 		public RuleCall getForeachCommandParserRuleCall_4() { return cForeachCommandParserRuleCall_4; }
 		
-		//{Command} 'nop'
-		public Group getGroup_5() { return cGroup_5; }
+		//NopCommand
+		public RuleCall getNopCommandParserRuleCall_5() { return cNopCommandParserRuleCall_5; }
+	}
+	public class NopCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.LggeWhile.NopCommand");
+		private final Assignment cExprAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cExprNopKeyword_0 = (Keyword)cExprAssignment.eContents().get(0);
 		
-		//{Command}
-		public Action getCommandAction_5_0() { return cCommandAction_5_0; }
+		//NopCommand:
+		//	expr='nop';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//expr='nop'
+		public Assignment getExprAssignment() { return cExprAssignment; }
 		
 		//'nop'
-		public Keyword getNopKeyword_5_1() { return cNopKeyword_5_1; }
+		public Keyword getExprNopKeyword_0() { return cExprNopKeyword_0; }
 	}
 	public class WhileCommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.LggeWhile.WhileCommand");
@@ -527,37 +534,37 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 	public class VarsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.LggeWhile.Vars");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cVarAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cVarVARIABLETerminalRuleCall_0_0 = (RuleCall)cVarAssignment_0.eContents().get(0);
+		private final Assignment cVariAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVariVARIABLETerminalRuleCall_0_0 = (RuleCall)cVariAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cVarAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cVarVARIABLETerminalRuleCall_1_1_0 = (RuleCall)cVarAssignment_1_1.eContents().get(0);
+		private final Assignment cVariAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cVariVARIABLETerminalRuleCall_1_1_0 = (RuleCall)cVariAssignment_1_1.eContents().get(0);
 		
 		//Vars:
-		//	var+=VARIABLE (',' var+=VARIABLE)*;
+		//	vari+=VARIABLE (',' vari+=VARIABLE)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//var+=VARIABLE (',' var+=VARIABLE)*
+		//vari+=VARIABLE (',' vari+=VARIABLE)*
 		public Group getGroup() { return cGroup; }
 		
-		//var+=VARIABLE
-		public Assignment getVarAssignment_0() { return cVarAssignment_0; }
+		//vari+=VARIABLE
+		public Assignment getVariAssignment_0() { return cVariAssignment_0; }
 		
 		//VARIABLE
-		public RuleCall getVarVARIABLETerminalRuleCall_0_0() { return cVarVARIABLETerminalRuleCall_0_0; }
+		public RuleCall getVariVARIABLETerminalRuleCall_0_0() { return cVariVARIABLETerminalRuleCall_0_0; }
 		
-		//(',' var+=VARIABLE)*
+		//(',' vari+=VARIABLE)*
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//','
 		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
 		
-		//var+=VARIABLE
-		public Assignment getVarAssignment_1_1() { return cVarAssignment_1_1; }
+		//vari+=VARIABLE
+		public Assignment getVariAssignment_1_1() { return cVariAssignment_1_1; }
 		
 		//VARIABLE
-		public RuleCall getVarVARIABLETerminalRuleCall_1_1_0() { return cVarVARIABLETerminalRuleCall_1_1_0; }
+		public RuleCall getVariVARIABLETerminalRuleCall_1_1_0() { return cVariVARIABLETerminalRuleCall_1_1_0; }
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.LggeWhile.Expr");
@@ -767,6 +774,7 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final OutputElements pOutput;
 	private final CommandsElements pCommands;
 	private final CommandElements pCommand;
+	private final NopCommandElements pNopCommand;
 	private final WhileCommandElements pWhileCommand;
 	private final IfCommandElements pIfCommand;
 	private final ForCommandElements pForCommand;
@@ -796,6 +804,7 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pOutput = new OutputElements();
 		this.pCommands = new CommandsElements();
 		this.pCommand = new CommandElements();
+		this.pNopCommand = new NopCommandElements();
 		this.pWhileCommand = new WhileCommandElements();
 		this.pIfCommand = new IfCommandElements();
 		this.pForCommand = new ForCommandElements();
@@ -900,13 +909,23 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Command:
-	//	WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | {Command} 'nop';
+	//	WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | NopCommand;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}
 	
 	public ParserRule getCommandRule() {
 		return getCommandAccess().getRule();
+	}
+	
+	//NopCommand:
+	//	expr='nop';
+	public NopCommandElements getNopCommandAccess() {
+		return pNopCommand;
+	}
+	
+	public ParserRule getNopCommandRule() {
+		return getNopCommandAccess().getRule();
 	}
 	
 	//WhileCommand:
@@ -970,7 +989,7 @@ public class LggeWhileGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Vars:
-	//	var+=VARIABLE (',' var+=VARIABLE)*;
+	//	vari+=VARIABLE (',' vari+=VARIABLE)*;
 	public VarsElements getVarsAccess() {
 		return pVars;
 	}
