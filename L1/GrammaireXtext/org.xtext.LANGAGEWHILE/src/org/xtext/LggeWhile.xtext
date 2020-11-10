@@ -44,18 +44,18 @@ Vars:
     vari+=VARIABLE (',' vari+=VARIABLE)*
 ;
 Expr:
-    exprbase += ExprBase ('=?' exprbase+=ExprBase)*
+    exprbase = ExprBase ('=?' exprbase1 = ExprBase)? 
 ;
 LExpr:
     (expr+=Expr)+
 ;
 ExprBase:
-    {ExprBase} 'nil' | {ExprBase} VARIABLE | {ExprBase} SYMBOL |
-    ('(' 'cons' LExpr ')') |
-    ('(' 'list' LExpr ')') |
-    ('(' 'hd' Expr ')') |
-    ('(' 'tl' Expr ')') |
-    ('(' SYMBOL LExpr ')')    
+    value = 'nil' | value = VARIABLE | value = SYMBOL |
+    ('(' identitor = 'cons' lexpr = LExpr ')') |
+    ('(' identitor = 'list' lexpr = LExpr ')') |
+    ('(' identitor1 = 'hd' expr = Expr ')') |
+    ('(' identitor1 = 'tl' expr = Expr ')') |
+    ('(' symbol = SYMBOL lexpr = LExpr ')')    
 ;
 
 terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;

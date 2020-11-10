@@ -17,7 +17,14 @@ f3                                   : read V1
        ee;
        B ,
        C :=
-        eee, nil
+        eee, nil;
+        if (cons 
+        X 
+        
+        
+        Y 
+                        Z) then nop fi; 
+        if A =? B then nop fi
         %
 write 
 

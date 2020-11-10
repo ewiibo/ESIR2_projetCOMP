@@ -3,22 +3,140 @@
  */
 package org.xtext.lggeWhile.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.lggeWhile.Expr;
 import org.xtext.lggeWhile.ExprBase;
+import org.xtext.lggeWhile.LExpr;
 import org.xtext.lggeWhile.LggeWhilePackage;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Expr Base</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getIdentitor <em>Identitor</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getLexpr <em>Lexpr</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getIdentitor1 <em>Identitor1</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprBaseImpl#getSymbol <em>Symbol</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBase
 {
+  /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIdentitor() <em>Identitor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentitor()
+   * @generated
+   * @ordered
+   */
+  protected static final String IDENTITOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIdentitor() <em>Identitor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentitor()
+   * @generated
+   * @ordered
+   */
+  protected String identitor = IDENTITOR_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLexpr() <em>Lexpr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLexpr()
+   * @generated
+   * @ordered
+   */
+  protected LExpr lexpr;
+
+  /**
+   * The default value of the '{@link #getIdentitor1() <em>Identitor1</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentitor1()
+   * @generated
+   * @ordered
+   */
+  protected static final String IDENTITOR1_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIdentitor1() <em>Identitor1</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIdentitor1()
+   * @generated
+   * @ordered
+   */
+  protected String identitor1 = IDENTITOR1_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr()
+   * @generated
+   * @ordered
+   */
+  protected Expr expr;
+
+  /**
+   * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbol()
+   * @generated
+   * @ordered
+   */
+  protected static final String SYMBOL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbol()
+   * @generated
+   * @ordered
+   */
+  protected String symbol = SYMBOL_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +156,363 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
   protected EClass eStaticClass()
   {
     return LggeWhilePackage.Literals.EXPR_BASE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getIdentitor()
+  {
+    return identitor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setIdentitor(String newIdentitor)
+  {
+    String oldIdentitor = identitor;
+    identitor = newIdentitor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__IDENTITOR, oldIdentitor, identitor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LExpr getLexpr()
+  {
+    return lexpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLexpr(LExpr newLexpr, NotificationChain msgs)
+  {
+    LExpr oldLexpr = lexpr;
+    lexpr = newLexpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__LEXPR, oldLexpr, newLexpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLexpr(LExpr newLexpr)
+  {
+    if (newLexpr != lexpr)
+    {
+      NotificationChain msgs = null;
+      if (lexpr != null)
+        msgs = ((InternalEObject)lexpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR_BASE__LEXPR, null, msgs);
+      if (newLexpr != null)
+        msgs = ((InternalEObject)newLexpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR_BASE__LEXPR, null, msgs);
+      msgs = basicSetLexpr(newLexpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__LEXPR, newLexpr, newLexpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getIdentitor1()
+  {
+    return identitor1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setIdentitor1(String newIdentitor1)
+  {
+    String oldIdentitor1 = identitor1;
+    identitor1 = newIdentitor1;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__IDENTITOR1, oldIdentitor1, identitor1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expr getExpr()
+  {
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  {
+    Expr oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExpr(Expr newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR_BASE__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR_BASE__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__EXPR, newExpr, newExpr));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSymbol()
+  {
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSymbol(String newSymbol)
+  {
+    String oldSymbol = symbol;
+    symbol = newSymbol;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR_BASE__SYMBOL, oldSymbol, symbol));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case LggeWhilePackage.EXPR_BASE__LEXPR:
+        return basicSetLexpr(null, msgs);
+      case LggeWhilePackage.EXPR_BASE__EXPR:
+        return basicSetExpr(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case LggeWhilePackage.EXPR_BASE__VALUE:
+        return getValue();
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR:
+        return getIdentitor();
+      case LggeWhilePackage.EXPR_BASE__LEXPR:
+        return getLexpr();
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR1:
+        return getIdentitor1();
+      case LggeWhilePackage.EXPR_BASE__EXPR:
+        return getExpr();
+      case LggeWhilePackage.EXPR_BASE__SYMBOL:
+        return getSymbol();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case LggeWhilePackage.EXPR_BASE__VALUE:
+        setValue((String)newValue);
+        return;
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR:
+        setIdentitor((String)newValue);
+        return;
+      case LggeWhilePackage.EXPR_BASE__LEXPR:
+        setLexpr((LExpr)newValue);
+        return;
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR1:
+        setIdentitor1((String)newValue);
+        return;
+      case LggeWhilePackage.EXPR_BASE__EXPR:
+        setExpr((Expr)newValue);
+        return;
+      case LggeWhilePackage.EXPR_BASE__SYMBOL:
+        setSymbol((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case LggeWhilePackage.EXPR_BASE__VALUE:
+        setValue(VALUE_EDEFAULT);
+        return;
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR:
+        setIdentitor(IDENTITOR_EDEFAULT);
+        return;
+      case LggeWhilePackage.EXPR_BASE__LEXPR:
+        setLexpr((LExpr)null);
+        return;
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR1:
+        setIdentitor1(IDENTITOR1_EDEFAULT);
+        return;
+      case LggeWhilePackage.EXPR_BASE__EXPR:
+        setExpr((Expr)null);
+        return;
+      case LggeWhilePackage.EXPR_BASE__SYMBOL:
+        setSymbol(SYMBOL_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case LggeWhilePackage.EXPR_BASE__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR:
+        return IDENTITOR_EDEFAULT == null ? identitor != null : !IDENTITOR_EDEFAULT.equals(identitor);
+      case LggeWhilePackage.EXPR_BASE__LEXPR:
+        return lexpr != null;
+      case LggeWhilePackage.EXPR_BASE__IDENTITOR1:
+        return IDENTITOR1_EDEFAULT == null ? identitor1 != null : !IDENTITOR1_EDEFAULT.equals(identitor1);
+      case LggeWhilePackage.EXPR_BASE__EXPR:
+        return expr != null;
+      case LggeWhilePackage.EXPR_BASE__SYMBOL:
+        return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (value: ");
+    result.append(value);
+    result.append(", identitor: ");
+    result.append(identitor);
+    result.append(", identitor1: ");
+    result.append(identitor1);
+    result.append(", symbol: ");
+    result.append(symbol);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExprBaseImpl

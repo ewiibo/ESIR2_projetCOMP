@@ -3,17 +3,14 @@
  */
 package org.xtext.lggeWhile.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.lggeWhile.Expr;
 import org.xtext.lggeWhile.ExprBase;
@@ -28,21 +25,32 @@ import org.xtext.lggeWhile.LggeWhilePackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.lggeWhile.impl.ExprImpl#getExprbase <em>Exprbase</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.impl.ExprImpl#getExprbase1 <em>Exprbase1</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprImpl extends ExprBaseImpl implements Expr
+public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
 {
   /**
-   * The cached value of the '{@link #getExprbase() <em>Exprbase</em>}' containment reference list.
+   * The cached value of the '{@link #getExprbase() <em>Exprbase</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExprbase()
    * @generated
    * @ordered
    */
-  protected EList<ExprBase> exprbase;
+  protected ExprBase exprbase;
+
+  /**
+   * The cached value of the '{@link #getExprbase1() <em>Exprbase1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExprbase1()
+   * @generated
+   * @ordered
+   */
+  protected ExprBase exprbase1;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +79,98 @@ public class ExprImpl extends ExprBaseImpl implements Expr
    * @generated
    */
   @Override
-  public EList<ExprBase> getExprbase()
+  public ExprBase getExprbase()
   {
-    if (exprbase == null)
-    {
-      exprbase = new EObjectContainmentEList<ExprBase>(ExprBase.class, this, LggeWhilePackage.EXPR__EXPRBASE);
-    }
     return exprbase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExprbase(ExprBase newExprbase, NotificationChain msgs)
+  {
+    ExprBase oldExprbase = exprbase;
+    exprbase = newExprbase;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR__EXPRBASE, oldExprbase, newExprbase);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExprbase(ExprBase newExprbase)
+  {
+    if (newExprbase != exprbase)
+    {
+      NotificationChain msgs = null;
+      if (exprbase != null)
+        msgs = ((InternalEObject)exprbase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR__EXPRBASE, null, msgs);
+      if (newExprbase != null)
+        msgs = ((InternalEObject)newExprbase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR__EXPRBASE, null, msgs);
+      msgs = basicSetExprbase(newExprbase, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR__EXPRBASE, newExprbase, newExprbase));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprBase getExprbase1()
+  {
+    return exprbase1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExprbase1(ExprBase newExprbase1, NotificationChain msgs)
+  {
+    ExprBase oldExprbase1 = exprbase1;
+    exprbase1 = newExprbase1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR__EXPRBASE1, oldExprbase1, newExprbase1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExprbase1(ExprBase newExprbase1)
+  {
+    if (newExprbase1 != exprbase1)
+    {
+      NotificationChain msgs = null;
+      if (exprbase1 != null)
+        msgs = ((InternalEObject)exprbase1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR__EXPRBASE1, null, msgs);
+      if (newExprbase1 != null)
+        msgs = ((InternalEObject)newExprbase1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LggeWhilePackage.EXPR__EXPRBASE1, null, msgs);
+      msgs = basicSetExprbase1(newExprbase1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LggeWhilePackage.EXPR__EXPRBASE1, newExprbase1, newExprbase1));
   }
 
   /**
@@ -91,7 +184,9 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case LggeWhilePackage.EXPR__EXPRBASE:
-        return ((InternalEList<?>)getExprbase()).basicRemove(otherEnd, msgs);
+        return basicSetExprbase(null, msgs);
+      case LggeWhilePackage.EXPR__EXPRBASE1:
+        return basicSetExprbase1(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,6 +203,8 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     {
       case LggeWhilePackage.EXPR__EXPRBASE:
         return getExprbase();
+      case LggeWhilePackage.EXPR__EXPRBASE1:
+        return getExprbase1();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +214,16 @@ public class ExprImpl extends ExprBaseImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case LggeWhilePackage.EXPR__EXPRBASE:
-        getExprbase().clear();
-        getExprbase().addAll((Collection<? extends ExprBase>)newValue);
+        setExprbase((ExprBase)newValue);
+        return;
+      case LggeWhilePackage.EXPR__EXPRBASE1:
+        setExprbase1((ExprBase)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +240,10 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case LggeWhilePackage.EXPR__EXPRBASE:
-        getExprbase().clear();
+        setExprbase((ExprBase)null);
+        return;
+      case LggeWhilePackage.EXPR__EXPRBASE1:
+        setExprbase1((ExprBase)null);
         return;
     }
     super.eUnset(featureID);
@@ -159,7 +260,9 @@ public class ExprImpl extends ExprBaseImpl implements Expr
     switch (featureID)
     {
       case LggeWhilePackage.EXPR__EXPRBASE:
-        return exprbase != null && !exprbase.isEmpty();
+        return exprbase != null;
+      case LggeWhilePackage.EXPR__EXPRBASE1:
+        return exprbase1 != null;
     }
     return super.eIsSet(featureID);
   }

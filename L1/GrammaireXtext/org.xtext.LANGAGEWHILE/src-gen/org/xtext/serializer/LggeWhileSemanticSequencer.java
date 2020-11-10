@@ -167,7 +167,16 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     ExprBase returns ExprBase
 	 *
 	 * Constraint:
-	 *     {ExprBase}
+	 *     (
+	 *         value='nil' | 
+	 *         value=VARIABLE | 
+	 *         value=SYMBOL | 
+	 *         (identitor='cons' lexpr=LExpr) | 
+	 *         (identitor='list' lexpr=LExpr) | 
+	 *         (identitor1='hd' expr=Expr) | 
+	 *         (identitor1='tl' expr=Expr) | 
+	 *         (symbol=SYMBOL lexpr=LExpr)
+	 *     )
 	 */
 	protected void sequence_ExprBase(ISerializationContext context, ExprBase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -177,10 +186,9 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     Expr returns Expr
-	 *     ExprBase returns Expr
 	 *
 	 * Constraint:
-	 *     (exprbase+=ExprBase exprbase+=ExprBase*)
+	 *     (exprbase=ExprBase exprbase1=ExprBase?)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -295,7 +303,6 @@ public class LggeWhileSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     LExpr returns LExpr
-	 *     ExprBase returns LExpr
 	 *
 	 * Constraint:
 	 *     expr+=Expr+

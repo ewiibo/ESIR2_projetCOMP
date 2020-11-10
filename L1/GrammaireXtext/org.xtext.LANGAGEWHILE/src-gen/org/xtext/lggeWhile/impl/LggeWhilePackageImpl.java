@@ -685,6 +685,17 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
    * @generated
    */
   @Override
+  public EReference getExpr_Exprbase1()
+  {
+    return (EReference)exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLExpr()
   {
     return lExprEClass;
@@ -710,6 +721,72 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
   public EClass getExprBase()
   {
     return exprBaseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExprBase_Value()
+  {
+    return (EAttribute)exprBaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExprBase_Identitor()
+  {
+    return (EAttribute)exprBaseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExprBase_Lexpr()
+  {
+    return (EReference)exprBaseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExprBase_Identitor1()
+  {
+    return (EAttribute)exprBaseEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExprBase_Expr()
+  {
+    return (EReference)exprBaseEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExprBase_Symbol()
+  {
+    return (EAttribute)exprBaseEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -799,11 +876,18 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__EXPRBASE);
+    createEReference(exprEClass, EXPR__EXPRBASE1);
 
     lExprEClass = createEClass(LEXPR);
     createEReference(lExprEClass, LEXPR__EXPR);
 
     exprBaseEClass = createEClass(EXPR_BASE);
+    createEAttribute(exprBaseEClass, EXPR_BASE__VALUE);
+    createEAttribute(exprBaseEClass, EXPR_BASE__IDENTITOR);
+    createEReference(exprBaseEClass, EXPR_BASE__LEXPR);
+    createEAttribute(exprBaseEClass, EXPR_BASE__IDENTITOR1);
+    createEReference(exprBaseEClass, EXPR_BASE__EXPR);
+    createEAttribute(exprBaseEClass, EXPR_BASE__SYMBOL);
   }
 
   /**
@@ -841,8 +925,6 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
     forCommandEClass.getESuperTypes().add(this.getCommand());
     affectCommandEClass.getESuperTypes().add(this.getCommand());
     foreachCommandEClass.getESuperTypes().add(this.getCommand());
-    exprEClass.getESuperTypes().add(this.getExprBase());
-    lExprEClass.getESuperTypes().add(this.getExprBase());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -900,12 +982,19 @@ public class LggeWhilePackageImpl extends EPackageImpl implements LggeWhilePacka
     initEAttribute(getVars_Vari(), ecorePackage.getEString(), "vari", null, 0, -1, Vars.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExpr_Exprbase(), this.getExprBase(), null, "exprbase", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_Exprbase(), this.getExprBase(), null, "exprbase", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_Exprbase1(), this.getExprBase(), null, "exprbase1", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lExprEClass, LExpr.class, "LExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLExpr_Expr(), this.getExpr(), null, "expr", null, 0, -1, LExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprBaseEClass, ExprBase.class, "ExprBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExprBase_Value(), ecorePackage.getEString(), "value", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExprBase_Identitor(), ecorePackage.getEString(), "identitor", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprBase_Lexpr(), this.getLExpr(), null, "lexpr", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExprBase_Identitor1(), ecorePackage.getEString(), "identitor1", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprBase_Expr(), this.getExpr(), null, "expr", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExprBase_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, ExprBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLggeWhileParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_VARIABLE", "RULE_SYMBOL", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'function'", "':'", "'read'", "'%'", "'write'", "','", "';'", "'while'", "'do'", "'od'", "'if'", "'then'", "'fi'", "'else'", "'for'", "':='", "'foreach'", "'in'", "'=?'", "'nil'", "'('", "'cons'", "')'", "'list'", "'hd'", "'tl'", "'nop'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SYMBOL", "RULE_VARIABLE", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'function'", "':'", "'read'", "'%'", "'write'", "','", "';'", "'while'", "'do'", "'od'", "'if'", "'then'", "'fi'", "'else'", "'for'", "':='", "'foreach'", "'in'", "'=?'", "'('", "')'", "'nop'", "'nil'", "'cons'", "'list'", "'hd'", "'tl'"
     };
     public static final int RULE_STRING=8;
     public static final int RULE_SL_COMMENT=10;
@@ -46,7 +46,7 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     public static final int T__32=32;
     public static final int RULE_ID=6;
     public static final int RULE_WS=11;
-    public static final int RULE_VARIABLE=4;
+    public static final int RULE_VARIABLE=5;
     public static final int RULE_ANY_OTHER=12;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -56,7 +56,7 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=9;
     public static final int T__23=23;
-    public static final int RULE_SYMBOL=5;
+    public static final int RULE_SYMBOL=4;
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int T__20=20;
@@ -1419,7 +1419,7 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>=RULE_VARIABLE && LA2_0<=RULE_SYMBOL)||(LA2_0>=32 && LA2_0<=33)) ) {
+                if ( ((LA2_0>=RULE_SYMBOL && LA2_0<=RULE_VARIABLE)||LA2_0==32||LA2_0==35) ) {
                     alt2=1;
                 }
 
@@ -1579,7 +1579,7 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
                 alt3=5;
                 }
                 break;
-            case 39:
+            case 34:
                 {
                 alt3=6;
                 }
@@ -1724,35 +1724,35 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Alternatives"
-    // InternalLggeWhile.g:554:1: rule__ExprBase__Alternatives : ( ( ( rule__ExprBase__Group_0__0 ) ) | ( ( rule__ExprBase__Group_1__0 ) ) | ( ( rule__ExprBase__Group_2__0 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) );
+    // InternalLggeWhile.g:554:1: rule__ExprBase__Alternatives : ( ( ( rule__ExprBase__ValueAssignment_0 ) ) | ( ( rule__ExprBase__ValueAssignment_1 ) ) | ( ( rule__ExprBase__ValueAssignment_2 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) );
     public final void rule__ExprBase__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:558:1: ( ( ( rule__ExprBase__Group_0__0 ) ) | ( ( rule__ExprBase__Group_1__0 ) ) | ( ( rule__ExprBase__Group_2__0 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) )
+            // InternalLggeWhile.g:558:1: ( ( ( rule__ExprBase__ValueAssignment_0 ) ) | ( ( rule__ExprBase__ValueAssignment_1 ) ) | ( ( rule__ExprBase__ValueAssignment_2 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) )
             int alt4=8;
             alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // InternalLggeWhile.g:559:2: ( ( rule__ExprBase__Group_0__0 ) )
+                    // InternalLggeWhile.g:559:2: ( ( rule__ExprBase__ValueAssignment_0 ) )
                     {
-                    // InternalLggeWhile.g:559:2: ( ( rule__ExprBase__Group_0__0 ) )
-                    // InternalLggeWhile.g:560:3: ( rule__ExprBase__Group_0__0 )
+                    // InternalLggeWhile.g:559:2: ( ( rule__ExprBase__ValueAssignment_0 ) )
+                    // InternalLggeWhile.g:560:3: ( rule__ExprBase__ValueAssignment_0 )
                     {
-                     before(grammarAccess.getExprBaseAccess().getGroup_0()); 
-                    // InternalLggeWhile.g:561:3: ( rule__ExprBase__Group_0__0 )
-                    // InternalLggeWhile.g:561:4: rule__ExprBase__Group_0__0
+                     before(grammarAccess.getExprBaseAccess().getValueAssignment_0()); 
+                    // InternalLggeWhile.g:561:3: ( rule__ExprBase__ValueAssignment_0 )
+                    // InternalLggeWhile.g:561:4: rule__ExprBase__ValueAssignment_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ExprBase__Group_0__0();
+                    rule__ExprBase__ValueAssignment_0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getExprBaseAccess().getGroup_0()); 
+                     after(grammarAccess.getExprBaseAccess().getValueAssignment_0()); 
 
                     }
 
@@ -1760,24 +1760,24 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 2 :
-                    // InternalLggeWhile.g:565:2: ( ( rule__ExprBase__Group_1__0 ) )
+                    // InternalLggeWhile.g:565:2: ( ( rule__ExprBase__ValueAssignment_1 ) )
                     {
-                    // InternalLggeWhile.g:565:2: ( ( rule__ExprBase__Group_1__0 ) )
-                    // InternalLggeWhile.g:566:3: ( rule__ExprBase__Group_1__0 )
+                    // InternalLggeWhile.g:565:2: ( ( rule__ExprBase__ValueAssignment_1 ) )
+                    // InternalLggeWhile.g:566:3: ( rule__ExprBase__ValueAssignment_1 )
                     {
-                     before(grammarAccess.getExprBaseAccess().getGroup_1()); 
-                    // InternalLggeWhile.g:567:3: ( rule__ExprBase__Group_1__0 )
-                    // InternalLggeWhile.g:567:4: rule__ExprBase__Group_1__0
+                     before(grammarAccess.getExprBaseAccess().getValueAssignment_1()); 
+                    // InternalLggeWhile.g:567:3: ( rule__ExprBase__ValueAssignment_1 )
+                    // InternalLggeWhile.g:567:4: rule__ExprBase__ValueAssignment_1
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ExprBase__Group_1__0();
+                    rule__ExprBase__ValueAssignment_1();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getExprBaseAccess().getGroup_1()); 
+                     after(grammarAccess.getExprBaseAccess().getValueAssignment_1()); 
 
                     }
 
@@ -1785,24 +1785,24 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
                     }
                     break;
                 case 3 :
-                    // InternalLggeWhile.g:571:2: ( ( rule__ExprBase__Group_2__0 ) )
+                    // InternalLggeWhile.g:571:2: ( ( rule__ExprBase__ValueAssignment_2 ) )
                     {
-                    // InternalLggeWhile.g:571:2: ( ( rule__ExprBase__Group_2__0 ) )
-                    // InternalLggeWhile.g:572:3: ( rule__ExprBase__Group_2__0 )
+                    // InternalLggeWhile.g:571:2: ( ( rule__ExprBase__ValueAssignment_2 ) )
+                    // InternalLggeWhile.g:572:3: ( rule__ExprBase__ValueAssignment_2 )
                     {
-                     before(grammarAccess.getExprBaseAccess().getGroup_2()); 
-                    // InternalLggeWhile.g:573:3: ( rule__ExprBase__Group_2__0 )
-                    // InternalLggeWhile.g:573:4: rule__ExprBase__Group_2__0
+                     before(grammarAccess.getExprBaseAccess().getValueAssignment_2()); 
+                    // InternalLggeWhile.g:573:3: ( rule__ExprBase__ValueAssignment_2 )
+                    // InternalLggeWhile.g:573:4: rule__ExprBase__ValueAssignment_2
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ExprBase__Group_2__0();
+                    rule__ExprBase__ValueAssignment_2();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getExprBaseAccess().getGroup_2()); 
+                     after(grammarAccess.getExprBaseAccess().getValueAssignment_2()); 
 
                     }
 
@@ -6836,47 +6836,40 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Expr__Group__1__Impl"
-    // InternalLggeWhile.g:2242:1: rule__Expr__Group__1__Impl : ( ( rule__Expr__Group_1__0 )* ) ;
+    // InternalLggeWhile.g:2242:1: rule__Expr__Group__1__Impl : ( ( rule__Expr__Group_1__0 )? ) ;
     public final void rule__Expr__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2246:1: ( ( ( rule__Expr__Group_1__0 )* ) )
-            // InternalLggeWhile.g:2247:1: ( ( rule__Expr__Group_1__0 )* )
+            // InternalLggeWhile.g:2246:1: ( ( ( rule__Expr__Group_1__0 )? ) )
+            // InternalLggeWhile.g:2247:1: ( ( rule__Expr__Group_1__0 )? )
             {
-            // InternalLggeWhile.g:2247:1: ( ( rule__Expr__Group_1__0 )* )
-            // InternalLggeWhile.g:2248:2: ( rule__Expr__Group_1__0 )*
+            // InternalLggeWhile.g:2247:1: ( ( rule__Expr__Group_1__0 )? )
+            // InternalLggeWhile.g:2248:2: ( rule__Expr__Group_1__0 )?
             {
              before(grammarAccess.getExprAccess().getGroup_1()); 
-            // InternalLggeWhile.g:2249:2: ( rule__Expr__Group_1__0 )*
-            loop11:
-            do {
-                int alt11=2;
-                int LA11_0 = input.LA(1);
+            // InternalLggeWhile.g:2249:2: ( rule__Expr__Group_1__0 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==31) ) {
-                    alt11=1;
-                }
+            if ( (LA11_0==31) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalLggeWhile.g:2249:3: rule__Expr__Group_1__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Expr__Group_1__0();
 
-
-                switch (alt11) {
-            	case 1 :
-            	    // InternalLggeWhile.g:2249:3: rule__Expr__Group_1__0
-            	    {
-            	    pushFollow(FOLLOW_24);
-            	    rule__Expr__Group_1__0();
-
-            	    state._fsp--;
+                    state._fsp--;
 
 
-            	    }
-            	    break;
+                    }
+                    break;
 
-            	default :
-            	    break loop11;
-                }
-            } while (true);
+            }
 
              after(grammarAccess.getExprAccess().getGroup_1()); 
 
@@ -7009,31 +7002,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Expr__Group_1__1__Impl"
-    // InternalLggeWhile.g:2296:1: rule__Expr__Group_1__1__Impl : ( ( rule__Expr__ExprbaseAssignment_1_1 ) ) ;
+    // InternalLggeWhile.g:2296:1: rule__Expr__Group_1__1__Impl : ( ( rule__Expr__Exprbase1Assignment_1_1 ) ) ;
     public final void rule__Expr__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2300:1: ( ( ( rule__Expr__ExprbaseAssignment_1_1 ) ) )
-            // InternalLggeWhile.g:2301:1: ( ( rule__Expr__ExprbaseAssignment_1_1 ) )
+            // InternalLggeWhile.g:2300:1: ( ( ( rule__Expr__Exprbase1Assignment_1_1 ) ) )
+            // InternalLggeWhile.g:2301:1: ( ( rule__Expr__Exprbase1Assignment_1_1 ) )
             {
-            // InternalLggeWhile.g:2301:1: ( ( rule__Expr__ExprbaseAssignment_1_1 ) )
-            // InternalLggeWhile.g:2302:2: ( rule__Expr__ExprbaseAssignment_1_1 )
+            // InternalLggeWhile.g:2301:1: ( ( rule__Expr__Exprbase1Assignment_1_1 ) )
+            // InternalLggeWhile.g:2302:2: ( rule__Expr__Exprbase1Assignment_1_1 )
             {
-             before(grammarAccess.getExprAccess().getExprbaseAssignment_1_1()); 
-            // InternalLggeWhile.g:2303:2: ( rule__Expr__ExprbaseAssignment_1_1 )
-            // InternalLggeWhile.g:2303:3: rule__Expr__ExprbaseAssignment_1_1
+             before(grammarAccess.getExprAccess().getExprbase1Assignment_1_1()); 
+            // InternalLggeWhile.g:2303:2: ( rule__Expr__Exprbase1Assignment_1_1 )
+            // InternalLggeWhile.g:2303:3: rule__Expr__Exprbase1Assignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Expr__ExprbaseAssignment_1_1();
+            rule__Expr__Exprbase1Assignment_1_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getExprAccess().getExprbaseAssignment_1_1()); 
+             after(grammarAccess.getExprAccess().getExprbase1Assignment_1_1()); 
 
             }
 
@@ -7055,452 +7048,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Expr__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__ExprBase__Group_0__0"
-    // InternalLggeWhile.g:2312:1: rule__ExprBase__Group_0__0 : rule__ExprBase__Group_0__0__Impl rule__ExprBase__Group_0__1 ;
-    public final void rule__ExprBase__Group_0__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2316:1: ( rule__ExprBase__Group_0__0__Impl rule__ExprBase__Group_0__1 )
-            // InternalLggeWhile.g:2317:2: rule__ExprBase__Group_0__0__Impl rule__ExprBase__Group_0__1
-            {
-            pushFollow(FOLLOW_25);
-            rule__ExprBase__Group_0__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_0__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_0__0"
-
-
-    // $ANTLR start "rule__ExprBase__Group_0__0__Impl"
-    // InternalLggeWhile.g:2324:1: rule__ExprBase__Group_0__0__Impl : ( () ) ;
-    public final void rule__ExprBase__Group_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2328:1: ( ( () ) )
-            // InternalLggeWhile.g:2329:1: ( () )
-            {
-            // InternalLggeWhile.g:2329:1: ( () )
-            // InternalLggeWhile.g:2330:2: ()
-            {
-             before(grammarAccess.getExprBaseAccess().getExprBaseAction_0_0()); 
-            // InternalLggeWhile.g:2331:2: ()
-            // InternalLggeWhile.g:2331:3: 
-            {
-            }
-
-             after(grammarAccess.getExprBaseAccess().getExprBaseAction_0_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_0__0__Impl"
-
-
-    // $ANTLR start "rule__ExprBase__Group_0__1"
-    // InternalLggeWhile.g:2339:1: rule__ExprBase__Group_0__1 : rule__ExprBase__Group_0__1__Impl ;
-    public final void rule__ExprBase__Group_0__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2343:1: ( rule__ExprBase__Group_0__1__Impl )
-            // InternalLggeWhile.g:2344:2: rule__ExprBase__Group_0__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_0__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_0__1"
-
-
-    // $ANTLR start "rule__ExprBase__Group_0__1__Impl"
-    // InternalLggeWhile.g:2350:1: rule__ExprBase__Group_0__1__Impl : ( 'nil' ) ;
-    public final void rule__ExprBase__Group_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2354:1: ( ( 'nil' ) )
-            // InternalLggeWhile.g:2355:1: ( 'nil' )
-            {
-            // InternalLggeWhile.g:2355:1: ( 'nil' )
-            // InternalLggeWhile.g:2356:2: 'nil'
-            {
-             before(grammarAccess.getExprBaseAccess().getNilKeyword_0_1()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getNilKeyword_0_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_0__1__Impl"
-
-
-    // $ANTLR start "rule__ExprBase__Group_1__0"
-    // InternalLggeWhile.g:2366:1: rule__ExprBase__Group_1__0 : rule__ExprBase__Group_1__0__Impl rule__ExprBase__Group_1__1 ;
-    public final void rule__ExprBase__Group_1__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2370:1: ( rule__ExprBase__Group_1__0__Impl rule__ExprBase__Group_1__1 )
-            // InternalLggeWhile.g:2371:2: rule__ExprBase__Group_1__0__Impl rule__ExprBase__Group_1__1
-            {
-            pushFollow(FOLLOW_8);
-            rule__ExprBase__Group_1__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_1__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_1__0"
-
-
-    // $ANTLR start "rule__ExprBase__Group_1__0__Impl"
-    // InternalLggeWhile.g:2378:1: rule__ExprBase__Group_1__0__Impl : ( () ) ;
-    public final void rule__ExprBase__Group_1__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2382:1: ( ( () ) )
-            // InternalLggeWhile.g:2383:1: ( () )
-            {
-            // InternalLggeWhile.g:2383:1: ( () )
-            // InternalLggeWhile.g:2384:2: ()
-            {
-             before(grammarAccess.getExprBaseAccess().getExprBaseAction_1_0()); 
-            // InternalLggeWhile.g:2385:2: ()
-            // InternalLggeWhile.g:2385:3: 
-            {
-            }
-
-             after(grammarAccess.getExprBaseAccess().getExprBaseAction_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_1__0__Impl"
-
-
-    // $ANTLR start "rule__ExprBase__Group_1__1"
-    // InternalLggeWhile.g:2393:1: rule__ExprBase__Group_1__1 : rule__ExprBase__Group_1__1__Impl ;
-    public final void rule__ExprBase__Group_1__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2397:1: ( rule__ExprBase__Group_1__1__Impl )
-            // InternalLggeWhile.g:2398:2: rule__ExprBase__Group_1__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_1__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_1__1"
-
-
-    // $ANTLR start "rule__ExprBase__Group_1__1__Impl"
-    // InternalLggeWhile.g:2404:1: rule__ExprBase__Group_1__1__Impl : ( RULE_VARIABLE ) ;
-    public final void rule__ExprBase__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2408:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:2409:1: ( RULE_VARIABLE )
-            {
-            // InternalLggeWhile.g:2409:1: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:2410:2: RULE_VARIABLE
-            {
-             before(grammarAccess.getExprBaseAccess().getVARIABLETerminalRuleCall_1_1()); 
-            match(input,RULE_VARIABLE,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getVARIABLETerminalRuleCall_1_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_1__1__Impl"
-
-
-    // $ANTLR start "rule__ExprBase__Group_2__0"
-    // InternalLggeWhile.g:2420:1: rule__ExprBase__Group_2__0 : rule__ExprBase__Group_2__0__Impl rule__ExprBase__Group_2__1 ;
-    public final void rule__ExprBase__Group_2__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2424:1: ( rule__ExprBase__Group_2__0__Impl rule__ExprBase__Group_2__1 )
-            // InternalLggeWhile.g:2425:2: rule__ExprBase__Group_2__0__Impl rule__ExprBase__Group_2__1
-            {
-            pushFollow(FOLLOW_5);
-            rule__ExprBase__Group_2__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_2__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_2__0"
-
-
-    // $ANTLR start "rule__ExprBase__Group_2__0__Impl"
-    // InternalLggeWhile.g:2432:1: rule__ExprBase__Group_2__0__Impl : ( () ) ;
-    public final void rule__ExprBase__Group_2__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2436:1: ( ( () ) )
-            // InternalLggeWhile.g:2437:1: ( () )
-            {
-            // InternalLggeWhile.g:2437:1: ( () )
-            // InternalLggeWhile.g:2438:2: ()
-            {
-             before(grammarAccess.getExprBaseAccess().getExprBaseAction_2_0()); 
-            // InternalLggeWhile.g:2439:2: ()
-            // InternalLggeWhile.g:2439:3: 
-            {
-            }
-
-             after(grammarAccess.getExprBaseAccess().getExprBaseAction_2_0()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_2__0__Impl"
-
-
-    // $ANTLR start "rule__ExprBase__Group_2__1"
-    // InternalLggeWhile.g:2447:1: rule__ExprBase__Group_2__1 : rule__ExprBase__Group_2__1__Impl ;
-    public final void rule__ExprBase__Group_2__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2451:1: ( rule__ExprBase__Group_2__1__Impl )
-            // InternalLggeWhile.g:2452:2: rule__ExprBase__Group_2__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__ExprBase__Group_2__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_2__1"
-
-
-    // $ANTLR start "rule__ExprBase__Group_2__1__Impl"
-    // InternalLggeWhile.g:2458:1: rule__ExprBase__Group_2__1__Impl : ( RULE_SYMBOL ) ;
-    public final void rule__ExprBase__Group_2__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalLggeWhile.g:2462:1: ( ( RULE_SYMBOL ) )
-            // InternalLggeWhile.g:2463:1: ( RULE_SYMBOL )
-            {
-            // InternalLggeWhile.g:2463:1: ( RULE_SYMBOL )
-            // InternalLggeWhile.g:2464:2: RULE_SYMBOL
-            {
-             before(grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_2_1()); 
-            match(input,RULE_SYMBOL,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_2_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ExprBase__Group_2__1__Impl"
-
-
     // $ANTLR start "rule__ExprBase__Group_3__0"
-    // InternalLggeWhile.g:2474:1: rule__ExprBase__Group_3__0 : rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1 ;
+    // InternalLggeWhile.g:2312:1: rule__ExprBase__Group_3__0 : rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1 ;
     public final void rule__ExprBase__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2478:1: ( rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1 )
-            // InternalLggeWhile.g:2479:2: rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1
+            // InternalLggeWhile.g:2316:1: ( rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1 )
+            // InternalLggeWhile.g:2317:2: rule__ExprBase__Group_3__0__Impl rule__ExprBase__Group_3__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_24);
             rule__ExprBase__Group_3__0__Impl();
 
             state._fsp--;
@@ -7529,20 +7087,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__0__Impl"
-    // InternalLggeWhile.g:2486:1: rule__ExprBase__Group_3__0__Impl : ( '(' ) ;
+    // InternalLggeWhile.g:2324:1: rule__ExprBase__Group_3__0__Impl : ( '(' ) ;
     public final void rule__ExprBase__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2490:1: ( ( '(' ) )
-            // InternalLggeWhile.g:2491:1: ( '(' )
+            // InternalLggeWhile.g:2328:1: ( ( '(' ) )
+            // InternalLggeWhile.g:2329:1: ( '(' )
             {
-            // InternalLggeWhile.g:2491:1: ( '(' )
-            // InternalLggeWhile.g:2492:2: '('
+            // InternalLggeWhile.g:2329:1: ( '(' )
+            // InternalLggeWhile.g:2330:2: '('
             {
              before(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_3_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_3_0()); 
 
             }
@@ -7566,14 +7124,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__1"
-    // InternalLggeWhile.g:2501:1: rule__ExprBase__Group_3__1 : rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2 ;
+    // InternalLggeWhile.g:2339:1: rule__ExprBase__Group_3__1 : rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2 ;
     public final void rule__ExprBase__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2505:1: ( rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2 )
-            // InternalLggeWhile.g:2506:2: rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2
+            // InternalLggeWhile.g:2343:1: ( rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2 )
+            // InternalLggeWhile.g:2344:2: rule__ExprBase__Group_3__1__Impl rule__ExprBase__Group_3__2
             {
             pushFollow(FOLLOW_16);
             rule__ExprBase__Group_3__1__Impl();
@@ -7604,21 +7162,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__1__Impl"
-    // InternalLggeWhile.g:2513:1: rule__ExprBase__Group_3__1__Impl : ( 'cons' ) ;
+    // InternalLggeWhile.g:2351:1: rule__ExprBase__Group_3__1__Impl : ( ( rule__ExprBase__IdentitorAssignment_3_1 ) ) ;
     public final void rule__ExprBase__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2517:1: ( ( 'cons' ) )
-            // InternalLggeWhile.g:2518:1: ( 'cons' )
+            // InternalLggeWhile.g:2355:1: ( ( ( rule__ExprBase__IdentitorAssignment_3_1 ) ) )
+            // InternalLggeWhile.g:2356:1: ( ( rule__ExprBase__IdentitorAssignment_3_1 ) )
             {
-            // InternalLggeWhile.g:2518:1: ( 'cons' )
-            // InternalLggeWhile.g:2519:2: 'cons'
+            // InternalLggeWhile.g:2356:1: ( ( rule__ExprBase__IdentitorAssignment_3_1 ) )
+            // InternalLggeWhile.g:2357:2: ( rule__ExprBase__IdentitorAssignment_3_1 )
             {
-             before(grammarAccess.getExprBaseAccess().getConsKeyword_3_1()); 
-            match(input,34,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getConsKeyword_3_1()); 
+             before(grammarAccess.getExprBaseAccess().getIdentitorAssignment_3_1()); 
+            // InternalLggeWhile.g:2358:2: ( rule__ExprBase__IdentitorAssignment_3_1 )
+            // InternalLggeWhile.g:2358:3: rule__ExprBase__IdentitorAssignment_3_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ExprBase__IdentitorAssignment_3_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitorAssignment_3_1()); 
 
             }
 
@@ -7641,16 +7209,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__2"
-    // InternalLggeWhile.g:2528:1: rule__ExprBase__Group_3__2 : rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3 ;
+    // InternalLggeWhile.g:2366:1: rule__ExprBase__Group_3__2 : rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3 ;
     public final void rule__ExprBase__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2532:1: ( rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3 )
-            // InternalLggeWhile.g:2533:2: rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3
+            // InternalLggeWhile.g:2370:1: ( rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3 )
+            // InternalLggeWhile.g:2371:2: rule__ExprBase__Group_3__2__Impl rule__ExprBase__Group_3__3
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_25);
             rule__ExprBase__Group_3__2__Impl();
 
             state._fsp--;
@@ -7679,25 +7247,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__2__Impl"
-    // InternalLggeWhile.g:2540:1: rule__ExprBase__Group_3__2__Impl : ( ruleLExpr ) ;
+    // InternalLggeWhile.g:2378:1: rule__ExprBase__Group_3__2__Impl : ( ( rule__ExprBase__LexprAssignment_3_2 ) ) ;
     public final void rule__ExprBase__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2544:1: ( ( ruleLExpr ) )
-            // InternalLggeWhile.g:2545:1: ( ruleLExpr )
+            // InternalLggeWhile.g:2382:1: ( ( ( rule__ExprBase__LexprAssignment_3_2 ) ) )
+            // InternalLggeWhile.g:2383:1: ( ( rule__ExprBase__LexprAssignment_3_2 ) )
             {
-            // InternalLggeWhile.g:2545:1: ( ruleLExpr )
-            // InternalLggeWhile.g:2546:2: ruleLExpr
+            // InternalLggeWhile.g:2383:1: ( ( rule__ExprBase__LexprAssignment_3_2 ) )
+            // InternalLggeWhile.g:2384:2: ( rule__ExprBase__LexprAssignment_3_2 )
             {
-             before(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_3_2()); 
+             before(grammarAccess.getExprBaseAccess().getLexprAssignment_3_2()); 
+            // InternalLggeWhile.g:2385:2: ( rule__ExprBase__LexprAssignment_3_2 )
+            // InternalLggeWhile.g:2385:3: rule__ExprBase__LexprAssignment_3_2
+            {
             pushFollow(FOLLOW_2);
-            ruleLExpr();
+            rule__ExprBase__LexprAssignment_3_2();
 
             state._fsp--;
 
-             after(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_3_2()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getLexprAssignment_3_2()); 
 
             }
 
@@ -7720,14 +7294,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__3"
-    // InternalLggeWhile.g:2555:1: rule__ExprBase__Group_3__3 : rule__ExprBase__Group_3__3__Impl ;
+    // InternalLggeWhile.g:2393:1: rule__ExprBase__Group_3__3 : rule__ExprBase__Group_3__3__Impl ;
     public final void rule__ExprBase__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2559:1: ( rule__ExprBase__Group_3__3__Impl )
-            // InternalLggeWhile.g:2560:2: rule__ExprBase__Group_3__3__Impl
+            // InternalLggeWhile.g:2397:1: ( rule__ExprBase__Group_3__3__Impl )
+            // InternalLggeWhile.g:2398:2: rule__ExprBase__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExprBase__Group_3__3__Impl();
@@ -7753,20 +7327,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_3__3__Impl"
-    // InternalLggeWhile.g:2566:1: rule__ExprBase__Group_3__3__Impl : ( ')' ) ;
+    // InternalLggeWhile.g:2404:1: rule__ExprBase__Group_3__3__Impl : ( ')' ) ;
     public final void rule__ExprBase__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2570:1: ( ( ')' ) )
-            // InternalLggeWhile.g:2571:1: ( ')' )
+            // InternalLggeWhile.g:2408:1: ( ( ')' ) )
+            // InternalLggeWhile.g:2409:1: ( ')' )
             {
-            // InternalLggeWhile.g:2571:1: ( ')' )
-            // InternalLggeWhile.g:2572:2: ')'
+            // InternalLggeWhile.g:2409:1: ( ')' )
+            // InternalLggeWhile.g:2410:2: ')'
             {
              before(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_3_3()); 
-            match(input,35,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_3_3()); 
 
             }
@@ -7790,16 +7364,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__0"
-    // InternalLggeWhile.g:2582:1: rule__ExprBase__Group_4__0 : rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1 ;
+    // InternalLggeWhile.g:2420:1: rule__ExprBase__Group_4__0 : rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1 ;
     public final void rule__ExprBase__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2586:1: ( rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1 )
-            // InternalLggeWhile.g:2587:2: rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1
+            // InternalLggeWhile.g:2424:1: ( rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1 )
+            // InternalLggeWhile.g:2425:2: rule__ExprBase__Group_4__0__Impl rule__ExprBase__Group_4__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_26);
             rule__ExprBase__Group_4__0__Impl();
 
             state._fsp--;
@@ -7828,20 +7402,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__0__Impl"
-    // InternalLggeWhile.g:2594:1: rule__ExprBase__Group_4__0__Impl : ( '(' ) ;
+    // InternalLggeWhile.g:2432:1: rule__ExprBase__Group_4__0__Impl : ( '(' ) ;
     public final void rule__ExprBase__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2598:1: ( ( '(' ) )
-            // InternalLggeWhile.g:2599:1: ( '(' )
+            // InternalLggeWhile.g:2436:1: ( ( '(' ) )
+            // InternalLggeWhile.g:2437:1: ( '(' )
             {
-            // InternalLggeWhile.g:2599:1: ( '(' )
-            // InternalLggeWhile.g:2600:2: '('
+            // InternalLggeWhile.g:2437:1: ( '(' )
+            // InternalLggeWhile.g:2438:2: '('
             {
              before(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_4_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_4_0()); 
 
             }
@@ -7865,14 +7439,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__1"
-    // InternalLggeWhile.g:2609:1: rule__ExprBase__Group_4__1 : rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2 ;
+    // InternalLggeWhile.g:2447:1: rule__ExprBase__Group_4__1 : rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2 ;
     public final void rule__ExprBase__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2613:1: ( rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2 )
-            // InternalLggeWhile.g:2614:2: rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2
+            // InternalLggeWhile.g:2451:1: ( rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2 )
+            // InternalLggeWhile.g:2452:2: rule__ExprBase__Group_4__1__Impl rule__ExprBase__Group_4__2
             {
             pushFollow(FOLLOW_16);
             rule__ExprBase__Group_4__1__Impl();
@@ -7903,21 +7477,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__1__Impl"
-    // InternalLggeWhile.g:2621:1: rule__ExprBase__Group_4__1__Impl : ( 'list' ) ;
+    // InternalLggeWhile.g:2459:1: rule__ExprBase__Group_4__1__Impl : ( ( rule__ExprBase__IdentitorAssignment_4_1 ) ) ;
     public final void rule__ExprBase__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2625:1: ( ( 'list' ) )
-            // InternalLggeWhile.g:2626:1: ( 'list' )
+            // InternalLggeWhile.g:2463:1: ( ( ( rule__ExprBase__IdentitorAssignment_4_1 ) ) )
+            // InternalLggeWhile.g:2464:1: ( ( rule__ExprBase__IdentitorAssignment_4_1 ) )
             {
-            // InternalLggeWhile.g:2626:1: ( 'list' )
-            // InternalLggeWhile.g:2627:2: 'list'
+            // InternalLggeWhile.g:2464:1: ( ( rule__ExprBase__IdentitorAssignment_4_1 ) )
+            // InternalLggeWhile.g:2465:2: ( rule__ExprBase__IdentitorAssignment_4_1 )
             {
-             before(grammarAccess.getExprBaseAccess().getListKeyword_4_1()); 
-            match(input,36,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getListKeyword_4_1()); 
+             before(grammarAccess.getExprBaseAccess().getIdentitorAssignment_4_1()); 
+            // InternalLggeWhile.g:2466:2: ( rule__ExprBase__IdentitorAssignment_4_1 )
+            // InternalLggeWhile.g:2466:3: rule__ExprBase__IdentitorAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ExprBase__IdentitorAssignment_4_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitorAssignment_4_1()); 
 
             }
 
@@ -7940,16 +7524,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__2"
-    // InternalLggeWhile.g:2636:1: rule__ExprBase__Group_4__2 : rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3 ;
+    // InternalLggeWhile.g:2474:1: rule__ExprBase__Group_4__2 : rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3 ;
     public final void rule__ExprBase__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2640:1: ( rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3 )
-            // InternalLggeWhile.g:2641:2: rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3
+            // InternalLggeWhile.g:2478:1: ( rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3 )
+            // InternalLggeWhile.g:2479:2: rule__ExprBase__Group_4__2__Impl rule__ExprBase__Group_4__3
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_25);
             rule__ExprBase__Group_4__2__Impl();
 
             state._fsp--;
@@ -7978,25 +7562,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__2__Impl"
-    // InternalLggeWhile.g:2648:1: rule__ExprBase__Group_4__2__Impl : ( ruleLExpr ) ;
+    // InternalLggeWhile.g:2486:1: rule__ExprBase__Group_4__2__Impl : ( ( rule__ExprBase__LexprAssignment_4_2 ) ) ;
     public final void rule__ExprBase__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2652:1: ( ( ruleLExpr ) )
-            // InternalLggeWhile.g:2653:1: ( ruleLExpr )
+            // InternalLggeWhile.g:2490:1: ( ( ( rule__ExprBase__LexprAssignment_4_2 ) ) )
+            // InternalLggeWhile.g:2491:1: ( ( rule__ExprBase__LexprAssignment_4_2 ) )
             {
-            // InternalLggeWhile.g:2653:1: ( ruleLExpr )
-            // InternalLggeWhile.g:2654:2: ruleLExpr
+            // InternalLggeWhile.g:2491:1: ( ( rule__ExprBase__LexprAssignment_4_2 ) )
+            // InternalLggeWhile.g:2492:2: ( rule__ExprBase__LexprAssignment_4_2 )
             {
-             before(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_4_2()); 
+             before(grammarAccess.getExprBaseAccess().getLexprAssignment_4_2()); 
+            // InternalLggeWhile.g:2493:2: ( rule__ExprBase__LexprAssignment_4_2 )
+            // InternalLggeWhile.g:2493:3: rule__ExprBase__LexprAssignment_4_2
+            {
             pushFollow(FOLLOW_2);
-            ruleLExpr();
+            rule__ExprBase__LexprAssignment_4_2();
 
             state._fsp--;
 
-             after(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_4_2()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getLexprAssignment_4_2()); 
 
             }
 
@@ -8019,14 +7609,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__3"
-    // InternalLggeWhile.g:2663:1: rule__ExprBase__Group_4__3 : rule__ExprBase__Group_4__3__Impl ;
+    // InternalLggeWhile.g:2501:1: rule__ExprBase__Group_4__3 : rule__ExprBase__Group_4__3__Impl ;
     public final void rule__ExprBase__Group_4__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2667:1: ( rule__ExprBase__Group_4__3__Impl )
-            // InternalLggeWhile.g:2668:2: rule__ExprBase__Group_4__3__Impl
+            // InternalLggeWhile.g:2505:1: ( rule__ExprBase__Group_4__3__Impl )
+            // InternalLggeWhile.g:2506:2: rule__ExprBase__Group_4__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExprBase__Group_4__3__Impl();
@@ -8052,20 +7642,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_4__3__Impl"
-    // InternalLggeWhile.g:2674:1: rule__ExprBase__Group_4__3__Impl : ( ')' ) ;
+    // InternalLggeWhile.g:2512:1: rule__ExprBase__Group_4__3__Impl : ( ')' ) ;
     public final void rule__ExprBase__Group_4__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2678:1: ( ( ')' ) )
-            // InternalLggeWhile.g:2679:1: ( ')' )
+            // InternalLggeWhile.g:2516:1: ( ( ')' ) )
+            // InternalLggeWhile.g:2517:1: ( ')' )
             {
-            // InternalLggeWhile.g:2679:1: ( ')' )
-            // InternalLggeWhile.g:2680:2: ')'
+            // InternalLggeWhile.g:2517:1: ( ')' )
+            // InternalLggeWhile.g:2518:2: ')'
             {
              before(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_4_3()); 
-            match(input,35,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_4_3()); 
 
             }
@@ -8089,16 +7679,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__0"
-    // InternalLggeWhile.g:2690:1: rule__ExprBase__Group_5__0 : rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1 ;
+    // InternalLggeWhile.g:2528:1: rule__ExprBase__Group_5__0 : rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1 ;
     public final void rule__ExprBase__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2694:1: ( rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1 )
-            // InternalLggeWhile.g:2695:2: rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1
+            // InternalLggeWhile.g:2532:1: ( rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1 )
+            // InternalLggeWhile.g:2533:2: rule__ExprBase__Group_5__0__Impl rule__ExprBase__Group_5__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_27);
             rule__ExprBase__Group_5__0__Impl();
 
             state._fsp--;
@@ -8127,20 +7717,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__0__Impl"
-    // InternalLggeWhile.g:2702:1: rule__ExprBase__Group_5__0__Impl : ( '(' ) ;
+    // InternalLggeWhile.g:2540:1: rule__ExprBase__Group_5__0__Impl : ( '(' ) ;
     public final void rule__ExprBase__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2706:1: ( ( '(' ) )
-            // InternalLggeWhile.g:2707:1: ( '(' )
+            // InternalLggeWhile.g:2544:1: ( ( '(' ) )
+            // InternalLggeWhile.g:2545:1: ( '(' )
             {
-            // InternalLggeWhile.g:2707:1: ( '(' )
-            // InternalLggeWhile.g:2708:2: '('
+            // InternalLggeWhile.g:2545:1: ( '(' )
+            // InternalLggeWhile.g:2546:2: '('
             {
              before(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_5_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_5_0()); 
 
             }
@@ -8164,14 +7754,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__1"
-    // InternalLggeWhile.g:2717:1: rule__ExprBase__Group_5__1 : rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2 ;
+    // InternalLggeWhile.g:2555:1: rule__ExprBase__Group_5__1 : rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2 ;
     public final void rule__ExprBase__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2721:1: ( rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2 )
-            // InternalLggeWhile.g:2722:2: rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2
+            // InternalLggeWhile.g:2559:1: ( rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2 )
+            // InternalLggeWhile.g:2560:2: rule__ExprBase__Group_5__1__Impl rule__ExprBase__Group_5__2
             {
             pushFollow(FOLLOW_16);
             rule__ExprBase__Group_5__1__Impl();
@@ -8202,21 +7792,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__1__Impl"
-    // InternalLggeWhile.g:2729:1: rule__ExprBase__Group_5__1__Impl : ( 'hd' ) ;
+    // InternalLggeWhile.g:2567:1: rule__ExprBase__Group_5__1__Impl : ( ( rule__ExprBase__Identitor1Assignment_5_1 ) ) ;
     public final void rule__ExprBase__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2733:1: ( ( 'hd' ) )
-            // InternalLggeWhile.g:2734:1: ( 'hd' )
+            // InternalLggeWhile.g:2571:1: ( ( ( rule__ExprBase__Identitor1Assignment_5_1 ) ) )
+            // InternalLggeWhile.g:2572:1: ( ( rule__ExprBase__Identitor1Assignment_5_1 ) )
             {
-            // InternalLggeWhile.g:2734:1: ( 'hd' )
-            // InternalLggeWhile.g:2735:2: 'hd'
+            // InternalLggeWhile.g:2572:1: ( ( rule__ExprBase__Identitor1Assignment_5_1 ) )
+            // InternalLggeWhile.g:2573:2: ( rule__ExprBase__Identitor1Assignment_5_1 )
             {
-             before(grammarAccess.getExprBaseAccess().getHdKeyword_5_1()); 
-            match(input,37,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getHdKeyword_5_1()); 
+             before(grammarAccess.getExprBaseAccess().getIdentitor1Assignment_5_1()); 
+            // InternalLggeWhile.g:2574:2: ( rule__ExprBase__Identitor1Assignment_5_1 )
+            // InternalLggeWhile.g:2574:3: rule__ExprBase__Identitor1Assignment_5_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ExprBase__Identitor1Assignment_5_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitor1Assignment_5_1()); 
 
             }
 
@@ -8239,16 +7839,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__2"
-    // InternalLggeWhile.g:2744:1: rule__ExprBase__Group_5__2 : rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3 ;
+    // InternalLggeWhile.g:2582:1: rule__ExprBase__Group_5__2 : rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3 ;
     public final void rule__ExprBase__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2748:1: ( rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3 )
-            // InternalLggeWhile.g:2749:2: rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3
+            // InternalLggeWhile.g:2586:1: ( rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3 )
+            // InternalLggeWhile.g:2587:2: rule__ExprBase__Group_5__2__Impl rule__ExprBase__Group_5__3
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_25);
             rule__ExprBase__Group_5__2__Impl();
 
             state._fsp--;
@@ -8277,25 +7877,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__2__Impl"
-    // InternalLggeWhile.g:2756:1: rule__ExprBase__Group_5__2__Impl : ( ruleExpr ) ;
+    // InternalLggeWhile.g:2594:1: rule__ExprBase__Group_5__2__Impl : ( ( rule__ExprBase__ExprAssignment_5_2 ) ) ;
     public final void rule__ExprBase__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2760:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:2761:1: ( ruleExpr )
+            // InternalLggeWhile.g:2598:1: ( ( ( rule__ExprBase__ExprAssignment_5_2 ) ) )
+            // InternalLggeWhile.g:2599:1: ( ( rule__ExprBase__ExprAssignment_5_2 ) )
             {
-            // InternalLggeWhile.g:2761:1: ( ruleExpr )
-            // InternalLggeWhile.g:2762:2: ruleExpr
+            // InternalLggeWhile.g:2599:1: ( ( rule__ExprBase__ExprAssignment_5_2 ) )
+            // InternalLggeWhile.g:2600:2: ( rule__ExprBase__ExprAssignment_5_2 )
             {
-             before(grammarAccess.getExprBaseAccess().getExprParserRuleCall_5_2()); 
+             before(grammarAccess.getExprBaseAccess().getExprAssignment_5_2()); 
+            // InternalLggeWhile.g:2601:2: ( rule__ExprBase__ExprAssignment_5_2 )
+            // InternalLggeWhile.g:2601:3: rule__ExprBase__ExprAssignment_5_2
+            {
             pushFollow(FOLLOW_2);
-            ruleExpr();
+            rule__ExprBase__ExprAssignment_5_2();
 
             state._fsp--;
 
-             after(grammarAccess.getExprBaseAccess().getExprParserRuleCall_5_2()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getExprAssignment_5_2()); 
 
             }
 
@@ -8318,14 +7924,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__3"
-    // InternalLggeWhile.g:2771:1: rule__ExprBase__Group_5__3 : rule__ExprBase__Group_5__3__Impl ;
+    // InternalLggeWhile.g:2609:1: rule__ExprBase__Group_5__3 : rule__ExprBase__Group_5__3__Impl ;
     public final void rule__ExprBase__Group_5__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2775:1: ( rule__ExprBase__Group_5__3__Impl )
-            // InternalLggeWhile.g:2776:2: rule__ExprBase__Group_5__3__Impl
+            // InternalLggeWhile.g:2613:1: ( rule__ExprBase__Group_5__3__Impl )
+            // InternalLggeWhile.g:2614:2: rule__ExprBase__Group_5__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExprBase__Group_5__3__Impl();
@@ -8351,20 +7957,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_5__3__Impl"
-    // InternalLggeWhile.g:2782:1: rule__ExprBase__Group_5__3__Impl : ( ')' ) ;
+    // InternalLggeWhile.g:2620:1: rule__ExprBase__Group_5__3__Impl : ( ')' ) ;
     public final void rule__ExprBase__Group_5__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2786:1: ( ( ')' ) )
-            // InternalLggeWhile.g:2787:1: ( ')' )
+            // InternalLggeWhile.g:2624:1: ( ( ')' ) )
+            // InternalLggeWhile.g:2625:1: ( ')' )
             {
-            // InternalLggeWhile.g:2787:1: ( ')' )
-            // InternalLggeWhile.g:2788:2: ')'
+            // InternalLggeWhile.g:2625:1: ( ')' )
+            // InternalLggeWhile.g:2626:2: ')'
             {
              before(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_5_3()); 
-            match(input,35,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_5_3()); 
 
             }
@@ -8388,16 +7994,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__0"
-    // InternalLggeWhile.g:2798:1: rule__ExprBase__Group_6__0 : rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1 ;
+    // InternalLggeWhile.g:2636:1: rule__ExprBase__Group_6__0 : rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1 ;
     public final void rule__ExprBase__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2802:1: ( rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1 )
-            // InternalLggeWhile.g:2803:2: rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1
+            // InternalLggeWhile.g:2640:1: ( rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1 )
+            // InternalLggeWhile.g:2641:2: rule__ExprBase__Group_6__0__Impl rule__ExprBase__Group_6__1
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_28);
             rule__ExprBase__Group_6__0__Impl();
 
             state._fsp--;
@@ -8426,20 +8032,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__0__Impl"
-    // InternalLggeWhile.g:2810:1: rule__ExprBase__Group_6__0__Impl : ( '(' ) ;
+    // InternalLggeWhile.g:2648:1: rule__ExprBase__Group_6__0__Impl : ( '(' ) ;
     public final void rule__ExprBase__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2814:1: ( ( '(' ) )
-            // InternalLggeWhile.g:2815:1: ( '(' )
+            // InternalLggeWhile.g:2652:1: ( ( '(' ) )
+            // InternalLggeWhile.g:2653:1: ( '(' )
             {
-            // InternalLggeWhile.g:2815:1: ( '(' )
-            // InternalLggeWhile.g:2816:2: '('
+            // InternalLggeWhile.g:2653:1: ( '(' )
+            // InternalLggeWhile.g:2654:2: '('
             {
              before(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_6_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_6_0()); 
 
             }
@@ -8463,14 +8069,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__1"
-    // InternalLggeWhile.g:2825:1: rule__ExprBase__Group_6__1 : rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2 ;
+    // InternalLggeWhile.g:2663:1: rule__ExprBase__Group_6__1 : rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2 ;
     public final void rule__ExprBase__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2829:1: ( rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2 )
-            // InternalLggeWhile.g:2830:2: rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2
+            // InternalLggeWhile.g:2667:1: ( rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2 )
+            // InternalLggeWhile.g:2668:2: rule__ExprBase__Group_6__1__Impl rule__ExprBase__Group_6__2
             {
             pushFollow(FOLLOW_16);
             rule__ExprBase__Group_6__1__Impl();
@@ -8501,21 +8107,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__1__Impl"
-    // InternalLggeWhile.g:2837:1: rule__ExprBase__Group_6__1__Impl : ( 'tl' ) ;
+    // InternalLggeWhile.g:2675:1: rule__ExprBase__Group_6__1__Impl : ( ( rule__ExprBase__Identitor1Assignment_6_1 ) ) ;
     public final void rule__ExprBase__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2841:1: ( ( 'tl' ) )
-            // InternalLggeWhile.g:2842:1: ( 'tl' )
+            // InternalLggeWhile.g:2679:1: ( ( ( rule__ExprBase__Identitor1Assignment_6_1 ) ) )
+            // InternalLggeWhile.g:2680:1: ( ( rule__ExprBase__Identitor1Assignment_6_1 ) )
             {
-            // InternalLggeWhile.g:2842:1: ( 'tl' )
-            // InternalLggeWhile.g:2843:2: 'tl'
+            // InternalLggeWhile.g:2680:1: ( ( rule__ExprBase__Identitor1Assignment_6_1 ) )
+            // InternalLggeWhile.g:2681:2: ( rule__ExprBase__Identitor1Assignment_6_1 )
             {
-             before(grammarAccess.getExprBaseAccess().getTlKeyword_6_1()); 
-            match(input,38,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getTlKeyword_6_1()); 
+             before(grammarAccess.getExprBaseAccess().getIdentitor1Assignment_6_1()); 
+            // InternalLggeWhile.g:2682:2: ( rule__ExprBase__Identitor1Assignment_6_1 )
+            // InternalLggeWhile.g:2682:3: rule__ExprBase__Identitor1Assignment_6_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ExprBase__Identitor1Assignment_6_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitor1Assignment_6_1()); 
 
             }
 
@@ -8538,16 +8154,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__2"
-    // InternalLggeWhile.g:2852:1: rule__ExprBase__Group_6__2 : rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3 ;
+    // InternalLggeWhile.g:2690:1: rule__ExprBase__Group_6__2 : rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3 ;
     public final void rule__ExprBase__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2856:1: ( rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3 )
-            // InternalLggeWhile.g:2857:2: rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3
+            // InternalLggeWhile.g:2694:1: ( rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3 )
+            // InternalLggeWhile.g:2695:2: rule__ExprBase__Group_6__2__Impl rule__ExprBase__Group_6__3
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_25);
             rule__ExprBase__Group_6__2__Impl();
 
             state._fsp--;
@@ -8576,25 +8192,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__2__Impl"
-    // InternalLggeWhile.g:2864:1: rule__ExprBase__Group_6__2__Impl : ( ruleExpr ) ;
+    // InternalLggeWhile.g:2702:1: rule__ExprBase__Group_6__2__Impl : ( ( rule__ExprBase__ExprAssignment_6_2 ) ) ;
     public final void rule__ExprBase__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2868:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:2869:1: ( ruleExpr )
+            // InternalLggeWhile.g:2706:1: ( ( ( rule__ExprBase__ExprAssignment_6_2 ) ) )
+            // InternalLggeWhile.g:2707:1: ( ( rule__ExprBase__ExprAssignment_6_2 ) )
             {
-            // InternalLggeWhile.g:2869:1: ( ruleExpr )
-            // InternalLggeWhile.g:2870:2: ruleExpr
+            // InternalLggeWhile.g:2707:1: ( ( rule__ExprBase__ExprAssignment_6_2 ) )
+            // InternalLggeWhile.g:2708:2: ( rule__ExprBase__ExprAssignment_6_2 )
             {
-             before(grammarAccess.getExprBaseAccess().getExprParserRuleCall_6_2()); 
+             before(grammarAccess.getExprBaseAccess().getExprAssignment_6_2()); 
+            // InternalLggeWhile.g:2709:2: ( rule__ExprBase__ExprAssignment_6_2 )
+            // InternalLggeWhile.g:2709:3: rule__ExprBase__ExprAssignment_6_2
+            {
             pushFollow(FOLLOW_2);
-            ruleExpr();
+            rule__ExprBase__ExprAssignment_6_2();
 
             state._fsp--;
 
-             after(grammarAccess.getExprBaseAccess().getExprParserRuleCall_6_2()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getExprAssignment_6_2()); 
 
             }
 
@@ -8617,14 +8239,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__3"
-    // InternalLggeWhile.g:2879:1: rule__ExprBase__Group_6__3 : rule__ExprBase__Group_6__3__Impl ;
+    // InternalLggeWhile.g:2717:1: rule__ExprBase__Group_6__3 : rule__ExprBase__Group_6__3__Impl ;
     public final void rule__ExprBase__Group_6__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2883:1: ( rule__ExprBase__Group_6__3__Impl )
-            // InternalLggeWhile.g:2884:2: rule__ExprBase__Group_6__3__Impl
+            // InternalLggeWhile.g:2721:1: ( rule__ExprBase__Group_6__3__Impl )
+            // InternalLggeWhile.g:2722:2: rule__ExprBase__Group_6__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExprBase__Group_6__3__Impl();
@@ -8650,20 +8272,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_6__3__Impl"
-    // InternalLggeWhile.g:2890:1: rule__ExprBase__Group_6__3__Impl : ( ')' ) ;
+    // InternalLggeWhile.g:2728:1: rule__ExprBase__Group_6__3__Impl : ( ')' ) ;
     public final void rule__ExprBase__Group_6__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2894:1: ( ( ')' ) )
-            // InternalLggeWhile.g:2895:1: ( ')' )
+            // InternalLggeWhile.g:2732:1: ( ( ')' ) )
+            // InternalLggeWhile.g:2733:1: ( ')' )
             {
-            // InternalLggeWhile.g:2895:1: ( ')' )
-            // InternalLggeWhile.g:2896:2: ')'
+            // InternalLggeWhile.g:2733:1: ( ')' )
+            // InternalLggeWhile.g:2734:2: ')'
             {
              before(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_6_3()); 
-            match(input,35,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_6_3()); 
 
             }
@@ -8687,14 +8309,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__0"
-    // InternalLggeWhile.g:2906:1: rule__ExprBase__Group_7__0 : rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1 ;
+    // InternalLggeWhile.g:2744:1: rule__ExprBase__Group_7__0 : rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1 ;
     public final void rule__ExprBase__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2910:1: ( rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1 )
-            // InternalLggeWhile.g:2911:2: rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1
+            // InternalLggeWhile.g:2748:1: ( rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1 )
+            // InternalLggeWhile.g:2749:2: rule__ExprBase__Group_7__0__Impl rule__ExprBase__Group_7__1
             {
             pushFollow(FOLLOW_5);
             rule__ExprBase__Group_7__0__Impl();
@@ -8725,20 +8347,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__0__Impl"
-    // InternalLggeWhile.g:2918:1: rule__ExprBase__Group_7__0__Impl : ( '(' ) ;
+    // InternalLggeWhile.g:2756:1: rule__ExprBase__Group_7__0__Impl : ( '(' ) ;
     public final void rule__ExprBase__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2922:1: ( ( '(' ) )
-            // InternalLggeWhile.g:2923:1: ( '(' )
+            // InternalLggeWhile.g:2760:1: ( ( '(' ) )
+            // InternalLggeWhile.g:2761:1: ( '(' )
             {
-            // InternalLggeWhile.g:2923:1: ( '(' )
-            // InternalLggeWhile.g:2924:2: '('
+            // InternalLggeWhile.g:2761:1: ( '(' )
+            // InternalLggeWhile.g:2762:2: '('
             {
              before(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_7_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_7_0()); 
 
             }
@@ -8762,14 +8384,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__1"
-    // InternalLggeWhile.g:2933:1: rule__ExprBase__Group_7__1 : rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2 ;
+    // InternalLggeWhile.g:2771:1: rule__ExprBase__Group_7__1 : rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2 ;
     public final void rule__ExprBase__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2937:1: ( rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2 )
-            // InternalLggeWhile.g:2938:2: rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2
+            // InternalLggeWhile.g:2775:1: ( rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2 )
+            // InternalLggeWhile.g:2776:2: rule__ExprBase__Group_7__1__Impl rule__ExprBase__Group_7__2
             {
             pushFollow(FOLLOW_16);
             rule__ExprBase__Group_7__1__Impl();
@@ -8800,21 +8422,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__1__Impl"
-    // InternalLggeWhile.g:2945:1: rule__ExprBase__Group_7__1__Impl : ( RULE_SYMBOL ) ;
+    // InternalLggeWhile.g:2783:1: rule__ExprBase__Group_7__1__Impl : ( ( rule__ExprBase__SymbolAssignment_7_1 ) ) ;
     public final void rule__ExprBase__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2949:1: ( ( RULE_SYMBOL ) )
-            // InternalLggeWhile.g:2950:1: ( RULE_SYMBOL )
+            // InternalLggeWhile.g:2787:1: ( ( ( rule__ExprBase__SymbolAssignment_7_1 ) ) )
+            // InternalLggeWhile.g:2788:1: ( ( rule__ExprBase__SymbolAssignment_7_1 ) )
             {
-            // InternalLggeWhile.g:2950:1: ( RULE_SYMBOL )
-            // InternalLggeWhile.g:2951:2: RULE_SYMBOL
+            // InternalLggeWhile.g:2788:1: ( ( rule__ExprBase__SymbolAssignment_7_1 ) )
+            // InternalLggeWhile.g:2789:2: ( rule__ExprBase__SymbolAssignment_7_1 )
             {
-             before(grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_7_1()); 
-            match(input,RULE_SYMBOL,FOLLOW_2); 
-             after(grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_7_1()); 
+             before(grammarAccess.getExprBaseAccess().getSymbolAssignment_7_1()); 
+            // InternalLggeWhile.g:2790:2: ( rule__ExprBase__SymbolAssignment_7_1 )
+            // InternalLggeWhile.g:2790:3: rule__ExprBase__SymbolAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ExprBase__SymbolAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getSymbolAssignment_7_1()); 
 
             }
 
@@ -8837,16 +8469,16 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__2"
-    // InternalLggeWhile.g:2960:1: rule__ExprBase__Group_7__2 : rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3 ;
+    // InternalLggeWhile.g:2798:1: rule__ExprBase__Group_7__2 : rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3 ;
     public final void rule__ExprBase__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2964:1: ( rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3 )
-            // InternalLggeWhile.g:2965:2: rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3
+            // InternalLggeWhile.g:2802:1: ( rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3 )
+            // InternalLggeWhile.g:2803:2: rule__ExprBase__Group_7__2__Impl rule__ExprBase__Group_7__3
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_25);
             rule__ExprBase__Group_7__2__Impl();
 
             state._fsp--;
@@ -8875,25 +8507,31 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__2__Impl"
-    // InternalLggeWhile.g:2972:1: rule__ExprBase__Group_7__2__Impl : ( ruleLExpr ) ;
+    // InternalLggeWhile.g:2810:1: rule__ExprBase__Group_7__2__Impl : ( ( rule__ExprBase__LexprAssignment_7_2 ) ) ;
     public final void rule__ExprBase__Group_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2976:1: ( ( ruleLExpr ) )
-            // InternalLggeWhile.g:2977:1: ( ruleLExpr )
+            // InternalLggeWhile.g:2814:1: ( ( ( rule__ExprBase__LexprAssignment_7_2 ) ) )
+            // InternalLggeWhile.g:2815:1: ( ( rule__ExprBase__LexprAssignment_7_2 ) )
             {
-            // InternalLggeWhile.g:2977:1: ( ruleLExpr )
-            // InternalLggeWhile.g:2978:2: ruleLExpr
+            // InternalLggeWhile.g:2815:1: ( ( rule__ExprBase__LexprAssignment_7_2 ) )
+            // InternalLggeWhile.g:2816:2: ( rule__ExprBase__LexprAssignment_7_2 )
             {
-             before(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_7_2()); 
+             before(grammarAccess.getExprBaseAccess().getLexprAssignment_7_2()); 
+            // InternalLggeWhile.g:2817:2: ( rule__ExprBase__LexprAssignment_7_2 )
+            // InternalLggeWhile.g:2817:3: rule__ExprBase__LexprAssignment_7_2
+            {
             pushFollow(FOLLOW_2);
-            ruleLExpr();
+            rule__ExprBase__LexprAssignment_7_2();
 
             state._fsp--;
 
-             after(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_7_2()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getLexprAssignment_7_2()); 
 
             }
 
@@ -8916,14 +8554,14 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__3"
-    // InternalLggeWhile.g:2987:1: rule__ExprBase__Group_7__3 : rule__ExprBase__Group_7__3__Impl ;
+    // InternalLggeWhile.g:2825:1: rule__ExprBase__Group_7__3 : rule__ExprBase__Group_7__3__Impl ;
     public final void rule__ExprBase__Group_7__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:2991:1: ( rule__ExprBase__Group_7__3__Impl )
-            // InternalLggeWhile.g:2992:2: rule__ExprBase__Group_7__3__Impl
+            // InternalLggeWhile.g:2829:1: ( rule__ExprBase__Group_7__3__Impl )
+            // InternalLggeWhile.g:2830:2: rule__ExprBase__Group_7__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExprBase__Group_7__3__Impl();
@@ -8949,20 +8587,20 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ExprBase__Group_7__3__Impl"
-    // InternalLggeWhile.g:2998:1: rule__ExprBase__Group_7__3__Impl : ( ')' ) ;
+    // InternalLggeWhile.g:2836:1: rule__ExprBase__Group_7__3__Impl : ( ')' ) ;
     public final void rule__ExprBase__Group_7__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3002:1: ( ( ')' ) )
-            // InternalLggeWhile.g:3003:1: ( ')' )
+            // InternalLggeWhile.g:2840:1: ( ( ')' ) )
+            // InternalLggeWhile.g:2841:1: ( ')' )
             {
-            // InternalLggeWhile.g:3003:1: ( ')' )
-            // InternalLggeWhile.g:3004:2: ')'
+            // InternalLggeWhile.g:2841:1: ( ')' )
+            // InternalLggeWhile.g:2842:2: ')'
             {
              before(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_7_3()); 
-            match(input,35,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_7_3()); 
 
             }
@@ -8986,17 +8624,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Program__FunctionsAssignment"
-    // InternalLggeWhile.g:3014:1: rule__Program__FunctionsAssignment : ( ruleFunction ) ;
+    // InternalLggeWhile.g:2852:1: rule__Program__FunctionsAssignment : ( ruleFunction ) ;
     public final void rule__Program__FunctionsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3018:1: ( ( ruleFunction ) )
-            // InternalLggeWhile.g:3019:2: ( ruleFunction )
+            // InternalLggeWhile.g:2856:1: ( ( ruleFunction ) )
+            // InternalLggeWhile.g:2857:2: ( ruleFunction )
             {
-            // InternalLggeWhile.g:3019:2: ( ruleFunction )
-            // InternalLggeWhile.g:3020:3: ruleFunction
+            // InternalLggeWhile.g:2857:2: ( ruleFunction )
+            // InternalLggeWhile.g:2858:3: ruleFunction
             {
              before(grammarAccess.getProgramAccess().getFunctionsFunctionParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -9027,17 +8665,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Function__SymbolAssignment_1"
-    // InternalLggeWhile.g:3029:1: rule__Function__SymbolAssignment_1 : ( RULE_SYMBOL ) ;
+    // InternalLggeWhile.g:2867:1: rule__Function__SymbolAssignment_1 : ( RULE_SYMBOL ) ;
     public final void rule__Function__SymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3033:1: ( ( RULE_SYMBOL ) )
-            // InternalLggeWhile.g:3034:2: ( RULE_SYMBOL )
+            // InternalLggeWhile.g:2871:1: ( ( RULE_SYMBOL ) )
+            // InternalLggeWhile.g:2872:2: ( RULE_SYMBOL )
             {
-            // InternalLggeWhile.g:3034:2: ( RULE_SYMBOL )
-            // InternalLggeWhile.g:3035:3: RULE_SYMBOL
+            // InternalLggeWhile.g:2872:2: ( RULE_SYMBOL )
+            // InternalLggeWhile.g:2873:3: RULE_SYMBOL
             {
              before(grammarAccess.getFunctionAccess().getSymbolSYMBOLTerminalRuleCall_1_0()); 
             match(input,RULE_SYMBOL,FOLLOW_2); 
@@ -9064,17 +8702,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Function__DefinitionAssignment_3"
-    // InternalLggeWhile.g:3044:1: rule__Function__DefinitionAssignment_3 : ( ruleDefinition ) ;
+    // InternalLggeWhile.g:2882:1: rule__Function__DefinitionAssignment_3 : ( ruleDefinition ) ;
     public final void rule__Function__DefinitionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3048:1: ( ( ruleDefinition ) )
-            // InternalLggeWhile.g:3049:2: ( ruleDefinition )
+            // InternalLggeWhile.g:2886:1: ( ( ruleDefinition ) )
+            // InternalLggeWhile.g:2887:2: ( ruleDefinition )
             {
-            // InternalLggeWhile.g:3049:2: ( ruleDefinition )
-            // InternalLggeWhile.g:3050:3: ruleDefinition
+            // InternalLggeWhile.g:2887:2: ( ruleDefinition )
+            // InternalLggeWhile.g:2888:3: ruleDefinition
             {
              before(grammarAccess.getFunctionAccess().getDefinitionDefinitionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9105,17 +8743,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Definition__InputAssignment_1"
-    // InternalLggeWhile.g:3059:1: rule__Definition__InputAssignment_1 : ( ruleInput ) ;
+    // InternalLggeWhile.g:2897:1: rule__Definition__InputAssignment_1 : ( ruleInput ) ;
     public final void rule__Definition__InputAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3063:1: ( ( ruleInput ) )
-            // InternalLggeWhile.g:3064:2: ( ruleInput )
+            // InternalLggeWhile.g:2901:1: ( ( ruleInput ) )
+            // InternalLggeWhile.g:2902:2: ( ruleInput )
             {
-            // InternalLggeWhile.g:3064:2: ( ruleInput )
-            // InternalLggeWhile.g:3065:3: ruleInput
+            // InternalLggeWhile.g:2902:2: ( ruleInput )
+            // InternalLggeWhile.g:2903:3: ruleInput
             {
              before(grammarAccess.getDefinitionAccess().getInputInputParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9146,17 +8784,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Definition__CommandsAssignment_3"
-    // InternalLggeWhile.g:3074:1: rule__Definition__CommandsAssignment_3 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:2912:1: rule__Definition__CommandsAssignment_3 : ( ruleCommands ) ;
     public final void rule__Definition__CommandsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3078:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3079:2: ( ruleCommands )
+            // InternalLggeWhile.g:2916:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:2917:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3079:2: ( ruleCommands )
-            // InternalLggeWhile.g:3080:3: ruleCommands
+            // InternalLggeWhile.g:2917:2: ( ruleCommands )
+            // InternalLggeWhile.g:2918:3: ruleCommands
             {
              before(grammarAccess.getDefinitionAccess().getCommandsCommandsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9187,17 +8825,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Definition__OutputAssignment_6"
-    // InternalLggeWhile.g:3089:1: rule__Definition__OutputAssignment_6 : ( ruleOutput ) ;
+    // InternalLggeWhile.g:2927:1: rule__Definition__OutputAssignment_6 : ( ruleOutput ) ;
     public final void rule__Definition__OutputAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3093:1: ( ( ruleOutput ) )
-            // InternalLggeWhile.g:3094:2: ( ruleOutput )
+            // InternalLggeWhile.g:2931:1: ( ( ruleOutput ) )
+            // InternalLggeWhile.g:2932:2: ( ruleOutput )
             {
-            // InternalLggeWhile.g:3094:2: ( ruleOutput )
-            // InternalLggeWhile.g:3095:3: ruleOutput
+            // InternalLggeWhile.g:2932:2: ( ruleOutput )
+            // InternalLggeWhile.g:2933:3: ruleOutput
             {
              before(grammarAccess.getDefinitionAccess().getOutputOutputParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -9228,17 +8866,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__VarsAssignment_0"
-    // InternalLggeWhile.g:3104:1: rule__Input__VarsAssignment_0 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:2942:1: rule__Input__VarsAssignment_0 : ( RULE_VARIABLE ) ;
     public final void rule__Input__VarsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3108:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3109:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2946:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:2947:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3109:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3110:3: RULE_VARIABLE
+            // InternalLggeWhile.g:2947:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2948:3: RULE_VARIABLE
             {
              before(grammarAccess.getInputAccess().getVarsVARIABLETerminalRuleCall_0_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -9265,17 +8903,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Input__VarsAssignment_1_1"
-    // InternalLggeWhile.g:3119:1: rule__Input__VarsAssignment_1_1 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:2957:1: rule__Input__VarsAssignment_1_1 : ( RULE_VARIABLE ) ;
     public final void rule__Input__VarsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3123:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3124:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2961:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:2962:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3124:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3125:3: RULE_VARIABLE
+            // InternalLggeWhile.g:2962:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2963:3: RULE_VARIABLE
             {
              before(grammarAccess.getInputAccess().getVarsVARIABLETerminalRuleCall_1_1_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -9302,17 +8940,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Output__VarsAssignment_0"
-    // InternalLggeWhile.g:3134:1: rule__Output__VarsAssignment_0 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:2972:1: rule__Output__VarsAssignment_0 : ( RULE_VARIABLE ) ;
     public final void rule__Output__VarsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3138:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3139:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2976:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:2977:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3139:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3140:3: RULE_VARIABLE
+            // InternalLggeWhile.g:2977:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2978:3: RULE_VARIABLE
             {
              before(grammarAccess.getOutputAccess().getVarsVARIABLETerminalRuleCall_0_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -9339,17 +8977,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Output__VarsAssignment_1_1"
-    // InternalLggeWhile.g:3149:1: rule__Output__VarsAssignment_1_1 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:2987:1: rule__Output__VarsAssignment_1_1 : ( RULE_VARIABLE ) ;
     public final void rule__Output__VarsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3153:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3154:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2991:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:2992:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3154:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3155:3: RULE_VARIABLE
+            // InternalLggeWhile.g:2992:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:2993:3: RULE_VARIABLE
             {
              before(grammarAccess.getOutputAccess().getVarsVARIABLETerminalRuleCall_1_1_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -9376,17 +9014,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Commands__CommandsAssignment_0"
-    // InternalLggeWhile.g:3164:1: rule__Commands__CommandsAssignment_0 : ( ruleCommand ) ;
+    // InternalLggeWhile.g:3002:1: rule__Commands__CommandsAssignment_0 : ( ruleCommand ) ;
     public final void rule__Commands__CommandsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3168:1: ( ( ruleCommand ) )
-            // InternalLggeWhile.g:3169:2: ( ruleCommand )
+            // InternalLggeWhile.g:3006:1: ( ( ruleCommand ) )
+            // InternalLggeWhile.g:3007:2: ( ruleCommand )
             {
-            // InternalLggeWhile.g:3169:2: ( ruleCommand )
-            // InternalLggeWhile.g:3170:3: ruleCommand
+            // InternalLggeWhile.g:3007:2: ( ruleCommand )
+            // InternalLggeWhile.g:3008:3: ruleCommand
             {
              before(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -9417,17 +9055,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Commands__CommandsAssignment_1_1"
-    // InternalLggeWhile.g:3179:1: rule__Commands__CommandsAssignment_1_1 : ( ruleCommand ) ;
+    // InternalLggeWhile.g:3017:1: rule__Commands__CommandsAssignment_1_1 : ( ruleCommand ) ;
     public final void rule__Commands__CommandsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3183:1: ( ( ruleCommand ) )
-            // InternalLggeWhile.g:3184:2: ( ruleCommand )
+            // InternalLggeWhile.g:3021:1: ( ( ruleCommand ) )
+            // InternalLggeWhile.g:3022:2: ( ruleCommand )
             {
-            // InternalLggeWhile.g:3184:2: ( ruleCommand )
-            // InternalLggeWhile.g:3185:3: ruleCommand
+            // InternalLggeWhile.g:3022:2: ( ruleCommand )
+            // InternalLggeWhile.g:3023:3: ruleCommand
             {
              before(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9458,24 +9096,24 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__NopCommand__ExprAssignment"
-    // InternalLggeWhile.g:3194:1: rule__NopCommand__ExprAssignment : ( ( 'nop' ) ) ;
+    // InternalLggeWhile.g:3032:1: rule__NopCommand__ExprAssignment : ( ( 'nop' ) ) ;
     public final void rule__NopCommand__ExprAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3198:1: ( ( ( 'nop' ) ) )
-            // InternalLggeWhile.g:3199:2: ( ( 'nop' ) )
+            // InternalLggeWhile.g:3036:1: ( ( ( 'nop' ) ) )
+            // InternalLggeWhile.g:3037:2: ( ( 'nop' ) )
             {
-            // InternalLggeWhile.g:3199:2: ( ( 'nop' ) )
-            // InternalLggeWhile.g:3200:3: ( 'nop' )
-            {
-             before(grammarAccess.getNopCommandAccess().getExprNopKeyword_0()); 
-            // InternalLggeWhile.g:3201:3: ( 'nop' )
-            // InternalLggeWhile.g:3202:4: 'nop'
+            // InternalLggeWhile.g:3037:2: ( ( 'nop' ) )
+            // InternalLggeWhile.g:3038:3: ( 'nop' )
             {
              before(grammarAccess.getNopCommandAccess().getExprNopKeyword_0()); 
-            match(input,39,FOLLOW_2); 
+            // InternalLggeWhile.g:3039:3: ( 'nop' )
+            // InternalLggeWhile.g:3040:4: 'nop'
+            {
+             before(grammarAccess.getNopCommandAccess().getExprNopKeyword_0()); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getNopCommandAccess().getExprNopKeyword_0()); 
 
             }
@@ -9503,17 +9141,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__WhileCommand__ExprAssignment_1"
-    // InternalLggeWhile.g:3213:1: rule__WhileCommand__ExprAssignment_1 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3051:1: rule__WhileCommand__ExprAssignment_1 : ( ruleExpr ) ;
     public final void rule__WhileCommand__ExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3217:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3218:2: ( ruleExpr )
+            // InternalLggeWhile.g:3055:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3056:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3218:2: ( ruleExpr )
-            // InternalLggeWhile.g:3219:3: ruleExpr
+            // InternalLggeWhile.g:3056:2: ( ruleExpr )
+            // InternalLggeWhile.g:3057:3: ruleExpr
             {
              before(grammarAccess.getWhileCommandAccess().getExprExprParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9544,17 +9182,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__WhileCommand__CommandsAssignment_3"
-    // InternalLggeWhile.g:3228:1: rule__WhileCommand__CommandsAssignment_3 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:3066:1: rule__WhileCommand__CommandsAssignment_3 : ( ruleCommands ) ;
     public final void rule__WhileCommand__CommandsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3232:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3233:2: ( ruleCommands )
+            // InternalLggeWhile.g:3070:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:3071:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3233:2: ( ruleCommands )
-            // InternalLggeWhile.g:3234:3: ruleCommands
+            // InternalLggeWhile.g:3071:2: ( ruleCommands )
+            // InternalLggeWhile.g:3072:3: ruleCommands
             {
              before(grammarAccess.getWhileCommandAccess().getCommandsCommandsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9585,17 +9223,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__IfCommand__ExprAssignment_1"
-    // InternalLggeWhile.g:3243:1: rule__IfCommand__ExprAssignment_1 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3081:1: rule__IfCommand__ExprAssignment_1 : ( ruleExpr ) ;
     public final void rule__IfCommand__ExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3247:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3248:2: ( ruleExpr )
+            // InternalLggeWhile.g:3085:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3086:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3248:2: ( ruleExpr )
-            // InternalLggeWhile.g:3249:3: ruleExpr
+            // InternalLggeWhile.g:3086:2: ( ruleExpr )
+            // InternalLggeWhile.g:3087:3: ruleExpr
             {
              before(grammarAccess.getIfCommandAccess().getExprExprParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9626,17 +9264,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__IfCommand__CommandsAssignment_3"
-    // InternalLggeWhile.g:3258:1: rule__IfCommand__CommandsAssignment_3 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:3096:1: rule__IfCommand__CommandsAssignment_3 : ( ruleCommands ) ;
     public final void rule__IfCommand__CommandsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3262:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3263:2: ( ruleCommands )
+            // InternalLggeWhile.g:3100:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:3101:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3263:2: ( ruleCommands )
-            // InternalLggeWhile.g:3264:3: ruleCommands
+            // InternalLggeWhile.g:3101:2: ( ruleCommands )
+            // InternalLggeWhile.g:3102:3: ruleCommands
             {
              before(grammarAccess.getIfCommandAccess().getCommandsCommandsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9667,17 +9305,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__IfCommand__ElsecommandsAssignment_4_1"
-    // InternalLggeWhile.g:3273:1: rule__IfCommand__ElsecommandsAssignment_4_1 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:3111:1: rule__IfCommand__ElsecommandsAssignment_4_1 : ( ruleCommands ) ;
     public final void rule__IfCommand__ElsecommandsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3277:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3278:2: ( ruleCommands )
+            // InternalLggeWhile.g:3115:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:3116:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3278:2: ( ruleCommands )
-            // InternalLggeWhile.g:3279:3: ruleCommands
+            // InternalLggeWhile.g:3116:2: ( ruleCommands )
+            // InternalLggeWhile.g:3117:3: ruleCommands
             {
              before(grammarAccess.getIfCommandAccess().getElsecommandsCommandsParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9708,17 +9346,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ForCommand__ExprAssignment_1"
-    // InternalLggeWhile.g:3288:1: rule__ForCommand__ExprAssignment_1 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3126:1: rule__ForCommand__ExprAssignment_1 : ( ruleExpr ) ;
     public final void rule__ForCommand__ExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3292:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3293:2: ( ruleExpr )
+            // InternalLggeWhile.g:3130:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3131:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3293:2: ( ruleExpr )
-            // InternalLggeWhile.g:3294:3: ruleExpr
+            // InternalLggeWhile.g:3131:2: ( ruleExpr )
+            // InternalLggeWhile.g:3132:3: ruleExpr
             {
              before(grammarAccess.getForCommandAccess().getExprExprParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9749,17 +9387,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ForCommand__CommandAssignment_3"
-    // InternalLggeWhile.g:3303:1: rule__ForCommand__CommandAssignment_3 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:3141:1: rule__ForCommand__CommandAssignment_3 : ( ruleCommands ) ;
     public final void rule__ForCommand__CommandAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3307:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3308:2: ( ruleCommands )
+            // InternalLggeWhile.g:3145:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:3146:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3308:2: ( ruleCommands )
-            // InternalLggeWhile.g:3309:3: ruleCommands
+            // InternalLggeWhile.g:3146:2: ( ruleCommands )
+            // InternalLggeWhile.g:3147:3: ruleCommands
             {
              before(grammarAccess.getForCommandAccess().getCommandCommandsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9790,17 +9428,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__AffectCommand__VarsAssignment_0"
-    // InternalLggeWhile.g:3318:1: rule__AffectCommand__VarsAssignment_0 : ( ruleVars ) ;
+    // InternalLggeWhile.g:3156:1: rule__AffectCommand__VarsAssignment_0 : ( ruleVars ) ;
     public final void rule__AffectCommand__VarsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3322:1: ( ( ruleVars ) )
-            // InternalLggeWhile.g:3323:2: ( ruleVars )
+            // InternalLggeWhile.g:3160:1: ( ( ruleVars ) )
+            // InternalLggeWhile.g:3161:2: ( ruleVars )
             {
-            // InternalLggeWhile.g:3323:2: ( ruleVars )
-            // InternalLggeWhile.g:3324:3: ruleVars
+            // InternalLggeWhile.g:3161:2: ( ruleVars )
+            // InternalLggeWhile.g:3162:3: ruleVars
             {
              before(grammarAccess.getAffectCommandAccess().getVarsVarsParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -9831,17 +9469,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__AffectCommand__ExprsAssignment_2"
-    // InternalLggeWhile.g:3333:1: rule__AffectCommand__ExprsAssignment_2 : ( ruleExprs ) ;
+    // InternalLggeWhile.g:3171:1: rule__AffectCommand__ExprsAssignment_2 : ( ruleExprs ) ;
     public final void rule__AffectCommand__ExprsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3337:1: ( ( ruleExprs ) )
-            // InternalLggeWhile.g:3338:2: ( ruleExprs )
+            // InternalLggeWhile.g:3175:1: ( ( ruleExprs ) )
+            // InternalLggeWhile.g:3176:2: ( ruleExprs )
             {
-            // InternalLggeWhile.g:3338:2: ( ruleExprs )
-            // InternalLggeWhile.g:3339:3: ruleExprs
+            // InternalLggeWhile.g:3176:2: ( ruleExprs )
+            // InternalLggeWhile.g:3177:3: ruleExprs
             {
              before(grammarAccess.getAffectCommandAccess().getExprsExprsParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -9872,17 +9510,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ForeachCommand__VarsAssignment_1"
-    // InternalLggeWhile.g:3348:1: rule__ForeachCommand__VarsAssignment_1 : ( ruleVars ) ;
+    // InternalLggeWhile.g:3186:1: rule__ForeachCommand__VarsAssignment_1 : ( ruleVars ) ;
     public final void rule__ForeachCommand__VarsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3352:1: ( ( ruleVars ) )
-            // InternalLggeWhile.g:3353:2: ( ruleVars )
+            // InternalLggeWhile.g:3190:1: ( ( ruleVars ) )
+            // InternalLggeWhile.g:3191:2: ( ruleVars )
             {
-            // InternalLggeWhile.g:3353:2: ( ruleVars )
-            // InternalLggeWhile.g:3354:3: ruleVars
+            // InternalLggeWhile.g:3191:2: ( ruleVars )
+            // InternalLggeWhile.g:3192:3: ruleVars
             {
              before(grammarAccess.getForeachCommandAccess().getVarsVarsParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -9913,17 +9551,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ForeachCommand__ExprAssignment_3"
-    // InternalLggeWhile.g:3363:1: rule__ForeachCommand__ExprAssignment_3 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3201:1: rule__ForeachCommand__ExprAssignment_3 : ( ruleExpr ) ;
     public final void rule__ForeachCommand__ExprAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3367:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3368:2: ( ruleExpr )
+            // InternalLggeWhile.g:3205:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3206:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3368:2: ( ruleExpr )
-            // InternalLggeWhile.g:3369:3: ruleExpr
+            // InternalLggeWhile.g:3206:2: ( ruleExpr )
+            // InternalLggeWhile.g:3207:3: ruleExpr
             {
              before(grammarAccess.getForeachCommandAccess().getExprExprParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9954,17 +9592,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__ForeachCommand__CommandsAssignment_5"
-    // InternalLggeWhile.g:3378:1: rule__ForeachCommand__CommandsAssignment_5 : ( ruleCommands ) ;
+    // InternalLggeWhile.g:3216:1: rule__ForeachCommand__CommandsAssignment_5 : ( ruleCommands ) ;
     public final void rule__ForeachCommand__CommandsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3382:1: ( ( ruleCommands ) )
-            // InternalLggeWhile.g:3383:2: ( ruleCommands )
+            // InternalLggeWhile.g:3220:1: ( ( ruleCommands ) )
+            // InternalLggeWhile.g:3221:2: ( ruleCommands )
             {
-            // InternalLggeWhile.g:3383:2: ( ruleCommands )
-            // InternalLggeWhile.g:3384:3: ruleCommands
+            // InternalLggeWhile.g:3221:2: ( ruleCommands )
+            // InternalLggeWhile.g:3222:3: ruleCommands
             {
              before(grammarAccess.getForeachCommandAccess().getCommandsCommandsParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -9995,17 +9633,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Exprs__ExprAssignment_0"
-    // InternalLggeWhile.g:3393:1: rule__Exprs__ExprAssignment_0 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3231:1: rule__Exprs__ExprAssignment_0 : ( ruleExpr ) ;
     public final void rule__Exprs__ExprAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3397:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3398:2: ( ruleExpr )
+            // InternalLggeWhile.g:3235:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3236:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3398:2: ( ruleExpr )
-            // InternalLggeWhile.g:3399:3: ruleExpr
+            // InternalLggeWhile.g:3236:2: ( ruleExpr )
+            // InternalLggeWhile.g:3237:3: ruleExpr
             {
              before(grammarAccess.getExprsAccess().getExprExprParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -10036,17 +9674,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Exprs__ExprAssignment_1_1"
-    // InternalLggeWhile.g:3408:1: rule__Exprs__ExprAssignment_1_1 : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3246:1: rule__Exprs__ExprAssignment_1_1 : ( ruleExpr ) ;
     public final void rule__Exprs__ExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3412:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3413:2: ( ruleExpr )
+            // InternalLggeWhile.g:3250:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3251:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3413:2: ( ruleExpr )
-            // InternalLggeWhile.g:3414:3: ruleExpr
+            // InternalLggeWhile.g:3251:2: ( ruleExpr )
+            // InternalLggeWhile.g:3252:3: ruleExpr
             {
              before(grammarAccess.getExprsAccess().getExprExprParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10077,17 +9715,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Vars__VariAssignment_0"
-    // InternalLggeWhile.g:3423:1: rule__Vars__VariAssignment_0 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:3261:1: rule__Vars__VariAssignment_0 : ( RULE_VARIABLE ) ;
     public final void rule__Vars__VariAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3427:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3428:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:3265:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:3266:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3428:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3429:3: RULE_VARIABLE
+            // InternalLggeWhile.g:3266:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:3267:3: RULE_VARIABLE
             {
              before(grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_0_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -10114,17 +9752,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Vars__VariAssignment_1_1"
-    // InternalLggeWhile.g:3438:1: rule__Vars__VariAssignment_1_1 : ( RULE_VARIABLE ) ;
+    // InternalLggeWhile.g:3276:1: rule__Vars__VariAssignment_1_1 : ( RULE_VARIABLE ) ;
     public final void rule__Vars__VariAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3442:1: ( ( RULE_VARIABLE ) )
-            // InternalLggeWhile.g:3443:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:3280:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:3281:2: ( RULE_VARIABLE )
             {
-            // InternalLggeWhile.g:3443:2: ( RULE_VARIABLE )
-            // InternalLggeWhile.g:3444:3: RULE_VARIABLE
+            // InternalLggeWhile.g:3281:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:3282:3: RULE_VARIABLE
             {
              before(grammarAccess.getVarsAccess().getVariVARIABLETerminalRuleCall_1_1_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -10151,17 +9789,17 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Expr__ExprbaseAssignment_0"
-    // InternalLggeWhile.g:3453:1: rule__Expr__ExprbaseAssignment_0 : ( ruleExprBase ) ;
+    // InternalLggeWhile.g:3291:1: rule__Expr__ExprbaseAssignment_0 : ( ruleExprBase ) ;
     public final void rule__Expr__ExprbaseAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3457:1: ( ( ruleExprBase ) )
-            // InternalLggeWhile.g:3458:2: ( ruleExprBase )
+            // InternalLggeWhile.g:3295:1: ( ( ruleExprBase ) )
+            // InternalLggeWhile.g:3296:2: ( ruleExprBase )
             {
-            // InternalLggeWhile.g:3458:2: ( ruleExprBase )
-            // InternalLggeWhile.g:3459:3: ruleExprBase
+            // InternalLggeWhile.g:3296:2: ( ruleExprBase )
+            // InternalLggeWhile.g:3297:3: ruleExprBase
             {
              before(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -10191,26 +9829,26 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Expr__ExprbaseAssignment_0"
 
 
-    // $ANTLR start "rule__Expr__ExprbaseAssignment_1_1"
-    // InternalLggeWhile.g:3468:1: rule__Expr__ExprbaseAssignment_1_1 : ( ruleExprBase ) ;
-    public final void rule__Expr__ExprbaseAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Expr__Exprbase1Assignment_1_1"
+    // InternalLggeWhile.g:3306:1: rule__Expr__Exprbase1Assignment_1_1 : ( ruleExprBase ) ;
+    public final void rule__Expr__Exprbase1Assignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3472:1: ( ( ruleExprBase ) )
-            // InternalLggeWhile.g:3473:2: ( ruleExprBase )
+            // InternalLggeWhile.g:3310:1: ( ( ruleExprBase ) )
+            // InternalLggeWhile.g:3311:2: ( ruleExprBase )
             {
-            // InternalLggeWhile.g:3473:2: ( ruleExprBase )
-            // InternalLggeWhile.g:3474:3: ruleExprBase
+            // InternalLggeWhile.g:3311:2: ( ruleExprBase )
+            // InternalLggeWhile.g:3312:3: ruleExprBase
             {
-             before(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_1_1_0()); 
+             before(grammarAccess.getExprAccess().getExprbase1ExprBaseParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
             ruleExprBase();
 
             state._fsp--;
 
-             after(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_1_1_0()); 
+             after(grammarAccess.getExprAccess().getExprbase1ExprBaseParserRuleCall_1_1_0()); 
 
             }
 
@@ -10229,21 +9867,21 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Expr__ExprbaseAssignment_1_1"
+    // $ANTLR end "rule__Expr__Exprbase1Assignment_1_1"
 
 
     // $ANTLR start "rule__LExpr__ExprAssignment"
-    // InternalLggeWhile.g:3483:1: rule__LExpr__ExprAssignment : ( ruleExpr ) ;
+    // InternalLggeWhile.g:3321:1: rule__LExpr__ExprAssignment : ( ruleExpr ) ;
     public final void rule__LExpr__ExprAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalLggeWhile.g:3487:1: ( ( ruleExpr ) )
-            // InternalLggeWhile.g:3488:2: ( ruleExpr )
+            // InternalLggeWhile.g:3325:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3326:2: ( ruleExpr )
             {
-            // InternalLggeWhile.g:3488:2: ( ruleExpr )
-            // InternalLggeWhile.g:3489:3: ruleExpr
+            // InternalLggeWhile.g:3326:2: ( ruleExpr )
+            // InternalLggeWhile.g:3327:3: ruleExpr
             {
              before(grammarAccess.getLExprAccess().getExprExprParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -10272,21 +9910,562 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     }
     // $ANTLR end "rule__LExpr__ExprAssignment"
 
+
+    // $ANTLR start "rule__ExprBase__ValueAssignment_0"
+    // InternalLggeWhile.g:3336:1: rule__ExprBase__ValueAssignment_0 : ( ( 'nil' ) ) ;
+    public final void rule__ExprBase__ValueAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3340:1: ( ( ( 'nil' ) ) )
+            // InternalLggeWhile.g:3341:2: ( ( 'nil' ) )
+            {
+            // InternalLggeWhile.g:3341:2: ( ( 'nil' ) )
+            // InternalLggeWhile.g:3342:3: ( 'nil' )
+            {
+             before(grammarAccess.getExprBaseAccess().getValueNilKeyword_0_0()); 
+            // InternalLggeWhile.g:3343:3: ( 'nil' )
+            // InternalLggeWhile.g:3344:4: 'nil'
+            {
+             before(grammarAccess.getExprBaseAccess().getValueNilKeyword_0_0()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getValueNilKeyword_0_0()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getValueNilKeyword_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__ValueAssignment_0"
+
+
+    // $ANTLR start "rule__ExprBase__ValueAssignment_1"
+    // InternalLggeWhile.g:3355:1: rule__ExprBase__ValueAssignment_1 : ( RULE_VARIABLE ) ;
+    public final void rule__ExprBase__ValueAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3359:1: ( ( RULE_VARIABLE ) )
+            // InternalLggeWhile.g:3360:2: ( RULE_VARIABLE )
+            {
+            // InternalLggeWhile.g:3360:2: ( RULE_VARIABLE )
+            // InternalLggeWhile.g:3361:3: RULE_VARIABLE
+            {
+             before(grammarAccess.getExprBaseAccess().getValueVARIABLETerminalRuleCall_1_0()); 
+            match(input,RULE_VARIABLE,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getValueVARIABLETerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__ValueAssignment_1"
+
+
+    // $ANTLR start "rule__ExprBase__ValueAssignment_2"
+    // InternalLggeWhile.g:3370:1: rule__ExprBase__ValueAssignment_2 : ( RULE_SYMBOL ) ;
+    public final void rule__ExprBase__ValueAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3374:1: ( ( RULE_SYMBOL ) )
+            // InternalLggeWhile.g:3375:2: ( RULE_SYMBOL )
+            {
+            // InternalLggeWhile.g:3375:2: ( RULE_SYMBOL )
+            // InternalLggeWhile.g:3376:3: RULE_SYMBOL
+            {
+             before(grammarAccess.getExprBaseAccess().getValueSYMBOLTerminalRuleCall_2_0()); 
+            match(input,RULE_SYMBOL,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getValueSYMBOLTerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__ValueAssignment_2"
+
+
+    // $ANTLR start "rule__ExprBase__IdentitorAssignment_3_1"
+    // InternalLggeWhile.g:3385:1: rule__ExprBase__IdentitorAssignment_3_1 : ( ( 'cons' ) ) ;
+    public final void rule__ExprBase__IdentitorAssignment_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3389:1: ( ( ( 'cons' ) ) )
+            // InternalLggeWhile.g:3390:2: ( ( 'cons' ) )
+            {
+            // InternalLggeWhile.g:3390:2: ( ( 'cons' ) )
+            // InternalLggeWhile.g:3391:3: ( 'cons' )
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitorConsKeyword_3_1_0()); 
+            // InternalLggeWhile.g:3392:3: ( 'cons' )
+            // InternalLggeWhile.g:3393:4: 'cons'
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitorConsKeyword_3_1_0()); 
+            match(input,36,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getIdentitorConsKeyword_3_1_0()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitorConsKeyword_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__IdentitorAssignment_3_1"
+
+
+    // $ANTLR start "rule__ExprBase__LexprAssignment_3_2"
+    // InternalLggeWhile.g:3404:1: rule__ExprBase__LexprAssignment_3_2 : ( ruleLExpr ) ;
+    public final void rule__ExprBase__LexprAssignment_3_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3408:1: ( ( ruleLExpr ) )
+            // InternalLggeWhile.g:3409:2: ( ruleLExpr )
+            {
+            // InternalLggeWhile.g:3409:2: ( ruleLExpr )
+            // InternalLggeWhile.g:3410:3: ruleLExpr
+            {
+             before(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_3_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleLExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_3_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__LexprAssignment_3_2"
+
+
+    // $ANTLR start "rule__ExprBase__IdentitorAssignment_4_1"
+    // InternalLggeWhile.g:3419:1: rule__ExprBase__IdentitorAssignment_4_1 : ( ( 'list' ) ) ;
+    public final void rule__ExprBase__IdentitorAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3423:1: ( ( ( 'list' ) ) )
+            // InternalLggeWhile.g:3424:2: ( ( 'list' ) )
+            {
+            // InternalLggeWhile.g:3424:2: ( ( 'list' ) )
+            // InternalLggeWhile.g:3425:3: ( 'list' )
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitorListKeyword_4_1_0()); 
+            // InternalLggeWhile.g:3426:3: ( 'list' )
+            // InternalLggeWhile.g:3427:4: 'list'
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitorListKeyword_4_1_0()); 
+            match(input,37,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getIdentitorListKeyword_4_1_0()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitorListKeyword_4_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__IdentitorAssignment_4_1"
+
+
+    // $ANTLR start "rule__ExprBase__LexprAssignment_4_2"
+    // InternalLggeWhile.g:3438:1: rule__ExprBase__LexprAssignment_4_2 : ( ruleLExpr ) ;
+    public final void rule__ExprBase__LexprAssignment_4_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3442:1: ( ( ruleLExpr ) )
+            // InternalLggeWhile.g:3443:2: ( ruleLExpr )
+            {
+            // InternalLggeWhile.g:3443:2: ( ruleLExpr )
+            // InternalLggeWhile.g:3444:3: ruleLExpr
+            {
+             before(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_4_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleLExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_4_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__LexprAssignment_4_2"
+
+
+    // $ANTLR start "rule__ExprBase__Identitor1Assignment_5_1"
+    // InternalLggeWhile.g:3453:1: rule__ExprBase__Identitor1Assignment_5_1 : ( ( 'hd' ) ) ;
+    public final void rule__ExprBase__Identitor1Assignment_5_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3457:1: ( ( ( 'hd' ) ) )
+            // InternalLggeWhile.g:3458:2: ( ( 'hd' ) )
+            {
+            // InternalLggeWhile.g:3458:2: ( ( 'hd' ) )
+            // InternalLggeWhile.g:3459:3: ( 'hd' )
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitor1HdKeyword_5_1_0()); 
+            // InternalLggeWhile.g:3460:3: ( 'hd' )
+            // InternalLggeWhile.g:3461:4: 'hd'
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitor1HdKeyword_5_1_0()); 
+            match(input,38,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getIdentitor1HdKeyword_5_1_0()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitor1HdKeyword_5_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__Identitor1Assignment_5_1"
+
+
+    // $ANTLR start "rule__ExprBase__ExprAssignment_5_2"
+    // InternalLggeWhile.g:3472:1: rule__ExprBase__ExprAssignment_5_2 : ( ruleExpr ) ;
+    public final void rule__ExprBase__ExprAssignment_5_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3476:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3477:2: ( ruleExpr )
+            {
+            // InternalLggeWhile.g:3477:2: ( ruleExpr )
+            // InternalLggeWhile.g:3478:3: ruleExpr
+            {
+             before(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_5_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_5_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__ExprAssignment_5_2"
+
+
+    // $ANTLR start "rule__ExprBase__Identitor1Assignment_6_1"
+    // InternalLggeWhile.g:3487:1: rule__ExprBase__Identitor1Assignment_6_1 : ( ( 'tl' ) ) ;
+    public final void rule__ExprBase__Identitor1Assignment_6_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3491:1: ( ( ( 'tl' ) ) )
+            // InternalLggeWhile.g:3492:2: ( ( 'tl' ) )
+            {
+            // InternalLggeWhile.g:3492:2: ( ( 'tl' ) )
+            // InternalLggeWhile.g:3493:3: ( 'tl' )
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitor1TlKeyword_6_1_0()); 
+            // InternalLggeWhile.g:3494:3: ( 'tl' )
+            // InternalLggeWhile.g:3495:4: 'tl'
+            {
+             before(grammarAccess.getExprBaseAccess().getIdentitor1TlKeyword_6_1_0()); 
+            match(input,39,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getIdentitor1TlKeyword_6_1_0()); 
+
+            }
+
+             after(grammarAccess.getExprBaseAccess().getIdentitor1TlKeyword_6_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__Identitor1Assignment_6_1"
+
+
+    // $ANTLR start "rule__ExprBase__ExprAssignment_6_2"
+    // InternalLggeWhile.g:3506:1: rule__ExprBase__ExprAssignment_6_2 : ( ruleExpr ) ;
+    public final void rule__ExprBase__ExprAssignment_6_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3510:1: ( ( ruleExpr ) )
+            // InternalLggeWhile.g:3511:2: ( ruleExpr )
+            {
+            // InternalLggeWhile.g:3511:2: ( ruleExpr )
+            // InternalLggeWhile.g:3512:3: ruleExpr
+            {
+             before(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_6_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_6_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__ExprAssignment_6_2"
+
+
+    // $ANTLR start "rule__ExprBase__SymbolAssignment_7_1"
+    // InternalLggeWhile.g:3521:1: rule__ExprBase__SymbolAssignment_7_1 : ( RULE_SYMBOL ) ;
+    public final void rule__ExprBase__SymbolAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3525:1: ( ( RULE_SYMBOL ) )
+            // InternalLggeWhile.g:3526:2: ( RULE_SYMBOL )
+            {
+            // InternalLggeWhile.g:3526:2: ( RULE_SYMBOL )
+            // InternalLggeWhile.g:3527:3: RULE_SYMBOL
+            {
+             before(grammarAccess.getExprBaseAccess().getSymbolSYMBOLTerminalRuleCall_7_1_0()); 
+            match(input,RULE_SYMBOL,FOLLOW_2); 
+             after(grammarAccess.getExprBaseAccess().getSymbolSYMBOLTerminalRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__SymbolAssignment_7_1"
+
+
+    // $ANTLR start "rule__ExprBase__LexprAssignment_7_2"
+    // InternalLggeWhile.g:3536:1: rule__ExprBase__LexprAssignment_7_2 : ( ruleLExpr ) ;
+    public final void rule__ExprBase__LexprAssignment_7_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalLggeWhile.g:3540:1: ( ( ruleLExpr ) )
+            // InternalLggeWhile.g:3541:2: ( ruleLExpr )
+            {
+            // InternalLggeWhile.g:3541:2: ( ruleLExpr )
+            // InternalLggeWhile.g:3542:3: ruleLExpr
+            {
+             before(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_7_2_0()); 
+            pushFollow(FOLLOW_2);
+            ruleLExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_7_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ExprBase__LexprAssignment_7_2"
+
     // Delegated rules
 
 
     protected DFA4 dfa4 = new DFA4(this);
     static final String dfa_1s = "\12\uffff";
-    static final String dfa_2s = "\1\4\3\uffff\1\5\5\uffff";
-    static final String dfa_3s = "\1\41\3\uffff\1\46\5\uffff";
-    static final String dfa_4s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\10\1\7\1\6\1\5\1\4";
+    static final String dfa_2s = "\1\4\3\uffff\1\4\5\uffff";
+    static final String dfa_3s = "\1\43\3\uffff\1\47\5\uffff";
+    static final String dfa_4s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\4\1\5\1\6\1\7\1\10";
     static final String dfa_5s = "\12\uffff}>";
     static final String[] dfa_6s = {
-            "\1\2\1\3\32\uffff\1\1\1\4",
+            "\1\3\1\2\32\uffff\1\4\2\uffff\1\1",
             "",
             "",
             "",
-            "\1\5\34\uffff\1\11\1\uffff\1\10\1\7\1\6",
+            "\1\11\37\uffff\1\5\1\6\1\7\1\10",
             "",
             "",
             "",
@@ -10315,7 +10494,7 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
             this.transition = dfa_6;
         }
         public String getDescription() {
-            return "554:1: rule__ExprBase__Alternatives : ( ( ( rule__ExprBase__Group_0__0 ) ) | ( ( rule__ExprBase__Group_1__0 ) ) | ( ( rule__ExprBase__Group_2__0 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) );";
+            return "554:1: rule__ExprBase__Alternatives : ( ( ( rule__ExprBase__ValueAssignment_0 ) ) | ( ( rule__ExprBase__ValueAssignment_1 ) ) | ( ( rule__ExprBase__ValueAssignment_2 ) ) | ( ( rule__ExprBase__Group_3__0 ) ) | ( ( rule__ExprBase__Group_4__0 ) ) | ( ( rule__ExprBase__Group_5__0 ) ) | ( ( rule__ExprBase__Group_6__0 ) ) | ( ( rule__ExprBase__Group_7__0 ) ) );";
         }
     }
  
@@ -10323,19 +10502,19 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000300000032L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000900000032L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000008028900010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000428900020L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040002L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000300000030L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000900000030L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001000000L});
@@ -10343,12 +10522,10 @@ public class InternalLggeWhileParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000040000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000008000000000L});
 
 }

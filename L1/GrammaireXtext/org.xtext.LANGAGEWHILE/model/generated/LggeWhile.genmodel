@@ -61,10 +61,18 @@
     </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//Expr/exprbase"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//Expr/exprbase1"/>
     </genClasses>
     <genClasses ecoreClass="LggeWhile.ecore#//LExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//LExpr/expr"/>
     </genClasses>
-    <genClasses ecoreClass="LggeWhile.ecore#//ExprBase"/>
+    <genClasses ecoreClass="LggeWhile.ecore#//ExprBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//ExprBase/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//ExprBase/identitor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//ExprBase/lexpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//ExprBase/identitor1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LggeWhile.ecore#//ExprBase/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LggeWhile.ecore#//ExprBase/symbol"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

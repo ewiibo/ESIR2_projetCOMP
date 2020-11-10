@@ -1075,7 +1075,7 @@ ruleExpr returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getExprRule());
 					}
-					add(
+					set(
 						$current,
 						"exprbase",
 						lv_exprbase_0_0,
@@ -1092,23 +1092,23 @@ ruleExpr returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getExprAccess().getExprbase1ExprBaseParserRuleCall_1_1_0());
 					}
-					lv_exprbase_2_0=ruleExprBase
+					lv_exprbase1_2_0=ruleExprBase
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExprRule());
 						}
-						add(
+						set(
 							$current,
-							"exprbase",
-							lv_exprbase_2_0,
+							"exprbase1",
+							lv_exprbase1_2_0,
 							"org.xtext.LggeWhile.ExprBase");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+		)?
 	)
 ;
 
@@ -1166,158 +1166,278 @@ ruleExprBase returns [EObject current=null]
 	(
 		(
 			(
+				lv_value_0_0='nil'
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExprBaseAccess().getExprBaseAction_0_0(),
-						$current);
+					newLeafNode(lv_value_0_0, grammarAccess.getExprBaseAccess().getValueNilKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExprBaseRule());
+					}
+					setWithLastConsumed($current, "value", lv_value_0_0, "nil");
 				}
 			)
-			otherlv_1='nil'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getExprBaseAccess().getNilKeyword_0_1());
-			}
 		)
 		    |
 		(
 			(
+				lv_value_1_0=RULE_VARIABLE
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExprBaseAccess().getExprBaseAction_1_0(),
-						$current);
+					newLeafNode(lv_value_1_0, grammarAccess.getExprBaseAccess().getValueVARIABLETerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExprBaseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_1_0,
+						"org.xtext.LggeWhile.VARIABLE");
 				}
 			)
-			this_VARIABLE_3=RULE_VARIABLE
-			{
-				newLeafNode(this_VARIABLE_3, grammarAccess.getExprBaseAccess().getVARIABLETerminalRuleCall_1_1());
-			}
 		)
 		    |
 		(
 			(
+				lv_value_2_0=RULE_SYMBOL
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExprBaseAccess().getExprBaseAction_2_0(),
-						$current);
+					newLeafNode(lv_value_2_0, grammarAccess.getExprBaseAccess().getValueSYMBOLTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExprBaseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"value",
+						lv_value_2_0,
+						"org.xtext.LggeWhile.SYMBOL");
 				}
 			)
-			this_SYMBOL_5=RULE_SYMBOL
+		)
+		    |
+		(
+			otherlv_3='('
 			{
-				newLeafNode(this_SYMBOL_5, grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_2_1());
+				newLeafNode(otherlv_3, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_3_0());
+			}
+			(
+				(
+					lv_identitor_4_0='cons'
+					{
+						newLeafNode(lv_identitor_4_0, grammarAccess.getExprBaseAccess().getIdentitorConsKeyword_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExprBaseRule());
+						}
+						setWithLastConsumed($current, "identitor", lv_identitor_4_0, "cons");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_3_2_0());
+					}
+					lv_lexpr_5_0=ruleLExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprBaseRule());
+						}
+						set(
+							$current,
+							"lexpr",
+							lv_lexpr_5_0,
+							"org.xtext.LggeWhile.LExpr");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_3_3());
 			}
 		)
 		    |
 		(
-			otherlv_6='('
+			otherlv_7='('
 			{
-				newLeafNode(otherlv_6, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_3_0());
+				newLeafNode(otherlv_7, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_4_0());
 			}
-			otherlv_7='cons'
+			(
+				(
+					lv_identitor_8_0='list'
+					{
+						newLeafNode(lv_identitor_8_0, grammarAccess.getExprBaseAccess().getIdentitorListKeyword_4_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExprBaseRule());
+						}
+						setWithLastConsumed($current, "identitor", lv_identitor_8_0, "list");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_4_2_0());
+					}
+					lv_lexpr_9_0=ruleLExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprBaseRule());
+						}
+						set(
+							$current,
+							"lexpr",
+							lv_lexpr_9_0,
+							"org.xtext.LggeWhile.LExpr");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_10=')'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getExprBaseAccess().getConsKeyword_3_1());
-			}
-			{
-				newCompositeNode(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_3_2());
-			}
-			this_LExpr_8=ruleLExpr
-			{
-				$current = $this_LExpr_8.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_9=')'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_3_3());
-			}
-		)
-		    |
-		(
-			otherlv_10='('
-			{
-				newLeafNode(otherlv_10, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_4_0());
-			}
-			otherlv_11='list'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getExprBaseAccess().getListKeyword_4_1());
-			}
-			{
-				newCompositeNode(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_4_2());
-			}
-			this_LExpr_12=ruleLExpr
-			{
-				$current = $this_LExpr_12.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_13=')'
-			{
-				newLeafNode(otherlv_13, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_4_3());
+				newLeafNode(otherlv_10, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_4_3());
 			}
 		)
 		    |
 		(
-			otherlv_14='('
+			otherlv_11='('
 			{
-				newLeafNode(otherlv_14, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_5_0());
+				newLeafNode(otherlv_11, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_5_0());
 			}
-			otherlv_15='hd'
+			(
+				(
+					lv_identitor1_12_0='hd'
+					{
+						newLeafNode(lv_identitor1_12_0, grammarAccess.getExprBaseAccess().getIdentitor1HdKeyword_5_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExprBaseRule());
+						}
+						setWithLastConsumed($current, "identitor1", lv_identitor1_12_0, "hd");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_5_2_0());
+					}
+					lv_expr_13_0=ruleExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprBaseRule());
+						}
+						set(
+							$current,
+							"expr",
+							lv_expr_13_0,
+							"org.xtext.LggeWhile.Expr");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_14=')'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getExprBaseAccess().getHdKeyword_5_1());
-			}
-			{
-				newCompositeNode(grammarAccess.getExprBaseAccess().getExprParserRuleCall_5_2());
-			}
-			this_Expr_16=ruleExpr
-			{
-				$current = $this_Expr_16.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_17=')'
-			{
-				newLeafNode(otherlv_17, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_5_3());
-			}
-		)
-		    |
-		(
-			otherlv_18='('
-			{
-				newLeafNode(otherlv_18, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_6_0());
-			}
-			otherlv_19='tl'
-			{
-				newLeafNode(otherlv_19, grammarAccess.getExprBaseAccess().getTlKeyword_6_1());
-			}
-			{
-				newCompositeNode(grammarAccess.getExprBaseAccess().getExprParserRuleCall_6_2());
-			}
-			this_Expr_20=ruleExpr
-			{
-				$current = $this_Expr_20.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_21=')'
-			{
-				newLeafNode(otherlv_21, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_6_3());
+				newLeafNode(otherlv_14, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_5_3());
 			}
 		)
 		    |
 		(
-			otherlv_22='('
+			otherlv_15='('
 			{
-				newLeafNode(otherlv_22, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_7_0());
+				newLeafNode(otherlv_15, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_6_0());
 			}
-			this_SYMBOL_23=RULE_SYMBOL
+			(
+				(
+					lv_identitor1_16_0='tl'
+					{
+						newLeafNode(lv_identitor1_16_0, grammarAccess.getExprBaseAccess().getIdentitor1TlKeyword_6_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExprBaseRule());
+						}
+						setWithLastConsumed($current, "identitor1", lv_identitor1_16_0, "tl");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprBaseAccess().getExprExprParserRuleCall_6_2_0());
+					}
+					lv_expr_17_0=ruleExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprBaseRule());
+						}
+						set(
+							$current,
+							"expr",
+							lv_expr_17_0,
+							"org.xtext.LggeWhile.Expr");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_18=')'
 			{
-				newLeafNode(this_SYMBOL_23, grammarAccess.getExprBaseAccess().getSYMBOLTerminalRuleCall_7_1());
+				newLeafNode(otherlv_18, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_6_3());
 			}
+		)
+		    |
+		(
+			otherlv_19='('
 			{
-				newCompositeNode(grammarAccess.getExprBaseAccess().getLExprParserRuleCall_7_2());
+				newLeafNode(otherlv_19, grammarAccess.getExprBaseAccess().getLeftParenthesisKeyword_7_0());
 			}
-			this_LExpr_24=ruleLExpr
+			(
+				(
+					lv_symbol_20_0=RULE_SYMBOL
+					{
+						newLeafNode(lv_symbol_20_0, grammarAccess.getExprBaseAccess().getSymbolSYMBOLTerminalRuleCall_7_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExprBaseRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"symbol",
+							lv_symbol_20_0,
+							"org.xtext.LggeWhile.SYMBOL");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprBaseAccess().getLexprLExprParserRuleCall_7_2_0());
+					}
+					lv_lexpr_21_0=ruleLExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprBaseRule());
+						}
+						set(
+							$current,
+							"lexpr",
+							lv_lexpr_21_0,
+							"org.xtext.LggeWhile.LExpr");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_22=')'
 			{
-				$current = $this_LExpr_24.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_25=')'
-			{
-				newLeafNode(otherlv_25, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_7_3());
+				newLeafNode(otherlv_22, grammarAccess.getExprBaseAccess().getRightParenthesisKeyword_7_3());
 			}
 		)
 	)

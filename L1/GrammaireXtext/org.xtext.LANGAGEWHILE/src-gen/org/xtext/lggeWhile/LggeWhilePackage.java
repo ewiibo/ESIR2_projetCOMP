@@ -559,25 +559,6 @@ public interface LggeWhilePackage extends EPackage
   int VARS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.lggeWhile.impl.ExprBaseImpl <em>Expr Base</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.lggeWhile.impl.ExprBaseImpl
-   * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getExprBase()
-   * @generated
-   */
-  int EXPR_BASE = 17;
-
-  /**
-   * The number of structural features of the '<em>Expr Base</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_BASE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.xtext.lggeWhile.impl.ExprImpl <em>Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -588,13 +569,22 @@ public interface LggeWhilePackage extends EPackage
   int EXPR = 15;
 
   /**
-   * The feature id for the '<em><b>Exprbase</b></em>' containment reference list.
+   * The feature id for the '<em><b>Exprbase</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__EXPRBASE = EXPR_BASE_FEATURE_COUNT + 0;
+  int EXPR__EXPRBASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Exprbase1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR__EXPRBASE1 = 1;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -603,7 +593,7 @@ public interface LggeWhilePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = EXPR_BASE_FEATURE_COUNT + 1;
+  int EXPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.lggeWhile.impl.LExprImpl <em>LExpr</em>}' class.
@@ -622,7 +612,7 @@ public interface LggeWhilePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LEXPR__EXPR = EXPR_BASE_FEATURE_COUNT + 0;
+  int LEXPR__EXPR = 0;
 
   /**
    * The number of structural features of the '<em>LExpr</em>' class.
@@ -631,7 +621,80 @@ public interface LggeWhilePackage extends EPackage
    * @generated
    * @ordered
    */
-  int LEXPR_FEATURE_COUNT = EXPR_BASE_FEATURE_COUNT + 1;
+  int LEXPR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.lggeWhile.impl.ExprBaseImpl <em>Expr Base</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.lggeWhile.impl.ExprBaseImpl
+   * @see org.xtext.lggeWhile.impl.LggeWhilePackageImpl#getExprBase()
+   * @generated
+   */
+  int EXPR_BASE = 17;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Identitor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__IDENTITOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Lexpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__LEXPR = 2;
+
+  /**
+   * The feature id for the '<em><b>Identitor1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__IDENTITOR1 = 3;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__EXPR = 4;
+
+  /**
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE__SYMBOL = 5;
+
+  /**
+   * The number of structural features of the '<em>Expr Base</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_BASE_FEATURE_COUNT = 6;
 
 
   /**
@@ -1059,15 +1122,26 @@ public interface LggeWhilePackage extends EPackage
   EClass getExpr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.lggeWhile.Expr#getExprbase <em>Exprbase</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.lggeWhile.Expr#getExprbase <em>Exprbase</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Exprbase</em>'.
+   * @return the meta object for the containment reference '<em>Exprbase</em>'.
    * @see org.xtext.lggeWhile.Expr#getExprbase()
    * @see #getExpr()
    * @generated
    */
   EReference getExpr_Exprbase();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.lggeWhile.Expr#getExprbase1 <em>Exprbase1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exprbase1</em>'.
+   * @see org.xtext.lggeWhile.Expr#getExprbase1()
+   * @see #getExpr()
+   * @generated
+   */
+  EReference getExpr_Exprbase1();
 
   /**
    * Returns the meta object for class '{@link org.xtext.lggeWhile.LExpr <em>LExpr</em>}'.
@@ -1099,6 +1173,72 @@ public interface LggeWhilePackage extends EPackage
    * @generated
    */
   EClass getExprBase();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.lggeWhile.ExprBase#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getValue()
+   * @see #getExprBase()
+   * @generated
+   */
+  EAttribute getExprBase_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.lggeWhile.ExprBase#getIdentitor <em>Identitor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Identitor</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getIdentitor()
+   * @see #getExprBase()
+   * @generated
+   */
+  EAttribute getExprBase_Identitor();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.lggeWhile.ExprBase#getLexpr <em>Lexpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lexpr</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getLexpr()
+   * @see #getExprBase()
+   * @generated
+   */
+  EReference getExprBase_Lexpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.lggeWhile.ExprBase#getIdentitor1 <em>Identitor1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Identitor1</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getIdentitor1()
+   * @see #getExprBase()
+   * @generated
+   */
+  EAttribute getExprBase_Identitor1();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.lggeWhile.ExprBase#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getExpr()
+   * @see #getExprBase()
+   * @generated
+   */
+  EReference getExprBase_Expr();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.lggeWhile.ExprBase#getSymbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol</em>'.
+   * @see org.xtext.lggeWhile.ExprBase#getSymbol()
+   * @see #getExprBase()
+   * @generated
+   */
+  EAttribute getExprBase_Symbol();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1476,12 +1616,20 @@ public interface LggeWhilePackage extends EPackage
     EClass EXPR = eINSTANCE.getExpr();
 
     /**
-     * The meta object literal for the '<em><b>Exprbase</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Exprbase</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference EXPR__EXPRBASE = eINSTANCE.getExpr_Exprbase();
+
+    /**
+     * The meta object literal for the '<em><b>Exprbase1</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR__EXPRBASE1 = eINSTANCE.getExpr_Exprbase1();
 
     /**
      * The meta object literal for the '{@link org.xtext.lggeWhile.impl.LExprImpl <em>LExpr</em>}' class.
@@ -1510,6 +1658,54 @@ public interface LggeWhilePackage extends EPackage
      * @generated
      */
     EClass EXPR_BASE = eINSTANCE.getExprBase();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_BASE__VALUE = eINSTANCE.getExprBase_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Identitor</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_BASE__IDENTITOR = eINSTANCE.getExprBase_Identitor();
+
+    /**
+     * The meta object literal for the '<em><b>Lexpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_BASE__LEXPR = eINSTANCE.getExprBase_Lexpr();
+
+    /**
+     * The meta object literal for the '<em><b>Identitor1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_BASE__IDENTITOR1 = eINSTANCE.getExprBase_Identitor1();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_BASE__EXPR = eINSTANCE.getExprBase_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_BASE__SYMBOL = eINSTANCE.getExprBase_Symbol();
 
   }
 

@@ -188,7 +188,6 @@ public class LggeWhileSwitch<T> extends Switch<T>
       {
         Expr expr = (Expr)theEObject;
         T result = caseExpr(expr);
-        if (result == null) result = caseExprBase(expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -196,7 +195,6 @@ public class LggeWhileSwitch<T> extends Switch<T>
       {
         LExpr lExpr = (LExpr)theEObject;
         T result = caseLExpr(lExpr);
-        if (result == null) result = caseExprBase(lExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

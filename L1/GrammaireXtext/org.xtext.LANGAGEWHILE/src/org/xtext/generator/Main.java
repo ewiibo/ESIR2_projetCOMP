@@ -19,7 +19,6 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 import org.xtext.LggeWhileStandaloneSetup;
-import org.xtext.generator.LggeWhileGenerator;
 
 public class Main {
 	
@@ -33,8 +32,8 @@ public class Main {
 			manuel();
 			return;
 		}
-		File file = new File(".");
-		System.out.println(file.getAbsolutePath());
+		//File file = new File(".");
+		//System.out.println(file.getAbsolutePath());
 		Injector injector = new LggeWhileStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
 		
@@ -48,7 +47,7 @@ public class Main {
 			manuel(); return;
 		}
 		inputFile = args[0];
-		System.out.println(inputFile);
+		//System.out.println(inputFile);
 		
 		// recuperation des parametres passées par commande
 		for(int i=1; i<args.length; i++) {

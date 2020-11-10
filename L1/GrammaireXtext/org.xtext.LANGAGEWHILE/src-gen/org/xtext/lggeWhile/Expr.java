@@ -3,7 +3,7 @@
  */
 package org.xtext.lggeWhile;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,24 +15,57 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.lggeWhile.Expr#getExprbase <em>Exprbase</em>}</li>
+ *   <li>{@link org.xtext.lggeWhile.Expr#getExprbase1 <em>Exprbase1</em>}</li>
  * </ul>
  *
  * @see org.xtext.lggeWhile.LggeWhilePackage#getExpr()
  * @model
  * @generated
  */
-public interface Expr extends ExprBase
+public interface Expr extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Exprbase</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.lggeWhile.ExprBase}.
+   * Returns the value of the '<em><b>Exprbase</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exprbase</em>' containment reference list.
+   * @return the value of the '<em>Exprbase</em>' containment reference.
+   * @see #setExprbase(ExprBase)
    * @see org.xtext.lggeWhile.LggeWhilePackage#getExpr_Exprbase()
    * @model containment="true"
    * @generated
    */
-  EList<ExprBase> getExprbase();
+  ExprBase getExprbase();
+
+  /**
+   * Sets the value of the '{@link org.xtext.lggeWhile.Expr#getExprbase <em>Exprbase</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exprbase</em>' containment reference.
+   * @see #getExprbase()
+   * @generated
+   */
+  void setExprbase(ExprBase value);
+
+  /**
+   * Returns the value of the '<em><b>Exprbase1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exprbase1</em>' containment reference.
+   * @see #setExprbase1(ExprBase)
+   * @see org.xtext.lggeWhile.LggeWhilePackage#getExpr_Exprbase1()
+   * @model containment="true"
+   * @generated
+   */
+  ExprBase getExprbase1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.lggeWhile.Expr#getExprbase1 <em>Exprbase1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exprbase1</em>' containment reference.
+   * @see #getExprbase1()
+   * @generated
+   */
+  void setExprbase1(ExprBase value);
 
 } // Expr

@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +34,7 @@ import org.xtext.lggeWhile.LggeWhilePackage;
  *
  * @generated
  */
-public class LExprImpl extends ExprBaseImpl implements LExpr
+public class LExprImpl extends MinimalEObjectImpl.Container implements LExpr
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.

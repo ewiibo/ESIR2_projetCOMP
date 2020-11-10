@@ -16,10 +16,13 @@ import org.xtext.lggeWhile.AffectCommand;
 import org.xtext.lggeWhile.Command;
 import org.xtext.lggeWhile.Definition;
 import org.xtext.lggeWhile.Expr;
+import org.xtext.lggeWhile.ExprBase;
+import org.xtext.lggeWhile.Exprs;
 import org.xtext.lggeWhile.ForCommand;
 import org.xtext.lggeWhile.ForeachCommand;
 import org.xtext.lggeWhile.Function;
 import org.xtext.lggeWhile.IfCommand;
+import org.xtext.lggeWhile.LExpr;
 import org.xtext.lggeWhile.NopCommand;
 import org.xtext.lggeWhile.Program;
 import org.xtext.lggeWhile.Vars;
@@ -78,7 +81,7 @@ public class LggeWhileGenerator extends AbstractGenerator {
     _builder.append("function ");
     String _symbol = func.getSymbol();
     _builder.append(_symbol);
-    _builder.append(":");
+    _builder.append(": ");
     _builder.newLineIfNotEmpty();
     CharSequence _compile = this.compile(func.getDefinition());
     _builder.append(_compile);
@@ -116,7 +119,7 @@ public class LggeWhileGenerator extends AbstractGenerator {
         if (!_hasElements_1) {
           _hasElements_1 = true;
         } else {
-          _builder.appendImmediate(";\n", "");
+          _builder.appendImmediate(" ;", "");
         }
         CharSequence _compile = this.compile(com, space);
         _builder.append(_compile);
@@ -168,22 +171,6 @@ public class LggeWhileGenerator extends AbstractGenerator {
     return null;
   }
   
-  /**
-   * def compile(Commands cs, int all, int iAffect, int iIf, int iFor, int iWhile, int iForeach){
-   * var csVal = ""
-   * for (comd : cs.commands){
-   * if(comd instanceof WhileCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
-   * if(comd instanceof IfCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
-   * if(comd instanceof ForCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
-   * if(comd instanceof AffectCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
-   * if(comd instanceof ForeachCommand) csVal += comd.compile(all,iAffect,iIf,iFor,iWhile,iForeach)
-   * if(comd instanceof NopCommand) csVal += '''nop'''
-   * }
-   * '''
-   * «csVal»
-   * '''
-   * }
-   */
   public String compile(final WhileCommand w, final String space) {
     String spaceW = "";
     for (int i = 0; (i < this.iWhile); i++) {
@@ -191,30 +178,23 @@ public class LggeWhileGenerator extends AbstractGenerator {
       spaceW = (_spaceW + " ");
     }
     spaceW = (spaceW + space);
-    String content = "";
-    EList<Command> _commands = w.getCommands().getCommands();
-    for (final Command com : _commands) {
-      String _content = content;
-      Object _compile = this.compile(com, spaceW);
-      content = (_content + _compile);
-    }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(space);
     _builder.append("while ");
-    Expr _expr = w.getExpr();
-    _builder.append(_expr);
+    CharSequence _compile = this.compile(w.getExpr());
+    _builder.append(_compile);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
     {
-      EList<Command> _commands_1 = w.getCommands().getCommands();
+      EList<Command> _commands = w.getCommands().getCommands();
       boolean _hasElements = false;
-      for(final Command com_1 : _commands_1) {
+      for(final Command com : _commands) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(";\n", "");
+          _builder.appendImmediate(" ;", "");
         }
-        Object _compile_1 = this.compile(com_1, spaceW);
+        Object _compile_1 = this.compile(com, spaceW);
         _builder.append(_compile_1);
       }
     }
@@ -232,30 +212,23 @@ public class LggeWhileGenerator extends AbstractGenerator {
       spaceI = (_spaceI + " ");
     }
     spaceI = (spaceI + space);
-    String content = "";
-    EList<Command> _commands = i.getCommands().getCommands();
-    for (final Command com : _commands) {
-      String _content = content;
-      Object _compile = this.compile(com, spaceI);
-      content = (_content + _compile);
-    }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(space);
     _builder.append("if ");
-    Expr _expr = i.getExpr();
-    _builder.append(_expr);
+    CharSequence _compile = this.compile(i.getExpr());
+    _builder.append(_compile);
     _builder.append(" then");
     _builder.newLineIfNotEmpty();
     {
-      EList<Command> _commands_1 = i.getCommands().getCommands();
+      EList<Command> _commands = i.getCommands().getCommands();
       boolean _hasElements = false;
-      for(final Command com_1 : _commands_1) {
+      for(final Command com : _commands) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(";\n", "");
+          _builder.appendImmediate(" ;", "");
         }
-        Object _compile_1 = this.compile(com_1, spaceI);
+        Object _compile_1 = this.compile(com, spaceI);
         _builder.append(_compile_1);
       }
     }
@@ -273,30 +246,23 @@ public class LggeWhileGenerator extends AbstractGenerator {
       spaceF = (_spaceF + " ");
     }
     spaceF = (spaceF + space);
-    String content = "";
-    EList<Command> _commands = f.getCommand().getCommands();
-    for (final Command com : _commands) {
-      String _content = content;
-      Object _compile = this.compile(com, spaceF);
-      content = (_content + _compile);
-    }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(space);
-    _builder.append("For ");
-    Expr _expr = f.getExpr();
-    _builder.append(_expr);
+    _builder.append("for ");
+    CharSequence _compile = this.compile(f.getExpr());
+    _builder.append(_compile);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
     {
-      EList<Command> _commands_1 = f.getCommand().getCommands();
+      EList<Command> _commands = f.getCommand().getCommands();
       boolean _hasElements = false;
-      for(final Command com_1 : _commands_1) {
+      for(final Command com : _commands) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(";\n", "");
+          _builder.appendImmediate(" ;", "");
         }
-        Object _compile_1 = this.compile(com_1, spaceF);
+        Object _compile_1 = this.compile(com, spaceF);
         _builder.append(_compile_1);
       }
     }
@@ -314,34 +280,27 @@ public class LggeWhileGenerator extends AbstractGenerator {
       spaceF = (_spaceF + " ");
     }
     spaceF = (spaceF + space);
-    String content = "";
-    EList<Command> _commands = f.getCommands().getCommands();
-    for (final Command com : _commands) {
-      String _content = content;
-      Object _compile = this.compile(com, spaceF);
-      content = (_content + _compile);
-    }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(space);
     _builder.append("Foreach ");
-    Vars _vars = f.getVars();
-    _builder.append(_vars);
+    CharSequence _compile = this.compile(f.getVars());
+    _builder.append(_compile);
     _builder.append(" in ");
-    Expr _expr = f.getExpr();
-    _builder.append(_expr);
+    CharSequence _compile_1 = this.compile(f.getExpr());
+    _builder.append(_compile_1);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
     {
-      EList<Command> _commands_1 = f.getCommands().getCommands();
+      EList<Command> _commands = f.getCommands().getCommands();
       boolean _hasElements = false;
-      for(final Command com_1 : _commands_1) {
+      for(final Command com : _commands) {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(";\n", "");
+          _builder.appendImmediate(" ;", "");
         }
-        Object _compile_1 = this.compile(com_1, spaceF);
-        _builder.append(_compile_1);
+        Object _compile_2 = this.compile(com, spaceF);
+        _builder.append(_compile_2);
       }
     }
     _builder.newLineIfNotEmpty();
@@ -364,34 +323,135 @@ public class LggeWhileGenerator extends AbstractGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append(space);
       _builder.append(spaceA);
-      {
-        EList<String> _vari = a.getVars().getVari();
-        boolean _hasElements = false;
-        for(final String param : _vari) {
-          if (!_hasElements) {
-            _hasElements = true;
-          } else {
-            _builder.appendImmediate(", ", "");
-          }
-          _builder.append(param);
-        }
-      }
+      CharSequence _compile = this.compile(a.getVars());
+      _builder.append(_compile);
       _builder.append(" := ");
-      {
-        EList<Expr> _expr = a.getExprs().getExpr();
-        boolean _hasElements_1 = false;
-        for(final Expr param_1 : _expr) {
-          if (!_hasElements_1) {
-            _hasElements_1 = true;
-          } else {
-            _builder.appendImmediate(", ", "");
-          }
-          _builder.append(param_1);
-        }
-      }
+      CharSequence _compile_1 = this.compile(a.getExprs());
+      _builder.append(_compile_1);
       _builder.newLineIfNotEmpty();
       _xblockexpression = _builder;
     }
     return _xblockexpression;
+  }
+  
+  public CharSequence compile(final Expr expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _compile = this.compile(expr.getExprbase());
+    _builder.append(_compile);
+    {
+      ExprBase _exprbase1 = expr.getExprbase1();
+      boolean _tripleNotEquals = (_exprbase1 != null);
+      if (_tripleNotEquals) {
+        _builder.append(" =? ");
+        String _compile_1 = this.compile(expr.getExprbase1());
+        _builder.append(_compile_1);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Vars v) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<String> _vari = v.getVari();
+      boolean _hasElements = false;
+      for(final String param : _vari) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        _builder.append(param);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Exprs e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Expr> _expr = e.getExpr();
+      boolean _hasElements = false;
+      for(final Expr param : _expr) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(", ", "");
+        }
+        CharSequence _compile = this.compile(param);
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final LExpr le) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Expr> _expr = le.getExpr();
+      boolean _hasElements = false;
+      for(final Expr param : _expr) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(" ", "");
+        }
+        _builder.append(" ");
+        Object _compile = this.compile(param);
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public String compile(final ExprBase e) {
+    String _value = e.getValue();
+    boolean _tripleNotEquals = (_value != null);
+    if (_tripleNotEquals) {
+      StringConcatenation _builder = new StringConcatenation();
+      String _value_1 = e.getValue();
+      _builder.append(_value_1);
+      return _builder.toString();
+    }
+    String _identitor = e.getIdentitor();
+    boolean _tripleNotEquals_1 = (_identitor != null);
+    if (_tripleNotEquals_1) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("(");
+      String _identitor_1 = e.getIdentitor();
+      _builder_1.append(_identitor_1);
+      _builder_1.append(" ");
+      CharSequence _compile = this.compile(e.getLexpr());
+      _builder_1.append(_compile);
+      _builder_1.append(")");
+      return _builder_1.toString();
+    }
+    String _identitor1 = e.getIdentitor1();
+    boolean _tripleNotEquals_2 = (_identitor1 != null);
+    if (_tripleNotEquals_2) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("(");
+      String _identitor1_1 = e.getIdentitor1();
+      _builder_2.append(_identitor1_1);
+      _builder_2.append(" ");
+      Object _compile_1 = this.compile(e.getExpr());
+      _builder_2.append(_compile_1);
+      _builder_2.append(")");
+      return _builder_2.toString();
+    }
+    String _symbol = e.getSymbol();
+    boolean _tripleNotEquals_3 = (_symbol != null);
+    if (_tripleNotEquals_3) {
+      StringConcatenation _builder_3 = new StringConcatenation();
+      _builder_3.append("(");
+      String _symbol_1 = e.getSymbol();
+      _builder_3.append(_symbol_1);
+      _builder_3.append(" ");
+      CharSequence _compile_2 = this.compile(e.getLexpr());
+      _builder_3.append(_compile_2);
+      _builder_3.append(")");
+      return _builder_3.toString();
+    }
+    return null;
   }
 }
