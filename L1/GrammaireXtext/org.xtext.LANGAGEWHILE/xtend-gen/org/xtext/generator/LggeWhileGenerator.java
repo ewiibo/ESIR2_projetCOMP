@@ -141,8 +141,6 @@ public class LggeWhileGenerator extends AbstractGenerator {
         _builder.append(param_1);
       }
     }
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
     return _builder;
   }
   
@@ -282,7 +280,7 @@ public class LggeWhileGenerator extends AbstractGenerator {
     spaceF = (spaceF + space);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(space);
-    _builder.append("Foreach ");
+    _builder.append("foreach ");
     CharSequence _compile = this.compile(f.getVars());
     _builder.append(_compile);
     _builder.append(" in ");
@@ -359,7 +357,7 @@ public class LggeWhileGenerator extends AbstractGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(", ", "");
+          _builder.appendImmediate(",", "");
         }
         _builder.append(param);
       }
@@ -376,7 +374,7 @@ public class LggeWhileGenerator extends AbstractGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(", ", "");
+          _builder.appendImmediate(",", "");
         }
         CharSequence _compile = this.compile(param);
         _builder.append(_compile);

@@ -123,9 +123,9 @@ public class Main {
 		// Validate the resource
 		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
 		if (!list.isEmpty()) {
-			System.err.println("Programme while synthaxiquement incorrect");
+			System.out.println("Programme while synthaxiquement incorrect");
 			for (Issue issue : list) {
-				System.err.println(issue);
+				System.out.println(issue);
 			}
 			return;
 		}

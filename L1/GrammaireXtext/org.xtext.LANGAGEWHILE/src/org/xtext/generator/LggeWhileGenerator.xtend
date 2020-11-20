@@ -51,7 +51,6 @@ class LggeWhileGenerator extends AbstractGenerator {
 	
 	def compile(Program prog){
 		var functi =''''''
-		
 		for (func : prog.functions){
 			functi += func.compile()
 		}
@@ -71,9 +70,7 @@ class LggeWhileGenerator extends AbstractGenerator {
 		%
 		«var space = ""»«for (var i = 0 ; i <all ; i++) space += ' '»«FOR com : d.commands.commands SEPARATOR ' ;'»«com.compile(space)»«ENDFOR»
 		%
-		write «FOR param: d.output.vars SEPARATOR ', '»«param»«ENDFOR»
-		
-		'''
+		write «FOR param: d.output.vars SEPARATOR ', '»«param»«ENDFOR»'''
 	}
 	
 	def compile(Command c, String space){
@@ -86,11 +83,9 @@ class LggeWhileGenerator extends AbstractGenerator {
 	}
 	
 	def compile(WhileCommand w, String space){
-		
 		var spaceW = ""
 		for (var i = 0 ; i <iWhile ; i++) spaceW += ' '
 		spaceW = spaceW+space
-		
 		return '''
 		«space»while «w.expr.compile» do
 		«FOR com : w.commands.commands SEPARATOR " ;"»«com.compile(spaceW)»«ENDFOR»
@@ -113,24 +108,24 @@ class LggeWhileGenerator extends AbstractGenerator {
 		var spaceF = ""
 		for (var j = 0 ; j <iFor ; j++) spaceF += ' '
 		spaceF = spaceF+space
-		
 		return '''
 		«space»for «f.expr.compile» do
 		«FOR com : f.command.commands SEPARATOR " ;"»«com.compile(spaceF)»«ENDFOR»
 		«space»od
 		'''
 	}
+	
 	def compile(ForeachCommand f, String space){
 		var spaceF = ""
 		for (var j = 0 ; j <iForeach ; j++) spaceF += ' '
 		spaceF = spaceF+space
-		
 		return '''
-		«space»Foreach «f.vars.compile» in «f.expr.compile» do
+		«space»foreach «f.vars.compile» in «f.expr.compile» do
 		«FOR com : f.commands.commands SEPARATOR " ;"»«com.compile(spaceF)»«ENDFOR»
 		«space»od
 		'''
 	}
+	
 	def compile(AffectCommand a, String space){
 		var spaceA = ""
 		var size = iAffect-space.length
@@ -139,24 +134,27 @@ class LggeWhileGenerator extends AbstractGenerator {
 		«space»«spaceA»«a.vars.compile» := «a.exprs.compile»
 		'''
 	}
+	
 	def compile(Expr expr){
 		'''«expr.exprbase.compile»«IF expr.exprbase1!==null» =? «expr.exprbase1.compile»«ENDIF»'''
 	}
+	
 	def compile(Vars v){
-		'''«FOR param : v.vari SEPARATOR ', '»«param»«ENDFOR»'''
+		'''«FOR param : v.vari SEPARATOR ','»«param»«ENDFOR»'''
 	}
+	
 	def compile(Exprs e){
-		'''«FOR param : e.expr SEPARATOR ', '»«param.compile»«ENDFOR»'''
+		'''«FOR param : e.expr SEPARATOR ','»«param.compile»«ENDFOR»'''
 	}
+	
 	def compile(LExpr le){
 		'''«FOR param : le.expr SEPARATOR ' '» «param.compile»«ENDFOR»'''
 	}
+	
 	def compile(ExprBase e){
 		if(e.value !== null) return '''«e.value»'''
 		if(e.identitor !== null) return '''(«e.identitor» «e.lexpr.compile»)'''
 		if(e.identitor1 !== null) return '''(«e.identitor1» «e.expr.compile»)'''
 		if(e.symbol !== null) return '''(«e.symbol» «e.lexpr.compile»)'''
 	}
-	
 }
-

@@ -1,0 +1,25 @@
+function f1: 
+read Var1,Var2  
+%
+  for nil do
+    nop
+  od;
+  for nil do
+    for nil do
+      for nil do
+        nop
+      od;
+      for nil do 
+        for nil do
+          nop
+        od;
+        for nil do 
+          for nil do
+            nop
+          od
+        od
+      od
+	  od
+  od 
+%
+write Var1
