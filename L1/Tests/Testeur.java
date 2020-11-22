@@ -31,14 +31,14 @@ public class Testeur {
     }
 
     public void run() {
-        System.out.println("[Info]Lancement du script de test de code While ..............\n");
+        System.out.println("\n[Info]Lancement du script de test de code While ..............");
         String[] listeOriginaux = dossierOriginaux.list();
         for (String nameFile : listeOriginaux) {
             
             File fileO = new File(dossierOriginaux.getPath() + "/" + nameFile);
             if (!fileO.isFile())
                 continue;
-            System.out.println("Fichier "+fileO.getName());
+            System.out.println("\nFichier "+fileO.getName());
             try{
                 Runtime rt = Runtime.getRuntime();
                 Process pr = rt.exec("java -jar PrettyPrinter.jar "+ fileO.getAbsolutePath() +" -o resultats/"+ fileO.getName());

@@ -37,58 +37,98 @@ public class Main {
 		Injector injector = new LggeWhileStandaloneSetup().createInjectorAndDoEMFRegistration();
 		Main main = injector.getInstance(Main.class);
 		
-		recupParam(args);
+		if(recupParam(args)==-1) return;
 		main.runGenerator();
 	}
 	
-	private static void recupParam(String[] args) {
-		if(args[0].equals("-help"))
-		{
-			manuel(); return;
-		}
-		inputFile = args[0];
-		//System.out.println(inputFile);
+	private static int recupParam(String[] args) {
 		
-		// recuperation des parametres pass�es par commande
-		for(int i=1; i<args.length; i++) {
-			switch (args[i]) {
-			case "-o":
-				outputFile = args[++i];
-				break;
-			case "-all":
-				iAll = Integer.parseInt(args[++i]);
-				break;
-			case "-for":
-				iFor = Integer.parseInt(args[++i]);
-				break;
-			case "-while":
-				iWhile = Integer.parseInt(args[++i]);
-				break;
-			case "-if":
-				iIf = Integer.parseInt(args[++i]);
-				break;
-			case "-foreach":
-				iForeach = Integer.parseInt(args[++i]);
-				break;
-			case "-affect":
-				iAffect = Integer.parseInt(args[++i]);
-				break;
-
-			default:
-				break;
+		try {
+			if(args[0].equals("-help"))
+			{
+				manuel(); return -1;
 			}
+			inputFile = args[0];
+			//System.out.println(inputFile);
+			
+			// recuperation des parametres passées par commande
+			for(int i=1; i<args.length; i++) {
+				switch (args[i]) {
+				case "-o":
+					outputFile = args[++i];
+					break;
+				case "-all":
+					iAll = Integer.parseInt(args[++i]);
+					break;
+				case "-for":
+					iFor = Integer.parseInt(args[++i]);
+					break;
+				case "-while":
+					iWhile = Integer.parseInt(args[++i]);
+					break;
+				case "-if":
+					iIf = Integer.parseInt(args[++i]);
+					break;
+				case "-foreach":
+					iForeach = Integer.parseInt(args[++i]);
+					break;
+				case "-affect":
+					iAffect = Integer.parseInt(args[++i]);
+					break;
+
+				default:
+					System.out.println("Erreur dans les options!");
+					System.out.println("whpp.exe <inputFile> [-<option> <valeur>]" );
+					System.out.println("Pour plus d'information : whpp.exe -help");
+					break;
+				}
+			}
+			
+			// Affectation des valeurs par defaut
+			if(iFor == 0) iFor = iAll;
+			if(iWhile == 0) iWhile = iAll;
+			if(iIf == 0) iIf = iAll;
+			if(iForeach == 0) iForeach = iAll;
+			if(iAffect == 0) iAffect = iAll;
 		}
+		catch (NumberFormatException e) {
+			System.out.println("Parameter values must be numbers!");
+			System.out.println("whpp.exe <inputFile> [-<option> <valeur>]" );
+			System.out.println("For more information : whpp.exe -help");
+			return -1;
+		}
+		catch (Exception e) {
+			System.out.println("Error in the parameters entered !\n");
+			manuel();
+			return -1;
+		}
+		return 0;
 		
-		// Affectation des valeurs par defaut
-		if(iFor == 0) iFor = iAll;
-		if(iWhile == 0) iWhile = iAll;
-		if(iIf == 0) iIf = iAll;
-		if(iForeach == 0) iForeach = iAll;
-		if(iAffect == 0) iAffect = iAll;
 	}
 	
 	private static void manuel() {
-		System.out.println("Affichage du manuel");
+		System.out.println("NAME\n"
+				+ "\twhpp reads a syntactically correct while file and returns a syntactically equivalent\n\twhile file but nicely composed with spaces, indetations and newlines.\r\n"
+				+ "\tIt is possible to specify identations to it by passing values ​​to it using the program options. \n\tThese options are available later in this help. \n"
+				+ "	\n"
+				+ "SYNOPSIS\n"
+				+ "	whpp <InputFile> [-o <OutputFile>] [-all <number>] [-if <number>] [-for <number>]\n\t [-foreach <number>] [-while <number>]\n"
+				+ "			\n"
+				+ "DESCRIPTION\n"
+				+"\twhpp allows you to change the indentation values ​​using the following options:\n"
+				+ "	-o       :	\n\t\t Name of the output file, by default <InputFile>.whpp\n"
+				+ "	-all     :  \n\t\t Indentation value to be applied to the whole document, by default, it is 2\n\n"
+				+ "	-if      :  \n\t\t Indentation value specific to if\n\n"
+				+ "	-for     :	\n\t\t Indentation value specific to for\n\n"
+				+ "	-foreach :	\n\t\t Indentation value specific to foreach\n\n"
+				+ "	-while   :	\n\t\t Indentation value specific to while\n\n"
+				+ "	\n"
+				+ "AUTHORS	\n"
+				+ "	Written by ANFANE Saoussane , BEN ISHAK Nawel Sirine, ILLIASSOU ZOUGAOU Ibrahim​,\n"
+				+ "\tAGUERDOUM EL IDRISSI Anas and ​N'GORAN Jean Paul Kotcheko\n"
+				+ "\n"
+				+ "\n"
+				+ "");
 	}
 
 	@Inject
@@ -107,13 +147,13 @@ public class Main {
 		// existe du fichier source
 		File input = new File(inputFile);
 		if(!input.exists()) {
-			System.out.println("Le fichier "+ input.getName()+" est introuvable");
+			System.out.println("The file "+ input.getName()+" was not found !");
 			return;
 		}
 		
 		// nom du fichier dest
 		if(outputFile.equals(""))
-			outputFile = inputFile;
+			outputFile = inputFile.split(".")[0] + "whpp";
 		
 		
 		// Load the resource
@@ -123,7 +163,7 @@ public class Main {
 		// Validate the resource
 		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
 		if (!list.isEmpty()) {
-			System.out.println("Programme while synthaxiquement incorrect");
+			System.out.println("There are errors in the program .WHILE program synthaxically incorrect");
 			for (Issue issue : list) {
 				System.out.println(issue);
 			}

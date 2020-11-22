@@ -148,7 +148,7 @@ class LggeWhileGenerator extends AbstractGenerator {
 	}
 	
 	def compile(LExpr le){
-		'''«FOR param : le.expr SEPARATOR ' '» «param.compile»«ENDFOR»'''
+		'''«FOR param : le.expr SEPARATOR ' '»«param.compile»«ENDFOR»'''
 	}
 	
 	def compile(ExprBase e){

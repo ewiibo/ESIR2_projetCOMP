@@ -394,7 +394,6 @@ public class LggeWhileGenerator extends AbstractGenerator {
         } else {
           _builder.appendImmediate(" ", "");
         }
-        _builder.append(" ");
         Object _compile = this.compile(param);
         _builder.append(_compile);
       }
