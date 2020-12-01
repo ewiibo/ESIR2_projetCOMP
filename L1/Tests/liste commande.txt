@@ -1,0 +1,9 @@
+java -jar whpp.jar -help
+java -jar whpp.jar .\originaux\melange1.wh -o .\resultats\melange100.wh
+java -jar whpp.jar .\originaux\erreur2.wh 
+java -jar whpp.jar .\originaux\melange1.wh -oioi .\resultats\melange100.wh
+java -jar whpp.jar .\originaux\melange1.wh -o .\resultats\melange100.wh -for ttt
+
+java -cp Testeur
+java -cp Comparateur
+java -cp . GenerateurLongueur .\originaux\function34.wh 500 genere.wh

@@ -56,7 +56,7 @@ public class Comparateur {
             try {
                 Scanner scanR = new Scanner(fileR);
                 Scanner scanA = new Scanner(fileA);
-                while (scanA.hasNext() && scanR.hasNext()) {
+                while (scanA.hasNext() || scanR.hasNext()) {
                     compteur++;
                     String lineR = scanR.nextLine();
                     String lineA = scanA.nextLine();

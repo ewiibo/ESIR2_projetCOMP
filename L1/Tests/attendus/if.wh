@@ -1,23 +1,18 @@
 function f1: 
-read Var1,Var2  
+read Var1, Var2
 %
-  if nil then 
+  if nil then
     nop
-  fi;
+  fi ;
   if nil then
     if nil then
       nop
     else
-    if nil then
-      nop 
-    else 
       nop
-    fi;
+    fi ;
     if nil then
       nop
     fi
-  else 
-    nop   
   fi
 %
 write Var1

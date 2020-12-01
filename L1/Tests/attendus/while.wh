@@ -1,25 +1,25 @@
 function f1: 
-read Var1,Var2  
+read Var1, Var2
 %
   while nil do
     nop
-  od;
+  od ;
   while nil do
     while nil do
       while nil do
         nop
-      od;
-      while nil do 
+      od ;
+      while nil do
         while nil do
           nop
-        od;
-        while nil do 
+        od ;
+        while nil do
           while nil do
             nop
           od
         od
       od
     od
-  od 
+  od
 %
 write Var1

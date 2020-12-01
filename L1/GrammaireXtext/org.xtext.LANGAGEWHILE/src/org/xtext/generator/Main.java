@@ -77,9 +77,9 @@ public class Main {
 					break;
 
 				default:
-					System.out.println("Erreur dans les options!");
-					System.out.println("whpp.exe <inputFile> [-<option> <valeur>]" );
-					System.out.println("Pour plus d'information : whpp.exe -help");
+					System.out.println("Error in the options entered !");
+					System.out.println("whpp.exe <inputFile> [-<option> <value>]" );
+					System.out.println("For more information : whpp.exe -help");
 					break;
 				}
 			}
@@ -153,7 +153,7 @@ public class Main {
 		
 		// nom du fichier dest
 		if(outputFile.equals(""))
-			outputFile = inputFile.split(".")[0] + "whpp";
+			outputFile = inputFile;//.split(".")[0] + "whpp";
 		
 		
 		// Load the resource

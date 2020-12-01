@@ -1,0 +1,36 @@
+function f1: 
+read Var1, Var2
+%
+  foreach V,V2 in nil do
+    nop
+  od ;
+  if A =? B then
+    for (cons (hd A) nil jj (tl JJ) nil (list (cons AA))) do
+         while nil =? (cons nil A) do
+           if (ad! aAA) then
+             A,F := r,(ad aAA),KK,(cons FFJLKJ?),nil,nil
+           else
+             while (a (cons ll) =? LL aAA =? kjk) do
+               L := LK,(tl a),(hd k)
+             od ;
+             A,A,A,A := nil,nil
+           fi ;
+           A,A,A,A := nil,nil ;
+           foreach A,B,C,D in (sym (symb A) nil (list AB) (cons (cons nil nil nil))) do
+             if (hd (a A A A nil (tl kk) n)) =? A then
+               nop
+             else
+               while (sym (cons (tl kjk) kjkj AA (hd KK) nil nil nil nil)) do
+                 A := OOOO
+               od
+             fi
+           od
+         od
+    od
+  else
+    foreach K,K,K,K,K,K,K,K in nil do
+      A := (tl (cons (tl a) nil LL llll (hd lk)))
+    od
+  fi
+%
+write Var1

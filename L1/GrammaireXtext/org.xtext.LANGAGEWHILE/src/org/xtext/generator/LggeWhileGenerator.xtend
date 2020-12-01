@@ -100,6 +100,8 @@ class LggeWhileGenerator extends AbstractGenerator {
 		return '''
 		«space»if «i.expr.compile» then
 		«FOR com : i.commands.commands SEPARATOR " ;"»«com.compile(spaceI)»«ENDFOR»
+		«IF (i.elsecommands!==null)»«space»else
+		«FOR comelse : i.elsecommands.commands SEPARATOR " ;"»«comelse.compile(spaceI)»«ENDFOR»«ENDIF»
 		«space»fi
 		'''
 	}

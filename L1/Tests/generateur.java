@@ -56,7 +56,7 @@ class GenerateurLongueur {
                 }
                     
             } catch (IOException ex) {
-                Logger.getLogger(Generateur.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GenerateurLongueur.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

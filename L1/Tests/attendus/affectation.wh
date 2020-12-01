@@ -1,5 +1,5 @@
 function f1: 
-read Var1,Var2  
+read Var1, Var2
 %
   Var := nil ;
   B,C,D := nil,nil ;

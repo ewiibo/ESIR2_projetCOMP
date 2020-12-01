@@ -10,20 +10,13 @@ fi
                                      ;
 
 if nil then if nil then	nop else
-	if nil 
-
-                    then
+	
 	                           		nop 
-  else 
-	               		nop
 		fi     
 		;if
  nil                                                      then
 			                                 nop		
 fi
-fi
-else 
-nop   
 fi
 
 

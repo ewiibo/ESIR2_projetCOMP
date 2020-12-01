@@ -1,12 +1,12 @@
 function f1: 
-read Var1,Var2  
+read Var1,Var2
 %
-  foreach V,V2 in nil  do
+  foreach V,V2 in nil do
     nop
   od;
   if nil then
     for nil do
-      while nil  do
+      while nil do
         if nil then
           nop
         else
@@ -16,8 +16,8 @@ read Var1,Var2
           A,A,A,A:=nil,nil
         fi;
         A,A,A,A:=nil,nil;
-        foreach A,B,C,D in nil do 
-          if nil then 
+        foreach A,B,C,D in nil do
+          if nil then
             nop
           else
             while nil do

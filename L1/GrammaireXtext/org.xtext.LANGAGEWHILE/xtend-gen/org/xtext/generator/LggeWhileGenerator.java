@@ -14,6 +14,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.lggeWhile.AffectCommand;
 import org.xtext.lggeWhile.Command;
+import org.xtext.lggeWhile.Commands;
 import org.xtext.lggeWhile.Definition;
 import org.xtext.lggeWhile.Expr;
 import org.xtext.lggeWhile.ExprBase;
@@ -228,6 +229,29 @@ public class LggeWhileGenerator extends AbstractGenerator {
         }
         Object _compile_1 = this.compile(com, spaceI);
         _builder.append(_compile_1);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      Commands _elsecommands = i.getElsecommands();
+      boolean _tripleNotEquals = (_elsecommands != null);
+      if (_tripleNotEquals) {
+        _builder.append(space);
+        _builder.append("else");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Command> _commands_1 = i.getElsecommands().getCommands();
+          boolean _hasElements_1 = false;
+          for(final Command comelse : _commands_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(" ;", "");
+            }
+            Object _compile_2 = this.compile(comelse, spaceI);
+            _builder.append(_compile_2);
+          }
+        }
       }
     }
     _builder.newLineIfNotEmpty();
