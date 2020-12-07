@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.ide/src"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.ide/src-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.tests/src"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.tests/src-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.tests/xtend-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.ui.tests/src-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.ui/src"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE.ui/src-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE/src"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE/src-gen"/>
+	<classpathentry kind="src" path="GrammaireXtext/org.xtext.LANGAGEWHILE/xtend-gen"/>
+	<classpathentry kind="src" path="Tests"/>
+	<classpathentry kind="lib" path="GrammaireXtext/.metadata/.plugins/org.eclipse.pde.core/.external_libraries/org.eclipse.jdt.compiler.tool_1.2.1000.v20200828-0941/lib/java14api.jar"/>
+	<classpathentry kind="lib" path="GrammaireXtext/.metadata/.plugins/org.eclipse.pde.core/Launch Runtime Eclipse/org.eclipse.osgi/222/0/.cp/lib/java14api.jar"/>
+	<classpathentry kind="lib" path="GrammaireXtext/org.xtext.LANGAGEWHILE/.antlr-generator-3.2.0-patch.jar"/>
+	<classpathentry kind="lib" path="GrammaireXtext/PrettyPrinter.jar"/>
+	<classpathentry kind="output" path="GrammaireXtext/org.xtext.LANGAGEWHILE/bin"/>
+</classpath>

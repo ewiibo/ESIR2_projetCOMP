@@ -1,0 +1,22 @@
+function f1: 
+read Var1,Var2
+%
+ Foreach V,V2 in nil do
+  nop
+ od ;
+ if nil then
+  for nil do
+     while nil do
+         if nil then
+          nop
+         fi\n ;         A,A,A,A := nil,nil ;
+         Foreach A,B,C,D in nil do
+          if nil then
+           nop
+          fi\n
+         od
+     od\n
+  od
+ fi\n
+%
+write Var1

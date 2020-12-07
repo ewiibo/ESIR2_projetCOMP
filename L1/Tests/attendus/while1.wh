@@ -1,0 +1,25 @@
+function f1: 
+read Var1, Var2
+%
+  while nil do
+    nop
+  od ;
+  while (list nil (cons k) mll =? MMM? lk =? lkk) do
+    while lkl do
+      while (cons lllk lkkk (hd kjkj) (tl kjkj)) do
+        nop
+      od ;
+      while jjhjh =? nil do
+        while (list (cons jkf)) do
+          nop
+        od ;
+        while nil =? nil do
+          while (list kjkh (cons kjkj) lLLL (tl kjjh) (hd kjkj) =? kjkj) do
+            nop
+          od
+        od
+      od
+    od
+  od
+%
+write Var1

@@ -1,0 +1,12 @@
+function f3: 
+read V1, V2
+%
+  nop
+%
+write V3
+function f4: 
+read V1, V2, V3, V4, V5, V6
+%
+  nop
+%
+write V3, V4, V6
