@@ -1,0 +1,193 @@
+package org.xtext.generator;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.xtext.whileL.AffectCommand;
+import org.xtext.whileL.Command;
+
+public class TroisAdd {
+
+	private HashMap<String, LinkedList<Quadruplet<OpImpl>>> code3AddressH = new HashMap<String, LinkedList<Quadruplet<OpImpl>>>();
+	private LinkedList<Quadruplet<OpImpl>> code3Address = new LinkedList<Quadruplet<OpImpl>>();
+	
+	
+	public LinkedList<Quadruplet<OpImpl>> getCode3Address() {
+		return code3Address;
+	}
+	
+	public void saveFunc3Add(String funcName) {
+		code3AddressH.put(funcName, code3Address); /*getEtiquetteSuiv()*/
+		code3Address = new LinkedList<Quadruplet<OpImpl>>();
+	}
+	public HashMap<String, LinkedList<Quadruplet<OpImpl>>> getCode3AddressH() {
+		return code3AddressH;
+	}
+
+	public void setCode3AddressH(HashMap<String, LinkedList<Quadruplet<OpImpl>>> code3AddressH) {
+		this.code3AddressH = code3AddressH;
+	}
+
+	public void setCode3Address(LinkedList<Quadruplet<OpImpl>> code3Address) {
+		this.code3Address = code3Address;
+	}
+	
+	//Methode d'Ajout d'un code 3 adresse
+	public void addCode3Address(Quadruplet<OpImpl> quad) {
+		this.code3Address.add(quad);
+	}
+	public void addCode3Address(Op op, String res , String arg1, String arg2) {
+		addCode3Address(new Quadruplet<OpImpl>(new OpImpl(op,""), res, arg1, arg2));
+	}
+	public void addCode3Address(Op op, String et, String res , String arg1, String arg2) {
+		addCode3Address(new Quadruplet<OpImpl>(new OpImpl(op,et), res, arg1, arg2));
+	}
+	public void addCode3Adress(OpImpl op , String res, String arg1, String arg2) {
+		addCode3Address(new Quadruplet<OpImpl>(op, res, arg1, arg2));
+	}
+	
+	//Gestion des etiquettes
+	public String getEtiquette() {
+		return "L"+ code3AddressH.size();
+	}
+	public String getEtiquetteSuiv() {
+		return "L"+ code3AddressH.size()+1;
+	}
+	public String getEtiquettePrec() {
+		return  "L"+(code3AddressH.size()-1);
+	}
+	
+	
+	// Ajout des opérations dans la liste des codes 3 adresses
+	
+	public void putFun(String name) {
+		addCode3Address(Op.Func, name, "", "" );
+	}
+	public void putNope() {
+		addCode3Address(Op.Nop, "", "", "");
+	}
+	public void putRead(String res) {
+		addCode3Address(Op.Read, res, "", "");
+	}
+	public void putWrite(String res) {
+		addCode3Address(Op.Write, res, "", "");
+	}
+	
+	//Gerer les affectations
+	public void putAff(AffectCommand com) {
+		System.out.println(com.getVars().getVari().size());
+		System.out.println(com.getExprs().getExpr().size());
+		addCode3Address(Op.Affec, "","","");
+	}
+	@Override
+	public String toString() {
+		String code3Add = "Code3Addresse : \n\n";
+		for (String key : code3AddressH.keySet()) {
+			LinkedList<Quadruplet<OpImpl>>codes = code3AddressH.get(key);
+			for(Quadruplet<OpImpl> code: codes) {
+				code3Add+=code.toString();
+				code3Add+="\n";
+			}
+		}
+		return code3Add;
+	}
+}
+
+class Quadruplet<T>{
+	private T operateur;
+	private String resultat;
+	private String arg1;
+	private String arg2;
+	
+	
+	public Quadruplet(T operateur, String resultat, String arg1, String arg2) {
+		super();
+		this.operateur = operateur;
+		this.resultat = resultat;
+		this.arg1 = arg1;
+		this.arg2 = arg2;
+	}
+	
+	public T getOperateur() {
+		return operateur;
+	}
+
+	public void setOperateur(T operateur) {
+		this.operateur = operateur;
+	}
+
+	public String getResultat() {
+		return resultat;
+	}
+
+	public void setResultat(String resultat) {
+		this.resultat = resultat;
+	}
+
+	public String getArg1() {
+		return arg1;
+	}
+
+	public void setArg1(String arg1) {
+		this.arg1 = arg1;
+	}
+
+	public String getArg2() {
+		return arg2;
+	}
+
+	public void setArg2(String arg2) {
+		this.arg2 = arg2;
+	}
+
+	@Override
+	public String toString() {
+		return "[" + operateur.toString() + ", '" + resultat + "', '" + arg1 + "', '" + arg2 + "']";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((arg1 == null) ? 0 : arg1.hashCode());
+		result = prime * result + ((arg2 == null) ? 0 : arg2.hashCode());
+		result = prime * result + ((operateur == null) ? 0 : operateur.hashCode());
+		result = prime * result + ((resultat == null) ? 0 : resultat.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Quadruplet<?> other = (Quadruplet<?>) obj;
+		if (arg1 == null) {
+			if (other.arg1 != null)
+				return false;
+		} else if (!arg1.equals(other.arg1))
+			return false;
+		if (arg2 == null) {
+			if (other.arg2 != null)
+				return false;
+		} else if (!arg2.equals(other.arg2))
+			return false;
+		if (operateur == null) {
+			if (other.operateur != null)
+				return false;
+		} else if (!operateur.equals(other.operateur))
+			return false;
+		if (resultat == null) {
+			if (other.resultat != null)
+				return false;
+		} else if (!resultat.equals(other.resultat))
+			return false;
+		return true;
+	}
+	
+}

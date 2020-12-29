@@ -1,0 +1,90 @@
+package org.xtext.generator
+
+class Traducteurx {
+	TroisAdd code3
+	TableSymbole ts
+
+	def Traducteurx(TroisAdd code3, TableSymbole ts) {
+		this.code3 = code3
+		this.ts = ts
+	}
+
+	def translate(String className) {
+		var str = ""
+		for (key : code3.code3AddressH.keySet) {
+			var func = ts.tableSymbFunc.get(key)
+			for (v : func.varIn)
+				func.vars.remove(v)
+			str += '''
+				
+				BinTree «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
+					
+					ArrayList<String> varIn = new ArrayList<>(); «FOR vi : func.varIn»varIn.add("«vi»");«ENDFOR»
+					String vars[] = {«FOR vi : func.vars SEPARATOR ","»"«vi»"«ENDFOR»};   
+					HashMap<String, BinTree> variables = new HashMap<>();
+					for(String var : vars) variables.put(var,null);
+					«FOR vi : func.varIn»variables.put("«vi»", «vi»);«ENDFOR»
+					«FOR code : code3.code3AddressH.get(key)»«translate3Add(code)»
+					«ENDFOR»
+			''' + "}\n"
+		}
+		return '''
+			package test;
+			
+			public class «className»{
+				«str»
+				
+			}
+		'''
+	}
+
+	def translate3Add(Quadruplet<OpImpl> code) {
+
+		if (code.operateur.operator == Op.Func)
+			return '''''';
+		if (code.operateur.operator == Op.Read)
+			return '''''';
+		if (code.operateur.operator == Op.Nop)
+			return translateNop(code);
+		if (code.operateur.operator == Op.Write)
+			return translateWrite(code)
+		if (code.operateur.operator == Op.Affec)
+			return translateAffect(code)
+		if (code.operateur.operator == Op.Nil)
+			return translateNil(code)
+		if (code.operateur.operator == Op.Tl)
+			return translateTl(code)
+		if (code.operateur.operator == Op.Hd)
+			return translateHd(code)
+		if (code.operateur.operator == Op.Cons)
+			return translateCons(code)
+
+	}
+
+	def translateNop(Quadruplet<OpImpl> code) {
+		return '''	libwh.nop();''';
+	}
+
+	def translateWrite(Quadruplet<OpImpl> code) {
+		''''''
+	}
+
+	def translateAffect(Quadruplet<OpImpl> code) {
+		return '''	variables.put("«code.resultat»",variables.get("«code.arg1»"));'''
+	}
+
+	def translateNil(Quadruplet<OpImpl> code) {
+		return '''	variables.put("«code.resultat»", null);'''
+	}
+
+	def translateTl(Quadruplet<OpImpl> code) {
+		return '''	variables.put("«code.resultat»", libwh.tl(variables.get("«code.arg1»")));'''
+	}
+
+	def translateHd(Quadruplet<OpImpl> code) {
+		return '''	variables.put("«code.resultat»", libwh.hd(variables.get("«code.arg1»")));'''
+	}
+	def translateCons(Quadruplet<OpImpl> code) {
+		return '''	variables.put("«code.resultat»", libwh.cons(variables.get("«code.arg1»"),variables.get("«code.arg2»")));'''
+	}
+}

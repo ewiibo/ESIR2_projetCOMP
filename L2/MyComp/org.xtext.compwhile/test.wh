@@ -1,0 +1,17 @@
+function f1: 
+read X,Y
+%
+  nop;
+  T := Z;
+  A := (cons (cons (tl nil) (hd Y)) nil);
+B,C := (hd Y), (cons nil nil)
+%
+write Y
+
+function main:
+read X % 
+A:= nil;
+B:= (cons A (hd nil))
+%
+write X
+

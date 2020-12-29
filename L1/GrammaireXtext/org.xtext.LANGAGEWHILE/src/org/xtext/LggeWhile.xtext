@@ -55,7 +55,7 @@ ExprBase:
     ('(' identitor = 'list' lexpr = LExpr ')') |
     ('(' identitor1 = 'hd' expr = Expr ')') |
     ('(' identitor1 = 'tl' expr = Expr ')') |
-    ('(' symbol = SYMBOL lexpr = LExpr ')')    
+    ('(' symbol = SYMBOL lexpr = LExpr ')')
 ;
 
 terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
