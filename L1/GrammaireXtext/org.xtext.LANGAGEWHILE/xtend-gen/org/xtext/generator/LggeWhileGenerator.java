@@ -3,15 +3,12 @@
  */
 package org.xtext.generator;
 
-import com.google.common.collect.Iterables;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.lggeWhile.AffectCommand;
 import org.xtext.lggeWhile.Command;
 import org.xtext.lggeWhile.Commands;
@@ -48,21 +45,12 @@ public class LggeWhileGenerator extends AbstractGenerator {
   
   private int iForeach;
   
-  @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
   }
   
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context, final String outputfile, final int all, final int iAffect, final int iIf, final int iFor, final int iWhile, final int iForeach) {
-    this.all = all;
-    this.iAffect = iAffect;
-    this.iIf = iIf;
-    this.iFor = iFor;
-    this.iWhile = iWhile;
-    this.iForeach = iForeach;
-    Iterable<Program> _filter = Iterables.<Program>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Program.class);
-    for (final Program p : _filter) {
-      fsa.generateFile(outputfile, this.compile(p));
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from Object to Program");
   }
   
   public String compile(final Program prog) {
