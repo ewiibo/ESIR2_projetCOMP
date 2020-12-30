@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.xtext.generator.TableSymbole"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.common.util.TreeIterator"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.Definition"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.NopCommand"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.Traducteurx"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.Command"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.AffectCommand"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.ForeachCommand"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.ForCommand"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.IfCommand"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.WhileCommand"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.Expr"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.ExprBase"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.LExpr"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.Op"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.Quadruplet"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.OpImpl"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.TroisAdd"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="org.xtext.whileL.Exprs"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.xtext.generator.BinTree"/>
+</qualifiedTypeNameHistroy>

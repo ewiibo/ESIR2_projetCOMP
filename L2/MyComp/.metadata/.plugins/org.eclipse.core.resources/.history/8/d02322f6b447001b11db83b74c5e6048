@@ -1,0 +1,65 @@
+grammar org.xtext.WhileL with org.eclipse.xtext.common.Terminals
+
+generate whileL "http://www.xtext.org/WhileL"
+
+Program: (functions+=Function)*;
+
+Function: 'function' symbol = SYMBOL ':' definition = Definition;
+
+Definition: 'read' input = Input 
+                 '%' commands = Commands 
+                 '%' 'write' output = Output;
+
+Input: vars += VARIABLE (',' vars+=VARIABLE)*;
+Output: vars += VARIABLE (',' vars+=VARIABLE)*;
+
+Commands:
+   commands += Command(';' commands += Command)*
+;
+Command:
+    WhileCommand | IfCommand | ForCommand | AffectCommand | ForeachCommand | NopCommand
+;
+NopCommand:
+    expr ='nop'
+;
+WhileCommand:
+    'while' expr= Expr 'do' commands = Commands 'od'
+;
+IfCommand:
+    'if' expr = Expr 'then' commands = Commands ('else' elsecommands = Commands)? 'fi'
+;
+ForCommand:
+    'for' expr = Expr 'do' command = Commands 'od'
+;
+AffectCommand:
+    vars= Vars ':=' exprs = Exprs
+;
+ForeachCommand:
+    'foreach' vars = Vars 'in' expr = Expr 'do' commands = Commands 'od'
+;
+Exprs:
+    expr += Expr (',' expr+=Expr)*
+;
+Vars:
+    vari+=VARIABLE (',' vari+=VARIABLE)*
+;
+Expr:
+    exprbase = ExprBase ('=?' exprbase1 = ExprBase)? 
+;
+LExpr:
+    (expr+=Expr)+
+;
+ExprBase:
+    value = 'nil' | value = VARIABLE | value = SYMBOL | value = NOMBRE |
+    ('(' identitor = 'cons' lexpr = LExpr ')') |
+    ('(' identitor = 'list' lexpr = LExpr ')') |
+    ('(' identitor = 'hd' expr = Expr ')') |
+    ('(' identitor = 'tl' expr = Expr ')') |
+    ('(' symbol = SYMBOL lexpr = LExpr ')') |
+    '(' not='!' expr=Expr ')' |
+	'(' call=SYMBOL lexpr=LExpr ')'
+;
+
+terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
+terminal VARIABLE:('A' .. 'Z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;
+terminal NOMBRE : ('1' .. '9')('0'..'9')*;

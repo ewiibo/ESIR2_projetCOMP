@@ -1,0 +1,15 @@
+package org.xtext.generator;
+
+import java.util.LinkedList;
+
+public class WhileOp  extends OpImpl{
+
+	private LinkedList<Quadruplet<OpImpl>> expr = new LinkedList<Quadruplet<OpImpl>>();
+	private LinkedList<Quadruplet<OpImpl>> body = new LinkedList<Quadruplet<OpImpl>>();
+	public WhileOp(Op operator, String etiquette) {
+		super(operator, etiquette);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}
