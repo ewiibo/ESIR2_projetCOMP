@@ -65,10 +65,12 @@ class Traducteurx {
 			return translateHd(code)
 		if (code.operateur.operator == Op.Cons)
 			return translateCons(code)
-		if (code.operateur.operator == Op.Write)
-			return translateWrite(code)
-
+		if (code.operateur.operator == Op.While)
+			return translateWhile(code)
 	}
+
+
+	
 
 	def translateNop(Quadruplet<OpImpl> code) {
 		return '''	libwh.nop();''';
@@ -98,13 +100,23 @@ class Traducteurx {
 	}
 	
 	// prob : j ai accés qu'au code 3 @ de Expr et Cmds j' ai besoin de leurs valeurs 
-	/*def translateWhile(Quadruplet<OpImpl> code) {
-		return '''	
-		«code.arg1»=«code.getOperateur().getExpr()»;
-		While( libwh.isTrue(«code.arg1»)){
-		«code.getOperateur().getCmds()»
-		«code.arg1»=«code.getOperateur().getExpr()»
-		}'''
-	}*/
+	def translateWhile(Quadruplet<OpImpl> code) {
+		var opw = new WhileOp(code.getOperateur())
+		var code1=new Quadruplet<WhileOp>(opw,code.resultat,code.arg1,code.arg2)
+		//print(code1.operateur.expr)
+				return '''
+	******debutWhile******
+		«FOR exp :code1.getOperateur().getExpr()»
+		«translate3Add(exp)»
+		«ENDFOR»
+	While( libwh.isTrue(«code1.arg1»)){
+		«FOR cmd :code1.getOperateur().getCmds()»
+		«translate3Add(cmd)»
+		«ENDFOR»
+			}
+		'''
+	}
+		
+
 
 }

@@ -11,6 +11,7 @@ import org.xtext.generator.OpImpl;
 import org.xtext.generator.Quadruplet;
 import org.xtext.generator.TableSymbole;
 import org.xtext.generator.TroisAdd;
+import org.xtext.generator.WhileOp;
 
 @SuppressWarnings("all")
 public class Traducteurx {
@@ -212,9 +213,9 @@ public class Traducteurx {
       return this.translateCons(code);
     }
     Op _operator_9 = code.getOperateur().getOperator();
-    boolean _equals_9 = Objects.equal(_operator_9, Op.Write);
+    boolean _equals_9 = Objects.equal(_operator_9, Op.While);
     if (_equals_9) {
-      return this.translateWrite(code);
+      return this.translateWhile(code);
     }
     return null;
   }
@@ -293,6 +294,45 @@ public class Traducteurx {
     String _arg2 = code.getArg2();
     _builder.append(_arg2, "\t");
     _builder.append("\")));");
+    return _builder.toString();
+  }
+  
+  public String translateWhile(final Quadruplet<OpImpl> code) {
+    OpImpl _operateur = code.getOperateur();
+    WhileOp opw = new WhileOp(_operateur);
+    String _resultat = code.getResultat();
+    String _arg1 = code.getArg1();
+    String _arg2 = code.getArg2();
+    Quadruplet<WhileOp> code1 = new Quadruplet<WhileOp>(opw, _resultat, _arg1, _arg2);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("******debutWhile******");
+    _builder.newLine();
+    {
+      LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
+      for(final Quadruplet<OpImpl> exp : _expr) {
+        _builder.append("\t");
+        Object _translate3Add = this.translate3Add(exp);
+        _builder.append(_translate3Add, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("While( libwh.isTrue(");
+    String _arg1_1 = code1.getArg1();
+    _builder.append(_arg1_1);
+    _builder.append(")){");
+    _builder.newLineIfNotEmpty();
+    {
+      LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
+      for(final Quadruplet<OpImpl> cmd : _cmds) {
+        _builder.append("\t");
+        Object _translate3Add_1 = this.translate3Add(cmd);
+        _builder.append(_translate3Add_1, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
 }

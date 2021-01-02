@@ -64,7 +64,7 @@ public class WhileLGen extends AbstractGenerator {
 		System.out.println(func.varIn);
 		System.out.println(func.varOut);*/
 
-		System.out.println(code3Add.toString());
+		//System.out.println(code3Add.toString());
 	}
 
 	public void generate(Function function) {

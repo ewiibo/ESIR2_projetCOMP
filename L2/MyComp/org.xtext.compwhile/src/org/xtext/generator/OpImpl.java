@@ -11,6 +11,10 @@ public class OpImpl {
 		this.operator = operator;
 		this.etiquette = etiquette;
 	}
+	public OpImpl(OpImpl objet) {
+		this.operator=objet.getOperator();
+		this.etiquette=objet.getEtiquette();
+	}
 	public Op getOperator() {
 		return operator;
 	}

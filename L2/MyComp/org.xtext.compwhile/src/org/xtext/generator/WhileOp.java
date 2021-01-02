@@ -12,6 +12,13 @@ public class WhileOp  extends OpImpl{
 		this.expr = expr;
 		this.cmds = cmds;
 	}
+	public WhileOp(OpImpl objet) {
+	super(objet);
+	if(objet instanceof WhileOp) {
+		this.expr=((WhileOp)objet).getExpr();
+		this.cmds=((WhileOp)objet).getCmds();
+		}
+	}
 	
 	public LinkedList<Quadruplet<OpImpl>> getExpr() {
 		return expr;
