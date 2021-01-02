@@ -5,7 +5,7 @@ import org.xtext.generator.BinTree;
 
 public class Program{
 	public static void main(String[] argv) {
-		String vars[] = {"A","iR1","B","iR2","iR3","iR4"};   
+		String vars[] = {"A","iR1","B","iR2","iR3","iR4","iR5","iR6","iR7","iR8","iR9","iR10"};   
 		HashMap<String, BinTree> variables = new HashMap<>();
 		for(String var : vars) variables.put(var,null);
 		
@@ -19,7 +19,7 @@ public class Program{
 	
 	BinTree f1 (BinTree X, BinTree Y){
 		ArrayList<String> varIn = new ArrayList<>(); varIn.add("X");varIn.add("Y");
-		String vars[] = {"T","A","iR1","iR2","iR3","iR4","iR5","iR6","B","iR7","C","iR8","iR9","iR10"};   
+		String vars[] = {"T","A","iR1","iR2","iR3","iR4","iR5","iR6","B","iR7","C","iR8","iR9","iR10","iR11","iR12","iR13","iR14","iR15","iR16"};   
 		HashMap<String, BinTree> variables = new HashMap<>();
 		for(String var : vars) variables.put(var,null);
 		variables.put("X", X);variables.put("Y", Y);

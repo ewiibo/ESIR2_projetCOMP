@@ -96,4 +96,15 @@ class Traducteurx {
 	def translateCons(Quadruplet<OpImpl> code) {
 		return '''	variables.put("«code.resultat»", libwh.cons(variables.get("«code.arg1»"),variables.get("«code.arg2»")));'''
 	}
+	
+	// prob : j ai accés qu'au code 3 @ de Expr et Cmds j' ai besoin de leurs valeurs 
+	/*def translateWhile(Quadruplet<OpImpl> code) {
+		return '''	
+		«code.arg1»=«code.getOperateur().getExpr()»;
+		While( libwh.isTrue(«code.arg1»)){
+		«code.getOperateur().getCmds()»
+		«code.arg1»=«code.getOperateur().getExpr()»
+		}'''
+	}*/
+
 }

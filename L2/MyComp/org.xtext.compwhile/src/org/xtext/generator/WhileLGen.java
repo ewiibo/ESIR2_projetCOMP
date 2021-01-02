@@ -58,12 +58,13 @@ public class WhileLGen extends AbstractGenerator {
 			generate(func);
 			code3Add.saveFunc3Add(func.getSymbol());
 		}
-		/* System.out.println(ts.toString()); */
-		System.out.println(code3Add.toString());
+		/* System.out.println(ts.toString()); 
 		System.out.println(func.getVars());
 		System.out.println(func);
 		System.out.println(func.varIn);
-		System.out.println(func.varOut);
+		System.out.println(func.varOut);*/
+
+		System.out.println(code3Add.toString());
 	}
 
 	public void generate(Function function) {
@@ -92,11 +93,12 @@ public class WhileLGen extends AbstractGenerator {
 
 	public void generate(Definition def, Func func) {
 		generate(def.getInput(), func);
-		code3Add.code3Address.addAll(generate(def.getCommands(), func));
+		code3Add.code3Address.addAll(generate(def.getCommands()));
 		generate(def.getOutput(), func);
 	}
 
-	private LinkedList<Quadruplet<OpImpl>> generate(Commands commands, Func func) {
+	// j'ai effac� le param�tre func ici 
+	private LinkedList<Quadruplet<OpImpl>> generate(Commands commands) {
 		List<Command> coms = commands.getCommands();
 		LinkedList<Quadruplet<OpImpl>> code3Address = new LinkedList<Quadruplet<OpImpl>>();
 		for (Command com : coms) {
@@ -111,7 +113,7 @@ public class WhileLGen extends AbstractGenerator {
 		} else if (command instanceof AffectCommand) {
 			return generate((AffectCommand) command);// code3Add.putAff((AffectCommand)command);
 		} else if (command instanceof WhileCommand) {
-			return null;
+			return generate((WhileCommand) command);
 		} else if (command instanceof IfCommand) {
 			return null;
 		} else if (command instanceof ForCommand) {
@@ -140,13 +142,33 @@ public class WhileLGen extends AbstractGenerator {
 				func.addVar(var);
 				code3Adress.addAll(generate(expr));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Affec, ""), var,
-						code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
+				code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
 			}
 		}
 
 		return code3Adress;
 	}
 
+	// J'ai suppos� que on a une seule condition � �valuer (1 expr)
+	private LinkedList<Quadruplet<OpImpl>> generate(WhileCommand cmd) {
+		LinkedList<Quadruplet<OpImpl>> cond = new LinkedList<Quadruplet<OpImpl>>();
+		LinkedList<Quadruplet<OpImpl>> body = new LinkedList<Quadruplet<OpImpl>>();
+		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
+		cond=generate(cmd.getExpr());
+		body=generate(cmd.getCommands());
+		code3Adress.add(new Quadruplet<OpImpl>(new WhileOp(cond, body),"",cond.getLast().getResultat(),""));
+		Quadruplet<OpImpl> quad = new Quadruplet<OpImpl>(new WhileOp(cond, body),"",cond.getLast().getResultat(),"");
+		
+		return code3Adress;
+	}
+
+	
+	
+	
+	
+	
+	
+	
 	private LinkedList<Quadruplet<OpImpl>> generate(Expr expr) {
 		return generate(expr.getExprbase());
 	}
@@ -185,7 +207,7 @@ public class WhileLGen extends AbstractGenerator {
 					code3Adress.addAll(generate(exp));
 					arg.add(code3Adress.get(code3Adress.size() - 1).getResultat());
 				}
-				System.out.println(arg);
+				//System.out.println(arg);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg.get(0), arg.get(1)));
 				break;
 			case "list":

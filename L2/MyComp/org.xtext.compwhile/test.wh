@@ -4,14 +4,24 @@ read X,Y
   nop;
   T := Z;
   A := (cons (cons (tl nil) (hd Y)) nil);
-B,C := (hd Y), (cons nil nil)
+B,C := (hd Y), (cons nil nil);while (cons nil nil)
+do
+B:=(cons nil nil);
+A:=B
+od 
 %
 write Y
 
 function main:
 read X % 
 A:= nil;
-B:= (cons A (hd nil))
+B:= (cons A (hd nil));
+
+while (cons nil nil)
+do
+B:=(cons nil nil);
+A:=B
+od 
 %
 write X
 

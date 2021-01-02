@@ -6,10 +6,23 @@ public class WhileOp  extends OpImpl{
 
 	public LinkedList<Quadruplet<OpImpl>> expr = new LinkedList<Quadruplet<OpImpl>>();
 	public LinkedList<Quadruplet<OpImpl>> cmds = new LinkedList<Quadruplet<OpImpl>>();
-	public WhileOp() {
+	
+	public WhileOp(LinkedList<Quadruplet<OpImpl>> expr,LinkedList<Quadruplet<OpImpl>> cmds) {
 		super(Op.While, "");
-		// TODO Auto-generated constructor stub
+		this.expr = expr;
+		this.cmds = cmds;
 	}
 	
-	
+	public LinkedList<Quadruplet<OpImpl>> getExpr() {
+		return expr;
+	}
+	public void setExpr(LinkedList<Quadruplet<OpImpl>> operator) {
+		this.expr = expr;
+	}
+	public LinkedList<Quadruplet<OpImpl>> getCmds() {
+		return cmds;
+	}
+	public void setCmds(LinkedList<Quadruplet<OpImpl>> cmds) {
+		this.cmds = cmds;
+	}
 }
