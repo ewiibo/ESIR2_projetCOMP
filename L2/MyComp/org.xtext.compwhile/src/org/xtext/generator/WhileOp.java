@@ -23,7 +23,7 @@ public class WhileOp  extends OpImpl{
 	public LinkedList<Quadruplet<OpImpl>> getExpr() {
 		return expr;
 	}
-	public void setExpr(LinkedList<Quadruplet<OpImpl>> operator) {
+	public void setExpr(LinkedList<Quadruplet<OpImpl>> expr) {
 		this.expr = expr;
 	}
 	public LinkedList<Quadruplet<OpImpl>> getCmds() {

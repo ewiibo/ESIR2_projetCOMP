@@ -3,11 +3,8 @@ package org.xtext.generator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.xtext.whileL.AffectCommand;
-import org.xtext.whileL.Command;
 
 public class TroisAdd {
 
@@ -87,8 +84,8 @@ public class TroisAdd {
 		System.out.println(com.getVars().getVari().size());
 		System.out.println(com.getExprs().getExpr().size());
 		if(com.getVars().getVari().size()==com.getExprs().getExpr().size()) {
-			Iterator itv = com.getVars().getVari().iterator();
-			Iterator ite = com.getExprs().getExpr().iterator();
+			Iterator<?> itv = com.getVars().getVari().iterator();
+			Iterator<?> ite = com.getExprs().getExpr().iterator();
 			while(itv.hasNext()) {
 				System.out.println(itv.next());
 				System.out.println(ite.next());

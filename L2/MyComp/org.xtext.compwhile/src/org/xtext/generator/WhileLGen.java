@@ -58,13 +58,6 @@ public class WhileLGen extends AbstractGenerator {
 			generate(func);
 			code3Add.saveFunc3Add(func.getSymbol());
 		}
-		/* System.out.println(ts.toString()); 
-		System.out.println(func.getVars());
-		System.out.println(func);
-		System.out.println(func.varIn);
-		System.out.println(func.varOut);*/
-
-		//System.out.println(code3Add.toString());
 	}
 
 	public void generate(Function function) {
@@ -115,9 +108,9 @@ public class WhileLGen extends AbstractGenerator {
 		} else if (command instanceof WhileCommand) {
 			return generate((WhileCommand) command);
 		} else if (command instanceof IfCommand) {
-			return null;
+			return generate((IfCommand)command);
 		} else if (command instanceof ForCommand) {
-			return null;
+			return generate((ForCommand)command);
 		} else if (command instanceof ForeachCommand) {
 			return null;
 		} else {
@@ -127,7 +120,7 @@ public class WhileLGen extends AbstractGenerator {
 
 	private LinkedList<Quadruplet<OpImpl>> generate(NopCommand cmd) {
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
-		code3Adress.add(code3Add.nope3Adresse());
+		code3Adress.add(TroisAdd.nope3Adresse());
 		return code3Adress;
 	}
 
@@ -135,7 +128,7 @@ public class WhileLGen extends AbstractGenerator {
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		// Si il y a autant de variables à gauche que d'elements d'affection à droite
 		if (cmd.getExprs().getExpr().size() == cmd.getVars().getVari().size()) {
-			Iterator itv = cmd.getVars().getVari().iterator();
+			Iterator<?> itv = cmd.getVars().getVari().iterator();
 			for (Expr expr : cmd.getExprs().getExpr()) {
 				// System.out.println(generate(expr));
 				String var = itv.next().toString();
@@ -157,8 +150,25 @@ public class WhileLGen extends AbstractGenerator {
 		cond=generate(cmd.getExpr());
 		body=generate(cmd.getCommands());
 		code3Adress.add(new Quadruplet<OpImpl>(new WhileOp(cond, body),"",cond.getLast().getResultat(),""));
-		Quadruplet<OpImpl> quad = new Quadruplet<OpImpl>(new WhileOp(cond, body),"",cond.getLast().getResultat(),"");
 		
+		return code3Adress;
+	}
+	private LinkedList<Quadruplet<OpImpl>> generate(IfCommand cmd) {
+		IfOp ifop = new IfOp();
+		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
+		ifop.setExpr(generate(cmd.getExpr()));
+		ifop.setCmds(generate(cmd.getCommands()));
+		if(cmd.getElsecommands() != null)
+			ifop.setElsecmds(generate(cmd.getElsecommands()));
+		code3Adress.add(new Quadruplet<OpImpl>(ifop,"",ifop.getExpr().getLast().getResultat(),""));
+		return code3Adress;
+	}
+	private LinkedList<Quadruplet<OpImpl>> generate(ForCommand cmd) {
+		ForOp forOp = new ForOp();
+		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
+		forOp.setExpr(generate(cmd.getExpr()));
+		forOp.setCmds(generate(cmd.getCommand()));
+		code3Adress.add(new Quadruplet<OpImpl>(forOp,"",forOp.getExpr().getLast().getResultat(),""));
 		return code3Adress;
 	}
 
@@ -254,13 +264,6 @@ public class WhileLGen extends AbstractGenerator {
 		return firstChar.equals(firstChar.toUpperCase()); // Is uppercase -> Variable
 	}
 
-	private boolean isFunction(String str) {
-		if (str == null) {
-			return false;
-		}
-		String firstChar = str.substring(0, 1);
-		return firstChar.equals(firstChar.toLowerCase());
-	}
 
 	public void fillTableSymbFunc(Program prog) {
 		for (Function f : prog.getFunctions()) {

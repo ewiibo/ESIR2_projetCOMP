@@ -13,5 +13,8 @@ public enum Op {
 	Hd,
 	Tl, 
 	Not,
-	List
+	List,
+	If,
+	For,
+	Foreach
 }

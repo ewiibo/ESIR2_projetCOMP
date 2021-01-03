@@ -73,6 +73,10 @@ class Traducteurx {
 			return translateCons(code)
 		if (code.operateur.operator == Op.While)
 			return translateWhile(code)
+		if (code.operateur.operator == Op.If)
+			return translateIf(code)
+		if (code.operateur.operator == Op.For)
+			return translateFor(code)
 	}
 
 
@@ -110,17 +114,49 @@ class Traducteurx {
 		var opw = new WhileOp(code.getOperateur())
 		var code1=new Quadruplet<WhileOp>(opw,code.resultat,code.arg1,code.arg2)
 		//print(code1.operateur.expr)
-		return '''
-	//******debutWhile******
-		«FOR exp :code1.getOperateur().getExpr()»
-		«translate3Add(exp)»
-		«ENDFOR»
+		return
+	'''
+	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
 	while( libwh.isTrue(variables.get("«code1.arg1»"))){
+	«FOR cmd :code1.getOperateur().getCmds()»
+	«translate3Add(cmd)»
+	«ENDFOR»
+	}
+	'''
+
+	}
+	
+	def translateIf(Quadruplet<OpImpl> code) {
+		var opif = new IfOp(code.getOperateur())
+		var code1=new Quadruplet<IfOp>(opif,code.resultat,code.arg1,code.arg2)
+		//print(code1.operateur.expr)
+		return
+	'''
+		«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
+			if( libwh.isTrue(variables.get("«code1.arg1»"))){
 		«FOR cmd :code1.getOperateur().getCmds()»
 		«translate3Add(cmd)»
 		«ENDFOR»
-			}
-		'''
+		}«IF code1.operateur.elsecmds !== null»else{«FOR cmd :code1.operateur.elsecmds»
+		«translate3Add(cmd)»
+		«ENDFOR»}«ENDIF»
+	'''
+
+	}
+	def translateFor(Quadruplet<OpImpl> code) {
+		var opf = new ForOp(code.getOperateur())
+		var code1=new Quadruplet<ForOp>(opf,code.resultat,code.arg1,code.arg2)
+		//print(code1.operateur.expr)
+		return
+	'''
+	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
+	for(int i=0; i< libwh.toInt(variables.get("«code1.arg1»")); i++){
+	«FOR cmd :code1.getOperateur().getCmds()»
+	«translate3Add(cmd)»
+	«ENDFOR»
+	}
+	'''
+
 	}
 		
 

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.xtext.generator.ForOp;
 import org.xtext.generator.Func;
+import org.xtext.generator.IfOp;
 import org.xtext.generator.Op;
 import org.xtext.generator.OpImpl;
 import org.xtext.generator.Quadruplet;
@@ -236,6 +238,16 @@ public class Traducteurx {
     if (_equals_9) {
       return this.translateWhile(code);
     }
+    Op _operator_10 = code.getOperateur().getOperator();
+    boolean _equals_10 = Objects.equal(_operator_10, Op.If);
+    if (_equals_10) {
+      return this.translateIf(code);
+    }
+    Op _operator_11 = code.getOperateur().getOperator();
+    boolean _equals_11 = Objects.equal(_operator_11, Op.For);
+    if (_equals_11) {
+      return this.translateFor(code);
+    }
     return null;
   }
   
@@ -329,17 +341,20 @@ public class Traducteurx {
     String _arg2 = code.getArg2();
     Quadruplet<WhileOp> code1 = new Quadruplet<WhileOp>(opw, _resultat, _arg1, _arg2);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//******debutWhile******");
-    _builder.newLine();
     {
       LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
+      boolean _hasElements = false;
       for(final Quadruplet<OpImpl> exp : _expr) {
-        _builder.append("\t");
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
         Object _translate3Add = this.translate3Add(exp);
-        _builder.append(_translate3Add, "\t");
-        _builder.newLineIfNotEmpty();
+        _builder.append(_translate3Add);
       }
     }
+    _builder.newLineIfNotEmpty();
     _builder.append("while( libwh.isTrue(variables.get(\"");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1);
@@ -348,13 +363,109 @@ public class Traducteurx {
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
       for(final Quadruplet<OpImpl> cmd : _cmds) {
-        _builder.append("\t");
         Object _translate3Add_1 = this.translate3Add(cmd);
-        _builder.append(_translate3Add_1, "\t");
+        _builder.append(_translate3Add_1);
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String translateIf(final Quadruplet<OpImpl> code) {
+    OpImpl _operateur = code.getOperateur();
+    IfOp opif = new IfOp(_operateur);
+    String _resultat = code.getResultat();
+    String _arg1 = code.getArg1();
+    String _arg2 = code.getArg2();
+    Quadruplet<IfOp> code1 = new Quadruplet<IfOp>(opif, _resultat, _arg1, _arg2);
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
+      boolean _hasElements = false;
+      for(final Quadruplet<OpImpl> exp : _expr) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
+        Object _translate3Add = this.translate3Add(exp);
+        _builder.append(_translate3Add);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("if( libwh.isTrue(variables.get(\"");
+    String _arg1_1 = code1.getArg1();
+    _builder.append(_arg1_1, "\t");
+    _builder.append("\"))){");
+    _builder.newLineIfNotEmpty();
+    {
+      LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
+      for(final Quadruplet<OpImpl> cmd : _cmds) {
+        Object _translate3Add_1 = this.translate3Add(cmd);
+        _builder.append(_translate3Add_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    {
+      LinkedList<Quadruplet<OpImpl>> _elsecmds = code1.getOperateur().getElsecmds();
+      boolean _tripleNotEquals = (_elsecmds != null);
+      if (_tripleNotEquals) {
+        _builder.append("else{");
+        {
+          LinkedList<Quadruplet<OpImpl>> _elsecmds_1 = code1.getOperateur().getElsecmds();
+          for(final Quadruplet<OpImpl> cmd_1 : _elsecmds_1) {
+            _builder.newLineIfNotEmpty();
+            Object _translate3Add_2 = this.translate3Add(cmd_1);
+            _builder.append(_translate3Add_2);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("}");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String translateFor(final Quadruplet<OpImpl> code) {
+    OpImpl _operateur = code.getOperateur();
+    ForOp opf = new ForOp(_operateur);
+    String _resultat = code.getResultat();
+    String _arg1 = code.getArg1();
+    String _arg2 = code.getArg2();
+    Quadruplet<ForOp> code1 = new Quadruplet<ForOp>(opf, _resultat, _arg1, _arg2);
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
+      boolean _hasElements = false;
+      for(final Quadruplet<OpImpl> exp : _expr) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
+        Object _translate3Add = this.translate3Add(exp);
+        _builder.append(_translate3Add);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("for(int i=0; i< libwh.toInt(variables.get(\"");
+    String _arg1_1 = code1.getArg1();
+    _builder.append(_arg1_1);
+    _builder.append("\")); i++){");
+    _builder.newLineIfNotEmpty();
+    {
+      LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
+      for(final Quadruplet<OpImpl> cmd : _cmds) {
+        Object _translate3Add_1 = this.translate3Add(cmd);
+        _builder.append(_translate3Add_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();
