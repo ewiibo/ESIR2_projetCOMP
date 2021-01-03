@@ -47,7 +47,7 @@ public class Traducteurx {
         } else {
           String _str_1 = str;
           StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append("BinTree ");
+          _builder_1.append("Stack<BinTree> ");
           String _name_1 = func.getName();
           _builder_1.append(_name_1);
           _builder_1.append(" (");
@@ -64,6 +64,9 @@ public class Traducteurx {
             }
           }
           _builder_1.append("){");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t");
+          _builder_1.append("Stack<BinTree> sortie = new Stack<BinTree>();");
           str = (_str_1 + _builder_1);
         }
         String _str_2 = str;
@@ -137,23 +140,34 @@ public class Traducteurx {
             _builder_2.newLineIfNotEmpty();
           }
         }
-        String _plus = (_builder_2.toString() + "}\n\n");
-        str = (_str_2 + _plus);
+        str = (_str_2 + _builder_2);
+        String _name_4 = func.getName();
+        boolean _equals_1 = Objects.equal(_name_4, "main");
+        if (_equals_1) {
+          String _str_3 = str;
+          str = (_str_3 + "}\n\n");
+        } else {
+          String _str_4 = str;
+          str = (_str_4 + "\treturn sortie;\n}\n\n ");
+        }
       }
     }
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package test;");
     _builder.newLine();
+    _builder.append("import java.util.*;");
     _builder.newLine();
-    _builder.append("import java.util.HashMap;");
-    _builder.newLine();
-    _builder.append("import org.xtext.generator.BinTree;");
+    _builder.append("import libwh.*;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(className);
     _builder.append("{");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("static Libwh libwh = new Libwh();");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append(str, "\t");
     _builder.newLineIfNotEmpty();
@@ -229,6 +243,11 @@ public class Traducteurx {
   
   public CharSequence translateWrite(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    _builder.append("sortie.push(variables.get(\"");
+    String _resultat = code.getResultat();
+    _builder.append(_resultat, "\t");
+    _builder.append("\"));");
     return _builder;
   }
   
@@ -305,7 +324,7 @@ public class Traducteurx {
     String _arg2 = code.getArg2();
     Quadruplet<WhileOp> code1 = new Quadruplet<WhileOp>(opw, _resultat, _arg1, _arg2);
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("******debutWhile******");
+    _builder.append("//******debutWhile******");
     _builder.newLine();
     {
       LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
@@ -316,10 +335,10 @@ public class Traducteurx {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("While( libwh.isTrue(");
+    _builder.append("while( libwh.isTrue(variables.get(\"");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1);
-    _builder.append(")){");
+    _builder.append("\"))){");
     _builder.newLineIfNotEmpty();
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();

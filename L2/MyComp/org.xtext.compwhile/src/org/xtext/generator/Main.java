@@ -1,7 +1,12 @@
 package org.xtext.generator;
 
 import com.google.inject.Inject;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 
@@ -104,10 +109,63 @@ public class Main {
 		
 		// Ecrire le code qui compile
 		
+		try{
+            Runtime rt = Runtime.getRuntime();
+            Process pr = rt.exec("javac sortie.java ./libwh/BinTree.java ./libwh/Libwh.java ");
+            new Thread(() -> {
+                BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+                BufferedReader error = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
+                String line = null;
+
+                try {
+                    while ((line = in.readLine()) != null)
+                        System.out.println(line);
+                    while ((line = error.readLine()) != null)
+                        System.out.println(line);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            
+            pr.waitFor();
+        }
+        catch(InterruptedException e){
+            System.err.println(e);
+        }
+        catch(IOException e ){
+            System.err.println(e);
+
+        }
 		
 		//Ecrire le code qui execute
 		
-		
+		try{
+            Runtime rt = Runtime.getRuntime();
+            Process pr = rt.exec("java -cp . Sortie ");
+            new Thread(() -> {
+                BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+                BufferedReader error = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
+                String line = null;
+
+                try {
+                    while ((line = in.readLine()) != null)
+                        System.out.println(line);
+                    while ((line = error.readLine()) != null)
+                        System.out.println(line);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            
+            pr.waitFor();
+        }
+        catch(InterruptedException e){
+            System.err.println(e);
+        }
+        catch(IOException e ){
+            System.err.println(e);
+
+        }
 		
 	}
 }

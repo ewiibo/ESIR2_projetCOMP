@@ -45,10 +45,10 @@ public class WhileLGen extends AbstractGenerator {
 				generate((Program) prog);
 			}
 		}
-		// System.out.println(code3Add);
+		 System.out.println(code3Add);
 		
 		trad.Traducteurx(code3Add, ts);
-		fsa.generateFile("sortie.java", trad.translate("Program"));
+		fsa.generateFile("Sortie.java", trad.translate("Sortie"));
 	}
 	
 

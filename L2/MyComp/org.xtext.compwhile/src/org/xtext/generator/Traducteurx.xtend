@@ -19,7 +19,8 @@ class Traducteurx {
 				str+= '''public static void main(String[] argv) {'''
 			else 
 				str+='''
-				BinTree «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){'''
+				Stack<BinTree> «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
+					Stack<BinTree> sortie = new Stack<BinTree>();'''
 			str += '''
 			
 				«IF func.name != "main"»ArrayList<String> varIn = new ArrayList<>(); «FOR vi : func.varIn»varIn.add("«vi»");«ENDFOR»«ENDIF»
@@ -30,15 +31,20 @@ class Traducteurx {
 				
 				«FOR code : code3.code3AddressH.get(key)»«translate3Add(code)»
 				«ENDFOR»
-			''' + "}\n\n"
+			''' 
+			if(func.name =="main")
+				str+="}\n\n"
+			else
+				str+= "\treturn sortie;\n}\n\n "
 		}
 		return '''
-			package test;
 			
-			import java.util.HashMap;
-			import org.xtext.generator.BinTree;
+			import java.util.*;
+			import libwh.*;
 			
 			public class «className»{
+				
+				static Libwh libwh = new Libwh();
 				«str»
 				
 			}
@@ -77,7 +83,7 @@ class Traducteurx {
 	}
 
 	def translateWrite(Quadruplet<OpImpl> code) {
-		''''''
+		'''	sortie.push(variables.get("«code.resultat»"));'''
 	}
 
 	def translateAffect(Quadruplet<OpImpl> code) {
@@ -104,12 +110,12 @@ class Traducteurx {
 		var opw = new WhileOp(code.getOperateur())
 		var code1=new Quadruplet<WhileOp>(opw,code.resultat,code.arg1,code.arg2)
 		//print(code1.operateur.expr)
-				return '''
-	******debutWhile******
+		return '''
+	//******debutWhile******
 		«FOR exp :code1.getOperateur().getExpr()»
 		«translate3Add(exp)»
 		«ENDFOR»
-	While( libwh.isTrue(«code1.arg1»)){
+	while( libwh.isTrue(variables.get("«code1.arg1»"))){
 		«FOR cmd :code1.getOperateur().getCmds()»
 		«translate3Add(cmd)»
 		«ENDFOR»
