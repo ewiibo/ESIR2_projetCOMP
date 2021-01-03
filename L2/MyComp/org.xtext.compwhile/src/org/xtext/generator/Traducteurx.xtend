@@ -29,7 +29,7 @@ class Traducteurx {
 				for(String var : vars) variables.put(var,null);
 				«IF func.name != "main"»«FOR vi : func.varIn»variables.put("«vi»", «vi»);«ENDFOR»«ENDIF»
 				
-				«FOR code : code3.code3AddressH.get(key)»«translate3Add(code)»
+				«FOR code : code3.code3AddressH.get(key)»«IF code.operateur.operator == Op.Write && func.name=="main"»«»«ELSE»«translate3Add(code)»«ENDIF»
 				«ENDFOR»
 			''' 
 			if(func.name =="main")

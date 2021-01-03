@@ -135,8 +135,13 @@ public class Traducteurx {
         {
           LinkedList<Quadruplet<OpImpl>> _get = this.code3.getCode3AddressH().get(key);
           for(final Quadruplet<OpImpl> code : _get) {
-            CharSequence _translate3Add = this.translate3Add(code);
-            _builder_2.append(_translate3Add, "\t");
+            {
+              if ((Objects.equal(code.getOperateur().getOperator(), Op.Write) && Objects.equal(func.getName(), "main"))) {
+              } else {
+                CharSequence _translate3Add = this.translate3Add(code);
+                _builder_2.append(_translate3Add, "\t");
+              }
+            }
             _builder_2.newLineIfNotEmpty();
           }
         }
