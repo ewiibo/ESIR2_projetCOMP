@@ -14,7 +14,7 @@ write Y
 
 function main:
 read X % 
-A:= nil;
+A:= (cons nil nil nil nil nil nil);
 B:= (cons A (hd nil));
 if B then 
 A:=B else B:=nil fi;
