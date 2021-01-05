@@ -6,7 +6,7 @@ public class Sortie{
 	
 	static Libwh libwh = new Libwh();
 	public static void main(String[] argv) {
-		String vars[] = {"A","iR1","B","iR2","iR3","iR4","iR5","iR6","iR7","iR8","iR9","iR10","iR11","iR12","iR13","iR14","iR15","iR16","iR17","iR18","iR19","iR20","C","iR21","iR22","iR23","iR24"};   
+		String vars[] = {"iR1","A","iR2","iR3","iR4","B","iR5","iR6","iR7","iR8","iR9","iR10","iR11","iR12","iR13","iR14","iR15","iR16","iR17","iR18","iR19","iR20","iR21","iR22","iR23","C","iR24"};   
 		HashMap<String, BinTree> variables = new HashMap<>();
 		for(String var : vars) variables.put(var,null);
 		
@@ -43,14 +43,16 @@ public class Sortie{
 		variables.put("iR19", libwh.cons(variables.get("iR14"),variables.get("iR18")));
 		variables.put("A",variables.get("iR19"));
 		variables.put("iR20", libwh.hd(variables.get("Y")));
-		variables.put("B",variables.get("iR20"));
 		variables.put("iR21", null);
 		variables.put("iR22", null);
 		variables.put("iR23", libwh.cons(variables.get("iR21"),variables.get("iR22")));
+		variables.put("B",variables.get("iR20"));
 		variables.put("C",variables.get("iR23"));
-	for(int i=0; i< libwh.toInt(variables.get("A")); i++){
+	while(libwh.isTrue(variables.get("A"))){
+		System.out.println("Dans le for");
 			variables.put("iR24", null);
 			variables.put("C",variables.get("iR24"));
+		variables.put("A", libwh.tl(variables.get("A")));
 		}
 		if( libwh.isTrue(variables.get("B"))){
 			variables.put("A",variables.get("B"));
@@ -60,7 +62,7 @@ public class Sortie{
 	Stack<BinTree> f1 (BinTree X, BinTree Y){
 		Stack<BinTree> sortie = new Stack<BinTree>();
 		ArrayList<String> varIn = new ArrayList<>(); varIn.add("X");varIn.add("Y");
-		String vars[] = {"T","A","iR1","iR2","iR3","iR4","iR5","iR6","B","iR7","C","iR8","iR9","iR10","iR11"};   
+		String vars[] = {"T","iR1","iR2","iR3","iR4","iR5","iR6","A","iR7","iR8","iR9","iR10","B","C","iR11"};   
 		HashMap<String, BinTree> variables = new HashMap<>();
 		for(String var : vars) variables.put(var,null);
 		variables.put("X", X);variables.put("Y", Y);
@@ -75,14 +77,16 @@ public class Sortie{
 		variables.put("iR6", libwh.cons(variables.get("iR4"),variables.get("iR5")));
 		variables.put("A",variables.get("iR6"));
 		variables.put("iR7", libwh.hd(variables.get("Y")));
-		variables.put("B",variables.get("iR7"));
 		variables.put("iR8", null);
 		variables.put("iR9", null);
 		variables.put("iR10", libwh.cons(variables.get("iR8"),variables.get("iR9")));
+		variables.put("B",variables.get("iR7"));
 		variables.put("C",variables.get("iR10"));
-	for(int i=0; i< libwh.toInt(variables.get("A")); i++){
+	while(libwh.isTrue(variables.get("A"))){
+		System.out.println("Dans le for");
 			variables.put("iR11", null);
 			variables.put("C",variables.get("iR11"));
+		variables.put("A", libwh.tl(variables.get("A")));
 		}
 		sortie.push(variables.get("Y"));
 		return sortie;

@@ -50,7 +50,7 @@ LExpr:
     (expr+=Expr)+
 ;
 ExprBase:
-    value = 'nil' | value = VARIABLE | value = SYMBOL | value = NOMBRE |
+    value = 'nil' | value = VARIABLE | value = SYMBOL |
     ('(' identitor = 'cons' lexpr = LExpr ')') |
     ('(' identitor = 'list' lexpr = LExpr ')') |
     ('(' identitor = 'hd' expr = Expr ')') |

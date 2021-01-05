@@ -143,17 +143,19 @@ class Traducteurx {
 	'''
 
 	}
+	
+	
 	def translateFor(Quadruplet<OpImpl> code) {
 		var opf = new ForOp(code.getOperateur())
 		var code1=new Quadruplet<ForOp>(opf,code.resultat,code.arg1,code.arg2)
-		//print(code1.operateur.expr)
 		return
 	'''
 	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
-	for(int i=0; i< libwh.toInt(variables.get("«code1.arg1»")); i++){
-	«FOR cmd :code1.getOperateur().getCmds()»
+	while(libwh.isTrue(variables.get("«code1.arg1»"))){
+	«FOR cmd :code1.getOperateur().getCmds()» 
 	«translate3Add(cmd)»
 	«ENDFOR»
+	variables.put("«code1.arg1»", libwh.tl(variables.get("«code1.arg1»")));
 	}
 	'''
 

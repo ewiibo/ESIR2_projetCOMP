@@ -1,5 +1,6 @@
 package org.xtext.generator;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -128,14 +129,15 @@ public class WhileLGen extends AbstractGenerator {
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		// Si il y a autant de variables à gauche que d'elements d'affection à droite
 		if (cmd.getExprs().getExpr().size() == cmd.getVars().getVari().size()) {
-			Iterator<?> itv = cmd.getVars().getVari().iterator();
+			ArrayList<String> varRes = new ArrayList<>();
 			for (Expr expr : cmd.getExprs().getExpr()) {
-				// System.out.println(generate(expr));
-				String var = itv.next().toString();
-				func.addVar(var);
 				code3Adress.addAll(generate(expr));
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Affec, ""), var,
-				code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
+				varRes.add(code3Adress.getLast().getResultat());
+			}
+			for(int i = 0 ; i<cmd.getVars().getVari().size();i++) {
+				func.addVar(cmd.getVars().getVari().get(i));
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Affec, ""),
+						cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
 		}
 
@@ -211,7 +213,7 @@ public class WhileLGen extends AbstractGenerator {
 			}
 		} else if (identitor != null) {
 			switch (identitor) {
-			case "cons":
+			/*case "cons":
 				List<String> arg = new LinkedList<String>();
 				for (Expr exp : lexpr.getExpr()) {
 					code3Adress.addAll(generate(exp));
@@ -219,6 +221,15 @@ public class WhileLGen extends AbstractGenerator {
 				}
 				//System.out.println(arg);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg.get(0), arg.get(1)));
+				break;*/
+			case "cons" :
+				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
+				String arg2 =code3Adress.get(code3Adress.size() - 1).getResultat();
+				String arg1 = "";
+				for(int i= lexpr.getExpr().size()-2; i<0; i--) {
+					
+					System.out.println("(cons )");
+				}
 				break;
 			case "list":
 				List<String> arg1 = new LinkedList<String>();

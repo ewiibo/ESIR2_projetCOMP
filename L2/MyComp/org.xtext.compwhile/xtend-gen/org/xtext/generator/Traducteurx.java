@@ -453,10 +453,10 @@ public class Traducteurx {
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("for(int i=0; i< libwh.toInt(variables.get(\"");
+    _builder.append("while(libwh.isTrue(variables.get(\"");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1);
-    _builder.append("\")); i++){");
+    _builder.append("\"))){");
     _builder.newLineIfNotEmpty();
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
@@ -466,6 +466,14 @@ public class Traducteurx {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("variables.put(\"");
+    String _arg1_2 = code1.getArg1();
+    _builder.append(_arg1_2);
+    _builder.append("\", libwh.tl(variables.get(\"");
+    String _arg1_3 = code1.getArg1();
+    _builder.append(_arg1_3);
+    _builder.append("\")));");
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

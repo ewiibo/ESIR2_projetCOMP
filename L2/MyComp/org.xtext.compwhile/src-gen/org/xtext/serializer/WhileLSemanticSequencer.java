@@ -171,7 +171,6 @@ public class WhileLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         value='nil' | 
 	 *         value=VARIABLE | 
 	 *         value=SYMBOL | 
-	 *         value=NOMBRE | 
 	 *         (identitor='cons' lexpr=LExpr) | 
 	 *         (identitor='list' lexpr=LExpr) | 
 	 *         (identitor='hd' expr=Expr) | 

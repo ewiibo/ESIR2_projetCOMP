@@ -54,12 +54,12 @@ public class WhileLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getVarsAccess().getGroup_1(), "rule__Vars__Group_1__0");
 			builder.put(grammarAccess.getExprAccess().getGroup(), "rule__Expr__Group__0");
 			builder.put(grammarAccess.getExprAccess().getGroup_1(), "rule__Expr__Group_1__0");
+			builder.put(grammarAccess.getExprBaseAccess().getGroup_3(), "rule__ExprBase__Group_3__0");
 			builder.put(grammarAccess.getExprBaseAccess().getGroup_4(), "rule__ExprBase__Group_4__0");
 			builder.put(grammarAccess.getExprBaseAccess().getGroup_5(), "rule__ExprBase__Group_5__0");
 			builder.put(grammarAccess.getExprBaseAccess().getGroup_6(), "rule__ExprBase__Group_6__0");
 			builder.put(grammarAccess.getExprBaseAccess().getGroup_7(), "rule__ExprBase__Group_7__0");
 			builder.put(grammarAccess.getExprBaseAccess().getGroup_8(), "rule__ExprBase__Group_8__0");
-			builder.put(grammarAccess.getExprBaseAccess().getGroup_9(), "rule__ExprBase__Group_9__0");
 			builder.put(grammarAccess.getProgramAccess().getFunctionsAssignment(), "rule__Program__FunctionsAssignment");
 			builder.put(grammarAccess.getFunctionAccess().getSymbolAssignment_1(), "rule__Function__SymbolAssignment_1");
 			builder.put(grammarAccess.getFunctionAccess().getDefinitionAssignment_3(), "rule__Function__DefinitionAssignment_3");
@@ -96,19 +96,18 @@ public class WhileLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprBaseAccess().getValueAssignment_0(), "rule__ExprBase__ValueAssignment_0");
 			builder.put(grammarAccess.getExprBaseAccess().getValueAssignment_1(), "rule__ExprBase__ValueAssignment_1");
 			builder.put(grammarAccess.getExprBaseAccess().getValueAssignment_2(), "rule__ExprBase__ValueAssignment_2");
-			builder.put(grammarAccess.getExprBaseAccess().getValueAssignment_3(), "rule__ExprBase__ValueAssignment_3");
+			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_3_1(), "rule__ExprBase__IdentitorAssignment_3_1");
+			builder.put(grammarAccess.getExprBaseAccess().getLexprAssignment_3_2(), "rule__ExprBase__LexprAssignment_3_2");
 			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_4_1(), "rule__ExprBase__IdentitorAssignment_4_1");
 			builder.put(grammarAccess.getExprBaseAccess().getLexprAssignment_4_2(), "rule__ExprBase__LexprAssignment_4_2");
 			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_5_1(), "rule__ExprBase__IdentitorAssignment_5_1");
-			builder.put(grammarAccess.getExprBaseAccess().getLexprAssignment_5_2(), "rule__ExprBase__LexprAssignment_5_2");
+			builder.put(grammarAccess.getExprBaseAccess().getExprAssignment_5_2(), "rule__ExprBase__ExprAssignment_5_2");
 			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_6_1(), "rule__ExprBase__IdentitorAssignment_6_1");
 			builder.put(grammarAccess.getExprBaseAccess().getExprAssignment_6_2(), "rule__ExprBase__ExprAssignment_6_2");
 			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_7_1(), "rule__ExprBase__IdentitorAssignment_7_1");
 			builder.put(grammarAccess.getExprBaseAccess().getExprAssignment_7_2(), "rule__ExprBase__ExprAssignment_7_2");
-			builder.put(grammarAccess.getExprBaseAccess().getIdentitorAssignment_8_1(), "rule__ExprBase__IdentitorAssignment_8_1");
-			builder.put(grammarAccess.getExprBaseAccess().getExprAssignment_8_2(), "rule__ExprBase__ExprAssignment_8_2");
-			builder.put(grammarAccess.getExprBaseAccess().getSymbolAssignment_9_1(), "rule__ExprBase__SymbolAssignment_9_1");
-			builder.put(grammarAccess.getExprBaseAccess().getLexprAssignment_9_2(), "rule__ExprBase__LexprAssignment_9_2");
+			builder.put(grammarAccess.getExprBaseAccess().getSymbolAssignment_8_1(), "rule__ExprBase__SymbolAssignment_8_1");
+			builder.put(grammarAccess.getExprBaseAccess().getLexprAssignment_8_2(), "rule__ExprBase__LexprAssignment_8_2");
 		}
 	}
 	
