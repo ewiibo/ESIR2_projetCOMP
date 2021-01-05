@@ -213,7 +213,7 @@ public class WhileLGen extends AbstractGenerator {
 			}
 		} else if (identitor != null) {
 			switch (identitor) {
-			/*case "cons":
+			case "cons":
 				List<String> arg = new LinkedList<String>();
 				for (Expr exp : lexpr.getExpr()) {
 					code3Adress.addAll(generate(exp));
@@ -221,16 +221,16 @@ public class WhileLGen extends AbstractGenerator {
 				}
 				//System.out.println(arg);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg.get(0), arg.get(1)));
-				break;*/
-			case "cons" :
+				break;
+			/*case "cons" :
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
 				String arg2 =code3Adress.get(code3Adress.size() - 1).getResultat();
-				String arg1 = "";
+				String arg = "";
 				for(int i= lexpr.getExpr().size()-2; i<0; i--) {
 					
 					System.out.println("(cons )");
 				}
-				break;
+				break;*/
 			case "list":
 				List<String> arg1 = new LinkedList<String>();
 				for (Expr exp : lexpr.getExpr()) {

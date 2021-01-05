@@ -49,7 +49,6 @@ public class Sortie{
 		variables.put("B",variables.get("iR20"));
 		variables.put("C",variables.get("iR23"));
 	while(libwh.isTrue(variables.get("A"))){
-		System.out.println("Dans le for");
 			variables.put("iR24", null);
 			variables.put("C",variables.get("iR24"));
 		variables.put("A", libwh.tl(variables.get("A")));
@@ -83,7 +82,6 @@ public class Sortie{
 		variables.put("B",variables.get("iR7"));
 		variables.put("C",variables.get("iR10"));
 	while(libwh.isTrue(variables.get("A"))){
-		System.out.println("Dans le for");
 			variables.put("iR11", null);
 			variables.put("C",variables.get("iR11"));
 		variables.put("A", libwh.tl(variables.get("A")));
