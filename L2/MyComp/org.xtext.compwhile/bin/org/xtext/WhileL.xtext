@@ -44,7 +44,7 @@ Vars:
     vari+=VARIABLE (',' vari+=VARIABLE)*
 ;
 Expr:
-    exprbase = ExprBase (ope = ('=?'| 'and' | 'or' ) exprbase1 = ExprBase)? 
+    exprbase = ExprBase (ope = ('=?'| 'and' | 'or' ) exprbase1 = ExprBase)?
 ;
 LExpr:
     (expr+=Expr)+

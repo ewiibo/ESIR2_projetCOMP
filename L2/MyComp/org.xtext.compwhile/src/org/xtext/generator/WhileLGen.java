@@ -174,13 +174,6 @@ public class WhileLGen extends AbstractGenerator {
 		return code3Adress;
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	private LinkedList<Quadruplet<OpImpl>> generate(Expr expr) {
 		return generate(expr.getExprbase());
 	}

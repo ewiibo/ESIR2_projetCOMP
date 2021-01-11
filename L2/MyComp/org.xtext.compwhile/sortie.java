@@ -6,97 +6,95 @@ public class Sortie{
 	
 	static Libwh libwh = new Libwh();
 	public static void main(String[] argv) {
-		String vars[] = {"iR1","iR2","iR3","iR4","iR5","iR6","iR7","iR8","iR9","iR10","iR11","A","iR12","iR13","iR14","B","iR15","iR16","iR17","iR18","iR19","iR20","iR21","iR22","iR23","iR24","iR25","iR26","iR27","iR28","iR29","iR30","iR31","iR32","iR33","C","iR34"};   
-		HashMap<String, BinTree> variables = new HashMap<>();
-		for(String var : vars) variables.put(var,null);
-		
-		variables.put("iR1", null);
-		variables.put("iR2", null);
-		variables.put("iR3", libwh.cons(variables.get("iR2"),variables.get("iR1")));
-		variables.put("iR4", null);
-		variables.put("iR5", libwh.cons(variables.get("iR4"),variables.get("iR3")));
-		variables.put("iR6", null);
-		variables.put("iR7", libwh.cons(variables.get("iR6"),variables.get("iR5")));
-		variables.put("iR8", null);
-		variables.put("iR9", libwh.cons(variables.get("iR8"),variables.get("iR7")));
-		variables.put("iR10", null);
-		variables.put("iR11", libwh.cons(variables.get("iR10"),variables.get("iR9")));
-		variables.put("A",variables.get("iR11"));
-		variables.put("iR12", null);
-		variables.put("iR13", libwh.hd(variables.get("iR12")));
-		variables.put("iR14", libwh.cons(variables.get("A"),variables.get("iR13")));
-		variables.put("B",variables.get("iR14"));
-		if( libwh.isTrue(variables.get("B"))){
-			variables.put("A",variables.get("B"));
-		}else{
-			variables.put("iR15", null);
-			variables.put("B",variables.get("iR15"));
-		}
-		variables.put("iR16", null);
-		variables.put("iR17", null);
-		variables.put("iR18", libwh.cons(variables.get("iR17"),variables.get("iR16")));
-		variables.put("iR19", null);
-		variables.put("iR20", libwh.cons(variables.get("iR19"),variables.get("iR18")));
-		variables.put("iR21", null);
-		variables.put("iR22", libwh.cons(variables.get("iR21"),variables.get("iR20")));
-		variables.put("B",variables.get("iR22"));
-	while( libwh.isTrue(variables.get("B"))){
-			variables.put("iR23", libwh.tl(variables.get("B")));
-			variables.put("B",variables.get("iR23"));
-			variables.put("A",variables.get("B"));
-		}
-		variables.put("iR24", libwh.hd(variables.get("Y")));
-		variables.put("iR25", null);
-		variables.put("iR26", libwh.tl(variables.get("iR25")));
-		variables.put("iR27", libwh.cons(variables.get("iR26"),variables.get("iR24")));
-		variables.put("iR28", null);
-		variables.put("iR29", libwh.cons(variables.get("iR28"),variables.get("iR27")));
-		variables.put("A",variables.get("iR29"));
-		variables.put("iR30", libwh.hd(variables.get("Y")));
-		variables.put("iR31", null);
-		variables.put("iR32", null);
-		variables.put("iR33", libwh.cons(variables.get("iR32"),variables.get("iR31")));
-		variables.put("B",variables.get("iR30"));
-		variables.put("C",variables.get("iR33"));
-	while(libwh.isTrue(variables.get("A"))){
-			variables.put("iR34", null);
-			variables.put("C",variables.get("iR34"));
-		variables.put("A", libwh.tl(variables.get("A")));
-		}
-		if( libwh.isTrue(variables.get("B"))){
-			variables.put("A",variables.get("B"));
-		}
+						
+		BinTree iR1,iR2,iR3,iR4,iR5,iR6,iR7,iR8,iR9,iR10,iR11,A,iR12,iR13,iR14,B,iR15,iR16,iR17,iR18,iR19,iR20,iR21,iR22,iR23,iR24,iR25,iR26,iR27,iR28,iR29,iR30,iR31,iR32,iR33,C,iR34;   
+					
+		iR1 = libwh.nil();
+		iR2 = libwh.nil();
+		iR3 = libwh.cons(iR2, iR1);
+		iR4 = libwh.nil();
+		iR5 = libwh.cons(iR4, iR3);
+		iR6 = libwh.nil();
+		iR7 = libwh.cons(iR6, iR5);
+		iR8 = libwh.nil();
+		iR9 = libwh.cons(iR8, iR7);
+		iR10 = libwh.nil();
+		iR11 = libwh.cons(iR10, iR9);
+		A = iR11;
+		iR12 = libwh.nil();
+		iR13 = libwh.hd(iR12);
+		iR14 = libwh.cons(A, iR13);
+		B = iR14;
+		if( libwh.isTrue(B)){
+							A = B;
+					}else {
+						iR15 = libwh.nil();
+						B = iR15;
+							}
+		iR16 = libwh.nil();
+		iR17 = libwh.nil();
+		iR18 = libwh.cons(iR17, iR16);
+		iR19 = libwh.nil();
+		iR20 = libwh.cons(iR19, iR18);
+		iR21 = libwh.nil();
+		iR22 = libwh.cons(iR21, iR20);
+		B = iR22;
+	while( libwh.isTrue(B)){
+						iR23 = libwh.tl(B);
+						B = iR23;
+						A = B;
+					}
+		iR24 = libwh.hd(A);
+		iR25 = libwh.nil();
+		iR26 = libwh.tl(iR25);
+		iR27 = libwh.cons(iR26, iR24);
+		iR28 = libwh.nil();
+		iR29 = libwh.cons(iR28, iR27);
+		A = iR29;
+		iR30 = libwh.hd(A);
+		iR31 = libwh.nil();
+		iR32 = libwh.nil();
+		iR33 = libwh.cons(iR32, iR31);
+		B = iR30;
+		C = iR33;
+	while(libwh.isTrue(A)){
+						iR34 = libwh.nil();
+						C = iR34;
+					A = libwh.tl(A);
+					}
+		if( libwh.isTrue(B)){
+							A = B;
+					}
 	}
 	
 	Stack<BinTree> f1 (BinTree X, BinTree Y){
-		Stack<BinTree> sortie = new Stack<BinTree>();
-		ArrayList<String> varIn = new ArrayList<>(); varIn.add("X");varIn.add("Y");
-		String vars[] = {"T","iR1","iR2","iR3","iR4","iR5","iR6","A","iR7","iR8","iR9","iR10","B","C","iR11"};   
-		HashMap<String, BinTree> variables = new HashMap<>();
-		for(String var : vars) variables.put(var,null);
-		variables.put("X", X);variables.put("Y", Y);
-		
+		Stack<BinTree> sortie = new Stack<BinTree>();	BinTree iR1,iR2,iR3,T,iR4,iR5,iR6,iR7,iR8,iR9,A,iR10,iR11,iR12,iR13,B,C,iR14;   
+					
 		libwh.nop();
-		variables.put("T",variables.get("Z"));
-		variables.put("iR1", null);
-		variables.put("iR2", libwh.hd(variables.get("Y")));
-		variables.put("iR3", null);
-		variables.put("iR4", libwh.tl(variables.get("iR3")));
-		variables.put("iR5", libwh.cons(variables.get("iR4"),variables.get("iR2")));
-		variables.put("iR6", libwh.cons(variables.get("iR5"),variables.get("iR1")));
-		variables.put("A",variables.get("iR6"));
-		variables.put("iR7", libwh.hd(variables.get("Y")));
-		variables.put("iR8", null);
-		variables.put("iR9", null);
-		variables.put("iR10", libwh.cons(variables.get("iR9"),variables.get("iR8")));
-		variables.put("B",variables.get("iR7"));
-		variables.put("C",variables.get("iR10"));
-	while(libwh.isTrue(variables.get("A"))){
-			variables.put("iR11", null);
-			variables.put("C",variables.get("iR11"));
-		variables.put("A", libwh.tl(variables.get("A")));
-		}
-		sortie.push(variables.get("Y"));
+		iR1 = libwh.nil();
+		Y = iR1;
+		iR2 = libwh.nil();
+		iR3 = libwh.hd(iR2);
+		T = iR3;
+		iR4 = libwh.nil();
+		iR5 = libwh.hd(Y);
+		iR6 = libwh.nil();
+		iR7 = libwh.tl(iR6);
+		iR8 = libwh.cons(iR7, iR5);
+		iR9 = libwh.cons(iR8, iR4);
+		A = iR9;
+		iR10 = libwh.hd(Y);
+		iR11 = libwh.nil();
+		iR12 = libwh.nil();
+		iR13 = libwh.cons(iR12, iR11);
+		B = iR10;
+		C = iR13;
+	while(libwh.isTrue(A)){
+						iR14 = libwh.nil();
+						C = iR14;
+					A = libwh.tl(A);
+					}
+		sortie.push(Y);
 		return sortie;
 	}
 	

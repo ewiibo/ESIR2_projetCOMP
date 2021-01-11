@@ -45,6 +45,9 @@ public class Traducteurx {
           String _str = str;
           StringConcatenation _builder = new StringConcatenation();
           _builder.append("public static void main(String[] argv) {");
+          _builder.newLine();
+          _builder.append("\t\t\t\t\t");
+          _builder.newLine();
           str = (_str + _builder);
         } else {
           String _str_1 = str;
@@ -73,67 +76,25 @@ public class Traducteurx {
         }
         String _str_2 = str;
         StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.newLine();
         _builder_2.append("\t");
-        {
-          String _name_2 = func.getName();
-          boolean _notEquals = (!Objects.equal(_name_2, "main"));
-          if (_notEquals) {
-            _builder_2.append("ArrayList<String> varIn = new ArrayList<>(); ");
-            {
-              for(final String vi : func.varIn) {
-                _builder_2.append("varIn.add(\"");
-                _builder_2.append(vi, "\t");
-                _builder_2.append("\");");
-              }
-            }
-          }
-        }
-        _builder_2.newLineIfNotEmpty();
-        _builder_2.append("\t");
-        _builder_2.append("String vars[] = {");
+        _builder_2.append("BinTree ");
         {
           ArrayList<String> _vars = func.getVars();
           boolean _hasElements_1 = false;
-          for(final String vi_1 : _vars) {
+          for(final String vi : _vars) {
             if (!_hasElements_1) {
               _hasElements_1 = true;
             } else {
               _builder_2.appendImmediate(",", "\t");
             }
-            _builder_2.append("\"");
-            _builder_2.append(vi_1, "\t");
-            _builder_2.append("\"");
+            _builder_2.append(vi, "\t");
           }
         }
-        _builder_2.append("};   ");
+        _builder_2.append(";   ");
         _builder_2.newLineIfNotEmpty();
-        _builder_2.append("\t");
-        _builder_2.append("HashMap<String, BinTree> variables = new HashMap<>();");
+        _builder_2.append("\t\t\t\t");
         _builder_2.newLine();
-        _builder_2.append("\t");
-        _builder_2.append("for(String var : vars) variables.put(var,null);");
-        _builder_2.newLine();
-        _builder_2.append("\t");
-        {
-          String _name_3 = func.getName();
-          boolean _notEquals_1 = (!Objects.equal(_name_3, "main"));
-          if (_notEquals_1) {
-            {
-              for(final String vi_2 : func.varIn) {
-                _builder_2.append("variables.put(\"");
-                _builder_2.append(vi_2, "\t");
-                _builder_2.append("\", ");
-                _builder_2.append(vi_2, "\t");
-                _builder_2.append(");");
-              }
-            }
-          }
-        }
-        _builder_2.newLineIfNotEmpty();
-        _builder_2.append("\t");
-        _builder_2.newLine();
-        _builder_2.append("\t");
+        _builder_2.append("\t\t\t\t");
         {
           LinkedList<Quadruplet<OpImpl>> _get = this.code3.getCode3AddressH().get(key);
           for(final Quadruplet<OpImpl> code : _get) {
@@ -141,15 +102,15 @@ public class Traducteurx {
               if ((Objects.equal(code.getOperateur().getOperator(), Op.Write) && Objects.equal(func.getName(), "main"))) {
               } else {
                 CharSequence _translate3Add = this.translate3Add(code);
-                _builder_2.append(_translate3Add, "\t");
+                _builder_2.append(_translate3Add, "\t\t\t\t");
               }
             }
             _builder_2.newLineIfNotEmpty();
           }
         }
         str = (_str_2 + _builder_2);
-        String _name_4 = func.getName();
-        boolean _equals_1 = Objects.equal(_name_4, "main");
+        String _name_2 = func.getName();
+        boolean _equals_1 = Objects.equal(_name_2, "main");
         if (_equals_1) {
           String _str_3 = str;
           str = (_str_3 + "}\n\n");
@@ -261,75 +222,70 @@ public class Traducteurx {
   public CharSequence translateWrite(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("sortie.push(variables.get(\"");
+    _builder.append("sortie.push(");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\"));");
+    _builder.append(");");
     return _builder;
   }
   
   public String translateAffect(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("variables.put(\"");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\",variables.get(\"");
+    _builder.append(" = ");
     String _arg1 = code.getArg1();
     _builder.append(_arg1, "\t");
-    _builder.append("\"));");
+    _builder.append(";");
     return _builder.toString();
   }
   
   public String translateNil(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("variables.put(\"");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\", null);");
+    _builder.append(" = libwh.nil();");
     return _builder.toString();
   }
   
   public String translateTl(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("variables.put(\"");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\", libwh.tl(variables.get(\"");
+    _builder.append(" = libwh.tl(");
     String _arg1 = code.getArg1();
     _builder.append(_arg1, "\t");
-    _builder.append("\")));");
+    _builder.append(");");
     return _builder.toString();
   }
   
   public String translateHd(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("variables.put(\"");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\", libwh.hd(variables.get(\"");
+    _builder.append(" = libwh.hd(");
     String _arg1 = code.getArg1();
     _builder.append(_arg1, "\t");
-    _builder.append("\")));");
+    _builder.append(");");
     return _builder.toString();
   }
   
   public String translateCons(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("variables.put(\"");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
-    _builder.append("\", libwh.cons(variables.get(\"");
+    _builder.append(" = libwh.cons(");
     String _arg1 = code.getArg1();
     _builder.append(_arg1, "\t");
-    _builder.append("\"),variables.get(\"");
+    _builder.append(", ");
     String _arg2 = code.getArg2();
     _builder.append(_arg2, "\t");
-    _builder.append("\")));");
+    _builder.append(");");
     return _builder.toString();
   }
   
@@ -355,10 +311,10 @@ public class Traducteurx {
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("while( libwh.isTrue(variables.get(\"");
+    _builder.append("while( libwh.isTrue(");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1);
-    _builder.append("\"))){");
+    _builder.append(")){");
     _builder.newLineIfNotEmpty();
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
@@ -396,16 +352,17 @@ public class Traducteurx {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("if( libwh.isTrue(variables.get(\"");
+    _builder.append("if( libwh.isTrue(");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1, "\t");
-    _builder.append("\"))){");
-    _builder.newLineIfNotEmpty();
+    _builder.append(")){");
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
       for(final Quadruplet<OpImpl> cmd : _cmds) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         Object _translate3Add_1 = this.translate3Add(cmd);
-        _builder.append(_translate3Add_1);
+        _builder.append(_translate3Add_1, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -414,7 +371,7 @@ public class Traducteurx {
       LinkedList<Quadruplet<OpImpl>> _elsecmds = code1.getOperateur().getElsecmds();
       boolean _tripleNotEquals = (_elsecmds != null);
       if (_tripleNotEquals) {
-        _builder.append("else{");
+        _builder.append("else {");
         {
           LinkedList<Quadruplet<OpImpl>> _elsecmds_1 = code1.getOperateur().getElsecmds();
           for(final Quadruplet<OpImpl> cmd_1 : _elsecmds_1) {
@@ -422,6 +379,7 @@ public class Traducteurx {
             Object _translate3Add_2 = this.translate3Add(cmd_1);
             _builder.append(_translate3Add_2);
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
           }
         }
         _builder.append("}");
@@ -453,26 +411,25 @@ public class Traducteurx {
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("while(libwh.isTrue(variables.get(\"");
+    _builder.append("while(libwh.isTrue(");
     String _arg1_1 = code1.getArg1();
     _builder.append(_arg1_1);
-    _builder.append("\"))){");
-    _builder.newLineIfNotEmpty();
+    _builder.append(")){");
     {
       LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
       for(final Quadruplet<OpImpl> cmd : _cmds) {
+        _builder.newLineIfNotEmpty();
         Object _translate3Add_1 = this.translate3Add(cmd);
         _builder.append(_translate3Add_1);
-        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("variables.put(\"");
+    _builder.newLineIfNotEmpty();
     String _arg1_2 = code1.getArg1();
     _builder.append(_arg1_2);
-    _builder.append("\", libwh.tl(variables.get(\"");
+    _builder.append(" = libwh.tl(");
     String _arg1_3 = code1.getArg1();
     _builder.append(_arg1_3);
-    _builder.append("\")));");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();

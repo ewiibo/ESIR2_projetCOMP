@@ -2,7 +2,8 @@ function f1:
 read X,Y
 %
   nop;
-  T := Z;
+  Y := nil;
+  T := (hd nil);
   A := (cons (cons (tl nil) (hd Y)) nil);
 B,C := (hd Y), (cons nil nil);
 for A do
@@ -23,8 +24,8 @@ while B
 do
 B:= (tl B);
 A:=B
-od ;  A := (cons nil (cons (tl nil) (hd Y)) );
-B,C := (hd Y), (cons nil nil);
+od ;  A := (cons nil (cons (tl nil) (hd A)) );
+B,C := (hd A), (cons nil nil);
 for A do
 	C:=nil
 od;

@@ -5,7 +5,9 @@ public class Libwh {
 	public Libwh() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public BinTree nil() {
+		return null;
+	}
 	public BinTree hd(BinTree tree) {
 		if (tree != null)
 			return tree.getLeft();

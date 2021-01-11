@@ -16,18 +16,14 @@ class Traducteurx {
 			for (v : func.varIn)
 				func.vars.remove(v)
 			if (func.name == "main")
-				str+= '''public static void main(String[] argv) {'''
+				str+= '''public static void main(String[] argv) {
+					
+				'''
 			else 
 				str+='''
 				Stack<BinTree> «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
 					Stack<BinTree> sortie = new Stack<BinTree>();'''
-			str += '''
-			
-				«IF func.name != "main"»ArrayList<String> varIn = new ArrayList<>(); «FOR vi : func.varIn»varIn.add("«vi»");«ENDFOR»«ENDIF»
-				String vars[] = {«FOR vi : func.vars SEPARATOR ","»"«vi»"«ENDFOR»};   
-				HashMap<String, BinTree> variables = new HashMap<>();
-				for(String var : vars) variables.put(var,null);
-				«IF func.name != "main"»«FOR vi : func.varIn»variables.put("«vi»", «vi»);«ENDFOR»«ENDIF»
+			str += '''	BinTree «FOR vi : func.vars SEPARATOR ","»«vi»«ENDFOR»;   
 				
 				«FOR code : code3.code3AddressH.get(key)»«IF code.operateur.operator == Op.Write && func.name=="main"»«»«ELSE»«translate3Add(code)»«ENDIF»
 				«ENDFOR»
@@ -87,26 +83,26 @@ class Traducteurx {
 	}
 
 	def translateWrite(Quadruplet<OpImpl> code) {
-		'''	sortie.push(variables.get("«code.resultat»"));'''
+		'''	sortie.push(«code.resultat»);'''
 	}
 
 	def translateAffect(Quadruplet<OpImpl> code) {
-		return '''	variables.put("«code.resultat»",variables.get("«code.arg1»"));'''
+		return '''	«code.resultat» = «code.arg1»;'''
 	}
 
 	def translateNil(Quadruplet<OpImpl> code) {
-		return '''	variables.put("«code.resultat»", null);'''
+		return '''	«code.resultat» = libwh.nil();'''
 	}
 
 	def translateTl(Quadruplet<OpImpl> code) {
-		return '''	variables.put("«code.resultat»", libwh.tl(variables.get("«code.arg1»")));'''
+		return '''	«code.resultat» = libwh.tl(«code.arg1»);'''
 	}
 
 	def translateHd(Quadruplet<OpImpl> code) {
-		return '''	variables.put("«code.resultat»", libwh.hd(variables.get("«code.arg1»")));'''
+		return '''	«code.resultat» = libwh.hd(«code.arg1»);'''
 	}
 	def translateCons(Quadruplet<OpImpl> code) {
-		return '''	variables.put("«code.resultat»", libwh.cons(variables.get("«code.arg1»"),variables.get("«code.arg2»")));'''
+		return '''	«code.resultat» = libwh.cons(«code.arg1», «code.arg2»);'''
 	}
 	
 	// prob : j ai accés qu'au code 3 @ de Expr et Cmds j' ai besoin de leurs valeurs 
@@ -117,7 +113,7 @@ class Traducteurx {
 		return
 	'''
 	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
-	while( libwh.isTrue(variables.get("«code1.arg1»"))){
+	while( libwh.isTrue(«code1.arg1»)){
 	«FOR cmd :code1.getOperateur().getCmds()»
 	«translate3Add(cmd)»
 	«ENDFOR»
@@ -133,12 +129,11 @@ class Traducteurx {
 		return
 	'''
 		«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
-			if( libwh.isTrue(variables.get("«code1.arg1»"))){
-		«FOR cmd :code1.getOperateur().getCmds()»
-		«translate3Add(cmd)»
+			if( libwh.isTrue(«code1.arg1»)){«FOR cmd :code1.getOperateur().getCmds()»
+				«translate3Add(cmd)»
 		«ENDFOR»
-		}«IF code1.operateur.elsecmds !== null»else{«FOR cmd :code1.operateur.elsecmds»
-		«translate3Add(cmd)»
+		}«IF code1.operateur.elsecmds !== null»else {«FOR cmd :code1.operateur.elsecmds»
+			«translate3Add(cmd)»
 		«ENDFOR»}«ENDIF»
 	'''
 
@@ -149,15 +144,12 @@ class Traducteurx {
 		var opf = new ForOp(code.getOperateur())
 		var code1=new Quadruplet<ForOp>(opf,code.resultat,code.arg1,code.arg2)
 		return
-	'''
-	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
-	while(libwh.isTrue(variables.get("«code1.arg1»"))){
-	«FOR cmd :code1.getOperateur().getCmds()» 
-	«translate3Add(cmd)»
-	«ENDFOR»
-	variables.put("«code1.arg1»", libwh.tl(variables.get("«code1.arg1»")));
-	}
-	'''
+'''«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
+while(libwh.isTrue(«code1.arg1»)){«FOR cmd :code1.getOperateur().getCmds()»
+«translate3Add(cmd)»«ENDFOR»
+«code1.arg1» = libwh.tl(«code1.arg1»);
+}
+'''
 
 	}
 		

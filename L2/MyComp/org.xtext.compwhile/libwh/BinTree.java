@@ -35,7 +35,7 @@ public class BinTree {
 	}
 	@Override
 	public String toString() {
-		return "BinTree [data=" + data + ", left=" + left + ", rigt=" + right + "]";
+		return "BinTree [data=" + data + ", left=" + left + ", right=" + right + "]";
 	}
 	@Override
 	public int hashCode() {
