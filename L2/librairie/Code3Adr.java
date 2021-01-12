@@ -29,7 +29,7 @@ public class Code3Adr {
 		case "nop" :
 			return "libwh.nop();";
 		default :
-			return "libwh.nonImpl();";
+			return "Pas résolu";
 		}
 	}
 }

@@ -1,4 +1,5 @@
 package librairie;
+import librairie.BinTree;
 
 public class LibWh {
 
@@ -7,6 +8,7 @@ public class LibWh {
     }
 
 	public void nop() {
+        System.out.println("Je ne fais rien mais je le fais bien !");
         
     }
 

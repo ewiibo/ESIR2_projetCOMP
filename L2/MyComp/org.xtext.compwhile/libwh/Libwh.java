@@ -55,4 +55,26 @@ public class Libwh {
 	public boolean equals(BinTree X, BinTree Y) {
 		return X.equals(X);
 	}
+
+	public BinTree intToBintree(int a) {
+        BinTree res = new BinTree("nil", null, null);
+        int aR = Math.abs(a);
+		if (aR != 0) {
+			for (int i = 0; i < aR; i++) {
+				BinTree tmp = new BinTree("nil", null, null);
+				res = new BinTree("cons", tmp, res);
+			}
+        }
+		return res;
+	}
+
+	public BinTree stringToBintree(String val) {
+		BinTree resu = new BinTree("nil", null, null);
+		int len = val.length();
+		for (int i = len-1; i > -1; i--) {
+			BinTree tmp = new BinTree(String.valueOf(val.charAt(i)));
+			resu = new BinTree("cons", tmp, resu);
+		}
+		return resu;
+    }
 }
