@@ -12,7 +12,7 @@ class Traducteurx {
 	def translate(String className) {
 		var str = ""
 		for (key : code3.code3AddressH.keySet) {
-			var func = ts.tableSymbFunc.get(key)
+			var func = ts.getTableSymbFunc().get(key)
 			for (v : func.varIn)
 				func.vars.remove(v)
 			if (func.name == "main")
@@ -21,10 +21,11 @@ class Traducteurx {
 				'''
 			else 
 				str+='''
-				Stack<BinTree> «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
+				static Stack<BinTree> «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
 					Stack<BinTree> sortie = new Stack<BinTree>();'''
-			str += '''	BinTree «FOR vi : func.vars SEPARATOR ","»«vi»«ENDFOR»;   
-				
+					
+			str += '''	«IF func.vars.size != 0»BinTree «FOR vi : func.vars SEPARATOR ","»«vi»«ENDFOR»;«ENDIF» 
+			Stack<BinTree> temp;  
 				«FOR code : code3.code3AddressH.get(key)»«IF code.operateur.operator == Op.Write && func.name=="main"»«»«ELSE»«translate3Add(code)»«ENDIF»
 				«ENDFOR»
 			''' 
@@ -73,17 +74,26 @@ class Traducteurx {
 			return translateIf(code)
 		if (code.operateur.operator == Op.For)
 			return translateFor(code)
+		if (code.operateur.operator == Op.Call)
+			return translateCall(code);
 	}
 
-
+	def translateCall(Quadruplet<OpImpl> code){
+		print(code.resultat.split(" ").get(0))
+		var ss =""
+		for (i : code.resultat.split(" ").size >.. 0){
+			ss+= code.resultat.split(" ").get(i) + " = temp.pop();\n"
+		}
+		return '''	temp = «code.operateur.etiquette»(«code.arg1»);
+		«ss»''';
+	}
 	
-
 	def translateNop(Quadruplet<OpImpl> code) {
 		return '''	libwh.nop();''';
 	}
 
 	def translateWrite(Quadruplet<OpImpl> code) {
-		'''	sortie.push(«code.resultat»);'''
+		'''	sortie.add(«code.resultat»);'''
 	}
 
 	def translateAffect(Quadruplet<OpImpl> code) {

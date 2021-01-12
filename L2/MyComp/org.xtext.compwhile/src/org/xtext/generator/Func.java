@@ -76,6 +76,10 @@ public class Func {
 		this.addVar("iR"+this.varCount);
 		return vars.get(vars.size()-1);
 	}
+	public String getVarGenere() {
+		this.varCount++;
+		return "iR"+this.varCount;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

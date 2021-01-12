@@ -17,6 +17,7 @@ import org.xtext.whileL.Commands;
 import org.xtext.whileL.Definition;
 import org.xtext.whileL.Expr;
 import org.xtext.whileL.ExprBase;
+import org.xtext.whileL.Exprs;
 import org.xtext.whileL.ForCommand;
 import org.xtext.whileL.ForeachCommand;
 import org.xtext.whileL.Function;
@@ -50,6 +51,26 @@ public class WhileLGen extends AbstractGenerator {
 		
 		trad.Traducteurx(code3Add, ts);
 		fsa.generateFile("Sortie.java", trad.translate("Sortie"));
+	}
+	
+	public void fillTableSymbFunc(Program prog) {
+		for (Function f : prog.getFunctions()) {
+			Func funct = new Func(f.getSymbol());
+			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
+				funct.setIn(f.getDefinition().getInput().getVars().size());
+			} else {
+				System.out.println("Les variables d'entree sont dupliquee");
+				return;
+			}
+			if (!Func.isDuplicate(f.getDefinition().getOutput().getVars())) {
+				funct.setOut(f.getDefinition().getOutput().getVars().size());
+			} else {
+				System.out.println("Les variables de sortie sont dupliquee");
+				return;
+			}
+			ts.getNextEtiquette();
+			ts.addSymbol(funct);
+		}
 	}
 	
 
@@ -128,17 +149,24 @@ public class WhileLGen extends AbstractGenerator {
 	private LinkedList<Quadruplet<OpImpl>> generate(AffectCommand cmd) {
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		// Si il y a autant de variables à gauche que d'elements d'affection à droite
-		if (cmd.getExprs().getExpr().size() == cmd.getVars().getVari().size()) {
+		int nb = getNbreOut(cmd.getExprs());
+		if (nb == cmd.getVars().getVari().size()) {
 			ArrayList<String> varRes = new ArrayList<>();
 			for (Expr expr : cmd.getExprs().getExpr()) {
 				code3Adress.addAll(generate(expr));
-				varRes.add(code3Adress.getLast().getResultat());
+				String[] ll = code3Adress.getLast().getResultat().split("\\s+");
+				for(String str : ll) {
+					varRes.add(str);
+				}
 			}
 			for(int i = 0 ; i<cmd.getVars().getVari().size();i++) {
 				func.addVar(cmd.getVars().getVari().get(i));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Affec, ""),
 						cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
+		}else {
+			//Lever une exception
+			System.out.println("Pas autant de variables que d'elements d'affectation à droite");
 		}
 
 		return code3Adress;
@@ -201,14 +229,18 @@ public class WhileLGen extends AbstractGenerator {
 				if (!func.isVarExist(value))
 					System.out.println("La variable " + value +" n'existe pas" );
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), value, "", ""));
-				
 					
+			} else if(isSymbole(value)) {
+				//
+				// Gerer les symboles, leur gestion dans la table de symbole et surtout en tant que constante dans
+				// le programme Java
+				//
 			}
 		} else if (identitor != null) {
 			switch (identitor) {
 			case "cons" :
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
-				String arg2 =code3Adress.get(code3Adress.size() - 1).getResultat();
+				String arg2 =code3Adress.getLast().getResultat();
 				String arg = "";
 				for(int i= lexpr.getExpr().size()-2; i>=0; i--) {
 					code3Adress.addAll(generate(lexpr.getExpr().get(i)));
@@ -221,7 +253,7 @@ public class WhileLGen extends AbstractGenerator {
 				List<String> arg1 = new LinkedList<String>();
 				for (Expr exp : lexpr.getExpr()) {
 					code3Adress.addAll(generate(exp));
-					arg1.add(code3Adress.get(code3Adress.size() - 1).getResultat());
+					arg1.add(code3Adress.getLast().getResultat());
 				}
 				System.out.println(arg1);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.List, ""), func.addVarGenere(), arg1.get(0), arg1.get(1)));
@@ -230,25 +262,66 @@ public class WhileLGen extends AbstractGenerator {
 
 				code3Adress.addAll(generate(expr));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Hd, ""), func.addVarGenere(),
-						code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
+						code3Adress.getLast().getResultat(), ""));
 				break;
 			case "tl":
 
 				code3Adress.addAll(generate(expr));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Tl, ""), func.addVarGenere(),
-						code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
+						code3Adress.getLast().getResultat(), ""));
 				break;
 			case "not":
 
 				code3Adress.addAll(generate(expr));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Not, ""), func.addVarGenere(),
-						code3Adress.get(code3Adress.size() - 1).getResultat(), ""));
+						code3Adress.getLast().getResultat(), ""));
 				break;
 			default:
 				break;
 			}
 		} else if (call != null) {
 			// appel de foonction pas encore fait
+			// verifie si le symbol est defini comme une fonction dans la table des symboles de fonctions
+			Func fun = ts.getTableSymbFunc().get(call);
+			if(fun!=null) {
+				List<String> argFunc = new ArrayList<>();
+				//verifier le nombre de parametre
+				//int nb = getNbreOut(lexpr);
+				if(lexpr.getExpr().size()!= ts.getTableSymbFunc().get(call).getIn()) {
+					//Lever une exception
+					System.out.println("pas le bon nombre de parametre pour l'appel de la fonction : "+ call);
+				}
+				for(Expr exp : lexpr.getExpr()) {
+					code3Adress.addAll(generate(exp));
+					argFunc.add(code3Adress.getLast().getResultat());
+				}
+				String param = argFunc.toString().replace('[', ' ').replace(']', ' ');
+				String sortie = "";
+				for(int i = 0; i<fun.getOut(); i++) {
+					sortie +=func.addVarGenere()+" ";  
+				}
+				
+				
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Call, call), sortie,
+						param, ""));
+			}else {
+				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
+				String arg2 = code3Adress.getLast().getResultat();
+				String arg = "";
+				/* 
+				 * 
+				 * Ajouter le symbole au  debut de la liste exprs et faire les iterations dessus
+				 * 
+				 * List<Expr> exprs = new ArrayList<Expr>();
+				exprs.add(e) */
+				for(int i= lexpr.getExpr().size()-2; i>=0; i--) {
+					code3Adress.addAll(generate(lexpr.getExpr().get(i)));
+					arg = code3Adress.get(code3Adress.size() - 1).getResultat();
+					code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg, arg2));
+					arg2 = code3Adress.getLast().getResultat();
+				}
+			}
+			
 		}
 		return code3Adress;
 	}
@@ -260,26 +333,45 @@ public class WhileLGen extends AbstractGenerator {
 		String firstChar = str.substring(0, 1);
 		return firstChar.equals(firstChar.toUpperCase()); // Is uppercase -> Variable
 	}
-
-
-	public void fillTableSymbFunc(Program prog) {
-		for (Function f : prog.getFunctions()) {
-			Func funct = new Func(f.getSymbol());
-			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
-				funct.setIn(f.getDefinition().getInput().getVars().size());
-			} else {
-				System.out.println("Les variables d'entree sont dupliquee");
-				return;
-			}
-			if (!Func.isDuplicate(f.getDefinition().getOutput().getVars())) {
-				funct.setOut(f.getDefinition().getOutput().getVars().size());
-			} else {
-				System.out.println("Les variables de sortie sont dupliquee");
-				return;
-			}
-			ts.getNextEtiquette();
-			ts.addSymbol(funct);
+	
+	private boolean isSymbole(String str) {
+		if (str == null) {
+			return false;
 		}
+		String firstChar = str.substring(0, 1);
+		return firstChar.equals(firstChar.toLowerCase()); // Is lowercase -> symbole
 	}
+	
+	private int getNbreOut(LExpr lexpr) {
+		int out = 0;
+		for(Expr expr : lexpr.getExpr()) {
+			//verif si  c'est un symbole et si c'est une fonction
+			if(isSymbole(expr.getExprbase().getSymbol()) && 
+					ts.getTableSymbFunc().get(expr.getExprbase().getSymbol())!=null){
+				out+= ts.getTableSymbFunc().get(expr.getExprbase().getSymbol()).getOut();
+			}else {
+				out++;
+			}
+		}
+		System.out.println(out);
+		return out;
+	}
+	private int getNbreOut(Exprs exprs) {
+		int out = 0;
+		for(Expr expr : exprs.getExpr()) {
+			//verif si  c'est un symbole et si c'est une fonction
+			if(isSymbole(expr.getExprbase().getSymbol()) && 
+					ts.getTableSymbFunc().get(expr.getExprbase().getSymbol())!=null){
+				out+= ts.getTableSymbFunc().get(expr.getExprbase().getSymbol()).getOut();
+			}else {
+				out++;
+			}
+		}
+		System.out.println(out);
+		return out;
+	}
+
+
+	
 
 }

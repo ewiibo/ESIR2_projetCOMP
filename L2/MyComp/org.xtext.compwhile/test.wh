@@ -1,36 +1,13 @@
-function f1: 
-read X,Y
-%
-  nop;
-  Y := nil;
-  T := (hd nil);
-  A := (cons (cons (tl nil) (hd Y)) nil);
-B,C := (hd Y), (cons nil nil);
-for A do
-	C:=nil
-od
-
-%
-write Y
+function f:
+read X,Y %
+Z:= (cons nil nil)
+%write X,Y,Z
 
 function main:
-read X % 
-A:= (cons nil nil nil nil nil nil);
-B:= (cons A (hd nil));
-if B then 
-A:=B else B:=nil fi;
-B:=(cons nil (cons nil (cons nil nil)));
-while B
-do
-B:= (tl B);
-A:=B
-od ;  A := (cons nil (cons (tl nil) (hd A)) );
-B,C := (hd A), (cons nil nil);
-for A do
-	C:=nil
-od;
-if B then 
-A:=B fi
+read A % 
+ B:= nil;
+Y,Z,U:= (f (hd nil) B);
+P:=nil
 %
 write X
 

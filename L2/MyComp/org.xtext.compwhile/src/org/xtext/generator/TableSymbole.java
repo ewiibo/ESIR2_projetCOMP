@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class TableSymbole {
 	
 
-	public HashMap<String, Func> tableSymbFunc;
+	private HashMap<String, Func> tableSymbFunc;
 
 	public TableSymbole() {
 		super();

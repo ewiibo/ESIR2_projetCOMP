@@ -16,5 +16,6 @@ public enum Op {
 	List,
 	If,
 	For,
-	Foreach
+	Foreach,
+	Call
 }

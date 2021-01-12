@@ -3,8 +3,12 @@ package org.xtext.generator;
 import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.generator.ForOp;
 import org.xtext.generator.Func;
 import org.xtext.generator.IfOp;
@@ -35,7 +39,7 @@ public class Traducteurx {
     Set<String> _keySet = this.code3.getCode3AddressH().keySet();
     for (final String key : _keySet) {
       {
-        Func func = this.ts.tableSymbFunc.get(key);
+        Func func = this.ts.getTableSymbFunc().get(key);
         for (final String v : func.varIn) {
           func.getVars().remove(v);
         }
@@ -52,7 +56,7 @@ public class Traducteurx {
         } else {
           String _str_1 = str;
           StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append("Stack<BinTree> ");
+          _builder_1.append("static Stack<BinTree> ");
           String _name_1 = func.getName();
           _builder_1.append(_name_1);
           _builder_1.append(" (");
@@ -77,22 +81,30 @@ public class Traducteurx {
         String _str_2 = str;
         StringConcatenation _builder_2 = new StringConcatenation();
         _builder_2.append("\t");
-        _builder_2.append("BinTree ");
         {
-          ArrayList<String> _vars = func.getVars();
-          boolean _hasElements_1 = false;
-          for(final String vi : _vars) {
-            if (!_hasElements_1) {
-              _hasElements_1 = true;
-            } else {
-              _builder_2.appendImmediate(",", "\t");
+          int _size = func.getVars().size();
+          boolean _notEquals = (_size != 0);
+          if (_notEquals) {
+            _builder_2.append("BinTree ");
+            {
+              ArrayList<String> _vars = func.getVars();
+              boolean _hasElements_1 = false;
+              for(final String vi : _vars) {
+                if (!_hasElements_1) {
+                  _hasElements_1 = true;
+                } else {
+                  _builder_2.appendImmediate(",", "\t");
+                }
+                _builder_2.append(vi, "\t");
+              }
             }
-            _builder_2.append(vi, "\t");
+            _builder_2.append(";");
           }
         }
-        _builder_2.append(";   ");
+        _builder_2.append(" ");
         _builder_2.newLineIfNotEmpty();
-        _builder_2.append("\t\t\t\t");
+        _builder_2.append("\t\t\t");
+        _builder_2.append("Stack<BinTree> temp;  ");
         _builder_2.newLine();
         _builder_2.append("\t\t\t\t");
         {
@@ -209,7 +221,38 @@ public class Traducteurx {
     if (_equals_11) {
       return this.translateFor(code);
     }
+    Op _operator_12 = code.getOperateur().getOperator();
+    boolean _equals_12 = Objects.equal(_operator_12, Op.Call);
+    if (_equals_12) {
+      return this.translateCall(code);
+    }
     return null;
+  }
+  
+  public String translateCall(final Quadruplet<OpImpl> code) {
+    InputOutput.<String>print(code.getResultat().split(" ")[0]);
+    String ss = "";
+    int _size = ((List<String>)Conversions.doWrapArray(code.getResultat().split(" "))).size();
+    ExclusiveRange _greaterThanDoubleDot = new ExclusiveRange(_size, 0, false);
+    for (final Integer i : _greaterThanDoubleDot) {
+      String _ss = ss;
+      String _get = code.getResultat().split(" ")[(i).intValue()];
+      String _plus = (_get + " = temp.pop();\n");
+      ss = (_ss + _plus);
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    _builder.append("temp = ");
+    String _etiquette = code.getOperateur().getEtiquette();
+    _builder.append(_etiquette, "\t");
+    _builder.append("(");
+    String _arg1 = code.getArg1();
+    _builder.append(_arg1, "\t");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append(ss, "\t\t");
+    return _builder.toString();
   }
   
   public String translateNop(final Quadruplet<OpImpl> code) {
@@ -222,7 +265,7 @@ public class Traducteurx {
   public CharSequence translateWrite(final Quadruplet<OpImpl> code) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("sortie.push(");
+    _builder.append("sortie.add(");
     String _resultat = code.getResultat();
     _builder.append(_resultat, "\t");
     _builder.append(");");
