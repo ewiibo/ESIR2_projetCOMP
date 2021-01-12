@@ -47,7 +47,7 @@ public class WhileLGen extends AbstractGenerator {
 				generate((Program) prog);
 			}
 		}
-		 System.out.println(code3Add);
+		System.out.println(code3Add);
 		
 		trad.Traducteurx(code3Add, ts);
 		fsa.generateFile("Sortie.java", trad.translate("Sortie"));
@@ -55,7 +55,8 @@ public class WhileLGen extends AbstractGenerator {
 	
 	public void fillTableSymbFunc(Program prog) {
 		for (Function f : prog.getFunctions()) {
-			Func funct = new Func(f.getSymbol());
+			String etiquette = f.getSymbol().equals("main") ? "main":ts.getNextEtiquette();
+			Func funct = new Func(etiquette);
 			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
 				funct.setIn(f.getDefinition().getInput().getVars().size());
 			} else {
@@ -68,9 +69,9 @@ public class WhileLGen extends AbstractGenerator {
 				System.out.println("Les variables de sortie sont dupliquee");
 				return;
 			}
-			ts.getNextEtiquette();
-			ts.addSymbol(funct);
+			ts.addSymbol(f.getSymbol(), funct);
 		}
+		System.out.println(ts.getTableSymbFunc());
 	}
 	
 
@@ -226,9 +227,9 @@ public class WhileLGen extends AbstractGenerator {
 				// S'il y a une utilisation d'une variable qui n'existe pas
 				
 				///
-				if (!func.isVarExist(value))
+				if (!func.isVarExist("i"+value))
 					System.out.println("La variable " + value +" n'existe pas" );
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), value, "", ""));
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), "i"+value, "", ""));
 					
 			} else if(isSymbole(value)) {
 				//
@@ -302,7 +303,7 @@ public class WhileLGen extends AbstractGenerator {
 				}
 				
 				
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Call, call), sortie,
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Call, fun.getName()), sortie,
 						param, ""));
 			}else {
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));

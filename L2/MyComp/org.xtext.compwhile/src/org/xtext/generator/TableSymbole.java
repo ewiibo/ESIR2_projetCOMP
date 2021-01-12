@@ -14,17 +14,18 @@ public class TableSymbole {
 	public void addSymbol(Func entry) {
 		tableSymbFunc.put(entry.getName(), entry);
 	}
-	public void addSymbol(String string, String entry) {
+	public void addSymbol(String string, Func entry) {
+		tableSymbFunc.put(string, entry);
 	}
 	
 	public String getEtiquette() {
-		return "S"+(tableSymbFunc.size());
+		return "f"+(tableSymbFunc.size());
 	}
 	public String getNextEtiquette() {
-		return "S"+(tableSymbFunc.size()+1);
+		return "f"+(tableSymbFunc.size()+1);
 	}
 	public String getPrevEtiquette() {
-		return "S"+ (tableSymbFunc.size()-1);
+		return "f"+ (tableSymbFunc.size()-1);
 	}
 	public  HashMap<String, Func> getTableSymbFunc() {
 		return tableSymbFunc;

@@ -11,3 +11,8 @@ P:=nil
 %
 write X
 
+function dsf?:
+read E,B%
+
+nop
+% write E

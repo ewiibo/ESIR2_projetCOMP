@@ -31,7 +31,8 @@ public class OpImpl {
 	@Override
 	public String toString() {
 		//return "OpImpl [operator=" + operator + ", etiquette=" + etiquette + "]";
-		return operator.toString();
+		String res = etiquette.isBlank()?"" :"["+ etiquette+ "]";
+		return operator.toString() + res;
 	}
 	@Override
 	public int hashCode() {
