@@ -35,6 +35,7 @@ public class WhileLGen extends AbstractGenerator {
 	TroisAdd code3Add = new TroisAdd();
 	Traducteurx trad = new Traducteurx();
 	Func func;
+	String prefix = "i";
 
 	@Override
 	public void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
@@ -92,6 +93,7 @@ public class WhileLGen extends AbstractGenerator {
 	private void generate(Input input, Func func) {
 		List<String> vars = input.getVars();
 		for (String var : vars) {
+			var=prefix+var;
 			func.addVar(var);
 			func.varIn.add(var);
 			code3Add.putRead(var);
@@ -101,6 +103,7 @@ public class WhileLGen extends AbstractGenerator {
 	private void generate(Output output, Func func) {
 		List<String> vars = output.getVars();
 		for (String var : vars) {
+			var=prefix+var;
 			func.addVar(var);
 			func.varOut.add(var);
 			code3Add.putWrite(var);
@@ -161,9 +164,9 @@ public class WhileLGen extends AbstractGenerator {
 				}
 			}
 			for(int i = 0 ; i<cmd.getVars().getVari().size();i++) {
-				func.addVar(cmd.getVars().getVari().get(i));
+				func.addVar(prefix+cmd.getVars().getVari().get(i));
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Affec, ""),
-						cmd.getVars().getVari().get(i) , varRes.get(i), ""));
+						prefix+cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
 		}else {
 			//Lever une exception
@@ -227,9 +230,9 @@ public class WhileLGen extends AbstractGenerator {
 				// S'il y a une utilisation d'une variable qui n'existe pas
 				
 				///
-				if (!func.isVarExist("i"+value))
+				if (!func.isVarExist(prefix+value))
 					System.out.println("La variable " + value +" n'existe pas" );
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), "i"+value, "", ""));
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), prefix+value, "", ""));
 					
 			} else if(isSymbole(value)) {
 				//
