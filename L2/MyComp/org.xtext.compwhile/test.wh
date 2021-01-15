@@ -1,3 +1,31 @@
+function isNotZero : read X % nop % write X
+
+function isZero : read X % if X then B := nil else B := (cons nil nil) fi % write B
+
+function incr : read X % X := (cons nil X) % write X
+
+function decr : read X % X := (tl X) % write X
+
+function addR : read X, Y % if (isZero Y) then S := X else S := (incr (addR X (decr Y))) fi % write S
+
+function mult : read X, Y % P := nil ; for Y do P := (add X P) od % write P
+
+function isOne : read X % if X =? (cons nil nil) then B := (cons nil nil) else B := nil fi % write B
+
+function add : read X, Y % S := X ; for Y do S := (incr S) od % write S
+
+function subs : read X, Y % D := X ; for Y do D := (decr D) od % write D
+
+function pow : read X, Y % P := (cons nil nil) ; for Y do P := (mult X P) od % write P
+
+
+
+
+function fact : read X % F := (cons nil nil) ; while (isNotZero X) do X, F := (decr X), (mult F X) od % write F
+
+
+function fib : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+
 function f:
 read X,Y %
 Z:= (cons nil nil)
@@ -6,6 +34,7 @@ Z:= (cons nil nil)
 function main:
 read A % 
  B:= nil;
+X:=nil;
 Y,Z,U:= (f (hd nil) B);
 P:=nil
 %

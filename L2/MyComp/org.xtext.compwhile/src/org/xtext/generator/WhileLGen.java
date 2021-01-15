@@ -1,9 +1,9 @@
 package org.xtext.generator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -27,6 +27,9 @@ import org.xtext.whileL.LExpr;
 import org.xtext.whileL.Output;
 import org.xtext.whileL.Program;
 import org.xtext.whileL.WhileCommand;
+
+import com.google.common.base.Objects;
+
 import org.xtext.whileL.NopCommand;
 
 public class WhileLGen extends AbstractGenerator {
@@ -48,6 +51,8 @@ public class WhileLGen extends AbstractGenerator {
 				generate((Program) prog);
 			}
 		}
+
+		System.out.println(ts.toString());
 		System.out.println(code3Add);
 		
 		trad.Traducteurx(code3Add, ts);
@@ -56,23 +61,30 @@ public class WhileLGen extends AbstractGenerator {
 	
 	public void fillTableSymbFunc(Program prog) {
 		for (Function f : prog.getFunctions()) {
-			String etiquette = f.getSymbol().equals("main") ? "main":ts.getNextEtiquette();
+			String etiquette = f.getSymbol().equals("main") ? "f0":ts.getNextEtiquette();
 			Func funct = new Func(etiquette);
+			if(ts.getTableSymbFunc().containsKey(f.getSymbol())) {
+				
+				// Lever une exception ici
+				
+				System.out.println("La fonction est defini plusieurs fois");
+			}
 			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
 				funct.setIn(f.getDefinition().getInput().getVars().size());
 			} else {
+				// Lever une exception ici
 				System.out.println("Les variables d'entree sont dupliquee");
 				return;
 			}
 			if (!Func.isDuplicate(f.getDefinition().getOutput().getVars())) {
 				funct.setOut(f.getDefinition().getOutput().getVars().size());
 			} else {
+				// Lever une exception ici
 				System.out.println("Les variables de sortie sont dupliquee");
 				return;
 			}
 			ts.addSymbol(f.getSymbol(), funct);
 		}
-		System.out.println(ts.getTableSymbFunc());
 	}
 	
 
@@ -104,10 +116,24 @@ public class WhileLGen extends AbstractGenerator {
 		List<String> vars = output.getVars();
 		for (String var : vars) {
 			var=prefix+var;
-			func.addVar(var);
+			
+			if(!func.isVarExist(var)) {
+				// Lever une exception ici
+				System.out.println("La variable " + var +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func));
+			}
+			//func.addVar(var);
 			func.varOut.add(var);
 			code3Add.putWrite(var);
 		}
+	}
+	
+	String getKeyFromValueHashMap(Func func){
+		for(Entry<String, Func> entry : ts.getTableSymbFunc().entrySet()) {
+			if(Objects.equal(entry.getValue(), func)){
+				return entry.getKey();
+			}
+		}
+		return null;
 	}
 
 	public void generate(Definition def, Func func) {
@@ -169,7 +195,7 @@ public class WhileLGen extends AbstractGenerator {
 						prefix+cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
 		}else {
-			//Lever une exception
+			// Lever une exception ici
 			System.out.println("Pas autant de variables que d'elements d'affectation à droite");
 		}
 
@@ -230,6 +256,7 @@ public class WhileLGen extends AbstractGenerator {
 				// S'il y a une utilisation d'une variable qui n'existe pas
 				
 				///
+				// Lever une exception ici
 				if (!func.isVarExist(prefix+value))
 					System.out.println("La variable " + value +" n'existe pas" );
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), prefix+value, "", ""));
@@ -246,7 +273,7 @@ public class WhileLGen extends AbstractGenerator {
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
 				String arg2 =code3Adress.getLast().getResultat();
 				String arg = "";
-				for(int i= lexpr.getExpr().size()-2; i>=0; i--) {
+				for(int i = lexpr.getExpr().size()-2; i>=0; i--) {
 					code3Adress.addAll(generate(lexpr.getExpr().get(i)));
 					arg = code3Adress.get(code3Adress.size() - 1).getResultat();
 					code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg, arg2));
@@ -259,7 +286,6 @@ public class WhileLGen extends AbstractGenerator {
 					code3Adress.addAll(generate(exp));
 					arg1.add(code3Adress.getLast().getResultat());
 				}
-				System.out.println(arg1);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.List, ""), func.addVarGenere(), arg1.get(0), arg1.get(1)));
 				break;
 			case "hd":
@@ -357,7 +383,6 @@ public class WhileLGen extends AbstractGenerator {
 				out++;
 			}
 		}
-		System.out.println(out);
 		return out;
 	}
 	private int getNbreOut(Exprs exprs) {
@@ -371,7 +396,6 @@ public class WhileLGen extends AbstractGenerator {
 				out++;
 			}
 		}
-		System.out.println(out);
 		return out;
 	}
 

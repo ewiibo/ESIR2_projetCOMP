@@ -8,7 +8,6 @@ import java.util.Set;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.generator.ForOp;
 import org.xtext.generator.Func;
 import org.xtext.generator.IfOp;
@@ -76,11 +75,13 @@ public class Traducteurx {
           _builder_1.newLineIfNotEmpty();
           _builder_1.append("\t");
           _builder_1.append("Stack<BinTree> sortie = new Stack<BinTree>();");
+          _builder_1.newLine();
+          _builder_1.append("\t");
+          _builder_1.newLine();
           str = (_str_1 + _builder_1);
         }
         String _str_2 = str;
         StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("\t");
         {
           int _size = func.getVars().size();
           boolean _notEquals = (_size != 0);
@@ -93,20 +94,19 @@ public class Traducteurx {
                 if (!_hasElements_1) {
                   _hasElements_1 = true;
                 } else {
-                  _builder_2.appendImmediate(",", "\t");
+                  _builder_2.appendImmediate(",", "");
                 }
-                _builder_2.append(vi, "\t");
+                _builder_2.append(vi);
               }
             }
             _builder_2.append(";");
           }
         }
-        _builder_2.append(" ");
         _builder_2.newLineIfNotEmpty();
-        _builder_2.append("\t\t\t");
+        _builder_2.newLine();
         _builder_2.append("Stack<BinTree> temp;  ");
         _builder_2.newLine();
-        _builder_2.append("\t\t\t\t");
+        _builder_2.append("\t");
         {
           LinkedList<Quadruplet<OpImpl>> _get = this.code3.getCode3AddressH().get(key);
           for(final Quadruplet<OpImpl> code : _get) {
@@ -114,7 +114,7 @@ public class Traducteurx {
               if ((Objects.equal(code.getOperateur().getOperator(), Op.Write) && Objects.equal(func.getName(), "main"))) {
               } else {
                 CharSequence _translate3Add = this.translate3Add(code);
-                _builder_2.append(_translate3Add, "\t\t\t\t");
+                _builder_2.append(_translate3Add, "\t");
               }
             }
             _builder_2.newLineIfNotEmpty();
@@ -151,6 +151,24 @@ public class Traducteurx {
     _builder.append("\t");
     _builder.append(str, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      Func _get = this.ts.getTableSymbFunc().get("main");
+      boolean _tripleNotEquals = (_get != null);
+      if (_tripleNotEquals) {
+        _builder.append("\t");
+        _builder.append("public static void main(String[] args){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("System.out.println(\"dans le main il reste le parseur qui envoie les parametres à f0\");");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("\t");
     _builder.newLine();
     _builder.append("}");
@@ -230,7 +248,6 @@ public class Traducteurx {
   }
   
   public String translateCall(final Quadruplet<OpImpl> code) {
-    InputOutput.<String>print(code.getResultat().split(" ")[0]);
     String ss = "";
     int _size = ((List<String>)Conversions.doWrapArray(code.getResultat().split(" "))).size();
     ExclusiveRange _greaterThanDoubleDot = new ExclusiveRange(_size, 0, false);
@@ -252,6 +269,10 @@ public class Traducteurx {
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append(ss, "\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("temp = null;");
+    _builder.newLine();
     return _builder.toString();
   }
   

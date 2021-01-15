@@ -22,9 +22,13 @@ class Traducteurx {
 			else 
 				str+='''
 				static Stack<BinTree> «func.name» («FOR read : func.varIn SEPARATOR ", "»BinTree «read»«ENDFOR»){
-					Stack<BinTree> sortie = new Stack<BinTree>();'''
+					Stack<BinTree> sortie = new Stack<BinTree>();
 					
-			str += '''	«IF func.vars.size != 0»BinTree «FOR vi : func.vars SEPARATOR ","»«vi»«ENDFOR»;«ENDIF» 
+				'''
+					
+			str += '''
+			«IF func.vars.size != 0»BinTree «FOR vi : func.vars SEPARATOR ","»«vi»«ENDFOR»;«ENDIF»
+			
 			Stack<BinTree> temp;  
 				«FOR code : code3.code3AddressH.get(key)»«IF code.operateur.operator == Op.Write && func.name=="main"»«»«ELSE»«translate3Add(code)»«ENDIF»
 				«ENDFOR»
@@ -43,6 +47,12 @@ class Traducteurx {
 				
 				static Libwh libwh = new Libwh();
 				«str»
+				
+				«IF ts.tableSymbFunc.get('main') !== null»
+				public static void main(String[] args){
+					System.out.println("dans le main il reste le parseur qui envoie les parametres à f0");
+				}
+				«ENDIF»
 				
 			}
 		'''
@@ -79,13 +89,14 @@ class Traducteurx {
 	}
 
 	def translateCall(Quadruplet<OpImpl> code){
-		print(code.resultat.split(" ").get(0))
 		var ss =""
 		for (i : code.resultat.split(" ").size >.. 0){
 			ss+= code.resultat.split(" ").get(i) + " = temp.pop();\n"
 		}
 		return '''	temp = «code.operateur.etiquette»(«code.arg1»);
-		«ss»''';
+		«ss»
+		temp = null;
+		''';
 	}
 	
 	def translateNop(Quadruplet<OpImpl> code) {

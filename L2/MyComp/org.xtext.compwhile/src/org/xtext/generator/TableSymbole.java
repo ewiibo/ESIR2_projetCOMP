@@ -1,6 +1,9 @@
 package org.xtext.generator;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TableSymbole {
 	
@@ -36,8 +39,25 @@ public class TableSymbole {
 	
 	@Override
 	public String toString() {
-		return "TableSymbole [\ntableSymbFunc=" + tableSymbFunc +"]";
+		
+		return "TableSymbole [\n"+ mapToString(tableSymbFunc) +"]";
 	}
+	
+	public static String mapToString(Map<String, Func> map) {  
+		   StringBuilder stringBuilder = new StringBuilder();  
+		  
+		   for (String key : map.keySet()) {  
+		    
+		    Func value = map.get(key);  
+		     stringBuilder.append("\t"+(key != null ? key : ""));  
+		     stringBuilder.append(" = ");  
+		     stringBuilder.append(value != null ? value.toString() : "");  
+		     stringBuilder.append("\n");
+		   
+		   }  
+		  
+		   return stringBuilder.toString();  
+		  }  
 	@Override
 	public int hashCode() {
 		final int prime = 31;

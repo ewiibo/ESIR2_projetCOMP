@@ -105,8 +105,9 @@ public class Main {
 		context.setCancelIndicator(CancelIndicator.NullImpl);
 		generator.doGenerate(resource, fileAccess, context);
 
-		System.out.println("Code generation finished.");
 		
+
+		System.out.println("[INFO] Code generation finished.");
 		// Ecrire le code qui compile
 		
 		try{
@@ -116,7 +117,6 @@ public class Main {
                 BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
                 BufferedReader error = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
                 String line = null;
-
                 try {
                     while ((line = in.readLine()) != null)
                         System.out.println(line);
@@ -139,7 +139,7 @@ public class Main {
 		
 		//Ecrire le code qui execute
 		
-		try{
+		/*try{
             Runtime rt = Runtime.getRuntime();
             Process pr = rt.exec("java -cp . Sortie ");
             new Thread(() -> {
@@ -166,6 +166,7 @@ public class Main {
             System.err.println(e);
 
         }
-		
+*/		
+		System.out.println("[INFO] Code compilation finished.");
 	}
 }

@@ -117,7 +117,7 @@ public class Func {
 	}
 	@Override
 	public String toString() {
-		return "Func [in=" + in + ", out=" + out + ", name=" + name + ", vars=" + vars + "]";
+		return "Func [ name=" + name + ", in=" + in + ", out=" + out + ", vars=" + vars.toString() + "]";
 	}
 	public static <T> boolean isDuplicate(Collection<T> collection) {
 		Set<T> set = new HashSet<T>(collection);
