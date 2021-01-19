@@ -284,12 +284,15 @@ public class WhileLGen extends AbstractGenerator {
 				}
 				break;
 			case "list":
-				List<String> arg1 = new LinkedList<String>();
-				for (Expr exp : lexpr.getExpr()) {
-					code3Adress.addAll(generate(exp));
-					arg1.add(code3Adress.getLast().getResultat());
-				}
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.List, ""), func.addVarGenere(), arg1.get(0), arg1.get(1)));
+                code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Nil, ""), func.addVarGenere(), "", ""));
+                arg2 =code3Adress.getLast().getResultat();
+                arg = "";
+                for(int i= lexpr.getExpr().size()-1; i>=0; i--) {
+                    code3Adress.addAll(generate(lexpr.getExpr().get(i)));
+                    arg = code3Adress.get(code3Adress.size() - 1).getResultat();
+                    code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg, arg2));
+                    arg2 = code3Adress.getLast().getResultat();
+                }
 				break;
 			case "hd":
 
