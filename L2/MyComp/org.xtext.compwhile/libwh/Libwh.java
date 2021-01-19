@@ -46,7 +46,7 @@ public class Libwh {
 	}
 
 	public void nop() {
-
+		System.out.println("nop");
 	}
 
 	public boolean or(BinTree X, BinTree Y) {

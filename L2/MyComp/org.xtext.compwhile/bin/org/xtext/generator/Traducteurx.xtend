@@ -166,6 +166,7 @@ class Traducteurx {
 	«FOR cmd :code1.getOperateur().getCmds()»
 	«translate3Add(cmd)»
 	«ENDFOR»
+	«FOR exp :code1.getOperateur().getExpr() SEPARATOR '\n'»«translate3Add(exp)»«ENDFOR»
 	}
 	'''
 

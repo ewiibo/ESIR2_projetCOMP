@@ -9,7 +9,15 @@ read A,B,C,D %
  B:= nil;
 X:=nil;
 Y,Z,U:= (f (hd nil) B);
-P:=(a b (hd nil) f g)
+P:=(a b (hd nil) f g);
+for (cons nil (cons nil (cons nil nil))) do 
+nop
+od;
+
+while (a b (hd nil) f g) do 
+nop;
+nop
+od
 %
 write X
 

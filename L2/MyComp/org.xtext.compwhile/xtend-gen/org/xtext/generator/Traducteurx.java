@@ -466,6 +466,20 @@ public class Traducteurx {
         _builder.newLineIfNotEmpty();
       }
     }
+    {
+      LinkedList<Quadruplet<OpImpl>> _expr_1 = code1.getOperateur().getExpr();
+      boolean _hasElements_1 = false;
+      for(final Quadruplet<OpImpl> exp_1 : _expr_1) {
+        if (!_hasElements_1) {
+          _hasElements_1 = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
+        Object _translate3Add_2 = this.translate3Add(exp_1);
+        _builder.append(_translate3Add_2);
+      }
+    }
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();
