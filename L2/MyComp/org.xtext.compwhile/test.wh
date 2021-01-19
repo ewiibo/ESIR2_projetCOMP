@@ -1,22 +1,12 @@
-function f : 
-read A,B,C%
-X := (cons A B C)
-%write A,X
-
 
 function main:
 read A,B,C,D % 
- B:= nil;
-X:=nil;
-Y,Z,U:= (f (hd nil) B);
-P:=(a b (hd nil) f g);
-for (cons nil (cons nil (cons nil nil))) do 
-nop
+foreach S in (cons nil nil nil nil nil) do
+nop; 
+A:=(cons (cons nil A) (hd S)) 
 od;
-
-while (a b (hd nil) f g) do 
-nop;
-nop
+foreach B in D do
+nop 
 od
 %
 write X

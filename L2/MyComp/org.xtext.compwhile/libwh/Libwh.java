@@ -59,7 +59,7 @@ public class Libwh {
 	}
 	
 	public boolean equals(BinTree X, BinTree Y) {
-		return X.equals(X);
+		return X.equals(Y);
 	}
 	public BinTree conste(String symbole) {
 		return new BinTree(symbole, null, null);

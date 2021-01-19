@@ -18,5 +18,6 @@ public enum Op {
 	For,
 	Foreach,
 	Call,
-	Const
+	Const,
+	Eq
 }

@@ -9,6 +9,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.xtext.generator.ForOp;
+import org.xtext.generator.ForeachOp;
 import org.xtext.generator.Func;
 import org.xtext.generator.IfOp;
 import org.xtext.generator.Op;
@@ -284,19 +285,29 @@ public class Traducteurx {
       return this.translateFor(code);
     }
     Op _operator_12 = code.getOperateur().getOperator();
-    boolean _equals_12 = Objects.equal(_operator_12, Op.Call);
+    boolean _equals_12 = Objects.equal(_operator_12, Op.Foreach);
     if (_equals_12) {
-      return this.translateCall(code);
+      return this.translateForeach(code);
     }
     Op _operator_13 = code.getOperateur().getOperator();
-    boolean _equals_13 = Objects.equal(_operator_13, Op.Not);
+    boolean _equals_13 = Objects.equal(_operator_13, Op.Call);
     if (_equals_13) {
-      return this.translateNot(code);
+      return this.translateCall(code);
     }
     Op _operator_14 = code.getOperateur().getOperator();
-    boolean _equals_14 = Objects.equal(_operator_14, Op.Const);
+    boolean _equals_14 = Objects.equal(_operator_14, Op.Not);
     if (_equals_14) {
+      return this.translateNot(code);
+    }
+    Op _operator_15 = code.getOperateur().getOperator();
+    boolean _equals_15 = Objects.equal(_operator_15, Op.Const);
+    if (_equals_15) {
       return this.translateConst(code);
+    }
+    Op _operator_16 = code.getOperateur().getOperator();
+    boolean _equals_16 = Objects.equal(_operator_16, Op.Eq);
+    if (_equals_16) {
+      return this.translateEq(code);
     }
     return null;
   }
@@ -589,6 +600,73 @@ public class Traducteurx {
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String translateForeach(final Quadruplet<OpImpl> code) {
+    OpImpl _operateur = code.getOperateur();
+    ForeachOp opfe = new ForeachOp(_operateur);
+    String _resultat = code.getResultat();
+    String _arg1 = code.getArg1();
+    String _arg2 = code.getArg2();
+    Quadruplet<ForeachOp> code1 = new Quadruplet<ForeachOp>(opfe, _resultat, _arg1, _arg2);
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      LinkedList<Quadruplet<OpImpl>> _expr = code1.getOperateur().getExpr();
+      boolean _hasElements = false;
+      for(final Quadruplet<OpImpl> exp : _expr) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate("\n", "");
+        }
+        Object _translate3Add = this.translate3Add(exp);
+        _builder.append(_translate3Add);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("while(");
+    String _arg1_1 = code1.getArg1();
+    _builder.append(_arg1_1);
+    _builder.append("!=null){");
+    String _arg2_1 = code1.getArg2();
+    _builder.append(_arg2_1);
+    _builder.append(" = libwh.hd(");
+    String _arg1_2 = code1.getArg1();
+    _builder.append(_arg1_2);
+    _builder.append(");");
+    {
+      LinkedList<Quadruplet<OpImpl>> _cmds = code1.getOperateur().getCmds();
+      for(final Quadruplet<OpImpl> cmd : _cmds) {
+        _builder.newLineIfNotEmpty();
+        Object _translate3Add_1 = this.translate3Add(cmd);
+        _builder.append(_translate3Add_1);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    String _arg1_3 = code1.getArg1();
+    _builder.append(_arg1_3);
+    _builder.append(" = libwh.tl(");
+    String _arg1_4 = code1.getArg1();
+    _builder.append(_arg1_4);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String translateEq(final Quadruplet<OpImpl> code) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _resultat = code.getResultat();
+    _builder.append(_resultat);
+    _builder.append("=libwh.equals(");
+    String _arg1 = code.getArg1();
+    _builder.append(_arg1);
+    _builder.append(",");
+    String _arg2 = code.getArg2();
+    _builder.append(_arg2);
+    _builder.append(");");
     return _builder.toString();
   }
 }

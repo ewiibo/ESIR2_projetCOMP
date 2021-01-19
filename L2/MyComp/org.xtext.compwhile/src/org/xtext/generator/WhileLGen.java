@@ -165,8 +165,8 @@ public class WhileLGen extends AbstractGenerator {
 		} else if (command instanceof ForCommand) {
 			return generate((ForCommand)command);
 		} else if (command instanceof ForeachCommand) {
-			return null;
-		} else {
+			return generate((ForeachCommand)command);
+		}else {
 			return null;
 		}
 	}
@@ -232,8 +232,29 @@ public class WhileLGen extends AbstractGenerator {
 		code3Adress.add(new Quadruplet<OpImpl>(forOp,"",forOp.getExpr().getLast().getResultat(),""));
 		return code3Adress;
 	}
+	private LinkedList<Quadruplet<OpImpl>> generate(ForeachCommand cmd) {
+		ForeachOp foreachOp = new ForeachOp();
+		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
+		func.addVar(prefix+cmd.getVars().getVari().get(0));
+		foreachOp.setVars(prefix+cmd.getVars().getVari().get(0));
+		foreachOp.setExpr(generate(cmd.getExpr()));
+		foreachOp.setCmds(generate(cmd.getCommands()));
+		code3Adress.add(new Quadruplet<OpImpl>(foreachOp,"",foreachOp.getExpr().getLast().getResultat(),foreachOp.getVars()));
+		return code3Adress;
+	}
 
 	private LinkedList<Quadruplet<OpImpl>> generate(Expr expr) {
+		/*if(expr.getOpe().equals("=?")) {
+			LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
+			LinkedList<Quadruplet<OpImpl>> e1 = new LinkedList<Quadruplet<OpImpl>>();
+			LinkedList<Quadruplet<OpImpl>> e2 = new LinkedList<Quadruplet<OpImpl>>();
+			e1=generate(expr.getExprbase());
+			e2=generate(expr.getExprbase1());
+			code3Adress.addAll(e1);
+			code3Adress.addAll(e2);
+			code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Eq,""),func.addVarGenere(),e1.getLast().getResultat(),e2.getLast().getResultat()));
+			return code3Adress;
+		}*/
 		return generate(expr.getExprbase());
 	}
 
