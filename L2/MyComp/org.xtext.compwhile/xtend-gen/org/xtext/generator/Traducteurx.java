@@ -132,6 +132,10 @@ public class Traducteurx {
         }
       }
     }
+    ArrayList<String> appel = new ArrayList<String>();
+    for (int i = 0; (i < this.ts.getTableSymbFunc().get("main").getIn()); i++) {
+      appel.add((("in[" + Integer.valueOf(i)) + "]"));
+    }
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
     _builder.append("import java.util.*;");
@@ -163,6 +167,46 @@ public class Traducteurx {
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("System.out.println(\"dans le main il reste le parseur qui envoie les parametres à f0\");");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("List<BinTree> in = libwh.inWh(args);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("List<BinTree> out = f0(");
+        {
+          boolean _hasElements = false;
+          for(final String arg : appel) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(", ", "\t\t");
+            }
+            _builder.append(arg, "\t\t");
+          }
+        }
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("String outprint = \"\";");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("for(BinTree bin : out){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("outprint+= libwh.toInt(bin)+ \" \";");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("System.out.println(outprint);");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("}");

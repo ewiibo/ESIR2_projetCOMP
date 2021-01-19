@@ -49,7 +49,7 @@ public class Quadruplet<T>{
 
 	@Override
 	public String toString() {
-		return "[" + operateur.toString() + ", '" + resultat + "', '" + arg1 + "', '" + arg2 + "']";
+		return "<" + operateur.toString() + ", '" + resultat + "', '" + arg1 + "', '" + arg2 + "'>";
 	}
 
 	@Override

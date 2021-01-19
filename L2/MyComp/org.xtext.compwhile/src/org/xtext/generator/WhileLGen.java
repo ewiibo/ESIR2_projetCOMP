@@ -266,6 +266,8 @@ public class WhileLGen extends AbstractGenerator {
 				// Gerer les symboles, leur gestion dans la table de symbole et surtout en tant que constante dans
 				// le programme Java
 				//
+				func.addVar(value);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Const, ""), prefix+value, "", ""));
 			}
 		} else if (identitor != null) {
 			switch (identitor) {

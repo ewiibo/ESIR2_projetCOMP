@@ -1,5 +1,7 @@
 package org.xtext.generator
 
+import java.util.ArrayList
+
 class Traducteurx {
 	TroisAdd code3
 	TableSymbole ts
@@ -38,6 +40,14 @@ class Traducteurx {
 			else
 				str+= "\treturn sortie;\n}\n\n "
 		}
+		var appel= new ArrayList<String>;
+		
+		for(var i = 0; i<ts.tableSymbFunc.get("main").in; i++){
+			appel.add("in["+i+"]") 
+		}
+		
+		
+		
 		return '''
 			
 			import java.util.*;
@@ -51,6 +61,13 @@ class Traducteurx {
 				«IF ts.tableSymbFunc.get('main') !== null»
 				public static void main(String[] args){
 					System.out.println("dans le main il reste le parseur qui envoie les parametres à f0");
+					List<BinTree> in = libwh.inWh(args);
+					List<BinTree> out = f0(«FOR arg : appel SEPARATOR ', '»«arg»«ENDFOR»);
+					String outprint = "";
+					for(BinTree bin : out){
+						outprint+= libwh.toInt(bin)+ " ";
+					}
+					System.out.println(outprint);
 				}
 				«ENDIF»
 				

@@ -156,10 +156,10 @@ public class Sortie{
 		return sortie;
 	}
 	
-	 static Stack<BinTree> f0 (BinTree iA){
+	 static Stack<BinTree> f0 (BinTree iA, BinTree iB, BinTree iC, BinTree iD){
 		Stack<BinTree> sortie = new Stack<BinTree>();
 		
-	BinTree iR1,iB,iR2,iX,iR3,iR4,iR5,iR6,iR7,iY,iZ,iU,iR8,iP;
+	BinTree iR1,iR2,iX,iR3,iR4,iR5,iR6,iR7,iY,iZ,iU,iR8,iP;
 	
 	Stack<BinTree> temp;  
 		iR1 = libwh.nil();
@@ -314,6 +314,13 @@ public class Sortie{
 	
 	public static void main(String[] args){
 		System.out.println("dans le main il reste le parseur qui envoie les parametres à f0");
+		List<BinTree> in = libwh.inWh(args);
+		List<BinTree> out = f0(in[0], in[1], in[2], in[3]);
+		String outprint = "";
+		for(BinTree bin : out){
+			outprint+= libwh.toInt(bin)+ " ";
+		}
+		System.out.println(outprint);
 	}
 	
 }

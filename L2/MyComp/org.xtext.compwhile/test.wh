@@ -32,7 +32,7 @@ Z:= (cons nil nil)
 %write X,Y,Z
 
 function main:
-read A % 
+read A,B,C,D % 
  B:= nil;
 X:=nil;
 Y,Z,U:= (f (hd nil) B);
