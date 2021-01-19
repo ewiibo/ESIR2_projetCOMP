@@ -567,18 +567,42 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.WhileL.Expr");
-		private final Assignment cExprbaseAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cExprbaseExprBaseParserRuleCall_0 = (RuleCall)cExprbaseAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cExprbaseAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cExprbaseExprBaseParserRuleCall_0_0 = (RuleCall)cExprbaseAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cOpeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cOpeEqualsSignQuestionMarkKeyword_1_0_0 = (Keyword)cOpeAssignment_1_0.eContents().get(0);
+		private final Assignment cExprbase1Assignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cExprbase1ExprBaseParserRuleCall_1_1_0 = (RuleCall)cExprbase1Assignment_1_1.eContents().get(0);
 		
 		//Expr:
-		//	exprbase=ExprBase;
+		//	exprbase=ExprBase (ope='=?' exprbase1=ExprBase)?;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//exprbase=ExprBase (ope='=?' exprbase1=ExprBase)?
+		public Group getGroup() { return cGroup; }
+		
 		//exprbase=ExprBase
-		public Assignment getExprbaseAssignment() { return cExprbaseAssignment; }
+		public Assignment getExprbaseAssignment_0() { return cExprbaseAssignment_0; }
 		
 		//ExprBase
-		public RuleCall getExprbaseExprBaseParserRuleCall_0() { return cExprbaseExprBaseParserRuleCall_0; }
+		public RuleCall getExprbaseExprBaseParserRuleCall_0_0() { return cExprbaseExprBaseParserRuleCall_0_0; }
+		
+		//(ope='=?' exprbase1=ExprBase)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ope='=?'
+		public Assignment getOpeAssignment_1_0() { return cOpeAssignment_1_0; }
+		
+		//'=?'
+		public Keyword getOpeEqualsSignQuestionMarkKeyword_1_0_0() { return cOpeEqualsSignQuestionMarkKeyword_1_0_0; }
+		
+		//exprbase1=ExprBase
+		public Assignment getExprbase1Assignment_1_1() { return cExprbase1Assignment_1_1; }
+		
+		//ExprBase
+		public RuleCall getExprbase1ExprBaseParserRuleCall_1_1_0() { return cExprbase1ExprBaseParserRuleCall_1_1_0; }
 	}
 	public class LExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.WhileL.LExpr");
@@ -636,9 +660,11 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cLeftParenthesisKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cIdentitorAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
 		private final Keyword cIdentitorNotKeyword_7_1_0 = (Keyword)cIdentitorAssignment_7_1.eContents().get(0);
-		private final Assignment cExprAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cExprExprParserRuleCall_7_2_0 = (RuleCall)cExprAssignment_7_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cExprAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cExprExprParserRuleCall_7_3_0 = (RuleCall)cExprAssignment_7_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cRightParenthesisKeyword_7_5 = (Keyword)cGroup_7.eContents().get(5);
 		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
 		private final Keyword cLeftParenthesisKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cSymbolAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -649,13 +675,13 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//ExprBase:
 		//	value='nil' | value=VARIABLE | value=SYMBOL | '(' identitor='cons' lexpr=LExpr ')' | '(' identitor='list' lexpr=LExpr
-		//	')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' expr=Expr ')' | '('
-		//	symbol=SYMBOL lexpr=LExpr ')';
+		//	')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' '(' expr=Expr ')' ')'
+		//	| '(' symbol=SYMBOL lexpr=LExpr ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//value='nil' | value=VARIABLE | value=SYMBOL | '(' identitor='cons' lexpr=LExpr ')' | '(' identitor='list' lexpr=LExpr
-		//')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' expr=Expr ')' | '('
-		//symbol=SYMBOL lexpr=LExpr ')'
+		//')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' '(' expr=Expr ')' ')'
+		//| '(' symbol=SYMBOL lexpr=LExpr ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//value='nil'
@@ -760,7 +786,7 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//')'
 		public Keyword getRightParenthesisKeyword_6_3() { return cRightParenthesisKeyword_6_3; }
 		
-		//'(' identitor='not' expr=Expr ')'
+		//'(' identitor='not' '(' expr=Expr ')' ')'
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'('
@@ -772,14 +798,20 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'not'
 		public Keyword getIdentitorNotKeyword_7_1_0() { return cIdentitorNotKeyword_7_1_0; }
 		
+		//'('
+		public Keyword getLeftParenthesisKeyword_7_2() { return cLeftParenthesisKeyword_7_2; }
+		
 		//expr=Expr
-		public Assignment getExprAssignment_7_2() { return cExprAssignment_7_2; }
+		public Assignment getExprAssignment_7_3() { return cExprAssignment_7_3; }
 		
 		//Expr
-		public RuleCall getExprExprParserRuleCall_7_2_0() { return cExprExprParserRuleCall_7_2_0; }
+		public RuleCall getExprExprParserRuleCall_7_3_0() { return cExprExprParserRuleCall_7_3_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_7_3() { return cRightParenthesisKeyword_7_3; }
+		public Keyword getRightParenthesisKeyword_7_4() { return cRightParenthesisKeyword_7_4; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_7_5() { return cRightParenthesisKeyword_7_5; }
 		
 		//'(' symbol=SYMBOL lexpr=LExpr ')'
 		public Group getGroup_8() { return cGroup_8; }
@@ -1038,7 +1070,7 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Expr:
-	//	exprbase=ExprBase;
+	//	exprbase=ExprBase (ope='=?' exprbase1=ExprBase)?;
 	public ExprElements getExprAccess() {
 		return pExpr;
 	}
@@ -1059,8 +1091,8 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//ExprBase:
 	//	value='nil' | value=VARIABLE | value=SYMBOL | '(' identitor='cons' lexpr=LExpr ')' | '(' identitor='list' lexpr=LExpr
-	//	')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' expr=Expr ')' | '('
-	//	symbol=SYMBOL lexpr=LExpr ')';
+	//	')' | '(' identitor='hd' expr=Expr ')' | '(' identitor='tl' expr=Expr ')' | '(' identitor='not' '(' expr=Expr ')' ')'
+	//	| '(' symbol=SYMBOL lexpr=LExpr ')';
 	public ExprBaseElements getExprBaseAccess() {
 		return pExprBase;
 	}

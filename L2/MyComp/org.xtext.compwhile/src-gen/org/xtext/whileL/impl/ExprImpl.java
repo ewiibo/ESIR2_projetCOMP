@@ -25,6 +25,8 @@ import org.xtext.whileL.WhileLPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.whileL.impl.ExprImpl#getExprbase <em>Exprbase</em>}</li>
+ *   <li>{@link org.xtext.whileL.impl.ExprImpl#getOpe <em>Ope</em>}</li>
+ *   <li>{@link org.xtext.whileL.impl.ExprImpl#getExprbase1 <em>Exprbase1</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +42,36 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected ExprBase exprbase;
+
+  /**
+   * The default value of the '{@link #getOpe() <em>Ope</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOpe() <em>Ope</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOpe()
+   * @generated
+   * @ordered
+   */
+  protected String ope = OPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExprbase1() <em>Exprbase1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExprbase1()
+   * @generated
+   * @ordered
+   */
+  protected ExprBase exprbase1;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,12 +150,89 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    */
   @Override
+  public String getOpe()
+  {
+    return ope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOpe(String newOpe)
+  {
+    String oldOpe = ope;
+    ope = newOpe;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileLPackage.EXPR__OPE, oldOpe, ope));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprBase getExprbase1()
+  {
+    return exprbase1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExprbase1(ExprBase newExprbase1, NotificationChain msgs)
+  {
+    ExprBase oldExprbase1 = exprbase1;
+    exprbase1 = newExprbase1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileLPackage.EXPR__EXPRBASE1, oldExprbase1, newExprbase1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExprbase1(ExprBase newExprbase1)
+  {
+    if (newExprbase1 != exprbase1)
+    {
+      NotificationChain msgs = null;
+      if (exprbase1 != null)
+        msgs = ((InternalEObject)exprbase1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileLPackage.EXPR__EXPRBASE1, null, msgs);
+      if (newExprbase1 != null)
+        msgs = ((InternalEObject)newExprbase1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileLPackage.EXPR__EXPRBASE1, null, msgs);
+      msgs = basicSetExprbase1(newExprbase1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileLPackage.EXPR__EXPRBASE1, newExprbase1, newExprbase1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case WhileLPackage.EXPR__EXPRBASE:
         return basicSetExprbase(null, msgs);
+      case WhileLPackage.EXPR__EXPRBASE1:
+        return basicSetExprbase1(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -140,6 +249,10 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case WhileLPackage.EXPR__EXPRBASE:
         return getExprbase();
+      case WhileLPackage.EXPR__OPE:
+        return getOpe();
+      case WhileLPackage.EXPR__EXPRBASE1:
+        return getExprbase1();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,6 +269,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case WhileLPackage.EXPR__EXPRBASE:
         setExprbase((ExprBase)newValue);
+        return;
+      case WhileLPackage.EXPR__OPE:
+        setOpe((String)newValue);
+        return;
+      case WhileLPackage.EXPR__EXPRBASE1:
+        setExprbase1((ExprBase)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,6 +293,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       case WhileLPackage.EXPR__EXPRBASE:
         setExprbase((ExprBase)null);
         return;
+      case WhileLPackage.EXPR__OPE:
+        setOpe(OPE_EDEFAULT);
+        return;
+      case WhileLPackage.EXPR__EXPRBASE1:
+        setExprbase1((ExprBase)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -190,8 +315,29 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case WhileLPackage.EXPR__EXPRBASE:
         return exprbase != null;
+      case WhileLPackage.EXPR__OPE:
+        return OPE_EDEFAULT == null ? ope != null : !OPE_EDEFAULT.equals(ope);
+      case WhileLPackage.EXPR__EXPRBASE1:
+        return exprbase1 != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (ope: ");
+    result.append(ope);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExprImpl

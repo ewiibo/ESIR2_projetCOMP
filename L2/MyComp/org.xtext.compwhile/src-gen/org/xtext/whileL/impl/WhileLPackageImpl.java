@@ -685,6 +685,28 @@ public class WhileLPackageImpl extends EPackageImpl implements WhileLPackage
    * @generated
    */
   @Override
+  public EAttribute getExpr_Ope()
+  {
+    return (EAttribute)exprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpr_Exprbase1()
+  {
+    return (EReference)exprEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLExpr()
   {
     return lExprEClass;
@@ -854,6 +876,8 @@ public class WhileLPackageImpl extends EPackageImpl implements WhileLPackage
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__EXPRBASE);
+    createEAttribute(exprEClass, EXPR__OPE);
+    createEReference(exprEClass, EXPR__EXPRBASE1);
 
     lExprEClass = createEClass(LEXPR);
     createEReference(lExprEClass, LEXPR__EXPR);
@@ -959,6 +983,8 @@ public class WhileLPackageImpl extends EPackageImpl implements WhileLPackage
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpr_Exprbase(), this.getExprBase(), null, "exprbase", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpr_Ope(), ecorePackage.getEString(), "ope", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpr_Exprbase1(), this.getExprBase(), null, "exprbase1", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lExprEClass, LExpr.class, "LExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLExpr_Expr(), this.getExpr(), null, "expr", null, 0, -1, LExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

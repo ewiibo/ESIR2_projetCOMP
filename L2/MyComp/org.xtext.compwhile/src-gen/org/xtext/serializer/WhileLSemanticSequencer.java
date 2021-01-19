@@ -189,16 +189,10 @@ public class WhileLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     exprbase=ExprBase
+	 *     (exprbase=ExprBase (ope='=?' exprbase1=ExprBase)?)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WhileLPackage.Literals.EXPR__EXPRBASE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileLPackage.Literals.EXPR__EXPRBASE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0(), semanticObject.getExprbase());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
