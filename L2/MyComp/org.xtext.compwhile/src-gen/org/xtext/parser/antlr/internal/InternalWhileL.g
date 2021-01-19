@@ -1066,83 +1066,22 @@ ruleExpr returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0_0());
+			{
+				newCompositeNode(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0());
+			}
+			lv_exprbase_0_0=ruleExprBase
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getExprRule());
 				}
-				lv_exprbase_0_0=ruleExprBase
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExprRule());
-					}
-					set(
-						$current,
-						"exprbase",
-						lv_exprbase_0_0,
-						"org.xtext.WhileL.ExprBase");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				set(
+					$current,
+					"exprbase",
+					lv_exprbase_0_0,
+					"org.xtext.WhileL.ExprBase");
+				afterParserOrEnumRuleCall();
+			}
 		)
-		(
-			(
-				(
-					(
-						lv_ope_1_1='=?'
-						{
-							newLeafNode(lv_ope_1_1, grammarAccess.getExprAccess().getOpeEqualsSignQuestionMarkKeyword_1_0_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExprRule());
-							}
-							setWithLastConsumed($current, "ope", lv_ope_1_1, null);
-						}
-						    |
-						lv_ope_1_2='and'
-						{
-							newLeafNode(lv_ope_1_2, grammarAccess.getExprAccess().getOpeAndKeyword_1_0_0_1());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExprRule());
-							}
-							setWithLastConsumed($current, "ope", lv_ope_1_2, null);
-						}
-						    |
-						lv_ope_1_3='or'
-						{
-							newLeafNode(lv_ope_1_3, grammarAccess.getExprAccess().getOpeOrKeyword_1_0_0_2());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExprRule());
-							}
-							setWithLastConsumed($current, "ope", lv_ope_1_3, null);
-						}
-					)
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExprAccess().getExprbase1ExprBaseParserRuleCall_1_1_0());
-					}
-					lv_exprbase1_2_0=ruleExprBase
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExprRule());
-						}
-						set(
-							$current,
-							"exprbase1",
-							lv_exprbase1_2_0,
-							"org.xtext.WhileL.ExprBase");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
 	)
 ;
 

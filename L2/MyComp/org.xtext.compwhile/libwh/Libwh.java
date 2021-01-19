@@ -27,6 +27,12 @@ public class Libwh {
 	public boolean isTrue(BinTree tree) {
 		return tree != null;
 	}
+	public BinTree not(BinTree tree) {
+		if(tree == null) {
+			return new BinTree("",null,null);
+		}
+		return null;
+	}
 
 	public int toInt(BinTree tree) {
 
@@ -54,6 +60,9 @@ public class Libwh {
 	
 	public boolean equals(BinTree X, BinTree Y) {
 		return X.equals(X);
+	}
+	public BinTree conste(String symbole) {
+		return new BinTree(symbole, null, null);
 	}
 
 	public BinTree intToBintree(int a) {

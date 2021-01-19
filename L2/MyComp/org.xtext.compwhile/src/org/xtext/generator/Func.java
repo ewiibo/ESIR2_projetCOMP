@@ -73,12 +73,12 @@ public class Func {
 	
 	public String addVarGenere() {
 		this.varCount++;
-		this.addVar("iR"+this.varCount);
+		this.addVar("gR"+this.varCount);
 		return vars.get(vars.size()-1);
 	}
 	public String getVarGenere() {
 		this.varCount++;
-		return "iR"+this.varCount;
+		return "gR"+this.varCount;
 	}
 	@Override
 	public int hashCode() {

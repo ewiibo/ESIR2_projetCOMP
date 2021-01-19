@@ -567,54 +567,18 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.WhileL.Expr");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cExprbaseAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cExprbaseExprBaseParserRuleCall_0_0 = (RuleCall)cExprbaseAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cOpeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Alternatives cOpeAlternatives_1_0_0 = (Alternatives)cOpeAssignment_1_0.eContents().get(0);
-		private final Keyword cOpeEqualsSignQuestionMarkKeyword_1_0_0_0 = (Keyword)cOpeAlternatives_1_0_0.eContents().get(0);
-		private final Keyword cOpeAndKeyword_1_0_0_1 = (Keyword)cOpeAlternatives_1_0_0.eContents().get(1);
-		private final Keyword cOpeOrKeyword_1_0_0_2 = (Keyword)cOpeAlternatives_1_0_0.eContents().get(2);
-		private final Assignment cExprbase1Assignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cExprbase1ExprBaseParserRuleCall_1_1_0 = (RuleCall)cExprbase1Assignment_1_1.eContents().get(0);
+		private final Assignment cExprbaseAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cExprbaseExprBaseParserRuleCall_0 = (RuleCall)cExprbaseAssignment.eContents().get(0);
 		
 		//Expr:
-		//	exprbase=ExprBase (ope=('=?' | 'and' | 'or') exprbase1=ExprBase)?;
+		//	exprbase=ExprBase;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//exprbase=ExprBase (ope=('=?' | 'and' | 'or') exprbase1=ExprBase)?
-		public Group getGroup() { return cGroup; }
-		
 		//exprbase=ExprBase
-		public Assignment getExprbaseAssignment_0() { return cExprbaseAssignment_0; }
+		public Assignment getExprbaseAssignment() { return cExprbaseAssignment; }
 		
 		//ExprBase
-		public RuleCall getExprbaseExprBaseParserRuleCall_0_0() { return cExprbaseExprBaseParserRuleCall_0_0; }
-		
-		//(ope=('=?' | 'and' | 'or') exprbase1=ExprBase)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//ope=('=?' | 'and' | 'or')
-		public Assignment getOpeAssignment_1_0() { return cOpeAssignment_1_0; }
-		
-		//('=?' | 'and' | 'or')
-		public Alternatives getOpeAlternatives_1_0_0() { return cOpeAlternatives_1_0_0; }
-		
-		//'=?'
-		public Keyword getOpeEqualsSignQuestionMarkKeyword_1_0_0_0() { return cOpeEqualsSignQuestionMarkKeyword_1_0_0_0; }
-		
-		//'and'
-		public Keyword getOpeAndKeyword_1_0_0_1() { return cOpeAndKeyword_1_0_0_1; }
-		
-		//'or'
-		public Keyword getOpeOrKeyword_1_0_0_2() { return cOpeOrKeyword_1_0_0_2; }
-		
-		//exprbase1=ExprBase
-		public Assignment getExprbase1Assignment_1_1() { return cExprbase1Assignment_1_1; }
-		
-		//ExprBase
-		public RuleCall getExprbase1ExprBaseParserRuleCall_1_1_0() { return cExprbase1ExprBaseParserRuleCall_1_1_0; }
+		public RuleCall getExprbaseExprBaseParserRuleCall_0() { return cExprbaseExprBaseParserRuleCall_0; }
 	}
 	public class LExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.WhileL.LExpr");
@@ -1074,7 +1038,7 @@ public class WhileLGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Expr:
-	//	exprbase=ExprBase (ope=('=?' | 'and' | 'or') exprbase1=ExprBase)?;
+	//	exprbase=ExprBase;
 	public ExprElements getExprAccess() {
 		return pExpr;
 	}

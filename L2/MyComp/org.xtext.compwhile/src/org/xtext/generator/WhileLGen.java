@@ -27,6 +27,7 @@ import org.xtext.whileL.LExpr;
 import org.xtext.whileL.Output;
 import org.xtext.whileL.Program;
 import org.xtext.whileL.WhileCommand;
+import org.xtext.whileL.impl.ExprBaseImpl;
 
 import com.google.common.base.Objects;
 
@@ -38,7 +39,7 @@ public class WhileLGen extends AbstractGenerator {
 	TroisAdd code3Add = new TroisAdd();
 	Traducteurx trad = new Traducteurx();
 	Func func;
-	String prefix = "i";
+	String prefix = "g";
 
 	@Override
 	public void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
@@ -266,8 +267,8 @@ public class WhileLGen extends AbstractGenerator {
 				// Gerer les symboles, leur gestion dans la table de symbole et surtout en tant que constante dans
 				// le programme Java
 				//
-				func.addVar(value);
-				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Const, ""), prefix+value, "", ""));
+				func.addVar(prefix+value);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Const, prefix+value), prefix+value, "", ""));
 			}
 		} else if (identitor != null) {
 			switch (identitor) {
@@ -320,7 +321,7 @@ public class WhileLGen extends AbstractGenerator {
 				//verifier le nombre de parametre
 				//int nb = getNbreOut(lexpr);
 				if(lexpr.getExpr().size()!= ts.getTableSymbFunc().get(call).getIn()) {
-					//Lever une exception
+					//Lever une exception si la ne recoit pas le bon nombre de parametre
 					System.out.println("pas le bon nombre de parametre pour l'appel de la fonction : "+ call);
 				}
 				for(Expr exp : lexpr.getExpr()) {
@@ -337,6 +338,8 @@ public class WhileLGen extends AbstractGenerator {
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Call, fun.getName()), sortie,
 						param, ""));
 			}else {
+				
+				
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
 				String arg2 = code3Adress.getLast().getResultat();
 				String arg = "";
@@ -352,6 +355,12 @@ public class WhileLGen extends AbstractGenerator {
 					code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons, ""), func.addVarGenere(), arg, arg2));
 					arg2 = code3Adress.getLast().getResultat();
 				}
+				arg2 = code3Adress.getLast().getResultat();
+				//Ajout du call dans la table de symbole
+				func.addVar(prefix+call);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Const,prefix+call), prefix+call, "", ""));
+				arg = code3Adress.getLast().getResultat();
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Cons,""), func.addVarGenere(), arg,arg2));
 			}
 			
 		}

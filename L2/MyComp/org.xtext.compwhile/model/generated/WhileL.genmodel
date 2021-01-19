@@ -61,8 +61,6 @@
     </genClasses>
     <genClasses ecoreClass="WhileL.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileL.ecore#//Expr/exprbase"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileL.ecore#//Expr/ope"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileL.ecore#//Expr/exprbase1"/>
     </genClasses>
     <genClasses ecoreClass="WhileL.ecore#//LExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileL.ecore#//LExpr/expr"/>

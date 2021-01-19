@@ -103,8 +103,19 @@ class Traducteurx {
 			return translateFor(code)
 		if (code.operateur.operator == Op.Call)
 			return translateCall(code);
+		if (code.operateur.operator == Op.Not)
+			return translateNot(code)
+		if(code.operateur.operator == Op.Const)
+			return translateConst(code)
 	}
 
+	def translateConst(Quadruplet<OpImpl>code){
+		return '''	«code.resultat» = libwh.conste("«code.resultat»");'''
+	}
+	def translateNot(Quadruplet<OpImpl>code){
+		return '''	«code.resultat» = libwh.not(«code.arg1»);'''
+	}
+	
 	def translateCall(Quadruplet<OpImpl> code){
 		var ss =""
 		for (i : code.resultat.split(" ").size >.. 0){

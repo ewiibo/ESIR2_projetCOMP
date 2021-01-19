@@ -44,7 +44,7 @@ Vars:
     vari+=VARIABLE (',' vari+=VARIABLE)*
 ;
 Expr:
-    exprbase = ExprBase (ope = ('=?'| 'and' | 'or' ) exprbase1 = ExprBase)?
+    exprbase = ExprBase
 ;
 LExpr:
     (expr+=Expr)+
@@ -56,7 +56,8 @@ ExprBase:
     ('(' identitor = 'hd' expr = Expr ')') |
     ('(' identitor = 'tl' expr = Expr ')') |
     ('(' identitor = 'not' expr = Expr ')') |
-    ('(' symbol = SYMBOL lexpr = LExpr ')')
+    ('(' symbol = SYMBOL lexpr = LExpr ')') 
+    //| ('(' expr1 = Expr identitor = ('=?' |'or'|'and' ) expr2 = Expr')')
 ;
 
 terminal SYMBOL: ('a' .. 'z') (('A' .. 'Z') | ('a' .. 'z') | ('0' .. '9'))* ('!' | '?')?;

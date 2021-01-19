@@ -578,31 +578,13 @@ public interface WhileLPackage extends EPackage
   int EXPR__EXPRBASE = 0;
 
   /**
-   * The feature id for the '<em><b>Ope</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__OPE = 1;
-
-  /**
-   * The feature id for the '<em><b>Exprbase1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__EXPRBASE1 = 2;
-
-  /**
    * The number of structural features of the '<em>Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = 3;
+  int EXPR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.whileL.impl.LExprImpl <em>LExpr</em>}' class.
@@ -1133,28 +1115,6 @@ public interface WhileLPackage extends EPackage
   EReference getExpr_Exprbase();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.whileL.Expr#getOpe <em>Ope</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ope</em>'.
-   * @see org.xtext.whileL.Expr#getOpe()
-   * @see #getExpr()
-   * @generated
-   */
-  EAttribute getExpr_Ope();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.whileL.Expr#getExprbase1 <em>Exprbase1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exprbase1</em>'.
-   * @see org.xtext.whileL.Expr#getExprbase1()
-   * @see #getExpr()
-   * @generated
-   */
-  EReference getExpr_Exprbase1();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.whileL.LExpr <em>LExpr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1622,22 +1582,6 @@ public interface WhileLPackage extends EPackage
      * @generated
      */
     EReference EXPR__EXPRBASE = eINSTANCE.getExpr_Exprbase();
-
-    /**
-     * The meta object literal for the '<em><b>Ope</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPR__OPE = eINSTANCE.getExpr_Ope();
-
-    /**
-     * The meta object literal for the '<em><b>Exprbase1</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPR__EXPRBASE1 = eINSTANCE.getExpr_Exprbase1();
 
     /**
      * The meta object literal for the '{@link org.xtext.whileL.impl.LExprImpl <em>LExpr</em>}' class.

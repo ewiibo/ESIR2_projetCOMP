@@ -288,7 +288,41 @@ public class Traducteurx {
     if (_equals_12) {
       return this.translateCall(code);
     }
+    Op _operator_13 = code.getOperateur().getOperator();
+    boolean _equals_13 = Objects.equal(_operator_13, Op.Not);
+    if (_equals_13) {
+      return this.translateNot(code);
+    }
+    Op _operator_14 = code.getOperateur().getOperator();
+    boolean _equals_14 = Objects.equal(_operator_14, Op.Const);
+    if (_equals_14) {
+      return this.translateConst(code);
+    }
     return null;
+  }
+  
+  public String translateConst(final Quadruplet<OpImpl> code) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    String _resultat = code.getResultat();
+    _builder.append(_resultat, "\t");
+    _builder.append(" = libwh.conste(\"");
+    String _resultat_1 = code.getResultat();
+    _builder.append(_resultat_1, "\t");
+    _builder.append("\");");
+    return _builder.toString();
+  }
+  
+  public String translateNot(final Quadruplet<OpImpl> code) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    String _resultat = code.getResultat();
+    _builder.append(_resultat, "\t");
+    _builder.append(" = libwh.not(");
+    String _arg1 = code.getArg1();
+    _builder.append(_arg1, "\t");
+    _builder.append(");");
+    return _builder.toString();
   }
   
   public String translateCall(final Quadruplet<OpImpl> code) {

@@ -15,8 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.whileL.Expr#getExprbase <em>Exprbase</em>}</li>
- *   <li>{@link org.xtext.whileL.Expr#getOpe <em>Ope</em>}</li>
- *   <li>{@link org.xtext.whileL.Expr#getExprbase1 <em>Exprbase1</em>}</li>
  * </ul>
  *
  * @see org.xtext.whileL.WhileLPackage#getExpr()
@@ -46,49 +44,5 @@ public interface Expr extends EObject
    * @generated
    */
   void setExprbase(ExprBase value);
-
-  /**
-   * Returns the value of the '<em><b>Ope</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ope</em>' attribute.
-   * @see #setOpe(String)
-   * @see org.xtext.whileL.WhileLPackage#getExpr_Ope()
-   * @model
-   * @generated
-   */
-  String getOpe();
-
-  /**
-   * Sets the value of the '{@link org.xtext.whileL.Expr#getOpe <em>Ope</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ope</em>' attribute.
-   * @see #getOpe()
-   * @generated
-   */
-  void setOpe(String value);
-
-  /**
-   * Returns the value of the '<em><b>Exprbase1</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exprbase1</em>' containment reference.
-   * @see #setExprbase1(ExprBase)
-   * @see org.xtext.whileL.WhileLPackage#getExpr_Exprbase1()
-   * @model containment="true"
-   * @generated
-   */
-  ExprBase getExprbase1();
-
-  /**
-   * Sets the value of the '{@link org.xtext.whileL.Expr#getExprbase1 <em>Exprbase1</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exprbase1</em>' containment reference.
-   * @see #getExprbase1()
-   * @generated
-   */
-  void setExprbase1(ExprBase value);
 
 } // Expr
