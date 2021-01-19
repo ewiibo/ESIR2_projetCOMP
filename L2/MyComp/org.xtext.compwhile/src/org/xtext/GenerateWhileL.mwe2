@@ -33,6 +33,12 @@ Workflow {
 		language = StandardLanguage {
 			name = "org.xtext.WhileL"
 			fileExtensions = "wh"
+			
+			parserGenerator = {
+				options = {
+    				backtrack = true
+  				}
+			}
 
 			serializer = {
 				generateStub = false

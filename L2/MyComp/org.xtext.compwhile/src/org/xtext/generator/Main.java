@@ -39,9 +39,20 @@ public class Main {
 		Main main = injector.getInstance(Main.class);
 		
 		if(recupParam(args)==-1) return;
-		main.runGenerator();
+		try {
+			main.runGenerator();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
+		}
 	}
 	
+	static String stripExtension (String str) {
+        if (str == null) return null;
+        int pos = str.lastIndexOf(".");
+        if (pos == -1) return str;
+        return str.substring(0, pos);
+    }
 	private static int recupParam(String[] args) {
 		
 		try {
@@ -77,13 +88,16 @@ public class Main {
 	@Inject 
 	private JavaIoFileSystemAccess fileAccess;
 
-	protected void runGenerator() {
+	protected void runGenerator() throws Exception {
 		// existe du fichier source
 		File input = new File(inputFile);
 		if(!input.exists()) {
 			System.out.println("The file "+ input.getName()+" was not found !");
 			return;
 		}
+		String inputFileWithoutExtension = stripExtension(input.getName());
+		inputFileWithoutExtension = inputFileWithoutExtension.substring(0, 1).toUpperCase() + 
+				inputFileWithoutExtension.substring(1);
 		
 		// Load the resource
 		ResourceSet set = resourceSetProvider.get();
@@ -103,16 +117,13 @@ public class Main {
 		fileAccess.setOutputPath("./");
 		GeneratorContext context = new GeneratorContext();
 		context.setCancelIndicator(CancelIndicator.NullImpl);
-		generator.doGenerate(resource, fileAccess, context);
-
-		
-
+		generator.doGenerate(resource, fileAccess, context, inputFileWithoutExtension);
 		System.out.println("[INFO] Code generation finished.");
 		// Ecrire le code qui compile
 		
 		try{
             Runtime rt = Runtime.getRuntime();
-            Process pr = rt.exec("javac sortie.java ./libwh/BinTree.java ./libwh/Libwh.java ");
+            Process pr = rt.exec("javac "+ inputFileWithoutExtension+".java ./libwh/BinTree.java ./libwh/Libwh.java ");
             new Thread(() -> {
                 BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
                 BufferedReader error = new BufferedReader(new InputStreamReader(pr.getErrorStream()));

@@ -33,7 +33,7 @@ import com.google.common.base.Objects;
 
 import org.xtext.whileL.NopCommand;
 
-public class WhileLGen extends AbstractGenerator {
+public class WhileLGen {
 
 	TableSymbole ts = new TableSymbole();
 	TroisAdd code3Add = new TroisAdd();
@@ -41,8 +41,9 @@ public class WhileLGen extends AbstractGenerator {
 	Func func;
 	String prefix = "g";
 
-	@Override
-	public void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
+	
+	
+	public void doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context, String output) throws Exception {
 		// TODO Auto-generated method stub
 		TreeIterator<EObject> asa = input.getAllContents();
 		while (asa.hasNext()) {
@@ -57,39 +58,32 @@ public class WhileLGen extends AbstractGenerator {
 		System.out.println(code3Add);
 		
 		trad.Traducteurx(code3Add, ts);
-		fsa.generateFile("Sortie.java", trad.translate("Sortie"));
+		fsa.generateFile(output+".java", trad.translate(output));
 	}
 	
-	public void fillTableSymbFunc(Program prog) {
+	public void fillTableSymbFunc(Program prog) throws Exception {
 		for (Function f : prog.getFunctions()) {
 			String etiquette = f.getSymbol().equals("main") ? "f0":ts.getNextEtiquette();
 			Func funct = new Func(etiquette);
 			if(ts.getTableSymbFunc().containsKey(f.getSymbol())) {
-				
-				// Lever une exception ici
-				
-				System.out.println("La fonction est defini plusieurs fois");
+				throw (new Exception("La fonction est defini plusieurs fois"));
 			}
 			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
 				funct.setIn(f.getDefinition().getInput().getVars().size());
 			} else {
-				// Lever une exception ici
-				System.out.println("Les variables d'entree sont dupliquee");
-				return;
+				throw (new Exception("Les variables d'entree sont dupliquee"));
 			}
 			if (!Func.isDuplicate(f.getDefinition().getOutput().getVars())) {
 				funct.setOut(f.getDefinition().getOutput().getVars().size());
 			} else {
-				// Lever une exception ici
-				System.out.println("Les variables de sortie sont dupliquee");
-				return;
+				throw (new Exception("Les variables de sortie sont dupliquee"));
 			}
 			ts.addSymbol(f.getSymbol(), funct);
 		}
 	}
 	
 
-	public void generate(Program prog) {
+	public void generate(Program prog) throws Exception {
 		// TODO Auto-generated method stub
 		for (Function func : prog.getFunctions()) {
 			generate(func);
@@ -97,7 +91,7 @@ public class WhileLGen extends AbstractGenerator {
 		}
 	}
 
-	public void generate(Function function) {
+	public void generate(Function function) throws Exception {
 		code3Add.putFun(function.getSymbol());
 		func = ts.getTableSymbFunc().get(function.getSymbol());
 		generate(function.getDefinition(), func);
@@ -113,16 +107,14 @@ public class WhileLGen extends AbstractGenerator {
 		}
 	}
 
-	private void generate(Output output, Func func) {
+	private void generate(Output output, Func func) throws Exception {
 		List<String> vars = output.getVars();
 		for (String var : vars) {
 			var=prefix+var;
 			
-			if(!func.isVarExist(var)) {
-				// Lever une exception ici
-				System.out.println("La variable " + var +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func));
-			}
-			//func.addVar(var);
+			if(!func.isVarExist(var)) 
+				throw (new Exception ("La variable " + var +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func)));
+			
 			func.varOut.add(var);
 			code3Add.putWrite(var);
 		}
@@ -137,14 +129,14 @@ public class WhileLGen extends AbstractGenerator {
 		return null;
 	}
 
-	public void generate(Definition def, Func func) {
+	public void generate(Definition def, Func func) throws Exception {
 		generate(def.getInput(), func);
 		code3Add.code3Address.addAll(generate(def.getCommands()));
 		generate(def.getOutput(), func);
 	}
 
 	// j'ai effac� le param�tre func ici 
-	private LinkedList<Quadruplet<OpImpl>> generate(Commands commands) {
+	private LinkedList<Quadruplet<OpImpl>> generate(Commands commands) throws Exception {
 		List<Command> coms = commands.getCommands();
 		LinkedList<Quadruplet<OpImpl>> code3Address = new LinkedList<Quadruplet<OpImpl>>();
 		for (Command com : coms) {
@@ -153,7 +145,7 @@ public class WhileLGen extends AbstractGenerator {
 		return code3Address;
 	}
 
-	private LinkedList<Quadruplet<OpImpl>> generate(Command command) {
+	private LinkedList<Quadruplet<OpImpl>> generate(Command command) throws Exception {
 		if (command instanceof NopCommand) {
 			return generate((NopCommand) command);
 		} else if (command instanceof AffectCommand) {
@@ -177,7 +169,7 @@ public class WhileLGen extends AbstractGenerator {
 		return code3Adress;
 	}
 
-	private LinkedList<Quadruplet<OpImpl>> generate(AffectCommand cmd) {
+	private LinkedList<Quadruplet<OpImpl>> generate(AffectCommand cmd) throws Exception {
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		// Si il y a autant de variables à gauche que d'elements d'affection à droite
 		int nb = getNbreOut(cmd.getExprs());
@@ -196,15 +188,14 @@ public class WhileLGen extends AbstractGenerator {
 						prefix+cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
 		}else {
-			// Lever une exception ici
-			System.out.println("Pas autant de variables que d'elements d'affectation à droite");
+			throw (new Exception ("Pas autant de variables que d'elements d'affectation à droite : "+ getKeyFromValueHashMap(func)));
 		}
 
 		return code3Adress;
 	}
 
 	// J'ai suppos� que on a une seule condition � �valuer (1 expr)
-	private LinkedList<Quadruplet<OpImpl>> generate(WhileCommand cmd) {
+	private LinkedList<Quadruplet<OpImpl>> generate(WhileCommand cmd) throws Exception {
 		LinkedList<Quadruplet<OpImpl>> cond = new LinkedList<Quadruplet<OpImpl>>();
 		LinkedList<Quadruplet<OpImpl>> body = new LinkedList<Quadruplet<OpImpl>>();
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
@@ -214,7 +205,7 @@ public class WhileLGen extends AbstractGenerator {
 		
 		return code3Adress;
 	}
-	private LinkedList<Quadruplet<OpImpl>> generate(IfCommand cmd) {
+	private LinkedList<Quadruplet<OpImpl>> generate(IfCommand cmd) throws Exception {
 		IfOp ifop = new IfOp();
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		ifop.setExpr(generate(cmd.getExpr()));
@@ -224,7 +215,7 @@ public class WhileLGen extends AbstractGenerator {
 		code3Adress.add(new Quadruplet<OpImpl>(ifop,"",ifop.getExpr().getLast().getResultat(),""));
 		return code3Adress;
 	}
-	private LinkedList<Quadruplet<OpImpl>> generate(ForCommand cmd) {
+	private LinkedList<Quadruplet<OpImpl>> generate(ForCommand cmd) throws Exception {
 		ForOp forOp = new ForOp();
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		forOp.setExpr(generate(cmd.getExpr()));
@@ -232,7 +223,7 @@ public class WhileLGen extends AbstractGenerator {
 		code3Adress.add(new Quadruplet<OpImpl>(forOp,"",forOp.getExpr().getLast().getResultat(),""));
 		return code3Adress;
 	}
-	private LinkedList<Quadruplet<OpImpl>> generate(ForeachCommand cmd) {
+	private LinkedList<Quadruplet<OpImpl>> generate(ForeachCommand cmd) throws Exception {
 		ForeachOp foreachOp = new ForeachOp();
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
 		func.addVar(prefix+cmd.getVars().getVari().get(0));
@@ -243,26 +234,17 @@ public class WhileLGen extends AbstractGenerator {
 		return code3Adress;
 	}
 
-	private LinkedList<Quadruplet<OpImpl>> generate(Expr expr) {
-		/*if(expr.getOpe().equals("=?")) {
-			LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
-			LinkedList<Quadruplet<OpImpl>> e1 = new LinkedList<Quadruplet<OpImpl>>();
-			LinkedList<Quadruplet<OpImpl>> e2 = new LinkedList<Quadruplet<OpImpl>>();
-			e1=generate(expr.getExprbase());
-			e2=generate(expr.getExprbase1());
-			code3Adress.addAll(e1);
-			code3Adress.addAll(e2);
-			code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Eq,""),func.addVarGenere(),e1.getLast().getResultat(),e2.getLast().getResultat()));
-			return code3Adress;
-		}*/
+	private LinkedList<Quadruplet<OpImpl>> generate(Expr expr) throws Exception {
+		
 		return generate(expr.getExprbase());
 	}
 
-	private LinkedList<Quadruplet<OpImpl>> generate(ExprBase exprbase) {
+	private LinkedList<Quadruplet<OpImpl>> generate(ExprBase exprbase) throws Exception {
 		String value = exprbase.getValue();
 		String call = exprbase.getSymbol();
 		String identitor = exprbase.getIdentitor();
 		Expr expr = exprbase.getExpr();
+		Expr expr1 = exprbase.getExpr1();
 		LExpr lexpr = exprbase.getLexpr();
 
 		LinkedList<Quadruplet<OpImpl>> code3Adress = new LinkedList<Quadruplet<OpImpl>>();
@@ -272,26 +254,17 @@ public class WhileLGen extends AbstractGenerator {
 			if (value.equals("nil"))
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Nil, ""), func.addVarGenere(), "", ""));
 			else if (isVariable(value)) {
-				///
-				
-				// Creer une exception et la lever volontaire et la propager aux parents
-				// S'il y a une utilisation d'une variable qui n'existe pas
-				
-				///
-				// Lever une exception ici
 				if (!func.isVarExist(prefix+value))
-					System.out.println("La variable " + value +" n'existe pas" );
+					throw (new Exception("La variable " + value +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func)));
+
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), prefix+value, "", ""));
 					
 			} else if(isSymbole(value)) {
-				//
-				// Gerer les symboles, leur gestion dans la table de symbole et surtout en tant que constante dans
-				// le programme Java
-				//
 				func.addVar(prefix+value);
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Const, prefix+value), prefix+value, "", ""));
 			}
 		} else if (identitor != null) {
+			LinkedList<Quadruplet<OpImpl>> e1 , e2;
 			switch (identitor) {
 			case "cons" :
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
@@ -333,12 +306,35 @@ public class WhileLGen extends AbstractGenerator {
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Not, ""), func.addVarGenere(),
 						code3Adress.getLast().getResultat(), ""));
 				break;
+			case "=?":
+				
+				e1 = generate(expr);
+				e2 = generate(expr1);
+				code3Adress.addAll(e1);
+				code3Adress.addAll(e2);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Eq,""),func.addVarGenere(),
+						e1.getLast().getResultat(),e2.getLast().getResultat()));
+				break;
+			case "and":
+				e1 = generate(expr);
+				e2 = generate(expr1);
+				code3Adress.addAll(e1);
+				code3Adress.addAll(e2);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.And,""),func.addVarGenere(),
+						e1.getLast().getResultat(),e2.getLast().getResultat()));
+				break;
+			case "or":
+				e1 = generate(expr);
+				e2 = generate(expr1);
+				code3Adress.addAll(e1);
+				code3Adress.addAll(e2);
+				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Or,""),func.addVarGenere(),
+						e1.getLast().getResultat(),e2.getLast().getResultat()));
+				break;
 			default:
 				break;
 			}
 		} else if (call != null) {
-			// appel de foonction pas encore fait
-			// verifie si le symbol est defini comme une fonction dans la table des symboles de fonctions
 			Func fun = ts.getTableSymbFunc().get(call);
 			if(fun!=null) {
 				List<String> argFunc = new ArrayList<>();
@@ -346,7 +342,7 @@ public class WhileLGen extends AbstractGenerator {
 				//int nb = getNbreOut(lexpr);
 				if(lexpr.getExpr().size()!= ts.getTableSymbFunc().get(call).getIn()) {
 					//Lever une exception si la ne recoit pas le bon nombre de parametre
-					System.out.println("pas le bon nombre de parametre pour l'appel de la fonction : "+ call);
+					throw (new Exception("pas le bon nombre de parametre pour l'appel de la fonction : "+ call));
 				}
 				for(Expr exp : lexpr.getExpr()) {
 					code3Adress.addAll(generate(exp));
@@ -367,12 +363,6 @@ public class WhileLGen extends AbstractGenerator {
 				code3Adress.addAll(generate(lexpr.getExpr().get(lexpr.getExpr().size()-1)));
 				String arg2 = code3Adress.getLast().getResultat();
 				String arg = "";
-				/* 
-				 * 
-				 * Ajouter le symbole au  debut de la liste exprs et faire les iterations dessus
-				 * 
-				 * List<Expr> exprs = new ArrayList<Expr>();
-				exprs.add(e) */
 				for(int i= lexpr.getExpr().size()-2; i>=0; i--) {
 					code3Adress.addAll(generate(lexpr.getExpr().get(i)));
 					arg = code3Adress.get(code3Adress.size() - 1).getResultat();
@@ -407,19 +397,6 @@ public class WhileLGen extends AbstractGenerator {
 		return firstChar.equals(firstChar.toLowerCase()); // Is lowercase -> symbole
 	}
 	
-	private int getNbreOut(LExpr lexpr) {
-		int out = 0;
-		for(Expr expr : lexpr.getExpr()) {
-			//verif si  c'est un symbole et si c'est une fonction
-			if(isSymbole(expr.getExprbase().getSymbol()) && 
-					ts.getTableSymbFunc().get(expr.getExprbase().getSymbol())!=null){
-				out+= ts.getTableSymbFunc().get(expr.getExprbase().getSymbol()).getOut();
-			}else {
-				out++;
-			}
-		}
-		return out;
-	}
 	private int getNbreOut(Exprs exprs) {
 		int out = 0;
 		for(Expr expr : exprs.getExpr()) {
@@ -433,8 +410,4 @@ public class WhileLGen extends AbstractGenerator {
 		}
 		return out;
 	}
-
-
-	
-
 }

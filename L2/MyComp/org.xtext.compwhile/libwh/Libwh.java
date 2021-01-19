@@ -1,5 +1,7 @@
 package libwh;
 
+import java.util.*;
+
 public class Libwh {
 
 	public Libwh() {
@@ -46,20 +48,21 @@ public class Libwh {
 	}
 
 	public void nop() {
-		System.out.println("nop");
+		
 	}
 
-	public boolean or(BinTree X, BinTree Y) {
-		return isTrue(X) || isTrue(Y);
+	public BinTree or(BinTree X, BinTree Y) {
+		return (isTrue(X) || isTrue(Y)) ? X : null;
 
 	}
 
-	public boolean and(BinTree X, BinTree Y) {
-		return isTrue(X) && isTrue(Y);
+	public BinTree and(BinTree X, BinTree Y) {
+		return (isTrue(X) && isTrue(Y)) ? X : null;
 	}
 	
-	public boolean equals(BinTree X, BinTree Y) {
-		return X.equals(Y);
+	public BinTree equals(BinTree X, BinTree Y) {
+		
+		return X.equals(Y) ? X : null;
 	}
 	public BinTree conste(String symbole) {
 		return new BinTree(symbole, null, null);
@@ -69,7 +72,7 @@ public class Libwh {
         BinTree res = new BinTree("nil", null, null);
         int aR = Math.abs(a);
 		if (aR != 0) {
-			for (int i = 0; i < aR; i++) {
+			for (int i = 1; i < aR; i++) {
 				BinTree tmp = new BinTree("nil", null, null);
 				res = new BinTree("cons", tmp, res);
 			}
@@ -87,7 +90,7 @@ public class Libwh {
 		return resu;
 	}
 	
-	String bintreeToString(BinTree X) {
+	public String bintreeToString(BinTree X) {
 		String s="";
 		if(X.getData()=="nil") {
 			return s;
@@ -102,21 +105,19 @@ public class Libwh {
 		return s;
 	}
 
-	/* ******IL S'AGIT DU PROCESS POUR LE TRAITEMENT PRELUDE*******
-	List<BinTree> l = new ArrayList<>();
+	public List<BinTree> inWh(String[] args){
+		List<BinTree> l = new ArrayList<>();
 
 		for (String str : args) {
 			boolean isNumeric = true;
 
 			isNumeric = str.matches("-?\\d+");
 			if (isNumeric) {
-				BinTree test = new BinTree("nil");
-				l.add(test.intToBintree(str)); //
-				System.out.println("It works");
+				l.add(intToBintree(Integer.parseInt(str)));
 			} else {
-				BinTree test = new BinTree("nil");
-				l.add(test.stringToBintree(str));
+				l.add(stringToBintree(str));
 			}
 		}
-	*/
+		return l;
+	}
 }

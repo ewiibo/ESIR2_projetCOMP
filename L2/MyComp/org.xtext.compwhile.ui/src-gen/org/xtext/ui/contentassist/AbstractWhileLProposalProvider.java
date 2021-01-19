@@ -4,6 +4,7 @@
 package org.xtext.ui.contentassist;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.RuleCall;
@@ -93,12 +94,6 @@ public abstract class AbstractWhileLProposalProvider extends TerminalsProposalPr
 	public void completeExpr_Exprbase(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeExpr_Ope(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-	}
-	public void completeExpr_Exprbase1(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
-	}
 	public void completeLExpr_Expr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
@@ -111,7 +106,14 @@ public abstract class AbstractWhileLProposalProvider extends TerminalsProposalPr
 		}
 	}
 	public void completeExprBase_Identitor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
+		if (assignment.getTerminal() instanceof Keyword) {
+			// subclasses may override
+		}
+		if (assignment.getTerminal() instanceof Alternatives) {
+			// subclasses may override
+			// subclasses may override
+			// subclasses may override
+		}
 	}
 	public void completeExprBase_Lexpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
@@ -120,6 +122,9 @@ public abstract class AbstractWhileLProposalProvider extends TerminalsProposalPr
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeExprBase_Symbol(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeExprBase_Expr1(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 

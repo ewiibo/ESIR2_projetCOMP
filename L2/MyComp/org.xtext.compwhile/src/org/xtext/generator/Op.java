@@ -19,5 +19,7 @@ public enum Op {
 	Foreach,
 	Call,
 	Const,
-	Eq
+	Eq,
+	And, 
+	Or
 }

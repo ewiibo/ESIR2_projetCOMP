@@ -30,6 +30,7 @@ import org.xtext.whileL.WhileLPackage;
  *   <li>{@link org.xtext.whileL.impl.ExprBaseImpl#getLexpr <em>Lexpr</em>}</li>
  *   <li>{@link org.xtext.whileL.impl.ExprBaseImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link org.xtext.whileL.impl.ExprBaseImpl#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link org.xtext.whileL.impl.ExprBaseImpl#getExpr1 <em>Expr1</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,6 +116,16 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
    * @ordered
    */
   protected String symbol = SYMBOL_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExpr1() <em>Expr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpr1()
+   * @generated
+   * @ordered
+   */
+  protected Expr expr1;
 
   /**
    * <!-- begin-user-doc -->
@@ -318,6 +329,56 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
    * @generated
    */
   @Override
+  public Expr getExpr1()
+  {
+    return expr1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr1(Expr newExpr1, NotificationChain msgs)
+  {
+    Expr oldExpr1 = expr1;
+    expr1 = newExpr1;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileLPackage.EXPR_BASE__EXPR1, oldExpr1, newExpr1);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExpr1(Expr newExpr1)
+  {
+    if (newExpr1 != expr1)
+    {
+      NotificationChain msgs = null;
+      if (expr1 != null)
+        msgs = ((InternalEObject)expr1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileLPackage.EXPR_BASE__EXPR1, null, msgs);
+      if (newExpr1 != null)
+        msgs = ((InternalEObject)newExpr1).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileLPackage.EXPR_BASE__EXPR1, null, msgs);
+      msgs = basicSetExpr1(newExpr1, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileLPackage.EXPR_BASE__EXPR1, newExpr1, newExpr1));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -326,6 +387,8 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
         return basicSetLexpr(null, msgs);
       case WhileLPackage.EXPR_BASE__EXPR:
         return basicSetExpr(null, msgs);
+      case WhileLPackage.EXPR_BASE__EXPR1:
+        return basicSetExpr1(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -350,6 +413,8 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
         return getExpr();
       case WhileLPackage.EXPR_BASE__SYMBOL:
         return getSymbol();
+      case WhileLPackage.EXPR_BASE__EXPR1:
+        return getExpr1();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -378,6 +443,9 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
         return;
       case WhileLPackage.EXPR_BASE__SYMBOL:
         setSymbol((String)newValue);
+        return;
+      case WhileLPackage.EXPR_BASE__EXPR1:
+        setExpr1((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -408,6 +476,9 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
       case WhileLPackage.EXPR_BASE__SYMBOL:
         setSymbol(SYMBOL_EDEFAULT);
         return;
+      case WhileLPackage.EXPR_BASE__EXPR1:
+        setExpr1((Expr)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -432,6 +503,8 @@ public class ExprBaseImpl extends MinimalEObjectImpl.Container implements ExprBa
         return expr != null;
       case WhileLPackage.EXPR_BASE__SYMBOL:
         return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
+      case WhileLPackage.EXPR_BASE__EXPR1:
+        return expr1 != null;
     }
     return super.eIsSet(featureID);
   }

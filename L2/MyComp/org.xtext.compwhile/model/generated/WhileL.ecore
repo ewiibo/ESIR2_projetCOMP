@@ -73,9 +73,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprbase" eType="#//ExprBase"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exprbase1" eType="#//ExprBase"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//Expr"
@@ -88,5 +85,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr1" eType="#//Expr"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

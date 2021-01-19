@@ -176,7 +176,8 @@ public class WhileLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         (identitor='hd' expr=Expr) | 
 	 *         (identitor='tl' expr=Expr) | 
 	 *         (identitor='not' expr=Expr) | 
-	 *         (symbol=SYMBOL lexpr=LExpr)
+	 *         (symbol=SYMBOL lexpr=LExpr) | 
+	 *         (expr=Expr (identitor='=?' | identitor='and' | identitor='or') expr1=Expr)
 	 *     )
 	 */
 	protected void sequence_ExprBase(ISerializationContext context, ExprBase semanticObject) {
@@ -189,10 +190,16 @@ public class WhileLSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     (exprbase=ExprBase (ope='=?' exprbase1=ExprBase)?)
+	 *     exprbase=ExprBase
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileLPackage.Literals.EXPR__EXPRBASE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileLPackage.Literals.EXPR__EXPRBASE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExprAccess().getExprbaseExprBaseParserRuleCall_0(), semanticObject.getExprbase());
+		feeder.finish();
 	}
 	
 	

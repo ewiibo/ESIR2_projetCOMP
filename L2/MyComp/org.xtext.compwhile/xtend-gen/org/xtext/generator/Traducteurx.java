@@ -135,7 +135,7 @@ public class Traducteurx {
     }
     ArrayList<String> appel = new ArrayList<String>();
     for (int i = 0; (i < this.ts.getTableSymbFunc().get("main").getIn()); i++) {
-      appel.add((("in[" + Integer.valueOf(i)) + "]"));
+      appel.add((("in.get(" + Integer.valueOf(i)) + ")"));
     }
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
@@ -164,10 +164,6 @@ public class Traducteurx {
       if (_tripleNotEquals) {
         _builder.append("\t");
         _builder.append("public static void main(String[] args){");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("System.out.println(\"dans le main il reste le parseur qui envoie les parametres à f0\");");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
@@ -308,6 +304,16 @@ public class Traducteurx {
     boolean _equals_16 = Objects.equal(_operator_16, Op.Eq);
     if (_equals_16) {
       return this.translateEq(code);
+    }
+    Op _operator_17 = code.getOperateur().getOperator();
+    boolean _equals_17 = Objects.equal(_operator_17, Op.And);
+    if (_equals_17) {
+      return this.translateAnd(code);
+    }
+    Op _operator_18 = code.getOperateur().getOperator();
+    boolean _equals_18 = Objects.equal(_operator_18, Op.Or);
+    if (_equals_18) {
+      return this.translateOr(code);
     }
     return null;
   }
@@ -661,6 +667,34 @@ public class Traducteurx {
     String _resultat = code.getResultat();
     _builder.append(_resultat);
     _builder.append("=libwh.equals(");
+    String _arg1 = code.getArg1();
+    _builder.append(_arg1);
+    _builder.append(",");
+    String _arg2 = code.getArg2();
+    _builder.append(_arg2);
+    _builder.append(");");
+    return _builder.toString();
+  }
+  
+  public String translateAnd(final Quadruplet<OpImpl> code) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _resultat = code.getResultat();
+    _builder.append(_resultat);
+    _builder.append("=libwh.and(");
+    String _arg1 = code.getArg1();
+    _builder.append(_arg1);
+    _builder.append(",");
+    String _arg2 = code.getArg2();
+    _builder.append(_arg2);
+    _builder.append(");");
+    return _builder.toString();
+  }
+  
+  public String translateOr(final Quadruplet<OpImpl> code) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _resultat = code.getResultat();
+    _builder.append(_resultat);
+    _builder.append("=libwh.or(");
     String _arg1 = code.getArg1();
     _builder.append(_arg1);
     _builder.append(",");

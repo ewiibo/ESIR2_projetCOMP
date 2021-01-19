@@ -43,7 +43,7 @@ class Traducteurx {
 		var appel= new ArrayList<String>;
 		
 		for(var i = 0; i<ts.tableSymbFunc.get("main").in; i++){
-			appel.add("in["+i+"]") 
+			appel.add("in.get("+i+")") 
 		}
 		
 		
@@ -60,7 +60,6 @@ class Traducteurx {
 				
 				«IF ts.tableSymbFunc.get('main') !== null»
 				public static void main(String[] args){
-					System.out.println("dans le main il reste le parseur qui envoie les parametres à f0");
 					List<BinTree> in = libwh.inWh(args);
 					List<BinTree> out = f0(«FOR arg : appel SEPARATOR ', '»«arg»«ENDFOR»);
 					String outprint = "";
@@ -111,6 +110,10 @@ class Traducteurx {
 			return translateConst(code)
 		if(code.operateur.operator == Op.Eq)
 			return translateEq(code)
+		if(code.operateur.operator == Op.And)
+			return translateAnd(code)
+		if(code.operateur.operator == Op.Or)
+			return translateOr(code)
 	}
 
 	def translateConst(Quadruplet<OpImpl>code){
@@ -220,6 +223,13 @@ while(«code1.arg1»!=null){«code1.arg2» = libwh.hd(«code1.arg1»);«FOR cmd :code1.
 	def translateEq(Quadruplet<OpImpl> code){
 		return'''«code.resultat»=libwh.equals(«code.arg1»,«code.arg2»);'''
 	}
+	def translateAnd(Quadruplet<OpImpl> code){
+		return'''«code.resultat»=libwh.and(«code.arg1»,«code.arg2»);'''
+	}
+	def translateOr(Quadruplet<OpImpl> code){
+		return'''«code.resultat»=libwh.or(«code.arg1»,«code.arg2»);'''
+	}
+	
 		
 
 

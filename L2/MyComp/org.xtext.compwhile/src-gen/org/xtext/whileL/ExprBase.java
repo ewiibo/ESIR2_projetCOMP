@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.whileL.ExprBase#getLexpr <em>Lexpr</em>}</li>
  *   <li>{@link org.xtext.whileL.ExprBase#getExpr <em>Expr</em>}</li>
  *   <li>{@link org.xtext.whileL.ExprBase#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link org.xtext.whileL.ExprBase#getExpr1 <em>Expr1</em>}</li>
  * </ul>
  *
  * @see org.xtext.whileL.WhileLPackage#getExprBase()
@@ -136,5 +137,27 @@ public interface ExprBase extends EObject
    * @generated
    */
   void setSymbol(String value);
+
+  /**
+   * Returns the value of the '<em><b>Expr1</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expr1</em>' containment reference.
+   * @see #setExpr1(Expr)
+   * @see org.xtext.whileL.WhileLPackage#getExprBase_Expr1()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getExpr1();
+
+  /**
+   * Sets the value of the '{@link org.xtext.whileL.ExprBase#getExpr1 <em>Expr1</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr1</em>' containment reference.
+   * @see #getExpr1()
+   * @generated
+   */
+  void setExpr1(Expr value);
 
 } // ExprBase
