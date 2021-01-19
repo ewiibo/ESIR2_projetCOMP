@@ -85,5 +85,38 @@ public class Libwh {
 			resu = new BinTree("cons", tmp, resu);
 		}
 		return resu;
-    }
+	}
+	
+	String bintreeToString(BinTree X) {
+		String s="";
+		if(X.getData()=="nil") {
+			return s;
+		}
+		if(X.getRight().getData() == "nil") {
+			return X.getLeft().getData();
+		}
+		while (X.getRight() != null) {
+			s=s + X.getLeft().getData();
+			X=X.getRight();
+		}
+		return s;
+	}
+
+	/* ******IL S'AGIT DU PROCESS POUR LE TRAITEMENT PRELUDE*******
+	List<BinTree> l = new ArrayList<>();
+
+		for (String str : args) {
+			boolean isNumeric = true;
+
+			isNumeric = str.matches("-?\\d+");
+			if (isNumeric) {
+				BinTree test = new BinTree("nil");
+				l.add(test.intToBintree(str)); //
+				System.out.println("It works");
+			} else {
+				BinTree test = new BinTree("nil");
+				l.add(test.stringToBintree(str));
+			}
+		}
+	*/
 }
