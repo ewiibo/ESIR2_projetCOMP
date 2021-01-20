@@ -1,0 +1,96 @@
+function isNotZero : read X % X:= nil % write X
+
+function isZero : read X % if X then B := nil else B := (cons nil nil) fi % write B
+
+function incr : read X % X := (cons nil X) % write X
+
+function decr : read X % X := (tl X) % write X
+
+function mult : read X, Y % P := nil ; for Y do P := (add X P) od % write P
+
+function isOne : read X % if (X =? (cons nil nil)) then B := (cons nil nil) else B := nil fi % write B
+
+function add : read X, Y % S := X ; for Y do S := (incr S) od % write S
+
+function subs : read X, Y % D := X ; for Y do D := (decr D) od % write D
+
+function pow : read X, Y % P := (cons nil nil) ; for Y do P := (mult X P) od % write P
+
+function greater : 
+read X,Y% 
+if (X =? Y) 
+then R := nil
+else
+	while ((not (X =? nil)) and (not (Y =? nil)))
+	do
+		X := (tl X);
+		Y := (tl Y)
+	od;
+	if (X =? nil) then
+		R := nil
+	else
+		R := (cons nil nil)
+	fi
+fi
+% 
+write R
+
+function div : read X, Y % Q, R := nil, X ;  while ((greater R Y) or (R =? Y)) do R := (subs R Y); Q := (incr Q) od % write Q, R
+
+function fact : read X % F := (cons nil nil) ; while (isNotZero X) do X, F := (decr X), (mult F X) od % write F
+
+function gcd : read X, Y % Q, R := (div X Y) ; if (isNotZero R) then GCD := (gcd Y R) else GCD := Y fi % write GCD
+
+function fib : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib1 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib3 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib4 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib5 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib6 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib7 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib8 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib9 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib10 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib11 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib12 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib13 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib14 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib15 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib16 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib17 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib18 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib19 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib20 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib21 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib22 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib23 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib24 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib33 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib34 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib35 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib36 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib37 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib38 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib39 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib40 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib41 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib42 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib43 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib53 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib54 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib55 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib56 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib57 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib58 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib59 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib60 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib61 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib62 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function fib63 : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+function main:
+read A% 
+A:= (decr A)
+%
+write A
+
+

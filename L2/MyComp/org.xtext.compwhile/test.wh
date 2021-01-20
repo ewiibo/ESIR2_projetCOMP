@@ -1,10 +1,12 @@
-function isNotZero : read X % X:= Y % write X
+function isNotZero : read X % nop % write X
 
 function isZero : read X % if X then B := nil else B := (cons nil nil) fi % write B
 
 function incr : read X % X := (cons nil X) % write X
 
 function decr : read X % X := (tl X) % write X
+
+function addR : read X, Y % if (isZero Y) then S := X else S := (incr (addR X (decr Y))) fi % write S
 
 function mult : read X, Y % P := nil ; for Y do P := (add X P) od % write P
 
@@ -42,9 +44,10 @@ function fact : read X % F := (cons nil nil) ; while (isNotZero X) do X, F := (d
 function gcd : read X, Y % Q, R := (div X Y) ; if (isNotZero R) then GCD := (gcd Y R) else GCD := Y fi % write GCD
 
 function fib : read X % if (isZero X) then F := nil else if (isOne X) then F := (cons nil nil) else F := (add (fib (decr X)) (fib (decr (decr X)))) fi fi % write F
+
 function main:
 read A% 
-A:= (decr A)
+A:= (fact A)
 %
 write A
 

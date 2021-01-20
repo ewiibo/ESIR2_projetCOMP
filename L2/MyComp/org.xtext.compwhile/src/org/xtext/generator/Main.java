@@ -25,6 +25,8 @@ import org.xtext.WhileLStandaloneSetup;
 public class Main {
 	
 	public static String inputFile= "";
+	public static String outputDir ="./";
+	public static boolean code = false, tab = false, debug = false, time =false;
 	
 
 	public static void main(String[] args) {
@@ -40,10 +42,18 @@ public class Main {
 		
 		if(recupParam(args)==-1) return;
 		try {
-			main.runGenerator();
+			if(time) {
+				long debut = System.currentTimeMillis();
+				main.runGenerator();
+				long fin = System.currentTimeMillis();
+				System.out.println("[INFO] Time : "+ (fin-debut));
+			}else {
+				main.runGenerator();
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.err.println(e.getMessage());
+			System.err.println("[Error] "+e.getMessage());
 		}
 	}
 	
@@ -61,11 +71,39 @@ public class Main {
 				manuel(); return -1;
 			}
 			inputFile = args[0];
-		
+			for(int i=1; i<args.length; i++) {
+				switch (args[i]) {
+				case "-d":
+					outputDir = args[++i]+"/";
+					break;
+				case "-code":
+					code = true;
+					break;
+				case "-time":
+					time = true;
+					break;
+				case "-tab":
+					tab = true;
+					break;
+				case "-debug":
+					debug = true;
+					break;
+
+				default:
+					System.out.println("Error in the options entered !");
+					System.out.println("whc.exe <inputFile> [-<option>]" );
+					System.out.println("For more information : whpp.exe -help");
+					break;
+				}
+			}
+			System.out.println("");			
+			
+			
 		}
-		catch (Exception e) {
-			System.out.println("Error in the parameters entered !\n");
-			manuel();
+		catch (NumberFormatException e) {
+			System.out.println("Parameter values must be numbers!");
+			System.out.println("whpp.exe <inputFile> [-<option> <valeur>]" );
+			System.out.println("For more information : whpp.exe -help");
 			return -1;
 		}
 		return 0;
@@ -114,7 +152,7 @@ public class Main {
 		}
 
 		// Configure and start the generator
-		fileAccess.setOutputPath("./");
+		fileAccess.setOutputPath(outputDir);
 		GeneratorContext context = new GeneratorContext();
 		context.setCancelIndicator(CancelIndicator.NullImpl);
 		generator.doGenerate(resource, fileAccess, context, inputFileWithoutExtension);
@@ -123,7 +161,7 @@ public class Main {
 		
 		try{
             Runtime rt = Runtime.getRuntime();
-            Process pr = rt.exec("javac "+ inputFileWithoutExtension+".java ./libwh/BinTree.java ./libwh/Libwh.java ");
+            Process pr = rt.exec("javac "+ outputDir+inputFileWithoutExtension+".java ./libwh/BinTree.java ./libwh/Libwh.java ");
             new Thread(() -> {
                 BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
                 BufferedReader error = new BufferedReader(new InputStreamReader(pr.getErrorStream()));

@@ -53,8 +53,9 @@ public class WhileLGen {
 				generate((Program) prog);
 			}
 		}
-
-		System.out.println(ts.toString());
+		if(Main.tab || Main.debug)
+			System.out.println(ts.toString());
+		if(Main.code || Main.debug)
 		System.out.println(code3Add);
 		
 		trad.Traducteurx(code3Add, ts);
