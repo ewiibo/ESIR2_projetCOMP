@@ -50,7 +50,6 @@ public class Func {
 	}
 	
 	public ArrayList<String> getVars() {
-		ArrayList<String> varIn = new ArrayList<>();
 		return vars;
 	}
 	public void setVars(ArrayList<String> vars) {

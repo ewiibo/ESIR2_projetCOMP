@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.xtext.whileL.AffectCommand;
@@ -27,7 +26,6 @@ import org.xtext.whileL.LExpr;
 import org.xtext.whileL.Output;
 import org.xtext.whileL.Program;
 import org.xtext.whileL.WhileCommand;
-import org.xtext.whileL.impl.ExprBaseImpl;
 
 import com.google.common.base.Objects;
 
@@ -67,17 +65,17 @@ public class WhileLGen {
 			String etiquette = f.getSymbol().equals("main") ? "f0":ts.getNextEtiquette();
 			Func funct = new Func(etiquette);
 			if(ts.getTableSymbFunc().containsKey(f.getSymbol())) {
-				throw (new Exception("La fonction est defini plusieurs fois"));
+				throw (new Exception("The function is defined several times"));
 			}
 			if (!Func.isDuplicate(f.getDefinition().getInput().getVars())) {
 				funct.setIn(f.getDefinition().getInput().getVars().size());
 			} else {
-				throw (new Exception("Les variables d'entree sont dupliquee"));
+				throw (new Exception("Input variables are duplicated"));
 			}
 			if (!Func.isDuplicate(f.getDefinition().getOutput().getVars())) {
 				funct.setOut(f.getDefinition().getOutput().getVars().size());
 			} else {
-				throw (new Exception("Les variables de sortie sont dupliquee"));
+				throw (new Exception("Output variables are duplicated"));
 			}
 			ts.addSymbol(f.getSymbol(), funct);
 		}
@@ -114,7 +112,7 @@ public class WhileLGen {
 			var=prefix+var;
 			
 			if(!func.isVarExist(var)) 
-				throw (new Exception ("La variable " + var +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func)));
+				throw (new Exception ("The variable "+ var +" is not defined in the function : "+ getKeyFromValueHashMap(func)));
 			
 			func.varOut.add(var);
 			code3Add.putWrite(var);
@@ -189,7 +187,7 @@ public class WhileLGen {
 						prefix+cmd.getVars().getVari().get(i) , varRes.get(i), ""));
 			}
 		}else {
-			throw (new Exception ("Pas autant de variables que d'elements d'affectation à droite : "+ getKeyFromValueHashMap(func)));
+			throw (new Exception ("Not as many variables as there are assignment elements on the right : "+ getKeyFromValueHashMap(func)));
 		}
 
 		return code3Adress;
@@ -256,7 +254,7 @@ public class WhileLGen {
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Nil, ""), func.addVarGenere(), "", ""));
 			else if (isVariable(value)) {
 				if (!func.isVarExist(prefix+value))
-					throw (new Exception("La variable " + value +" n'est pas definie  dans la fonction : "+ getKeyFromValueHashMap(func)));
+					throw (new Exception("The variable "+ value +" is not defined in the function : "+ getKeyFromValueHashMap(func)));
 
 				code3Adress.add(new Quadruplet<OpImpl>(new OpImpl(Op.Var, ""), prefix+value, "", ""));
 					
@@ -343,7 +341,7 @@ public class WhileLGen {
 				//int nb = getNbreOut(lexpr);
 				if(lexpr.getExpr().size()!= ts.getTableSymbFunc().get(call).getIn()) {
 					//Lever une exception si la ne recoit pas le bon nombre de parametre
-					throw (new Exception("pas le bon nombre de parametre pour l'appel de la fonction : "+ call));
+					throw (new Exception("Not the right number of parameters for the function call : "+ call));
 				}
 				for(Expr exp : lexpr.getExpr()) {
 					code3Adress.addAll(generate(exp));

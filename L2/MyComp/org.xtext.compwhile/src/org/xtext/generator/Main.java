@@ -111,7 +111,27 @@ public class Main {
 	}
 	
 	private static void manuel() {
-		System.out.println("Dans le help");
+		System.out.println("NAME\n"
+				+ "\tjava command runs a Java program from a command promt. The basic syntax is : \n\tjava filename [options]\n\tWhen we run the java command, the JRE is loaded along with the class we specify.\r\n"
+				+ "\tIt is possible to specify other options using the program options. \n\tThese options are available later in this help. \n"
+				+ "	\n"
+				+ "SYNOPSIS\n"
+				+ "	java -jar whc.jar <InputFile> [-d <destination path>] [-time] [-code] [-tab] [-debug]\n"
+				+ "			\n"
+				+ "DESCRIPTION\n"
+				+"\tjava allows you to compile your file in WHILE LANGUAGE ​​using the following options:\n"
+				+ "	-jar       :	\n\t\t Name of the compilator, by default whc.jar\n"
+				+ "	-time     :  \n\t\t Display compilation duration\n\n"
+				+ "	-code      :  \n\t\t Display the 3 address code\n\n"
+				+ "	-tab     :	\n\t\t Display symbol table\n\n"
+				+ "	-debug :	\n\t\t Display the all options\n\n"
+				+ "	\n"
+				+ "AUTHORS	\n"
+				+ "	Written by ANFANE Saoussane , BEN ISHAK Nawel Sirine, ILLIASSOU ZOUGAOU Ibrahim​,\n"
+				+ "\tAGUERDOUM EL IDRISSI Anas and ​N'GORAN Jean Paul Kotcheko\n"
+				+ "\n"
+				+ "\n"
+				+ "");
 	}
 
 	@Inject
