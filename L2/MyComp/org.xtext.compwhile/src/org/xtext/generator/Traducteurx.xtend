@@ -2,6 +2,7 @@ package org.xtext.generator
 
 import java.util.ArrayList
 
+
 class Traducteurx {
 	TroisAdd code3
 	TableSymbole ts
@@ -52,6 +53,7 @@ class Traducteurx {
 			
 			import java.util.*;
 			import libwh.*;
+			import java.lang.IndexOutOfBoundsException;
 			
 			public class «className»{
 				
@@ -60,13 +62,19 @@ class Traducteurx {
 				
 				«IF ts.tableSymbFunc.get('main') !== null»
 				public static void main(String[] args){
-					List<BinTree> in = libwh.inWh(args);
-					List<BinTree> out = f0(«FOR arg : appel SEPARATOR ', '»«arg»«ENDFOR»);
-					String outprint = "";
-					for(BinTree bin : out){
-						outprint+= libwh.toInt(bin)+ " ";
+					try{
+						List<BinTree> in = libwh.inWh(args);
+						List<BinTree> out = f0(«FOR arg : appel SEPARATOR ', '»«arg»«ENDFOR»);
+						String outprint = "";
+						for(BinTree bin : out){
+							outprint+= libwh.toInt(bin)+ " ";
+						}
+						System.out.println(outprint);
+					}catch(IndexOutOfBoundsException e){
+						System.out.println("[Error] Pas le bon nombre de parametre!");
+					}catch(Exception e){
+						System.out.println("[Error] "+ e.getMessage());
 					}
-					System.out.println(outprint);
 				}
 				«ENDIF»
 				

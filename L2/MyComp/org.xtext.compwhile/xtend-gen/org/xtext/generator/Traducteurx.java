@@ -143,6 +143,8 @@ public class Traducteurx {
     _builder.newLine();
     _builder.append("import libwh.*;");
     _builder.newLine();
+    _builder.append("import java.lang.IndexOutOfBoundsException;");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
     _builder.append(className);
@@ -167,10 +169,14 @@ public class Traducteurx {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
+        _builder.append("try{");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("List<BinTree> in = libwh.inWh(args);");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("List<BinTree> out = f0(");
         {
           boolean _hasElements = false;
@@ -178,32 +184,52 @@ public class Traducteurx {
             if (!_hasElements) {
               _hasElements = true;
             } else {
-              _builder.appendImmediate(", ", "\t\t");
+              _builder.appendImmediate(", ", "\t\t\t");
             }
-            _builder.append(arg, "\t\t");
+            _builder.append(arg, "\t\t\t");
           }
         }
         _builder.append(");");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("String outprint = \"\";");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("for(BinTree bin : out){");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\t\t");
+        _builder.append("\t\t\t");
         _builder.append("outprint+= libwh.toInt(bin)+ \" \";");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("System.out.println(outprint);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("}catch(IndexOutOfBoundsException e){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("System.out.println(\"[Error] Pas le bon nombre de parametre!\");");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("}catch(Exception e){");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t\t");
+        _builder.append("System.out.println(\"[Error] \"+ e.getMessage());");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("}");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("System.out.println(outprint);");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("}");
